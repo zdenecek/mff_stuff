@@ -1,0 +1,162 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{mathtools, array, enumitem, xcolor}
+\usepackage[margin=0.7in]{geometry}
+\setlength{\parindent}{0em}
+
+\usepackage[czech]{babel}
+
+\theoremstyle{plain}
+\newtheorem{veta}{Věta}
+\theoremstyle{definition}
+\newtheorem{definice}[veta]{Definice}
+
+
+\title{Řešení domácího úkolu z MA č. 2}
+\author{přezdívka: Zdeněk}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{Najděte supremum $\{ 0.5, 0.55, ... \}$ v $\mathbb{Q}$
+}
+
+Uvažme číslo $a = 0.\overline{5} = 0.555555...$
+
+\begin{enumerate}
+\item
+Je $a$ horní závorou?
+
+Ano, uvažme libovolný $n$-tý prvek posloupnosti. Ten bude mít na $n-1$-ní pozici nulu, zatímco v $a$ tam bude pětka, tudíž $\forall i: a > m_i$
+
+\item 
+Je $a$ nejmenší horní závorou?
+
+Ano, uvažme sporem nějakou menší závoru $b$, ta se musí lišit alespoň v jedné cifře, a aby byla menší, musí být první rozdílná cifra menší než 5 (nebo $b$ může být záporné, ale to vyloučíme). Řekněme třeba, že první menší cifra bude $n$-tá cifra. Potom ale $m_n$ bude větší a $b$ tedy není horní závora.
+
+\item
+Je $a$ racionální?
+
+Vyjáření $a$ můžeme nalézt klasickým trikem, který využívá axiomů tělesa (ekvivalentní úpravy):
+\begin{align*}
+10a &= 5.\overline{5} \\
+10a - a &= 5.\overline{5} - 0.\overline{5} \\
+9a &= 5 \\
+a &= \frac{5}9 \\
+\end{align*}
+
+Ano, tedy $a$ je hledaným supremem.
+\end{enumerate}
+
+\section{$\phi, \varphi, \psi$}
+
+Inverzní funkce $\psi^{-1}$ bude existovat právě tehdy, pokud je $\psi$ prostá 
+
+Uvažme tedy $x,y, x \neq y$. 
+
+Protože je $\varphi$ bijekce, je taky prostá, takže $x \neq y \implies \varphi(x) \neq \varphi(y)$
+
+Podívejme se, jestli pro různé $\varphi$ může výraz nabývat stejných hodnot
+
+\[ \sqrt{\varphi^2(x) - 1} = \sqrt{\varphi^2(y) - 1} \]
+
+Obě strany můžeme umocnit (vyjdeme z axiomů - vynásobíme jedním z výrazů a na jedné straně pak výraz zaměníme za druhý podle původní rovnice)
+
+\[{\varphi^2(x) - 1} = {\varphi^2(y) - 1} \]
+\[\varphi^2(x) = \varphi^2(y) \]
+
+Abychom se vyhli přímému odmocnění, výraz přeházíme:
+
+\[ \frac{\varphi^2(x)}{\varphi^2(y)} = 1 \]
+\[ \left(\frac{\varphi(x)}{\varphi(y)}\right)^2 = 1 \]
+
+Zde vidíme, že zlomek musí nabývat hodnot $\pm 1$. Aby byl ale záporný, musí být alespoň jeden z dvojice čitatel, jmenovatel záporný, což nemůže nastat, protože $\varphi$ nabývá hodnot $[1, \infty)$.
+
+\[\frac{\varphi(x)}{\varphi(y)} = 1 \implies \varphi(y) = \varphi(x)\]
+
+Máme tedy \[\sqrt{\varphi^2(x) - 1} = \sqrt{\varphi^2(y) - 1} \implies \varphi(y) = \varphi(x) \implies x = y \]
+
+a vidíme, že funkce je prostá.
+
+Vyjádřeme její inverzi:
+
+\begin{align*}
+\psi(x) &= \sqrt{\varphi^2(x) - 1} \\
+\psi^2(x) &= \varphi^2(x) - 1  \\
+\psi^2(x) + 1 &= \varphi^2(x)   \\
+\sqrt{\psi^2(x) + 1} &= |\varphi(x)|   \\
+\sqrt{\psi^2(x) + 1} &= \varphi(x)  \\
+\varphi^{-1}\left(\sqrt{\psi^{2}(x) + 1}\right) &= x   \\
+\varphi^{-1}\left(\sqrt{x^2 + 1}\right) &= \psi^{-1}(x)   \\
+\end{align*}
+
+Absolutní hodnotu lze odstranit, protože $\varphi$ nabývá pouze nezáporných hodnot. Inverzi $\varphi$ můžeme použít, protože se jedná o prostou funkci.
+
+
+Její definiční obor bude celé těleso, jelikož hodnota pod odmocninou bude $\geq 1$, tedy i celá odmocnina bude $\geq 1$ a definičním obor $\varphi^{-1}$ jsou všechna čísla $x \geq 1$, což odpovídá.
+
+\section{Nový příklad}
+
+Upravíme výraz:
+
+\[ \frac{p}{p+q} = \frac{p+q -q}{p+q}= 1 - \frac{q}{p+q} \]
+
+Pro každé q se jedná o rostoucí funkci, tudíž bude mít minimum, a to v bodě $p = 1$, stačí prověřit pro které $q$, pro obecné $q$ si to můžeme opět upravit:
+
+\[1-\frac{q}{1+q}=1-\frac{q+1-1}{1+q}=\frac{1}{1+q}\]
+
+To je klesající funkce, takže minimum bude v bodě $q = 5$
+
+\[ \min N = \sup N = \frac16 \]
+
+Funkce je rostoucí, tudíž maximum neexistuje: Ukažme sporem:
+
+Nechť $\max N = m = 1 - \frac{q}{p+q}$
+
+Zafixujeme $q$ a podívejme se na člen, kde $p^\prime = p+1$
+
+Aby $m$ bylo maximum, musí platit:
+
+\[ 1 - \frac{q}{p+1+q} \leq 1 - \frac{q}{p+q} \]
+\[ \frac{1}{p+1+q} \geq  \frac{1}{p+q} \]
+\[ {p+1+q} \leq  {p+q} \]
+\[ 1 \leq  0 \]
+
+To je spor.
+
+Maximum tedy neexistuje. 
+
+Horní mez je určite pro každé $q$ jednička, protože odečítaný člen je vždy kladný.
+
+Je to i supremum?
+
+Uvažme, že existuje menší supremum:
+
+\[\sup N = 1 - \epsilon\]
+
+Pro zafixované $q = 1$ nalezněme větší prvek množiny pro spor:
+
+\[ 1 - \frac{1}{p+1} > 1 - \epsilon\]
+\[  \frac{1}{p+1} <  \epsilon\]
+\[  1 <  \epsilon p+ \epsilon \]
+\[  \frac{1 - \epsilon}{\epsilon} < p \]
+
+No ale pro libovolné číslo jsme vždy schopni nalézt větší přirozené čislo, a to třeba tak, že číslo zaokrouhlíme nahoru a přičteme jedničku, tudíž menší supremum opravdu neexistuje.
+
+\[ \sup N = 1 \] 
+
+\[ \max N \text{ neexistuje} \]
+
+\[\min N = \frac16 \]  
+
+\[\inf N = \min N = \frac16 \]
+
+
+
+
+
+
+\end{document}

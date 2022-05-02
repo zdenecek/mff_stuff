@@ -1,0 +1,202 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{mathtools, array, enumitem, xcolor}
+\usepackage[margin=0.7in]{geometry}
+\setlength{\parindent}{0em}
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.11}
+
+\usepackage[czech]{babel}
+
+\theoremstyle{plain}
+\newtheorem{veta}{Věta}
+\theoremstyle{definition}
+\newtheorem{definice}[veta]{Definice}
+
+
+\title{Řešení domácího úkolu z MA č. 8}
+\author{přezdívka: Zdeněk}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{}
+
+Poznámka: Obrázky jsou kresleny pomocí latexu, nejsou to ale grafy daných funkcí, pouze odhady pomocí bodů, které jsem tam ručně zadal, zbytek je automaticky dokreslená vyhlazená křivka.
+
+\begin{enumerate}[label=(\alph*)	]
+\item $\frac1{1+e^{-x}}$
+
+Funkce je definována na celém intervalu. 
+
+\[ \frac{d}{dx} \frac1{1+e^{-x}} = \frac{e^{-x}}{(1+e^{-x})^2}  \]
+\[ \frac{e^{-x}}{(1+e^{-x})^2} = 0 \]
+\[ e^{-x} = (1+e^{-x})^2 =  1 + 2e^{-x} + e^{-2x} \]
+\[ 0 =  1 + e^{-x} + (e^{-x})^2 \]
+
+Extrémy neexistují.
+
+Jedná se o rostoucí funkci funkci (klesající funkce v čitateli), která je kladná.
+
+\begin{figure}[h!]
+  \begin{center}
+    \begin{tikzpicture}
+    
+	\begin{axis}	[
+	grid=both,
+	ymin=0,
+	ymax=2,
+	xmax=2,
+	xmin=-2,
+	minor tick num=1,
+	axis lines = middle,
+	xlabel=$x$,
+	ylabel=$y$,
+	label style = {at={(ticklabel cs:1.1)}}]
+	\addplot[blue, smooth] plot coordinates {
+		(-2,0.2)
+		(0,0.5)
+		(2,1.5)	
+	};
+    \end{axis}         
+    \end{tikzpicture}
+    \caption{Funkce 1}
+  \end{center}
+\end{figure}
+
+\item $g(x) = \frac{x^2e^{-x}}{1+e^{-x}}$
+
+\[ \frac{dg}{dx} 
+= \frac{(x^2e^{-x})^\prime(1+e^{-x}) - (x^2e^{-x})(1+e^{-x})^\prime }{(1+e^{-x})^2} 
+=  \frac{(2xe^{-x} - x^2e^{-x})(1+e^{-x}) - (x^2e^{-x})(-e^{-x}) }{(1+e^{-x})^2}  \]\[
+= \frac{2xe^{-x} - x^2e^{-x} + 2x(e^{-x})^2 - x^2(e^{-x})^2 + x^2(e^{-x})^2 }{(1+e^{-x})^2} 
+\]\[
+= \frac{2xe^{-x} - x^2e^{-x} + 2x(e^{-x})^2}{(1+e^{-x})^2} 
+= \frac{xe^{-x}(2 - x + 2e^{-x})}{(1+e^{-x})^2} 
+\]
+
+Využijeme poznatku ze zadání: funkce nabývá nuly v $\sim 2.22$ a $0$
+
+\[  g(0) = 0 \]
+\[  g(2.2) \approx g(2) \approx \frac4{1 + e^2} \approx \frac12 \]
+
+\[ \lim_{x \to \infty } g(x) = \lim_{x \to \infty } \frac1{1+e^{-x}} \cdot \lim_{x \to \infty } x^2 e^{-x} = \lim_{x \to \infty } \frac{x^2}{e^x} = 0  \]
+
+\[ \lim_{x \to -\infty } g(x) = \lim_{x \to -\infty } \frac{ x^2 e^{-x}}{1+e^{-x}} \overset{L'H}{=} \lim_{x \to -\infty } \frac{ 2x e^{-x} -x^2 e^{-x} }{-e^{-x}} =  \lim_{x \to -\infty } x^2 - 2x = \infty  \]
+
+
+Graf:
+
+
+\begin{figure}[h!]
+  \begin{center}
+    \begin{tikzpicture}
+    
+	\begin{axis}	[
+	grid=both,
+	ymin=0,
+	ymax=5,
+	xmax=10,
+	xmin=-10,
+	minor tick num=1,
+	axis lines = middle,
+	xlabel=$x$,
+	ylabel=$y$,
+	label style = {at={(ticklabel cs:1.1)}}]
+	\addplot[red, smooth] plot coordinates {
+		
+		(-10,5)
+		(-4,2)
+		(-0.3,0.05)
+		(2.2,0.5)
+		(10, 0.3)	
+	};
+    \end{axis}         
+    \end{tikzpicture}
+    \caption{Funkce 2}
+  \end{center}
+\end{figure}
+
+\item $h(x) = x \ln(x)$
+
+Definiční obor je omezený logaritmem: $(0, \infty)$
+
+\[\lim_{x \to 0} h(x) = \lim_{x \to 0} x \cdot o(x) = 0 \]
+
+Derivace:
+
+\[\frac{dh}{dx} = ln(x) + 1 \] 
+
+Nabývá nuly v bodě $x = e^{-1} \approx \frac12$, s hodnotou $-e^{-1} \approx -\frac12$
+
+Záporná do $e^{-1}$, pak kladná, tudíž nalezený bod je minimum.
+	
+Graf: 
+
+\begin{figure}
+  \begin{center}
+    \begin{tikzpicture}
+    
+	\begin{axis}	[
+	grid=both,
+	ymin=-1,
+	ymax=5,
+	xmax=5,
+	xmin=0,
+	minor tick num=1,
+	axis lines = middle,
+	xlabel=$x$,
+	ylabel=$y$,
+	label style = {at={(ticklabel cs:1.1)}}]
+	\addplot[green, smooth] plot coordinates {
+		(0,0)
+		(1,0)
+		(6,10)	
+	};
+    \end{axis}          
+    \end{tikzpicture}
+    \caption{Funkce 3}
+  \end{center}
+\end{figure}
+
+\end{enumerate}
+
+\newpage
+
+\section{}
+
+Omezme se na výpočet, kde x,y jsou kladné, a nalezněme maximum obsahu obdelníku pod bodem $(x,y)$. To bude i maximum obsahu obdelníku čtyřnásobného.
+
+\[ S = xy \]
+\[ \frac{x^2}{4} + y^2 = 1 \implies y = \sqrt{1-\frac{x^2}{4}} \]
+
+Tedy 
+
+\[ S : x \to x \sqrt{1-\frac{x^2}{4}}  \]
+
+nalezněme maximum $S(x)$ na intervalu $x \in [0,2]$:
+
+Nalezněme extrémy:
+
+\[ \frac{dS}{dx} = \sqrt{1-\frac{x^2}{4}} + x \frac{d}{dx} \left( \sqrt{1-\frac{x^2}{4}}\right) = \sqrt{1-\frac{x^2}{4}} + x \frac{1}{2\sqrt{1-\frac{x^2}{4}}} \left( - \frac{2x}{4} \right) 
+= \sqrt{1-\frac{x^2}{4}} -  \frac{x^2}{4\sqrt{1-\frac{x^2}{4}}}  \]
+\[ \sqrt{1-\frac{x^2}{4}} -  \frac{x^2}{4\sqrt{1-\frac{x^2}{4}}}   = 0 \]
+\[ 1-\frac{x^2}{4} -  \frac{x^2}{4}   = 0 \]
+\[ 2   = x^2 \]
+\[ x = \sqrt{2} \]
+
+Nyní stačí odargumentovat, že se jedná o maximum:
+
+V bodech $x = 0$ a $x = 2$ funkce určitě nabývá hodnot menších - obsah je nulový, tudíž se nejedná o minimum a je to tedy maximum.
+
+\[y= \frac{\sqrt{2}}{2}\]
+
+
+
+
+\end{document}

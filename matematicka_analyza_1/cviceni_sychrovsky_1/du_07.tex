@@ -1,0 +1,88 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{mathtools, array, enumitem, xcolor}
+\usepackage[margin=0.7in]{geometry}
+\setlength{\parindent}{0em}
+
+\usepackage[czech]{babel}
+
+\theoremstyle{plain}
+\newtheorem{veta}{Věta}
+\theoremstyle{definition}
+\newtheorem{definice}[veta]{Definice}
+
+
+
+\title{Řešení domácího úkolu z MA č. 7}
+\author{přezdívka: Zdeněk}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{}
+
+\[ f(x) = \arctan\left(\sqrt{x+5}+ \frac5{\sin(x)}\right) e^{5 ln(x^5 + 1) + x^5} \]
+
+\[ \frac{df}{dx} = \left(\frac{d}{dx} \arctan\left(\sqrt{x+5}+ \frac5{\sin(x)}\right)\right)e^{5 ln(x^5 + 1) + x^5} +  \arctan\left(\sqrt{x+5}+ \frac5{\sin(x)}\right)\left(\frac{d}{dx}e^{5 ln(x^5 + 1) + x^5}\right) \]
+
+\begin{align*}
+=\left(\frac{d}{dx} \left(\sqrt{x+5}+ \frac5{\sin(x)}\right)\right)\frac{1}{1+ \left( \sqrt{x+5}+ \frac5{\sin(x)} \right)^2}e^{5 ln(x^5 + 1) + x^5} + \\ \arctan\left(\sqrt{x+5}+ \frac5{\sin(x)}\right)\left(\frac{d}{dx} (5 ln(x^5 + 1) + x^5) \right)e^{5 ln(x^5 + 1) + x^5} 
+\end{align*}
+\begin{align*}
+= \left(\frac1{2\sqrt{x+5}} - \frac{5\cos x}{\sin^2(x)}\right)\frac{1}{1+ \left( \sqrt{x+5}+ \frac5{\sin(x)} \right)^2}e^{5 ln(x^5 + 1) + x^5} + \\ \arctan\left(\sqrt{x+5}+ \frac5{\sin(x)}\right)\left(\frac{25x^4}{x^5+1} + 5x^4 \right)e^{5 ln(x^5 + 1) + x^5}
+\end{align*}
+
+\section{}
+
+\begin{enumerate}[label=(\alph*)]
+\item \[ \lim_{x \to 0} \frac{a^x + a^{-x} - 2}{x^2} 
+\overset{L'H}{=} \lim_{x \to 0} \frac{(a^x - a^{-x})\ln(a)}{2x} 
+\overset{L'H}{=} \lim_{x \to 0} \frac{(a^x + a^{-x})\ln^2(a)}{2} = \ln^2(a)
+\]
+Pro hodnoty a, kde to má smysl.
+
+\item \[ \lim_{x \to 0} \left( \frac1{x^2} - \frac1{\sin^2(x)} \right)
+= \lim_{x \to 0}  \frac{\sin^2(x)-x^2}{x^2\sin^2(x)} 
+\overset{L'H}{=}  \lim_{x \to 0}  \frac{2\sin(x)\cos(x)-2x}{2x\sin^2(x) + 2x^2\sin(x)\cos(x)} \]\[
+\overset{L'H}{=}  \lim_{x \to 0}  \frac{2\cos^2(x)-2\sin^2(x)-2}{2\sin^2(x) + 4x\sin(x)\cos(x) + 4x\sin(x)\cos(x) + 2x^2(\cos^2(x) - \sin^2(x))} 
+\]\[
+= \lim_{x \to 0}  \frac{\cos^2(x)- \sin^2(x)-1}{\sin^2(x) + 4x\sin(x)\cos(x) + x^2\cos^2(x) - x^2\sin^2(x)} \]
+
+\[
+\overset{L'H}{=}  \frac{-2\cos(x)\sin(x) - 2\cos(x)\sin(x)}{
+\begin{multlined} 
+2\cos(x)\sin(x) + 4 (x \cos^2(x) + \cos(x)\sin(x) - x\sin^2(x)) \\ + 2x \cos(x) (\cos(x) - x\sin(x)) - 2x \sin(x) (\sin(x) + x\cos(x))
+\end{multlined}
+}
+\]
+\[
+=  \frac{-4\cos(x)\sin(x)}{
+\begin{multlined} 
+2\cos(x)\sin(x) + 4x\cos^2(x)+ 4\cos(x)\sin(x) +4x\sin^2(x) \\ + 2x \cos^2(x) -  2x^2 \cos(x)\sin(x)  - 2x \sin^2(x) - 2x^2 \sin(x)\cos(x)
+\end{multlined}
+}
+\]
+\[
+=  \frac{-2\cos(x)\sin(x)}{
+\begin{multlined} 
+3\cos(x)\sin(x) + 2x\cos^2(x) + x - 2x^2 \cos(x)\sin(x) 
+\end{multlined}
+}
+\]
+\[
+\overset{L'H}{=}  \frac{-2\cos^2(x) + 2\sin^2(x)}{
+\begin{multlined} 
+3\cos^2(x) - 3\sin^2(x) + 2\cos^2(x) - 4x\cos(x)sin(x) + 1 -  4x \cos(x)\sin(x)
+-2x^2 \cos^2(x) + 2x^2\sin^2(x)
+\end{multlined}
+}
+\]
+\[
+=  \frac{-2}{3 + 2 + 1} = - \frac13
+\]
+\end{enumerate}
+
+\end{document}

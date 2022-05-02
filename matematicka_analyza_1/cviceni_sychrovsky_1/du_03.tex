@@ -1,0 +1,89 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{mathtools, array, enumitem, xcolor}
+\usepackage[margin=0.7in]{geometry}
+\setlength{\parindent}{0em}
+
+\usepackage[czech]{babel}
+
+\theoremstyle{plain}
+\newtheorem{veta}{Věta}
+\theoremstyle{definition}
+\newtheorem{definice}[veta]{Definice}
+
+
+\title{Řešení domácího úkolu z MA č. 3}
+\author{přezdívka: Zdeněk}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{Volte n}
+
+\begin{enumerate}[label=(\alph*)]
+\item \[ \lim_{n \to \infty} \frac{ \lfloor \sqrt{n} \rfloor }{n} = 0
+ \]
+ Funkce/posloupnost je kladná, neřešíme dolní omezení.
+\[ \varepsilon > \frac{ \lfloor \sqrt{n} \rfloor }{n}   \impliedby 
+\varepsilon > \frac{\sqrt{n}}{n} \implies \sqrt{n} > \frac1\varepsilon \]
+\[ n > \frac1{\varepsilon^2} \]
+
+\item \[ \lim_{n \to \infty} \sqrt[n]{a} = 1 \]
+
+Funkce/posloupnost je opět kladná, tudíž dolní omezení neřešíme.
+
+\[ 1 + \varepsilon > \sqrt[n]{a}  \]
+\[ 1 + \varepsilon > a^{\frac1n} \]
+\[ \log_a{(\varepsilon + 1)} > \frac1n \]
+\[ n > \frac1{ \log_a{(\varepsilon + 1)}} \]
+
+\end{enumerate}
+
+\section{Spočtěte}
+
+\begin{enumerate}[label=(\alph*)]
+\item \begin{equation*}
+\lim_{n \to \infty} \sum^n_{i=1} \frac{2^i + 3^i}{6^i} = \lim_{n \to \infty} \sum^n_{i=1} \frac{2^i}{6^i} +  \lim_{n \to \infty}\sum^n_{i=1} \frac{3^i}{6^i} = \lim_{n \to \infty} \sum^n_{i=1} \frac{1}{3^i} +  \lim_{n \to \infty}\sum^n_{i=1} \frac{1}{2^i}
+\end{equation*}
+
+Pro součty nekonečných geometrických řad využijeme odvozený vztah:
+
+\[ \sum^n_{i=1} q^i = q \cdot \frac{q^n-1}{q - 1} \]
+
+Pro $0 < q < 1$
+\[ \lim_{n \to \infty} q \cdot \frac{q^n-1}{q - 1} = \frac{-q}{q-1}\]
+
+Tedy
+
+\begin{equation*}
+\lim_{n \to \infty} \sum^n_{i=1} \frac{1}{3^i} +  \lim_{n \to \infty}\sum^n_{i=1} \frac{1}{2^i} = \frac{-\frac{1}{3}}{\frac{1}{3} - 1} +  \frac{-\frac{1}{2}}{\frac{1}{2} - 1} = \frac{1}{2} + 1 = \frac32
+\end{equation*}
+
+\item 
+\[ \lim_{n \to \infty} \frac{\frac{\sqrt{n-1} - \sqrt{n}}{n}-1}{n} =
+ \lim_{n \to \infty} \frac{\frac{n-1 - n}{n (\sqrt{n-1} + \sqrt{n})}-1}{n} = \lim_{n \to \infty} {\frac{-1}{n^2 (\sqrt{n-1} + \sqrt{n})}} - \lim_{n \to \infty} \frac1n  = \] 
+ 
+ \[
+= \lim_{n \to \infty} {\frac{-1}{n^2 (\sqrt{n(1-\frac1n)} + \sqrt{n})}} - \lim_{n \to \infty} \frac1n =\lim_{n \to \infty}  {\frac{-1}{n^{\frac32} (\sqrt{1-\frac1n} + 1)}} - \lim_{n \to \infty} \frac1n = 0 - 0 = 0 \]
+
+\end{enumerate}
+
+\section{Bonus}
+V čitateli se jedná o součin dvou polynomů, první z nich má člen nejvyššího řádu $2^{20}n^{20}$ a druhý polynom má člen nějvyššího řádu $3^{30}n^{30}$. Jejich součin je stupně $50$, člen nejvyššího řádu je  $2^{20}3^{30}n^{50}$, ostaní členy jsou nižšího řádu.
+
+\hfill
+
+Ve jmenovateli je polynom, jehož člen nejvyššího řádu je $5^{50}n^{50}$.
+
+\hfill
+
+V čitateli i jmenovateli vytkneme $n^{50}$ a zkrátíme. Všechny členy obou polynomů, jejichž řád je menší než 50, můžeme pominout, protože se limitně rovnají nule. Zůstane tedy
+
+\[\frac{2^{20}3^{30}}{5^{50}} = \frac{215892499727278669824}{88817841970012523233890533447265625} \approx 2.43 \cdot 10^{-15} \]
+
+Výpočet jsem provedl pomocí internetové kalkulačky.
+
+\end{document}

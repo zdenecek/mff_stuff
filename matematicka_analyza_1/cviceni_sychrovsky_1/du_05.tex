@@ -1,0 +1,158 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{mathtools, array, enumitem, xcolor}
+\usepackage[margin=0.7in]{geometry}
+\setlength{\parindent}{0em}
+
+\usepackage[czech]{babel}
+
+\theoremstyle{plain}
+\newtheorem{veta}{Věta}
+\theoremstyle{definition}
+\newtheorem{definice}[veta]{Definice}
+
+
+\title{Řešení domácího úkolu z MA č. 5}
+\author{přezdívka: Zdeněk}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{}
+
+\begin{enumerate}[label=(\alph*)]
+\item $\sum_{n=1}^\infty (-1)^n \frac{x^{2n+1}}{
+2n + 1}$
+
+\begin{enumerate}[label=(\roman*)]
+\item Pro $|x| > 1$ Řada nesplňuje konvergenční kritérium, ani pro absolutní konvergenci, tudíž diverguje.
+\item Pro $|x| = 1$. BÚNO $x=1$ (jinak se pouze změní znaménko, které vytkneme)
+
+
+\[\sum_{n=1}^\infty  \frac{(-1)^n}{2n + 1} \] 
+
+Použijeme \textbf{Dirichletovo kritérium}: 
+ 
+$\sum^n (-1)^n$ má omezené částečné součty a $\lim_{n \to \infty} \frac1{2n + 1} = 0$, tedy řada konverguje.
+
+\hfill
+
+Absolutně řada konvergentní není:
+
+\[\sum_{n=1}^\infty  \frac{1}{2n + 1} > \sum_{n=1}^\infty  \frac{1}{3n} = \frac13 \sum_{n=1}^\infty  \frac{1}{n} \] 
+
+Jedná se o harmonickou řadu s exponentem 1, která diverguje.
+
+\item Pro $|x| \in (0;1)$
+
+\[\sum_{n=1}^\infty  (-1)^n \frac{x^{2n+1}}{2n + 1}\]
+
+Použijeme opět \textbf{Dirichletovo kritérium}:
+
+$\sum^n (-1)^n$ má omezené částečné součty a
+\[ \lim_{n \to \infty} \frac{x^{2n+1}}{2n + 1} = \frac0\infty = 0 \] 
+ tedy řada konverguje.
+ 
+\hfill
+ 
+ Pro absolutní konvergenci použijeme \textbf{d'Alambertovo podílové kritérium}:
+ 
+ \[\sum_{n=1}^\infty  \frac{x^{2n+1}}{2n + 1}\]
+ 
+ \[\limsup_{n \to \infty} \frac{\frac{x^{2(n+1)+1}}{2(n+1) + 1}}{\frac{x^{2n+1}}{2n + 1}}
+ = \limsup_{n \to \infty} \frac{x^{2n+3}}{x^{2n+1}} \frac{2n+1}{2n + 3} = x^2 \lim_{n \to \infty} (1 - \frac2{2n+3}) 
+ = x^2 < 1\]
+  
+Řada konverguje i absolutně.
+
+\item Pro $x = 0$
+
+Řada triviálně konverguje v nule, i absolutně.
+
+\end{enumerate}
+
+\item \[\sum_{n=1}^\infty  \left(\frac{2+\cos(n)}{3 + \cos(n)}\right)^{2n - \ln(n)} \]
+
+Předpokládejme, že řada konverguje
+
+Zlomek je vždy kladný a menší než jedna, nejvíce ho zvětšíme, když nahradíme cosinus maximem. Navíc umocněním na vyšší exponent sumu zmenšíme, zmenšením exponentu ji tedy zvětšíme. Odhadněme tedy shora $ \ln(n) <n$
+\[\sum_{n=1}^\infty  \left(\frac{2+\cos(n)}{3 + \cos(n)}\right)^{2n - \ln(n)} \leq 
+\sum_{n=1}^\infty  \left(\frac{2+1}{3+1}\right)^{2n - ln(n)} \leq \sum_{n=1}^\infty  \left(\frac34\right)^{2n - n} 
+=\sum_{n=1}^\infty  \left(\frac34\right)^{n}  \]
+
+Dle \textbf{Cauchyho odmocninového kritéria} tato řada konverguje, takže podle srovnávacího kritéria konverguje i řada původní.
+
+\end{enumerate}
+
+\section{}
+
+\[ \sum_{n=1}^\infty \frac{cos(nx) - cos((n + 1)x)}{n}\]
+
+Čitatel může být i záporný a chová se nepředvídatelně pro netriviální $x$.
+
+Kdybychom dokázali, že posloupnost tvořená čitatelem má omezené součty, mohli bychom použít \textbf{Dirichletovo kritérium}.
+
+Ve skutečnosti má taková řada opravdu omezené součty (minimálně jsem to teda ověřil ve Wolframu), ale nenapadá mě, jak to ukázat.
+
+Můžeme to odhadnout a říci, že řada konverguje.
+
+\section{Bonus}
+
+\begin{enumerate}
+\item \[\lim_{h \to 0} \frac{a^{x+h} - a^x}h = a^x \]
+\[\lim_{h \to 0} \frac{a^{h} - 1}h = 1 \]
+\item \[\lim_{h \to 0} \frac{(\sqrt[h]{h+1+o(h)})^{h}  - 1 }h  =\lim_{h \to 0} \frac{o(h)}h + 1 \]
+
+To se má rovnat jedné, tedy $\lim_{h \to 0} \frac{o(h)}h$ se má rovnat nule.
+
+\item \[ e= \lim_{h \to 0} a(h) = \lim_{n \to \infty} a(\frac1{n}) = \lim_{n \to \infty} \sqrt[\frac1n]{\frac1n+1+o\left(\frac1n\right)} 
+= \lim_{n \to \infty} \left(\frac1n+1+o\left(\frac1n\right)\right)^n \]
+
+\item \[  \lim_{n \to \infty} \left(\frac1n+1\right)^n 
+= \lim_{n \to \infty} \binom{n}{0} + \binom{n}{1}\frac1n 
++   \binom{n}{2}\frac1{n^2}  +  \binom{n}{3}\frac1{n^3}   + ... 
+\]\[
+= \lim_{n \to \infty} \frac{n!}{n!} + \frac{n!}{(n-1)!n} 
++   \frac{n!}{(n-2)!n^2 2!} +  \frac{n!}{(n-3)!n^3 3!}  + ...\]
+
+Všimněme si, že v každém zlomku má polynom v čitateli stejný stupeň jako ve jmenovateli a kromě faktoru $k!$ mají členy nejvyššího stupně v obou polynomech koeficient 1, tudíž je můžeme vytknout člen nejvyššího stupně, zbytek pominout jako nulu a zkrátit na 1.
+
+Neboli: \[
+\lim_{n \to \infty} \frac{n!}{(n-k)!n^k k!} 
+= \lim_{n \to \infty} \frac{n(n-1) ... (n-k+1)}{n^k k!}
+= \lim_{n \to \infty} \frac{n(n-1) ... (n-k+1)}{n^k} \cdot   \lim_{n \to \infty} \frac1{k!} \]
+
+A zde můžeme provést ono zmíněné zkrácení a první limitu spočítat na 1, protože jediný člen s exponentem k v čitateli bude mít koeficient 1.
+
+Tedy
+
+\[ e = \lim_{n \to \infty} \sum^n_{k=0} \frac1{k!}\]
+
+\item
+
+Najděme, kolik členů budeme muset sečíst:
+
+\[ \sum^\infty_{k=x} \frac1{k!} \leq \frac14\]
+
+Použijeme odhad:
+
+\[ k! \geq \left(\frac{k}2\right)^\frac{k}{2} \implies \sum^\infty_{k=x} \frac1{\left(\frac{k}2\right)^\frac{k}{2}} \geq \sum^\infty_{k=x} \frac1{k!} \]
+
+\[ \sum^\infty_{j=\frac{x}2} \frac1{j^j} \leq 
+\sum^\infty_{j=\frac{x}2} \frac1{2^j}= 2^{-\frac{x}2}\frac{1}{1-\frac12} = 2^{1-\frac{x}2} \]
+
+\[ 2^{1-\frac{x}2} < \frac14 \implies 2^{3-\frac{x}2} < 1 \implies 3 < \frac{x}2 \implies 6 < x  \]
+
+Sečteme tedy prvních šest členů, chybu zanedbáním zbylých členů jsme odhadli na nižší než požadovanou.
+
+Výsledek jsem spočítal: 
+
+\[ 1 + 1 + \frac12 + \frac16 + \frac1{24} + \frac1{120} = \frac{163}{60} = 2 + \frac23 + \frac1{20} = 2.\overline{6} + 0.05 =   2.71\overline{6} \]
+
+
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,82 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{mathtools, array, enumitem, xcolor}
+\usepackage[margin=0.7in]{geometry}
+\setlength{\parindent}{0em}
+
+\usepackage[czech]{babel}
+
+\theoremstyle{plain}
+\newtheorem{veta}{Věta}
+\theoremstyle{definition}
+\newtheorem{definice}[veta]{Definice}
+
+
+\title{Řešení domácího úkolu z MA č. 9}
+\author{přezdívka: Zdeněk}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{}
+
+\[ \sqrt[3]{26} = \sqrt[3]{27-1} = 3\sqrt[3]{1 - \frac1{27}}\]
+
+Použijeme Taylorův rozvoj v bodě $0$ pro funkci $\sqrt[3]{1-x}$:
+
+\[ \sqrt[3]{1-x} = 1 - \frac{x}3 - \frac{x^2}{9} + o(x^2) \]
+
+Chyba pro dané $x$: 
+
+\[ R_2 = \frac{10}{27 \cdot 3!}\frac{1}{27^3} = \frac{5}{3^13} < \frac{1}{3^{11}} < \frac{1}{3 \cdot 1000}  \]
+
+Chyba je dostatečeně malá, rozvoj třetího stupně stačí.
+
+\[  \sqrt[3]{1-\frac{1}{27}} \approx 1 - \frac1{3^4} - \frac{1}{3^8} = 
+ \frac{3^8 - 3^4 - 1}{3^8} = \frac{6479}{6561} \]
+ 
+ \[ \sqrt[3]{26} \approx 2.962  \]
+
+\section{}
+
+\begin{enumerate}[label=|\alph*|]
+\item Mohli bychom použít Taylorův rozvoj, ale pro jednoduchost použijme l'Hospitalovo pravidlo
+
+
+\[ \lim_{x \to 0} \frac{e^{3x} -\sin x - \cos x + ln(1-2x)}{\cos(5x)-1} \overset{l'H}{=}
+ \lim_{x \to 0} \frac{3e^{3x} - \cos x + \sin x - \frac{2}{1-2x}}{-5\sin(5x)}\]\[
+ \overset{l'H}{=}
+ \lim_{x \to 0} \frac{9e^{3x} + \sin x + \cos x - \frac{4}{(1-2x)^2}}{-25 \cos(5x)}  = - \frac{9+1-4}{25} = -\frac{6}{25} \]
+ 
+ \item 
+ 
+ \[ \lim_{x \to 0} \left( \frac{1}{x^2} - \frac{1}{\sin^2 x} \right) 
+  = \lim_{x \to 0} \frac{\sin^2x - x^2}{x^2\sin^2x} 
+\]
+
+Zde použijeme Taylorův rozvoj
+
+\[ \sin x = x - \frac{x^3}{3!} + \frac{x^5}{5!} + ... \]
+\[ \sin^2 x = x^2 - 2\frac{x^4}{3!} + \left( \frac{2}{5!} + \frac{1}{6!} \right)x ^6 + o(x^7) \]
+
+Tedy
+
+\[  \lim_{x \to 0} \frac{- 2\frac{x^4}{3!} + \left( \frac{2}{5!} + \frac{1}{6!} \right)x ^6 + o(x^7)}{ x^4 - 2\frac{x^6}{3!} + o(x^7)  } = - \frac13 \]
+\end{enumerate}
+
+\section{}
+
+\[ p(0) = \frac{5\sqrt{3}}{2} \approx 4,330 \]
+
+\[ p^{(1)}(t) =  5 \cos\left(\frac{\pi}{3}\sqrt{t+1}\right)\frac{\pi}{6}\frac1{\sqrt{t+1}} - \frac1{t^2 + 1} \]
+
+\[ p(1) = p(0) +  \frac{5\pi\sqrt{2}}{12} \cos\left(\frac{\sqrt{2}\pi}{3}\right) - \frac12 =  \frac{30\sqrt{3} + 5\pi\sqrt{2} \cos\left(\frac{\sqrt{2}\pi}{3}\right) - 6 }{12} \]\[
+\approx 4
+\]
+
+Papír se nevyplatí koupit.
+
+\end{document}
