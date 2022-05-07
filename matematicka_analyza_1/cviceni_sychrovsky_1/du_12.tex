@@ -23,4 +23,63 @@
 
 \section{}
 
+\begin{enumerate}[label=(\alph*)]
+
+\item 
+\[  \int_0^\infty x\arctan(2x^2+1)\ dx \]
+
+\[ y = 2x^2+1\]
+\[ \frac{dy}{dx} = 4x \implies dx = \frac{dy}{4x}   \]
+
+Tedy
+
+\[ =\frac14  \int_1^\infty \arctan(y)\ dy \]
+
+Funkce $\arctan$ je neklesající na daném intervalu a její limita je nenulová, takže tento integrál nekonverguje.
+
+Můžeme to odhadnout například integrálem tvořící obdelník výšky $\frac\pi4$ 
+
+\[ \int_1^\infty \arctan(y)\ dy  \geq \int_1^\infty \frac\pi4  dx = \infty \]
+
+
+\item
+
+$\sin$ je spojitá na $\pi$, takže platí:
+
+ \[ \int_0^{2\pi} \sin^3(x)\ dx = \int_0^{\pi} \sin^3(x)\ dx + \int_{\pi}^{2\pi} \sin^3(x)\ dx \]
+ 
+ \[ \int_0^{\pi} \sin^3(x)\ dx + \int_{0}^{\pi} \sin^3(x + \pi)\ dx
+ = \int_0^{\pi} \sin^3(x)\ dx + \int_{0}^{\pi} (-\sin(x))^3 \ dx \]\[
+ = \int_0^{\pi} \sin^3(x)\ dx - \int_{0}^{\pi} \sin^3(x)\ dx = 0 \]
+ 
+\end{enumerate}
+
+\section{}
+
+
+\[ \sum^\infty_{n=1} \frac{n}{n^2 + 1} - \frac1{n}  =  \sum^\infty_{n=1} \frac{-1}{n(n^2 + 1)} \]
+
+
+Použijeme srovnávací kriterium:
+
+\[ a =\frac{-1}{n^3 + n}  \]
+\[ b =  \frac{-1}{n^3}  \]
+\[ \lim_{n \to \infty} \frac{a}{b} = \lim_{n \to \infty} \frac{n^3}{n^3 + n} = 1 \]
+
+Takže suma konverguje právě tehdy, když konverguje suma
+
+\[ \sum^\infty_{n=1} \frac{-1}{n^3}\]
+
+Tato suma konverguje, pokud konverguje opačná suma 
+
+\[ \sum^\infty_{n=1} \frac{1}{n^3}\]
+
+Tato suma konverguje podle kondenzačního kritéria, právě když konverguje
+
+\[ \sum^\infty_{n=1} \frac{2^n}{(2^n)^3} = \sum^\infty_{n=1} \frac{1}{2^{2n}} =  \sum^\infty_{n=1} \left( \frac{1}{4} \right)^n \]
+
+Toto je geometrická řada s kvocientem menším než jedna, takže konverguje.
+
+Tedy původní řada konverguje.
+
 \end{document}

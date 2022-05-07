@@ -23,4 +23,52 @@
 
 \section{}
 
+
+\begin{enumerate}[label=(\alph*)]
+
+\item 
+
+\[ \int_0^4 \frac{dx}{1+\sqrt{x}} \]
+
+\[ y = \sqrt{x}\]
+\[ \frac{dy}{dx} =\frac{1}{2\sqrt{x}} = \frac1{2y} \implies dx =  dy 2y \]
+
+\[ = 2 \int_0^2 \frac{y}{1+y} dy = 2 \int_0^2 1 - \frac{1}{1+y} dy  = 2 [x]_0^2 - 2[\ln(1+x)]_0^2 \]
+\[ = 4 - 2 \ln(3) = 4 - \ln(9) \approx 2\]
+
+\item
+
+\[ \int_0^{\frac{\pi}{3}} \frac{\tan(x) }{1 + \cos^2(x) } dx  \]
+
+
+\[
+\int_0^{\frac{\pi}{3}} \frac{\tan(x) }{1 + \cos^2(x)} dx
+\]
+
+\[ y = \cos(x) \]
+\[ \frac{dy}{dx} = - \sin(x) \implies dx = -\frac{dy}{\sin x}\]
+
+\[
+= \int_1^{\frac12} - \frac{1}{y(1 + y^2)} dy
+\]
+
+\[ z = y^2 \]
+\[\frac{dz}{dy} = 2y \implies dy = \frac{dz}{2y}  \]
+
+
+\[
+= \int_1^{\frac14} - \frac12 \frac{1}{z(1 + z)} dz
+= \frac12 \int_{\frac14}^1  \frac{1}{z(1 + z)} dz
+= \frac12 \int_{\frac14}^1  \frac{1}{1 + z} - \frac{1}{z} 
+= \frac12 [ln(x+1) - ln(x)]_{\frac14}^1 \]\[
+=\frac12 [ln(1+x^-1)]_{\frac14}^1 
+= = \frac12 \left( \ln(5) - \ln(2) \right) = \frac12 \ln\left( \frac52 \right)
+\]
+
+\section{}
+
+
+
+\end{enumerate}
+
 \end{document}
