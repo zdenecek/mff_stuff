@@ -1,0 +1,815 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{mathtools, array, enumitem, xcolor}
+\usepackage{stackengine}
+\usepackage[margin=0.7in]{geometry}
+\setlength{\parindent}{0em}
+
+\usepackage{graphicx}
+\newcommand\sbullet[1][.5]{\mathbin{\vcenter{\hbox{\scalebox{#1}{$\bullet$}}}}}
+
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.11}
+
+\usepackage[czech]{babel}
+
+\theoremstyle{plain}
+\newtheorem{veta}{Věta}
+\theoremstyle{definition}
+\newtheorem{definice}[veta]{Definice}
+
+
+\title{Příprava na zkoušku z předmětu Lineární algebra 2}
+\author{Zdeněk Tomis}
+\date{}
+
+
+\begin{document}
+
+
+\maketitle
+
+\part{Definice}
+
+\begin{enumerate}
+
+\item Definujte permutaci.
+
+\paragraph{Permutace} je bijekce na $[n]$.
+
+\item Definujte znaménko permutace.
+
+\paragraph{Znaménko permutace} je počet inverzí v permutaci.
+
+\item Definujte determinant.
+
+\paragraph{Determinant čtvercové matice} $A \in \mathbb{K}^{n \times n}$ je definován jako.
+
+\[ det(A) = \sum_{p \in S_n} sgn(p) \prod^n_{i = 1} a_{i, p(i)} \]
+
+\item Definujte adjungovanou matici.
+
+\paragraph{Adjugovaná matice} $adj(A)$ čtvercové matice  $A \in \mathbb{K}^{n \times n}$ je definována jako
+
+\[ (adj(A))_{i,j} = (-1)^{i+j} det(A^{j,i})\]
+\item Definujte Laplaceovu matici.
+
+\paragraph{Laplaceova matice} $L_G$ grafu $G$ s $n$ vrcholy je čtvercová reálná matice řádu $n$ definována jako
+
+\[ (L_G)_{i,j} = \begin{cases}  deg(v_i) & i = j  \\ 
+								-1 & i \neq j \ \&\  (v_i, v_j) \in E(G) \\ 
+								0  & i \neq j \ \&\  (v_i, v_j) \notin E(G) \\ \end{cases} \]
+
+\item Definujte polynom nad tělesem.
+
+\paragraph{Polynom stupně $n$ proměnné $x$ nad $\mathbb{K}$} je výraz
+\[ p(x) = a_nx^n + a_{n-1}x^{n-1} + ... + a_1x + a_0\]
+
+kde $a_n \neq 0$ a $\forall i: a_i \in \mathbb{K}$. Píšeme $p \in \mathbb{K}$.
+
+\item Definujte kořen polynomu a jeho násobnost.
+
+\paragraph{Kořen polynomu $p$} je taková hodnota $r \in \mathbb{K}$, pro kterou platí že $p(r) = 0$.
+
+\paragraph{Násobnost kořene $r$ polynomu $p$} je největší kladné číslo $k$, t.ž. $(x-r)^k$ dělí $p$.
+
+\item Definujte algebraicky uzavřené těleso.
+
+\paragraph{Algebraicky uzavřené těleso} je takové těleso $\mathbb{K}$, pro které platí, že každý polynom $p \in \mathbb{K}$ má kořen.
+
+\item Definujte Vandermondovu matici.
+
+\paragraph{Vandermondova matice} 
+
+% @TODO %
+
+\[ (V_{k}(x_0, ..., x_n))_{i,j} = x_i^{j-1} \]
+
+\item Definujte vlastní číslo a vlastní vektor lineárního zobrazení.
+
+\paragraph{Vlastní číslo} lineárního zobrazení $f: V \to V$ je jakékoliv $\lambda \in \mathbb{K}$, pro které $\exists u \in V \setminus 0$ takový, že $f(u) = \lambda u$
+
+\paragraph{Vlastní vektor} lineárního zobrazení $f$ odpovídající vlastnímu číslu $\lambda$ je libovolný $u \in V$, t.ž. $f(u) = \lambda u$
+
+\item Definujte vlastní číslo a vlastní vektor matice.
+
+\paragraph{Vlastní číslo} matice $A \in \mathbb{K}^{n \times n}$ je jakékoliv $\lambda \in \mathbb{K}$, pro které $\exists u \in V \setminus 0$ takový, že $Au = \lambda u$
+
+\paragraph{Vlastní vektor} matice $A$ odpovídající vlastnímu číslu $\lambda$ je libovolný $u \in \mathbb{K}^n$, t.ž. $Au = \lambda u$
+
+\item Definujte charakteristický polynom.
+ 
+\paragraph{Charakteristický polynom} matice $A \in \mathbb{K}^{n \times n}$ je
+
+\[ p_A(t) = \det(A - tI_n)\]
+
+
+\item Definujte algebraickou násobnost vlastního čísla.
+
+\paragraph{Algebraická násobnost vlastního čísla} je jeho násobnost jako kořene charakteristického polynomu.
+
+\item Definujte geometrickou násobnost vlastního čísla.
+
+\paragraph{Geometrická násobnost vlastního čísla} je dimenze prostoru vlastních vektorů číslu odpovídajících.
+
+\item Definujte podobné matice.
+
+\paragraph{Podobnost} Matice $A,B \in \mathbb{K}^{n \times n}$ jsou si \textbf{podobné}, pokud
+
+\[ \exists R \in \mathbb{K}^{n \times n} \text{ regulární}: A = R^{-1}BR\]
+
+\item Definujte diagonalizovatelnou matici.
+
+\paragraph{Diagonalizovatelnost} Matice $A \in \mathbb{K}^{n \times n}$ je \textbf{diagonalizovatelná}, pokud je podobná diagonální matici.
+
+\item Definujte Jordanův blok.
+
+\paragraph{Jordanův blok} je čtvercová matice ve tvaru
+
+\[ J_\lambda = \begin{pmatrix}
+\lambda & 1		  &  	   & 		 &   \\
+ 		& \lambda & 1  	   & \mbox{\huge{0}}		 &   \\
+		& 		  & \ddots & \ddots  &   \\
+		& \mbox{\huge{0}}& 		   & \lambda & 1 \\
+		& 		  & 		   & 		 & \lambda 
+\end{pmatrix} \]
+
+\item Definujte Jordanův normální tvar matice.
+
+\paragraph{Jordanova normální forma} je bloková matice ve tvaru
+
+\[ J = \begin{pmatrix}
+J_{\lambda_1} && 	&&\\
+& J_{\lambda_2} &&\mbox{\huge{0}} &\\
+&& J_{\lambda_3}&&&\\
+&\mbox{\huge{0}}&& \ddots & \\
+& &	&& J_{\lambda_k}
+\end{pmatrix}\]
+
+Kde $J_{\lambda_i}$ jsou Jordanovy bloky.
+
+\item Definujte zobecněný vlastní vektor
+
+\paragraph{Zobecnený vlastní vektor} matice $A$ k vlastnímu číslu $\lambda$ je libovolný vektor $x$ splňující $(A-\lambda I)^kx = 0$ pro nějaké $k \in \mathbb{N}$ 
+
+\item Definujte hermitovskou matici.
+
+Matice $A$ je \textbf{hermitovská}, pokud $A^H = A$.
+
+\item Definujte unitární matici.
+
+
+Matice $A$ je \textbf{unitární}, pokud $A^{-1} = A^H$.
+
+
+\item Definujte skalární součin pro vektorové prostory nad komlexními čísly.
+
+\paragraph{Skalární součin} na vektorovém prostoru V nad $\mathbb{C}$ je zobrazení $\langle \sbullet[.75] | \sbullet[.75] \rangle : V \times V \to \mathbb{C}$, pro které platí:
+
+\begin{enumerate}[label=(\roman*)]
+\item $\forall u \in V:\langle u | u \rangle \in \mathbb{R}^+_0$
+\item $\forall u \in V:\langle u | u \rangle = 0 \iff u = 0$
+\item $\forall u,v \in V:\langle u | v \rangle = \overline{\langle v | u \rangle}$
+\item $\forall u,v,w \in V:\langle u + v | w \rangle = \langle u | w \rangle  + \langle  v | w \rangle $
+\item $\forall u,v \in V, a \in \mathbb{C}: \langle au | v \rangle = a \langle u | v \rangle $
+\end{enumerate}
+
+
+\item Definujte normu spojenou se skalárním součinem.
+
+\paragraph{Norma} odvozená ze skalárního součinu pro prostor $V$ nad $\mathbb{C}$, nebo $\mathbb{R}$ se skalárním součinem je zobrazení $|| \sbullet[.75]|| : V \to \mathbb{R}$ dané předpisem $||u|| = \sqrt{\langle u | u \rangle}$
+
+\item Definujte kolmé vektory.
+
+Vektory $u,v$ z prostoru se skalárním součinem jsou \textbf{kolmé}, pokud $\langle u | v \rangle = 0$. 
+
+\item Definujte ortonormální bázi.
+
+Báze $Z = \left\lbrace v_1, v_2, ..., v_n \right\rbrace$ je \textbf{ortonormální}, pokud platí $ \forall i: ||v_i|| = 1 $ a $ \forall i,j: v_i \perp v_j $
+
+\item Definujte Fourierovy koeficienty.
+
+\paragraph{Fourierovy koeficienty} jsou prvky vektoru souřadic vyjádřeného vůči ortonornální bázi.
+
+\item Definujte izometrii.
+
+\paragraph{Izometrie} je takové zobrazení $f: V \to W$ z vektorového prostoru se skalárním součinem do vektorového prostoru se skalárním součinem, které zachovává skalární součin. Neboli \[\forall u,v \in V: \langle u | v \rangle = \langle f(u) | f(v) \rangle\]
+
+\item Definujte kolmou projekci.
+
+Prostor $W$ se skalárním součinem a jeho podprostor V s ortonormální bází  $Z = ( v_1, v_2, ..., v_n ) $ je zobrazení 
+\[ p_Z: W \to V,\quad p_Z(u) = \sum^n_{i=1} \langle u|v_i \rangle v_i \]
+
+\textbf{kolmou projekcí $W$ na $V$}.
+
+\item Definujte ortogonální doplněk.
+
+Ortogonální doplňek v prostoru se skalárním součinem $W$ podmnožiny $V \subseteq W$ je množina všech vektorů, které jsou kolmé na všechny vektory $V$.
+
+\[ V^\perp = \lbrace u \in W: \forall v \in V: u \perp v \rbrace \]
+
+\item Definujte Gramovu matici.
+
+Pro $V$ vektorový prostor se skalárním součinem a bází $X = (v_1, ..., v_n)$ je \textbf{Gramova matice} definována jako $A \in \mathbb{C}^{n \times n}$ pro kterou platí $a_{i,j} = \langle v_i | v_j \rangle$
+
+
+\item Definujte pozitivně definitní matici.
+
+$A \in \mathbb{R}^{n \times n}$ je \textbf{pozitivně definitní}, pokud
+\begin{itemize}
+\item je hermitovská a
+\item $\forall x \in \mathbb{C}^n \setminus 0: x^HAx > 0$
+\end{itemize}
+
+\item Definujte Choleského rozklad.
+
+\paragraph{Choleského rozklad} (pozitivně definitní) matice $A$ je (unikátní) horní trojúhelníková matice $U$ s kladnou diagonálou, t.ž. $A = U^HU$
+
+\item Definujte bilineární formu.
+
+Pro prostor $V$ nad $\mathbb{K}$ se zobrazení $f: V \times V \to \mathbb{K}$ nazývá \textbf{bilineární formou}, pokus splňuje následující podmínky 
+\begin{enumerate}[label=(\roman*)]
+\item[(i, ii)] $\forall u,v \in V, \forall a \in \mathbb{K}: f(au,v) = f(u,av) = af(u,v)$
+\item[(iii)] $\forall u,v,w \in V : f(u+v,w) = f(u,w) + f(v,w)$
+\item[(iv)] $\forall u,v,w \in V : f(u,v+w) = f(u,v) + f(u,w)$
+\end{enumerate}
+
+\item Definujte kvadratickou formu.
+
+$g: V \to \mathbb{K}$ se nazývá \textbf{kvadratickou formou}, pokud existuje bilineární forma $f$, t.ž. $\forall u \in V: g(u) = f(u,u)$.
+
+\item Definujte matici bilineární formy vzhledem k bázi
+
+Pro vektorový prostor $V$ nad $\mathbb{K}$ s bází $X = (v_1, ..., v_n)$ je \textbf{matice bilineární formy} $f$ vzhledem k bázi $X$ matice $B: b_{i,j} = f(v_i, v_j)$
+
+\item Definujte matici kvadratické formy vzhledem k bázi*
+
+Pro vektorový prostor $V$ nad $\mathbb{K}$ s bází $X = (v_1, ..., v_n)$ je \textbf{matice kvadratické formy} $g$ matice symetrické bilineární formy $f$, pokud taková symetrická $f$ existuje
+
+\item Definujte analytický výraz formy
+
+\paragraph{Analytické vyjádření} formy $f$ nad $\mathbb{K}^n$ s maticí formy $B$ je homogenní polynom
+\[ f((x_1,...,x_n)^T,(y_1,...y_n)^T)= \sum^n_{i=1}\sum^n_{j=1}b_{i,j}x_iy_j\]
+
+\item Definujte signaturu formy.
+
+%@TODO%
+
+\end{enumerate}
+
+\newpage
+
+\part{Věty}
+\begin{enumerate}
+\item Vyslovte a dokažte větu o linearitě determinantu.
+
+\begin{veta}
+
+Determinant matice je lineárně závislý na každém jejím řádku a sloupci, to je vzhledem ke skalárnímů násobku a vzhledem ke sčítání.
+
+\begin{proof}
+\begin{itemize}
+\item Pro součin: $i$-tý řádek se v součinu vyskytuje vždy právě jednou, můžeme ho vytknout před součin a poté i před sumu.
+\item Pro součet:
+\begin{align*}
+det(a) &= \sum_{p \in S_n} sgn(p) \prod_{k=1}^n a_{k, p(k)} 
+		= \sum_{p \in S_n} sgn(p)\ a_{i,p(i)} \prod_{k\ in [n] \setminus \{i\}} a_{k, p(k)} \\
+	   &=  \sum_{p \in S_n} sgn(p)\ (b_{i,p(i)} + c_{i,p(i)}) \prod_{k \in [n] \setminus \{i\}} a_{k, p(k)} \\
+	   &=  \sum_{p \in S_n} sgn(p)\ b_{i,p(i)} \prod_{k \in [n] \setminus \{i\}} b_{k, p(k)} + \sum_{p \in S_n} sgn(p)\  c_{i,p(i)} \prod_{k \in [n] \setminus \{i\}} c_{k, p(k)} \\
+	   &= det(b) + det(c)
+\end{align*}
+\end{itemize}
+\end{proof}
+\end{veta}
+
+
+
+\item Vyslovte a dokažte větu o determinantu součinu dvou matic.
+
+\begin{veta}
+\[ \forall A,B \in \mathbb{K}^{n \times n}: det(AB) = det(A)det(B) \]
+\begin{proof}
+\begin{enumerate}[label=(\alph*)]
+\item Alespoň jedna matice je singulární: $0 = 0$
+\item Obě matice jsou regulární: 
+
+Součiny s elementárními maticemi zachovají determinant $det(EB)=det(E)det(B)$, protože \begin{itemize}
+\item Přičtením $i$-tého řádku k j-tému: $det(E) = 1$
+\item Vynásobením $i$-tého řádku koeficientem $t$ : $det(E) = t$
+\end{itemize}
+
+Z těchto dvou lze odvodit zbylé dvě operace.
+
+\hfill
+
+Rozložíme regulární A na elementární matice $A = E_1E_2 ... E_k$:
+
+\begin{align*}
+det(AB) &= det(E_1E_2 ... E_kB) = det(E_1)det(E_2 ... E_kB) = ... = \\
+&=  det(E_1)det(E_2) ... det(E_k)det(B) = det(E_1)det(E_2) ... det(E_{k-1}E_k)det(B) = ... = \\
+&= det(E_1E_2 ... E_k)det(B) \\
+&= det(A)det(B)
+\end{align*}
+
+\end{enumerate}
+\end{proof}
+\end{veta}
+
+\item Vyslovte a dokažte větu o Laplaceově rozvoji determinantu.
+
+\begin{veta}
+\[ \forall A \in K^{n \times n}: \forall i \in [n]: det(A) = \sum_{i=1}^n a_{i,j}(-1)^{i+j}det(A^{i,j})\]
+\begin{proof}
+$i$-tý řádek vyjádříme jako lin. kombinaci vektorů kanonické báze.
+
+\[ \begin{vmatrix}
+\rule[1ex]{3.5em}{0.4pt}\\
+a_{i,1}\  ...\  a_{i,n} \\
+\rule[.5ex]{3.5em}{0.4pt}
+\end{vmatrix} =
+a_{i,1}\begin{vmatrix}
+\rule[1ex]{3em}{0.4pt}\\
+1\ 0\ ...\ 0 \\
+\rule[.5ex]{3em}{0.4pt}
+\end{vmatrix} + ... + 
+a_{i,n}\begin{vmatrix}
+\rule[1ex]{3em}{0.4pt}\\
+0\ ...\ 0\ 1 \\
+\rule[.5ex]{3em}{0.4pt}
+\end{vmatrix} \]
+
+Pro $j$-tý člen:
+
+\[ \begin{vmatrix}
+\rule[1ex]{5em}{0.4pt}\\
+0\ ...\ 0\ 1\ 0\ ...\ 0 \\
+\rule[.5ex]{5em}{0.4pt}
+\end{vmatrix} = \begin{vmatrix}
+\rule[1ex]{5em}{0.4pt}\\
+\rule[1ex]{1.5em}{0.4pt}\ \ e_j^T\ \rule[1ex]{1.5em}{0.4pt}\\
+\rule[.5ex]{5em}{0.4pt}
+\end{vmatrix} = (-1)^{i+1} \begin{vmatrix}
+\rule[1ex]{1.5em}{0.4pt}\ \ e_j^T\ \rule[1ex]{1.5em}{0.4pt}\\
+\rule[1ex]{5em}{0.4pt}\\
+\rule[.5ex]{5em}{0.4pt}
+\end{vmatrix}
+ = (-1)^{i+1+j+1} \begin{vmatrix}
+e_1^T \rule[1ex]{3.2em}{0.4pt}\\
+\rule[1ex]{5em}{0.4pt}\\
+\rule[.5ex]{5em}{0.4pt}
+\end{vmatrix}  \]
+
+
+\[
+ = (-1)^{i+j} \det \left( \ 
+\begin{array}{|c|c|}
+\hline
+1 & 0^T \\
+\hline
+0 & A^{i,j} \\
+\hline
+\end{array} \  \right)
+\]
+
+Nenulové budou permutace s pevným bodem $p(1)=1$, ostatní lze pominout, to odpovídá permutacím $S_{n-1}$.
+
+\[ = (-1)^{i+j} det(A^{i,j})\]
+
+Tedy pro první rovnici:
+
+\[ = \sum^n_{j=1} a_{i,j}(-1)^{i+j}det(A^{i,j})\]
+
+
+
+\end{proof}
+\end{veta}
+
+\item Uved'te a dokažte Cramerovo pravidlo (řešení systémů s determinanty).
+
+\begin{veta}
+Pro regulární $A \in \mathbb{K}^{n \times n}$: $\forall b \in \mathbb{K}^n$ pravé strany řešení $x$ soustavy $Ax = b$ splňuje
+  \[x_i = \frac1{\det(A)}det(A_{i \to b})\]
+
+Kde $A_{i \to b}$ získáme nahrazením $i$-tého sloupce vektorem $b$.
+
+\begin{proof}
+
+Uvažme matici $I_{i \to x}$
+
+\[A \cdot I_{i \to x} = A_{i \to b} \]
+\[\implies \det(A) \det(I_{i \to x}) = \det(A_{i \to b}) \]
+\[x_i = det(I_{i \to x}) \]
+\[\implies x_i = \frac1{\det(A)}\det(A_{i \to b}) \]
+
+\end{proof}
+\end{veta}
+
+\item Vyslovte a dokažte větu o adjungované matici.
+
+\begin{veta}
+Pro libovolnou regulární matici $A \in \mathbb{K}^{n \times n}$
+
+\[ A^{-1} = \frac1{\det(A)}\cdot adj(A)\]
+
+\begin{proof}
+%@TODO%
+
+Přes Laplaceův rozvoj $\det(A)$
+
+\[ det(A) = \sum^n_{j=1} a_{i,j} (-1)^{i+j} \det(A^{i,j})\]
+
+\hfill
+
+\[ (i\text{-tý řádek z }A)\cdot(i\text{-tý sloupec z }adj(A)) = \det(A) \]
+\[ (j\text{-tý řádek z }A)\cdot(i\text{-tý sloupec z }adj(A)) = \det(A^\prime) = 0 \]
+
+$A^\prime$ získáme nahrazením $i$-tého řádku z $j$-tý, tedy máme dva stejné řádky, matice je singulární a determinant nulový.
+
+Tedy
+\[ A \cdot adj(A) = \det(A) \cdot I_n \implies A^{-1} = \frac1{\det(A)} adj(A)\]
+
+
+\end{proof}
+\end{veta}
+
+\item Vyslovte a dokažte větu o počtu koster grafu.
+
+
+\begin{veta}
+Každý graf $G$ na alespoň dvou vrcholech má právě $\det(L_G^{1,1})$ koster.
+\begin{proof}
+
+\begin{enumerate}[label=(\alph*)]
+\item $G$ je nesouvislý, dle pozorování je $L_G^{1,1}$ singulární, determinant je nulový.
+\item $G$ je souvislý: Indukcí podle $m = |E_G|$
+
+\begin{itemize}
+\item Pro $m = 1$: $\kappa(G) = \det(\deg(v_1)) = det(1) = 1$
+\item Indukční krok:
+
+
+
+Zvolme libovolnou hranu $e$, BÚNO $e = (v_1, v_2)$.
+Nechť $A = L_{G}^{1,1}$, $B = L_{G \setminus e}^{1,1}$, $A = L_{G \circ e}^{1,1}$
+
+
+
+$A$ a $B$ jsou shodné až na $a_{1,1} - 1 = b_{1,1}$. První sloupec $A$ vyjádříme jako součet prvního sloupce $B$ a elementárního vektoru $e^1$
+
+\[\det(A) = \det(B) + \det\left(\ \begin{array}{|c|c|}
+\hline 1 & 0^T \\  \hline  0 & C \\ \hline
+\end{array} \ \right) = \det(B) + \det(C)\]
+
+Počet koster můžeme vyjádřit rekurentním vztahem
+\[ \kappa(G) = \kappa(G \setminus e) + \kappa(G \circ e) \overset{IP}{=} \det(B) + \det(C) = det(A) \]
+
+\end{itemize}
+\end{enumerate}
+\end{proof}
+\end{veta}
+
+\item Vyslovte a dokažte malou Fermatovu větu.
+
+
+\begin{veta}
+
+Nechť p je prvočíslo a $0 \neq a \in \mathbb{Z}_p$. Pak $a^{p-1} = 1$ v tělese $\mathbb{Z}_p$.
+
+\begin{proof}
+Využijeme zobrazení z přechozího důkazu: 
+Definujeme pro každé $a$ zobrazení $f_a: \{0, ..., n-1 \} \to \{0, ..., n-1 \}$ předpisem $f_a(x) = a \cdot x \mod n$
+
+Ukažme, že $f_a$ je prosté: Sporem. Kdyby nebylo, $\exists b,c, b \neq c: f_a(b) = f_a(c) \implies 0 \equiv ab-ac \implies a (b-c) \equiv 0$. Ale $a \neq 0$ a $b-c \neq 0$. Spor.
+
+$f_a$ je prosté $\implies$ je na $\implies$ je bijekcí.
+
+Potom 
+
+\begin{equation*}
+\prod_{i=1}^{p-1} i = \prod_{i=1}^{p-1} f_a(a) = \prod_{i=1}^{p-1} a\cdot i = a^{p-1} \prod_{i=1}^{p-1} i  \implies a^{p-1} = 1
+\end{equation*}
+\end{proof}
+\end{veta}
+
+\item Vyslovte a dokažte větu o Vandermondově matici.
+\begin{veta}
+Vandermondova matice je regulární $\iff x_0, ..., x_n$ jsou po dvou různé. 
+\begin{proof}
+Odečteme první řádek od každého:
+\[ \begin{pmatrix}
+1 & x_0 & x_0^2 & ... & x_0^n \\
+0 & x_1 - x_0 & x_1^2 - x_0^2 & ... & x_1^n - x_0^n \\ 
+0 & x_2 - x_0 & x_2^2 - x_0^2 & ... & x_2^n - x_0^n \\ 
+\vdots & \vdots & \vdots & & \vdots \\
+0 & x_n - x_0 & x_n^2 - x_n^2 & ... & x_n^n - x_0^n 
+\end{pmatrix}\]
+
+Rozvoj podle prvního řádku:
+
+\[ \det(V_{n+1}) = \begin{vmatrix}
+ x_1 - x_0 & x_1^2 - x_0^2 & ... & x_1^n - x_0^n \\ 
+ x_2 - x_0 & x_2^2 - x_0^2 & ... & x_2^n - x_0^n \\ 
+\vdots & \vdots &  & \vdots \\
+ x_n - x_0 & x_n^2 - x_n^2 & ... & x_n^n - x_0^n 
+\end{vmatrix}\]
+
+Postupně vytkneme z $i$-tého řádku $x_i - x_0$
+
+\[ \det(V_{n+1}) = \prod^n_{i=1} (x_i - x_j) \begin{vmatrix}
+ 1 & x_1 +  x_0  & ... &  x_1^{n-1} + x_1^{n-2}x_0 + ... + x_0^{n-1}  \\ 
+ 1 & x_2 + x_0 & ... &  x_2^{n-1} + x_2^{n-2}x_0 + ... + x_0^{n-1}  \\ 
+\vdots & \vdots &  &\vdots \\
+ 1 & x_n + x_0 & ... & x_n^{n-1} + x_n^{n-2}x_0 + ... + x_0^{n-1} 
+\end{vmatrix}\]
+
+Kde upravíme \[  \begin{vmatrix}
+ 1 & x_1 +  x_0  & ... &  x_1^{n-1} + x_1^{n-2}x_0 + ... + x_0^{n-1}  \\ 
+ 1 & x_2 + x_0 & ... &  x_2^{n-1} + x_2^{n-2}x_0 + ... + x_0^{n-1}  \\ 
+\vdots & \vdots &  &\vdots \\
+ 1 & x_n + x_0 & ... & x_n^{n-1} + x_n^{n-2}x_0 + ... + x_0^{n-1} 
+\end{vmatrix} \]
+
+odečtením $x_0$ násobku každého sloupce od následujícího sloupce, postupně od konce, čímž získáme Vandermondovu matici nižšího řádu.
+
+\[ \det(V_{n+1}) = \prod^n_{i=1} (x_i - x_0) \det(V_n) \]
+
+Tento rekurentní vztah dává
+
+\[ \det(V_{n+1}) = \prod^n_{i < j} (x_j - x_i) \]
+
+Tento výraz je nenulový, pokud žádný součinitel není nulový.
+
+\end{proof}
+\end{veta}
+
+\item Uved'te a dokažte správnost Lagrangeovy interpolace.
+\begin{veta}
+
+Pro $n+1$ dvojic $(x_i, y_i=p(x))$ najdeme vyjádření polynomu takto:
+
+\begin{enumerate}
+\item Určíme $n+1$ polynomů stupně $n$ jako
+
+\[ p_i(x) = \frac{\prod_{i \neq j} x - x_j}{\prod_{i \neq j} x_i - x_j}\]
+Kde $p_i(x_i) = 1$ a $p_i(x_j) = 0$  pro $i \neq j$
+\item sestavíme $p$ jako lineární kombinaci
+\[ p(x) = \sum^{n+1}_{i=1} y_ip_i(x) \]
+\end{enumerate}
+
+\begin{proof}
+Správnost vyplývá s postupu sestavení. Platí $p(x_i) = y_i$, jednoduše ověříme rozepsáním lineární kombinace.
+\end{proof}
+\end{veta}
+
+\item Vyslovte a dokažte větu o podprostoru vlastních vektorů.
+\begin{veta}
+Vlastní vektory odpovídající jednomu vlastnímu číslu $\lambda$ tvoří podprostor.
+\begin{proof} Uvažme $\lambda, f: V \to V, U = \{u \in V: f(u) = \lambda u\}$
+
+Platí \[ \forall u \in U, \forall a \in \mathbb{K}: f(au) = af(u) = a \lambda u = \lambda(au)  \]
+\[ \forall u,v \in U: f(u+v) = f(u) + f(v) = \lambda (u + v) \]
+\end{proof}
+\end{veta}
+
+\item Vyslovte a dokažte větu o lineární nezávislosti vlastních vektorů.
+\begin{veta}
+Pro $f: V \to V$ a $\lambda_1, ..., \lambda_n$ různá vlastní čísla, jsou  odpovídající vlastní vektory $u_1, ..., u_n$ nezávislé.
+\begin{proof} Sporem.
+Předpokládejme nejnižší $k$, t.ž. $\lambda_1, ..., \lambda_k$ a $u_1, ..., u_k$ odpovídají větě, tedy
+\[ \exists a_1, ..., a_k \in \mathbb{K} \setminus 0: \sum^k_{i=1} a_i u_i = 0 \]
+
+Nyní vyjádřeme 0 dvěma způsoby:
+
+\[0 = \lambda_k 0 = \lambda_k \sum^k_{i=1} a_i u_i = \sum^k_{i=1} \lambda_k a_i u_i \]
+\[ 0 = f(0) = f(\sum^k_{i=1} a_i u_i) = \sum^k_{i=1} a_i f(u_i) = \sum^k_{i=1} \lambda_i a_i u_i\]
+
+\hfill
+
+\[ 0 = 0 - 0 = \sum_{i = 1}^{k-1} (\lambda_i - \lambda_k) a_i u_i \]
+
+$\lambda_i \neq \lambda_k \implies (\lambda_i - \lambda_k)a_i \neq 0$
+
+$u_1, ..., u_{k-1}$ jsou lineárně závislé $\to$ spor s volbou $k$.
+
+\end{proof}
+\end{veta}
+
+\item Vyslovte a dokažte větu o kořenech charakteristického polynomu.
+\begin{veta}
+Číslo $\lambda \in \mathbb{K}$ je vlastní $A$, pokud $p_A(\lambda) = 0$
+\begin{proof}
+
+\end{proof}
+\end{veta}
+
+\item Uved'te a dokažte Cayley-Hamiltonovu větu.
+
+
+\begin{veta}
+Pro každou $A \in \mathbb{K}^{n \times n}: p_A(A) = 0_n$, kde $p_A(A)$ je matice $A$ umocněná a přenásobená koeficienty stejně jako v charakteristickém polynomu.
+\begin{proof}
+
+\end{proof}
+\end{veta}
+
+\item Uved'te a dokažte nezbytnou a postačující podmínku, kdy je matice diagonalizovatelná.
+
+
+\begin{veta}
+
+\begin{proof}
+
+\end{proof}
+\end{veta}
+
+\item Vyslovte a dokažte větu o diagonalizaci speciálních komplexních matic.
+
+
+\begin{veta}
+
+\begin{proof}
+
+\end{proof}
+\end{veta}
+
+\item Uved'te a dokažte Cauchy-Schwarzovu nerovnost.
+
+
+\begin{veta}
+
+\begin{proof}
+
+\end{proof}
+\end{veta}
+
+\item Uved'te a dokažte trojúhelníkovou nerovnost.
+
+
+\begin{veta}
+
+\begin{proof}
+
+\end{proof}
+\end{veta}
+
+\item Vyslovte a dokažte větu o Fourierových koeficientech.
+
+
+\begin{veta}
+
+\begin{proof}
+
+\end{proof}
+\end{veta}
+
+\item Vyslovte a dokažte větu o skalárním součinu dvou vektorů a Gramově matici.
+
+
+\begin{veta}
+
+\begin{proof}
+
+\end{proof}
+\end{veta}
+
+\item Uved'te a dokažte správnost Gram-Schmidtovy ortonormalizace.
+
+
+\begin{veta}
+
+\begin{proof}
+
+\end{proof}
+\end{veta}
+
+\item Vyslovte a dokažte větu o izometrii a normě.
+
+
+\begin{veta}
+
+\begin{proof}
+
+\end{proof}
+\end{veta}
+
+\item Vyslovte a dokažte větu o izometrii a vlastnostech její matice.
+
+
+\begin{veta}
+
+\begin{proof}
+
+\end{proof}
+\end{veta}
+
+\item Vyslovte a dokažte větu o ortogonálním doplňku.
+
+
+\begin{veta}
+
+\begin{proof}
+
+\end{proof}
+\end{veta}
+
+\item Vyslovte a dokažte větu o třech ekvivalentních podmínkách pro pozitivně definitní matice.
+
+
+\begin{veta}
+
+\begin{proof}
+
+\end{proof}
+\end{veta}
+
+\item Vyslovte a dokažte větu o rekurentní podmínce pro pozitivně definitní matice.
+
+
+\begin{veta}
+
+\begin{proof}
+
+\end{proof}
+\end{veta}
+
+\item Vyslovte a dokažte větu o pozitivně definitních maticích a determinantech.
+
+
+\begin{veta}
+
+\begin{proof}
+
+\end{proof}
+\end{veta}
+
+\item Uved'te a dokažte správnost algoritmu pro výpočet Choleského rozkladu.
+
+
+\begin{veta}
+
+\begin{proof}
+
+\end{proof}
+\end{veta}
+
+\item Vyslovte a dokažte větu o diagonalizovatelnosti matic forem.
+
+
+\begin{veta}
+
+\begin{proof}
+
+\end{proof}
+\end{veta}
+
+\item Uved'te a dokažte Sylvesterův zákon setrvačnosti | o diagonalizaci kvadratických forem.
+
+
+\begin{veta}
+
+\begin{proof}
+
+\end{proof}
+\end{veta}
+
+
+\item Vyslovte a dokažte větu o počtu přímek pod stejným úhlem.
+
+
+\begin{veta}
+
+\begin{proof}
+
+\end{proof}
+\end{veta}
+
+
+\end{enumerate}
+
+
+\part{Přehledové otázky}
+
+
+(U přehledových otázek uved'te definice, tvrzení, věty, příklady a souvislosti. Důkazy u přehledových otázek nejsou vyžadovány.)
+\begin{enumerate}
+\item Přehledově sepište, co víte o výpočtu determinantů.
+\item Přehledově sepište, co víte o determinantech a jejich geometrickém významu.
+\item Přehledově sepište, co víte o počtu koster grafu.
+\item Přehledově sepište, co víte o polynomech.
+\item Přehledově sepište, co víte o vlastních číslech a vlastních vektorech.
+\item Přehledově sepište, co víte o charakteristickém polynomu a jeho koeficientech.
+\item Přehledově sepište, co víte o podobných maticích a diagonalizaci.
+\item Přehledově sepište, co víte o speciálních komplexních maticích.
+\item Přehledově sepište, co víte o skalárním součinu a související normě.
+\item Přehledově sepište, co víte o ortogonalitě a kolmé projekci.
+\item Přehledově sepište, co víte o ortonormálních bazích.
+\item Přehledově sepište, co víte o ortogonálním doplňku.
+\item Přehledově sepište, co víte o pozitivně definitních maticích.
+\item Přehledově sepište, co víte o bilineárních a kvadratických formách a jejich maticích.
+\end{enumerate}
+
+
+\end{document}
