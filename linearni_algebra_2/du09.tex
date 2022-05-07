@@ -1,0 +1,112 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{mathtools, array, enumitem, xcolor}
+\usepackage[margin=0.7in]{geometry}
+\setlength{\parindent}{0em}
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.11}
+
+\usepackage[czech]{babel}
+
+\theoremstyle{plain}
+\newtheorem{veta}{Věta}
+\theoremstyle{definition}
+\newtheorem{definice}[veta]{Definice}
+
+\title{Vypracování domácí úlohy č. 9 z předmětu Lineární algebra 2}
+
+\counterwithin*{equation}{section}
+
+\begin{document}
+
+\begin{Large}
+Vypracování domácí úlohy č. 9 z předmětu Lineární algebra 2
+\end{Large}
+
+\begin{large}
+Jméno: Zdeněk Tomis
+\end{large}
+
+Potřebný čas: $\sim 1$  hod
+
+\section{}
+
+Skalární součin musí být roven nule, tedy se podíváme na soustavu tří rovnic a nalezneme jejich řešení.
+
+\[\begin{pmatrix}
+2 & 1 & 0 \\
+1 & 2 &-1 \\
+0 &-1 & 1
+\end{pmatrix} = A\]
+
+\begin{equation} (1,2,3)A = (4,2,1)  \end{equation}
+\begin{equation} (4,5,6)A = (13,8,1)  \end{equation}
+\begin{equation} (7,8,9)A = (22,12,1)  \end{equation}
+
+\[ \begin{pmatrix}
+4 & 2 & 1  \\
+13 & 8 & 1 \\
+22 & 14 & 1
+\end{pmatrix}x = 0  \]
+
+\[ \begin{pmatrix}
+4 & 2 & 1  \\
+13 & 8 & 1 \\
+22 & 14 & 1
+\end{pmatrix} \sim \begin{pmatrix}
+4 & 2 & 1  \\
+9 & 6 & 0 \\
+18 & 12 & 0
+\end{pmatrix} \sim \begin{pmatrix}
+1 & 0 & 1  \\
+3 & 2 & 0 \\
+0 & 0 & 0
+\end{pmatrix} \]
+
+$x_2 = -\frac32x_1$
+
+$x_3 = -x_1$
+
+\[ x = p \cdot (1,-\frac32,-1)^T = t \cdot (-2,3,2)^T \]
+
+Pro parametry $p,t$
+
+Ortogonální doplněk množiny \[(\text{Zadaná množina})^\perp = span((-2,3,2)^T )\]
+
+\section{}
+
+Máme čtyři skalární součiny, se kterými můžeme pracovat. Protože se pohybujeme v reálném skalárním součinu, dva z nich jsou shodné, máme tedy tři rovnice.
+
+  
+  \begin{equation}
+\left\langle (4,1,3)^T|(4,1,3)^T\right\rangle = \left\langle f\left((4,1,3)^T\right)|f\left((4,1,3)^T\right)\right\rangle
+\end{equation}
+\[ \implies 26 = a^2 + 1 \overset{a \geq 0}{\implies} a = 5\]
+
+\begin{equation}
+\left\langle (4,1,3)^T|(1,2,4)^T \right\rangle = \left\langle f\left((4,1,3)^T\right)|f\left((1,2,4)^T\right)\right\rangle
+\end{equation}
+\[ \implies 18 = \left\langle (1,0,a)^T|(3,b,c)^T \right\rangle
+= 3 + ac
+ \]\[ 
+  15 = ac\]
+  
+  Můžeme dosadit
+  
+  \[ c = 3 \]
+
+
+  \begin{equation}
+\left\langle (1,2,4)^T|(1,2,4)^T\right\rangle = \left\langle f\left((1,2,4)^T\right)|f\left((1,2,4))^T\right)\right\rangle
+\end{equation}
+\[ \implies 21 = 9 + b^2 + c^2 \]
+
+Dosadíme
+
+\[  b = \sqrt{3} \]
+
+\[ (a,b,c) = (5, \sqrt{3}, 3)\]
+\end{document}
