@@ -16,10 +16,11 @@
 
 \usepackage[czech]{babel}
 
+\newtheorem{lemma}{Lemma}
 \theoremstyle{plain}
 \newtheorem{veta}{Věta}
-\theoremstyle{definition}
-\newtheorem{definice}[veta]{Definice}
+
+\renewcommand{\arraystretch}{1.5}
 
 
 \title{Příprava na zkoušku z předmětu Lineární algebra 2}
@@ -42,7 +43,7 @@
 
 \item Definujte znaménko permutace.
 
-\paragraph{Znaménko permutace} je počet inverzí v permutaci.
+\paragraph{Znaménko permutace} je $1^\text{počet inverzí v permutaci}$.
 
 \item Definujte determinant.
 
@@ -68,7 +69,7 @@
 \paragraph{Polynom stupně $n$ proměnné $x$ nad $\mathbb{K}$} je výraz
 \[ p(x) = a_nx^n + a_{n-1}x^{n-1} + ... + a_1x + a_0\]
 
-kde $a_n \neq 0$ a $\forall i: a_i \in \mathbb{K}$. Píšeme $p \in \mathbb{K}$.
+kde $a_n \neq 0$ a $\forall i: a_i \in \mathbb{K}$. Píšeme $p \in \mathbb{K}(x)$.
 
 \item Definujte kořen polynomu a jeho násobnost.
 
@@ -78,15 +79,17 @@ kde $a_n \neq 0$ a $\forall i: a_i \in \mathbb{K}$. Píšeme $p \in \mathbb{K}$.
 
 \item Definujte algebraicky uzavřené těleso.
 
-\paragraph{Algebraicky uzavřené těleso} je takové těleso $\mathbb{K}$, pro které platí, že každý polynom $p \in \mathbb{K}$ má kořen.
+\paragraph{Algebraicky uzavřené těleso} je takové těleso $\mathbb{K}$, pro které platí, že každý polynom $p \in \mathbb{K}(x)$ má kořen.
 
 \item Definujte Vandermondovu matici.
 
-\paragraph{Vandermondova matice} 
 
-% @TODO %
-
-\[ (V_{k}(x_0, ..., x_n))_{i,j} = x_i^{j-1} \]
+Pro $x_0, ..., x_n$ je $\begin{pmatrix}
+1 & x_0 & x_0^2 & ... & x_0^{n+1} \\
+1 & x_1 & x_1^2 & ... & x_1^{n+1} \\
+\vdots &&& \\
+1 & x_n & x_n^2 & ... & x_n^{n+1} 
+\end{pmatrix} = V_{n+1}(x_0, ..., x_n)$ tzv. \textbf{Vandermondova matice}.
 
 \item Definujte vlastní číslo a vlastní vektor lineárního zobrazení.
 
@@ -96,7 +99,7 @@ kde $a_n \neq 0$ a $\forall i: a_i \in \mathbb{K}$. Píšeme $p \in \mathbb{K}$.
 
 \item Definujte vlastní číslo a vlastní vektor matice.
 
-\paragraph{Vlastní číslo} matice $A \in \mathbb{K}^{n \times n}$ je jakékoliv $\lambda \in \mathbb{K}$, pro které $\exists u \in V \setminus 0$ takový, že $Au = \lambda u$
+\paragraph{Vlastní číslo} matice $A \in \mathbb{K}^{n \times n}$ je jakékoliv $\lambda \in \mathbb{K}$, pro které $\exists u \in \mathbb{K}^n \setminus 0$ takový, že $Au = \lambda u$
 
 \paragraph{Vlastní vektor} matice $A$ odpovídající vlastnímu číslu $\lambda$ je libovolný $u \in \mathbb{K}^n$, t.ž. $Au = \lambda u$
 
@@ -136,6 +139,8 @@ kde $a_n \neq 0$ a $\forall i: a_i \in \mathbb{K}$. Píšeme $p \in \mathbb{K}$.
 		& \mbox{\huge{0}}& 		   & \lambda & 1 \\
 		& 		  & 		   & 		 & \lambda 
 \end{pmatrix} \]
+
+\newpage
 
 \item Definujte Jordanův normální tvar matice.
 
@@ -218,7 +223,7 @@ Pro $V$ vektorový prostor se skalárním součinem a bází $X = (v_1, ..., v_n
 
 \item Definujte pozitivně definitní matici.
 
-$A \in \mathbb{R}^{n \times n}$ je \textbf{pozitivně definitní}, pokud
+Matice $A$ řádu $n$ je \textbf{pozitivně definitní}, pokud
 \begin{itemize}
 \item je hermitovská a
 \item $\forall x \in \mathbb{C}^n \setminus 0: x^HAx > 0$
@@ -230,7 +235,7 @@ $A \in \mathbb{R}^{n \times n}$ je \textbf{pozitivně definitní}, pokud
 
 \item Definujte bilineární formu.
 
-Pro prostor $V$ nad $\mathbb{K}$ se zobrazení $f: V \times V \to \mathbb{K}$ nazývá \textbf{bilineární formou}, pokus splňuje následující podmínky 
+Pro prostor $V$ nad $\mathbb{K}$ se zobrazení $f: V \times V \to \mathbb{K}$ nazývá \textbf{bilineární formou}, pokud splňuje následující podmínky 
 \begin{enumerate}[label=(\roman*)]
 \item[(i, ii)] $\forall u,v \in V, \forall a \in \mathbb{K}: f(au,v) = f(u,av) = af(u,v)$
 \item[(iii)] $\forall u,v,w \in V : f(u+v,w) = f(u,w) + f(v,w)$
@@ -247,7 +252,7 @@ Pro vektorový prostor $V$ nad $\mathbb{K}$ s bází $X = (v_1, ..., v_n)$ je \t
 
 \item Definujte matici kvadratické formy vzhledem k bázi*
 
-Pro vektorový prostor $V$ nad $\mathbb{K}$ s bází $X = (v_1, ..., v_n)$ je \textbf{matice kvadratické formy} $g$ matice symetrické bilineární formy $f$, pokud taková symetrická $f$ existuje
+Pro vektorový prostor $V$ nad $\mathbb{K}$ s bází $X = (v_1, ..., v_n)$ je \textbf{matice kvadratické formy} $g$ matice odpovídající symetrické bilineární formy $f$, pokud taková symetrická $f$ existuje
 
 \item Definujte analytický výraz formy
 
@@ -256,7 +261,9 @@ Pro vektorový prostor $V$ nad $\mathbb{K}$ s bází $X = (v_1, ..., v_n)$ je \t
 
 \item Definujte signaturu formy.
 
-%@TODO%
+\paragraph{Signatura formy g} je trojice $(\#1, \#-1, \#0)$, počítáno na
+diagonále matice $B$ vůči vhodné bázi takové, že $B$ je diagonální s $0,1,-1$ na diagonále.
+
 
 \end{enumerate}
 
@@ -453,14 +460,14 @@ Každý graf $G$ na alespoň dvou vrcholech má právě $\det(L_G^{1,1})$ koster
 
 
 Zvolme libovolnou hranu $e$, BÚNO $e = (v_1, v_2)$.
-Nechť $A = L_{G}^{1,1}$, $B = L_{G \setminus e}^{1,1}$, $A = L_{G \circ e}^{1,1}$
+Nechť $A = L_{G}^{1,1}$, $B = L_{G \setminus e}^{1,1}$, $C = L_{G \circ e}^{1,1}$
 
 
 
 $A$ a $B$ jsou shodné až na $a_{1,1} - 1 = b_{1,1}$. První sloupec $A$ vyjádříme jako součet prvního sloupce $B$ a elementárního vektoru $e^1$
 
 \[\det(A) = \det(B) + \det\left(\ \begin{array}{|c|c|}
-\hline 1 & 0^T \\  \hline  0 & C \\ \hline
+\hline 1 & * \\  \hline  0 & C \\ \hline
 \end{array} \ \right) = \det(B) + \det(C)\]
 
 Počet koster můžeme vyjádřit rekurentním vztahem
@@ -479,8 +486,8 @@ Počet koster můžeme vyjádřit rekurentním vztahem
 Nechť p je prvočíslo a $0 \neq a \in \mathbb{Z}_p$. Pak $a^{p-1} = 1$ v tělese $\mathbb{Z}_p$.
 
 \begin{proof}
-Využijeme zobrazení z přechozího důkazu: 
-Definujeme pro každé $a$ zobrazení $f_a: \{0, ..., n-1 \} \to \{0, ..., n-1 \}$ předpisem $f_a(x) = a \cdot x \mod n$
+Využijeme zobrazení z předchozího důkazu: 
+Definujeme pro každé $a$ zobrazení $f_a: \{0, ..., n-1 \} \to \{0, ..., n-1 \}$ předpisem $f_a(x) = a \cdot x \mod p$
 
 Ukažme, že $f_a$ je prosté: Sporem. Kdyby nebylo, $\exists b,c, b \neq c: f_a(b) = f_a(c) \implies 0 \equiv ab-ac \implies a (b-c) \equiv 0$. Ale $a \neq 0$ a $b-c \neq 0$. Spor.
 
@@ -489,7 +496,7 @@ $f_a$ je prosté $\implies$ je na $\implies$ je bijekcí.
 Potom 
 
 \begin{equation*}
-\prod_{i=1}^{p-1} i = \prod_{i=1}^{p-1} f_a(a) = \prod_{i=1}^{p-1} a\cdot i = a^{p-1} \prod_{i=1}^{p-1} i  \implies a^{p-1} = 1
+\prod_{i=1}^{p-1} i = \prod_{i=1}^{p-1} f_a(i) = \prod_{i=1}^{p-1} a\cdot i = a^{p-1} \prod_{i=1}^{p-1} i  \implies a^{p-1} = 1
 \end{equation*}
 \end{proof}
 \end{veta}
@@ -548,7 +555,7 @@ Tento výraz je nenulový, pokud žádný součinitel není nulový.
 \item Uved'te a dokažte správnost Lagrangeovy interpolace.
 \begin{veta}
 
-Pro $n+1$ dvojic $(x_i, y_i=p(x))$ najdeme vyjádření polynomu takto:
+Pro $n+1$ dvojic $(x_i, y_i=p(x_i))$ najdeme vyjádření polynomu takto:
 
 \begin{enumerate}
 \item Určíme $n+1$ polynomů stupně $n$ jako
@@ -578,13 +585,13 @@ Platí \[ \forall u \in U, \forall a \in \mathbb{K}: f(au) = af(u) = a \lambda u
 \begin{veta}
 Pro $f: V \to V$ a $\lambda_1, ..., \lambda_n$ různá vlastní čísla, jsou  odpovídající vlastní vektory $u_1, ..., u_n$ nezávislé.
 \begin{proof} Sporem.
-Předpokládejme nejnižší $k$, t.ž. $\lambda_1, ..., \lambda_k$ a $u_1, ..., u_k$ odpovídají větě, tedy
+Předpokládejme nejnižší $k$, t.ž. $\lambda_1, ..., \lambda_k$ a $u_1, ..., u_k$ oodporují větě, tedy
 \[ \exists a_1, ..., a_k \in \mathbb{K} \setminus 0: \sum^k_{i=1} a_i u_i = 0 \]
 
 Nyní vyjádřeme 0 dvěma způsoby:
 
 \[0 = \lambda_k 0 = \lambda_k \sum^k_{i=1} a_i u_i = \sum^k_{i=1} \lambda_k a_i u_i \]
-\[ 0 = f(0) = f(\sum^k_{i=1} a_i u_i) = \sum^k_{i=1} a_i f(u_i) = \sum^k_{i=1} \lambda_i a_i u_i\]
+\[ 0 = f(0) = f\left(\sum^k_{i=1} a_i u_i \right) = \sum^k_{i=1} a_i f(u_i) = \sum^k_{i=1} \lambda_i a_i u_i\]
 
 \hfill
 
@@ -601,17 +608,54 @@ $u_1, ..., u_{k-1}$ jsou lineárně závislé $\to$ spor s volbou $k$.
 \begin{veta}
 Číslo $\lambda \in \mathbb{K}$ je vlastní $A$, pokud $p_A(\lambda) = 0$
 \begin{proof}
+$\lambda $ je vlastní číslo $\iff \exists x \in \mathbb{K}^n \setminus 0: Ax = \lambda x \iff $
 
+$\iff Ax - \lambda x = 0 \iff (A - \lambda I_n)x = 0  \iff$
+
+$\iff A - \lambda I_n$ je singulární $\iff det(A - \lambda I_n) = p_A(\lambda) = 0$
 \end{proof}
 \end{veta}
 
-\item Uved'te a dokažte Cayley-Hamiltonovu větu.
+\item Uveďte a dokažte Cayley-Hamiltonovu větu.
 
 
 \begin{veta}
 Pro každou $A \in \mathbb{K}^{n \times n}: p_A(A) = 0_n$, kde $p_A(A)$ je matice $A$ umocněná a přenásobená koeficienty stejně jako v charakteristickém polynomu.
 \begin{proof}
+Použijeme větu $M \cdot adj(M) = \det(M) \cdot I_n$ pro $M = A - tI_n$
 
+Složky $adj(A - tI_n)$ jsou determinanty podmatic, tedy polynomy stupně nejvýše $n-1$.
+
+To můžeme rozepsat jako
+
+$t^{n-1}B_{n-1} + ... + tB_1 + B_0$ pro $B_i \in \mathbb{K}^{n \times n}$
+
+Dosazení do věty:
+
+\begin{align*}
+(A - tI_n)adj(A - tI_n) &= \det(A - tI_n) \cdot I_n  \\
+(A - tI_n)(t^{n-1}B_{n-1} + ... + tB_1 + B_0) &= \det(A - tI_n) \cdot I_n \\
+-tI_nB_{n-1} + At^{n-1}B_{n-1} - t^{n-1}B_{n-2} + ... + AtB_1 - tB_0 + AB_0) &= (-1)^n t^n I_n + a_{n-1} t^{n-1}I_n + ... + a_1tI_n + a_0I_n
+\end{align*} 
+
+Rozdělíme na tři rovnice podle exponentu $t$:
+
+\begin{itemize}[label=pro]
+\item $t^n: -B_{n-1} = (-1)^n I_n $ přenásobíme zleva $A^n$
+\item $t^i: AB_i -B_{i-1} = a_i I_n $ přenásobíme zleva $A^i$
+\item $t^0: AB_0 = a_0 I_n $
+\end{itemize}
+
+Rovnosti opět sečteme, dostaneme na levé straně: 
+\[ -A^nB_{n-1} + A^{n-1}(AB_{n-1} -B_{n-2}) + A^{n-2}(AB_{n-2} -B_{n-3}) + ... + A(AB_1 - B_0) + AB_0 = 0_n \]
+
+A na pravé straně:
+
+\[  (-1)^nA^n  + a_{n-1} A^{n-1} + a_{n-2} A^{n-2} + ... + a_1A + a_0 I_n = p_A(A)\]
+
+Tedy
+
+\[p_A(A) = 0_n\]
 \end{proof}
 \end{veta}
 
@@ -619,49 +663,111 @@ Pro každou $A \in \mathbb{K}^{n \times n}: p_A(A) = 0_n$, kde $p_A(A)$ je matic
 
 
 \begin{veta}
-
+$A \in \mathbb{K}^{n \times n}$ je podobná diagonální matici $\iff K^{n}$ má bázi sestávající z vlastních vektorů $A$
 \begin{proof}
+$AR = RD$
 
+$\forall i: Ax_i = x_i d_{i,i} = d_{i,i}x_i = \lambda_i x_i \implies \forall i: \exists x_i $ vlastní vektor odpovídající $\lambda_i$. Matice musí být regulární, takže sloupce nezávislé, tedy tvoří bázi.
+
+$R = (x_1\ x_2\ ...)$
 \end{proof}
 \end{veta}
+
+\includegraphics[scale=0.5]{build/diagonalizace.PNG} 
 
 \item Vyslovte a dokažte větu o diagonalizaci speciálních komplexních matic.
 
 
 \begin{veta}
+Každá hermitovská matice má všechna vlastní čísla reálná. Navíc $\exists R$ unitární, t.ž. $R^{-1}AR$ je diagonální
+\begin{proof} Indukcí podle n.
 
-\begin{proof}
+Pro $n = 1$ věta platí.
 
+\hfill
+
+Označme $A_n = A$
+
+V tělese $\mathbb{C}$ má matice $A_n$ vlastní číslo $\lambda$ s vlastním vektorem $x$.
+
+Zvětšíme $x$ faktorem $\frac{1}{\sqrt{x^Hx}}$, abychom dostali $x^Hx=1$.
+
+Doplníme $x$ na unitární matici $P_n$. (To je možné dle "faktu" z přednášky).
+
+$P^H_nA_nP_n$ je hermitovská: $(P^H_nA_nP_n)^H = P^H_nA_n^H(P_n^H)^H = P^H_nA_nP_n$.
+
+Protože $A_nx = \lambda x$, matice $A_nP_n$ má $\lambda x$ jako první sloupec.
+
+Protože $P_n$ je unitární, první sloupec $P^H_nA_nP_n$ je $\lambda P^Hx = \lambda(1, 0, ..., 0)^T = (\lambda, 0, ... , 0)^T$. (součin unitární matice a hermitovské transpozice je jednotková matice)
+
+Protože je daná matice hermitovská a prvek $\lambda$ leží na diagonále, $\lambda \in \mathbb{R}$, zbytek prvního řádku je taktéž nulový.
+ 
+ Tedy $P^H_nA_nP_n =  \begin{array}{|c|c|} \hline  \lambda & 0^T  \\ \hline  0 & A_{n-1} \\ \hline \end{array}$, kde $A_{n-1}$ je hermitovská.
+ 
+Podle indukčního předpokladu existuje $R_{n-1}$, t.ž. $R^{-1}_{n-1}A_{n-1}R_{n-1} = D_{n-1}$.
+
+Položme $R_n = P_n \cdot\begin{array}{|c|c|} \hline  \lambda & 0^T  \\ \hline  0 & R_{n-1} \\ \hline \end{array}$.
+
+Pak $R^{-1}_nA_nR_n = D_n$
+ 
+ 
 \end{proof}
 \end{veta}
 
 \item Uved'te a dokažte Cauchy-Schwarzovu nerovnost.
-
-
 \begin{veta}
+Pro libovolné $u, v \in V$ nad $\mathbb{C}$:
+\[ |\langle u | v \rangle | \leq ||u|| \cdot ||v|| \]
+\begin{proof} Pro $u = 0$ nebo $v = 0$ platí. Jinak:
 
-\begin{proof}
+Pro $a \in \mathbb{C}$ platí $||u + av||^2 \geq 0$.
+
+\[||u + av||^2 = \sqrt{\langle u+av|u+av \rangle}^2 
+= \langle u|u \rangle  + a\langle v|u \rangle + \overline{a}\langle u|v \rangle  + a \overline{a}\langle v|v \rangle \]
+
+Pro odečtení posledních dvou členů zvolme $a = - \frac{\langle u|v \rangle}{\langle v|v \rangle}$
+
+Dostaneme 
+\begin{align*}
+0 &\leq \langle u|u \rangle  - \frac{\langle u|v \rangle}{\langle v|v \rangle} \langle v|u \rangle \\
+ \frac{\langle u|v \rangle}{\langle v|v \rangle} \langle v|u \rangle  &\leq \langle u|u \rangle \\
+ \langle u|v \rangle \langle v|u \rangle  &\leq \langle u|u \rangle  \langle v|v \rangle \\
+ \langle u|v \rangle^2   &\leq ||u||^2 \cdot ||v||^2 \\
+  \langle u|v \rangle   &\leq ||u|| \cdot ||v|| 
+\end{align*}
 
 \end{proof}
 \end{veta}
 
 \item Uved'te a dokažte trojúhelníkovou nerovnost.
-
-
 \begin{veta}
-
+Pro každý skalární součin:
+\[ ||u+v|| \leq ||u|| + ||v|| \]
 \begin{proof}
-
+\[  ||u+v||  = \sqrt{\langle u +v | u + v \rangle} =
+ \sqrt{\langle v | v \rangle + \langle u | v \rangle + \langle v | u \rangle + \langle u | u \rangle}\]
+ 
+Součet dvou komplexně sdružených čísel je nejvýše dvojnásobek absolutní hodnoty.
+ 
+ \[ \leq  \sqrt{||u||^2 + 2 |\langle u | v \rangle | +  ||v||^2}   \]
+ 
+ Dle Cauchy-Schwarzovy nerovnosti
+ 
+  \[ \leq  \sqrt{||u||^2 + 2 ||u|| \cdot ||v|| +  ||v||^2} = ||u|| + ||v||  \]
+  
+  Tedy 
+  
+  \[ ||u+v|| \leq ||u|| + ||v||  \]
 \end{proof}
 \end{veta}
 
 \item Vyslovte a dokažte větu o Fourierových koeficientech.
-
-
 \begin{veta}
-
+Nechť $Z = \{v_1, ..., v_n\}$ je ortonormální báze $V$, pak
+\[\forall u \in V: u = \langle u | v_1 \rangle v_1 + ... +  \langle u | v_n \rangle v_n \]
 \begin{proof}
-
+\[ u = \sum^n_{i=1} a_i v_i \implies\]
+\[\implies  \langle u | v_j \rangle =  \left\langle \sum^n_{i=1} a_i v_i  | v_j \right\rangle = \sum^n_{i=1} a_i \langle  v_i  | v_j \rangle = a_j \]
 \end{proof}
 \end{veta}
 
@@ -669,68 +775,209 @@ Pro každou $A \in \mathbb{K}^{n \times n}: p_A(A) = 0_n$, kde $p_A(A)$ je matic
 
 
 \begin{veta}
+V je prostor se skalárním součinem a bází $X = (v_1, ..., v_n)$
 
+Potom gramova matice $A,\ a_{ij} = \langle v_i | v_j \rangle$ splňuje
+
+\[ \forall u,w \in V: \langle u | w \rangle = [w]_X^H A^T [u]_X \]
 \begin{proof}
+Označme $[u]_X = (\alpha_1, \alpha_2, ..., \alpha_n)^T$ a
+
+$[w]_X = (\beta_1, \beta_2, ..., \beta_n)^T$
+
+Pak
+\[  \langle u | w \rangle = \left\langle \sum^n_{i=1} \alpha_i v_i | \sum^n_{j=1} \beta_j v_j \right\rangle = \sum^n_{i=1}\sum^n_{j=1} \alpha_i \beta_j  \langle v_i |  v_j \rangle = [w]_X^H A^T [u]_X \]
 
 \end{proof}
 \end{veta}
 
 \item Uved'te a dokažte správnost Gram-Schmidtovy ortonormalizace.
 
-
-\begin{veta}
-
+\begin{lemma}[o ortogonální projekci] $u = p_Z(u) \perp v_i \forall v_i \in Z$
 \begin{proof}
+\[   \langle u - p_Z(u) | v_i \rangle =  \left\langle u - \sum_{j=j}^n  \langle u | v_j \rangle v_j | v_i \right\rangle = \langle u | v_i \rangle - \sum_{j=1}^n  \langle u | v_j \rangle \langle v_j | v_i \rangle = 0  \]
+\end{proof}
+\end{lemma}
 
+\begin{veta} Gram-Schmidtova ortonormalizace převede libovolnou bázi prostoru $V$ se skalárním součinem na ortonormální bázi. 
+
+In: báze $(u_1, ..., u_n)$
+
+Out: ortonormální báze $(v_1, ..., v_n)$
+
+for $i = 1, ..., n$
+
+$w_i = u_i - \sum^{i-1}_{j = 1} \langle u_i | v_j \rangle v_j$
+
+$v_i = \frac1{||w_i||} w_i$
+
+end
+\begin{proof}
+\begin{itemize}
+\item Dle lemmatu jsou všechny vektory po dvou kolmé
+\item Díky druhému kroku jsou všechny vektory normální
+\item Díky lemmatu o výměně: $\mathcal{L}(v_1, ..., v_{i-1}, v_i) = \mathcal{L}(v_1, ..., v_{i-1}, w_i) =  \mathcal{L}(v_1, ..., v_{i-1}, u_i) $ Tedy se jedná o bázi.
+\end{itemize}
 \end{proof}
 \end{veta}
+
 
 \item Vyslovte a dokažte větu o izometrii a normě.
 
-
 \begin{veta}
+Lineární zobrazení $f$ je izometrie $\iff ||u|| = ||f(u)||$ 
+\begin{proof}\begin{itemize}
+\item $\implies$ 
 
-\begin{proof}
+Vyplývá z definice normy
+\item $\impliedby$
 
-\end{proof}
+\[ ||u + aw|| = ||u||^2 + a \langle w|u \rangle + \overline{a}\langle u | w \rangle + a\overline{a} ||w||^2 \]
+
+\[ ||f(u + aw)|| = ||f(u)||^2 + a \langle f(w)|f(u) \rangle + \overline{a}\langle f(u)| f(w) \rangle + a\overline{a} ||f(w)||^2 \]
+
+Ale 
+
+\[ ||u + aw|| = ||f(u + aw)|| \]
+\[ ||u||^2 + a \langle w|u \rangle + \overline{a}\langle u | w \rangle + a\overline{a} ||w||^2 = ||f(u)||^2 + a \langle f(w)|f(u) \rangle + \overline{a}\langle f(u)| f(w) \rangle + a\overline{a} ||f(w)||^2  \]
+
+Normy se rovnají
+
+\[  a \langle w|u \rangle + \overline{a}\langle u | w \rangle +  =  a \langle f(w)|f(u) \rangle + \overline{a}\langle f(u)| f(w) \rangle \]
+
+Pro $a = 1$
+\[  \langle w|u \rangle + \langle u | w \rangle   =   \langle f(w)|f(u) \rangle + \langle f(u)| f(w) \rangle \]
+Pro $a = i$
+\[  \langle w|u \rangle -\langle u | w \rangle  =   \langle f(w)|f(u) \rangle -\langle f(u)| f(w) \rangle \]
+
+Sečtením:
+
+\[  \langle w|u \rangle   =   \langle f(w)|f(u) \rangle  \]
+\end{itemize}\end{proof}
 \end{veta}
 
 \item Vyslovte a dokažte větu o izometrii a vlastnostech její matice.
-
-
 \begin{veta}
+Pro $V,W$ prostory konečné dimenze se skalárním součinem a $X,Y$ jejich ortonormální báze:
 
+\[ f: V \to W \text{ je bijektivní izometrie } \iff [f]_{XY} \text{ je unitární}\]
 \begin{proof}
+Lineární bijekce implikuje stejnou dimenzi. Protože X,Y jsou ortonormální, platí
+\[ \langle u | w \rangle = [w]_X^H[u]_X\]
+\[ \langle f(u) | f(w) \rangle = [f(w)]_Y^H[f(u)]_Y = [w]^H_X[f]^H_{XY}[f]_{XY}[u]_X\]
+
+Tedy \[ [w]_X^H[u]_X = [w]^H_X[f]^H_{XY}[f]_{XY}[u]_X\]
+\[[f]^H_{XY} =[f]^{-1}_{XY}\]
+
+$[f]_{XY}$ je unitární.
 
 \end{proof}
 \end{veta}
 
 \item Vyslovte a dokažte větu o ortogonálním doplňku.
 
-
+%@TODO overit, kterou myslel%
 \begin{veta}
-
+Pro prostor $W$ se skalárním součinem a konečnou dimenzí a podprostor $V$ platí \begin{enumerate}[label=(\alph*)]
+\item $V = (V^\perp)^\perp$
+\item $\dim(W) = \dim(V) + \dim(V^\perp)$
+\end{enumerate}
 \begin{proof}
+Zvolíme ortonormální bázi $X$ $V$ a doplníme ji na ortonormální bázi $Z$ $X$
 
+$Y = Z \setminus X \quad X = (x_1, ..., x_k) \quad Y = (y_1, ..., y_l)$
+
+Každý $u \in \mathcal{L}(X) = V \perp$ ke každému $v \in \mathcal{L}(Y)$
+\[ \langle u|v \rangle = \left\langle \sum^n_{i=1} a_ix_i | \sum^n_{j=1} b_jy_j \right\rangle =  \sum^n_{i=1}  \sum^n_{j=1} a_i \overline{b_j} \langle x_i | y_j \rangle = 0 \]
+
+Tedy $ \mathcal{L}(Y) \subseteq V^\perp$
+
+Abychom dokázali $ \mathcal{L}(Y) \supseteq V^\perp$, vezměme $w \in V^\perp$ a uvažme $[w]_Z$
+
+$Z$ je ortonormální, takže koeficienty $[w]_Z$ jsou Fourierovy koeficienty. Prvních $k$ souřadnic je ale nulových, tedy \[w \in \mathcal{L}(Y) \implies V^\perp \supseteq \mathcal{L}(Y) \implies V^\perp = \mathcal{L}(Y)\]
+
+\hfill
+
+Nyní \[ \dim(V) + \dim(V^\perp) = |X| + |Y| = |Z| = \dim(W) \]
+a \[(V^\perp)^\perp =  \mathcal{L}(Z \setminus Y) =  \mathcal{L}(X) = V  \]
 \end{proof}
 \end{veta}
 
 \item Vyslovte a dokažte větu o třech ekvivalentních podmínkách pro pozitivně definitní matice.
 
-
 \begin{veta}
+Pro hermitovskou matici $A$ jsou následující podmínky ekvivalentní:
+\begin{enumerate}
+\item $A$ je pozitivně definitní
+\item $A$ má všechna vlastní čísla kladná
+\item Existuje regulární $U$, t.ž. $A = U^HU$
+\end{enumerate}
+\begin{proof}$\ $
+\begin{itemize}
+\item[$1 \implies 2$] 
+$A$ je hermitovská $\implies$ má vlastní čísla reálná.
 
-\begin{proof}
+Nechť $x$ je netriviální vlastní vektor, který odpovídá vlastnímu číslu $\lambda$.
 
-\end{proof}
+Pak $0 < x^HAx =  \lambda x^Hx = \lambda \langle x | x \rangle$
+
+$\langle x | x \rangle > 0 \implies \lambda > 0$
+
+\item[$2 \implies 3$]
+$A$ je hermitovská $\implies$ existuje unitární $R$ a diagonální $D$, t.ž. $A = R^HDR$.
+
+Vezměme diagonální $D^\prime: d^\prime_{i,i} = \sqrt{d_{i,i}}$ a $U = D^\prime R$.
+
+Nyní \[ U^HU =  R^H D^{\prime H} D^\prime R = R^HDR = A\]
+
+$U$ je regulární, protože diagonální i unitární matice jsou regulární.
+\item[$3 \implies 1$]
+Pokud $x \in \mathbb{C}^n \setminus 0$, pak $Ux \neq 0$, protože $U$ je regulární.
+
+$x^HAx = x^HU^H Ux = (Ux)^H Ux = \langle Ux | Ux \rangle > 0 $
+
+\end{itemize}\end{proof}
 \end{veta}
 
 \item Vyslovte a dokažte větu o rekurentní podmínce pro pozitivně definitní matice.
 
-
 \begin{veta}
+Bloková matice $A = \begin{array}{|c|c|} \hline  \alpha & a^H  \\ \hline  a & \tilde{A} \\ \hline \end{array}$ je pozitivně definitní právě tehdy, když $\alpha > 0$ a $\tilde{A} - \frac1\alpha a a^H$ je pozitivně definitní
+\begin{proof} $\ $
+\begin{itemize}
+\item[$\impliedby$]
+Pro $x \in \mathbb{C}^n \setminus 0 \quad x^T = \begin{array}{|c|c|} \hline x_1 & \tilde{x}^T \\ \hline \end{array}$
 
-\begin{proof}
+
+\[ x^HAx = \begin{array}{|c|c|} \hline \overline{x_1} & \tilde{x}^H \\ \hline \end{array} \cdot \begin{array}{|c|c|} \hline  \alpha & a^H  \\ \hline  a & \tilde{A} \\ \hline \end{array} \cdot \begin{array}{|c|} \hline x_1  \\ \hline \tilde{x}^T \\ \hline \end{array} \]
+
+\[ = \alpha x_1 \overline{x_1} + x_1 \tilde{x}^H a + \overline{x_1}a^H \tilde{x} + \tilde{x}^H \tilde{A} \tilde{x} \]
+\[ = \alpha x_1 \overline{x_1} + x_1 \tilde{x}^H a + \overline{x_1}a^H \tilde{x} +{ \color{blue} \tilde{x}^H \tilde{A} \tilde{x} } +  \frac1\alpha\tilde{x}^Haa^H\tilde{x} { \color{blue} - \frac1\alpha\tilde{x}^Haa^H\tilde{x} } \]\[
+{ \color{blue} \tilde{x}^H (\tilde{A} - \frac{1}{\alpha} aa^H)\tilde{x} } + (\sqrt{\alpha}\overline{x_1} + \frac1{\sqrt{\alpha}}\tilde{x}^H a)(\sqrt{\alpha}x_1 + \frac1{\sqrt{\alpha}}a^H\tilde{x} ) \]
+
+Oba sčítance jsou kladné: První je z indukčního předpokladu pozitivně definitní matice, druhý protože se jedná o komplexně sdružená čísla.
+
+Navíc alespoň jeden ze sčítanců musí být vždý ryze kladný: \begin{enumerate}
+\item $\tilde{x} = 0 \implies x_1 \neq 0$, druhý sčítanec je nenulový
+\item $\tilde{x} \neq 0$, první sčítanec je nenulový.
+
+Tedy matice je pozitivně definitní.
+\end{enumerate}
+\item[$\implies$] $\tilde{x} \in \mathbb{C}^{n-1} \setminus 0$, vezmeme $x_1 = - \frac1\alpha a^H \tilde{x}$.
+
+$x^T = \begin{array}{|c|c|}\hline x_1 & \tilde{x}^T \\ \hline \end{array}$
+\hfill
+
+
+Dle našeho výběru: \[ \sqrt{\alpha}x_1 + \frac{1}{\sqrt{\alpha}} a^H \tilde{x} = 0\]
+
+Nyní \[ 0 < x^HAx = \tilde{x}^H(\tilde{A} - \frac{1}{\alpha} a a^H) \tilde{x} + 0 \cdot 0\]
+
+A taky \[ {e^1}^HAe^1 = \alpha > 0\]
+
+Takže $\tilde{A} - \frac1\alpha a a^H$ je pozitivně definitní a $\alpha > 0$
+
+\end{itemize}
 
 \end{proof}
 \end{veta}
@@ -738,40 +985,128 @@ Pro každou $A \in \mathbb{K}^{n \times n}: p_A(A) = 0_n$, kde $p_A(A)$ je matic
 \item Vyslovte a dokažte větu o pozitivně definitních maticích a determinantech.
 
 
-\begin{veta}
+\begin{veta} [Sylvesterova podmínka]
+Matice $A$ řádu $n$ je pozitivně definitní právě tehdy, když matice $A_1, A_2, ..., A_n$ mají kladný determinant.
 
+Kde $A_i$ je hlavní podmatice $A$, neboli prvních $i$ řádků a sloupců $A$.
 \begin{proof}
+Použijeme Gaussovu eliminaci $A \sim ... \sim A^\prime$ pro test, zda je $A$ pozitivně definitní. Nechť $\alpha_1, ..., \alpha_n$ jsou prvky na diagonále $A^\prime$. Protože jsme eliminovali řádky shora dolů, máme
+\[ \det(A_i) = \det(A^\prime_i) = \prod_{j \leq i} \alpha_j = \det(A_{i-1})\alpha_i \]
 
+\[A \text{ je pozitivně definitní } \iff \alpha_1, ..., \alpha_n > 0 \iff \det(A_1), ..., \det(A_n) > 0 \]
 \end{proof}
 \end{veta}
 
 \item Uved'te a dokažte správnost algoritmu pro výpočet Choleského rozkladu.
 
-
+ 
 \begin{veta}
+Pro každou pozitivně definitní matici $A$ exituje unikátní horní trojúhelníková matice $U$ s kladnou diagonálou, t.ž. $A = U^HU$. $U$ nazýváme Choleského rozklad.
 
-\begin{proof}
 
+\includegraphics[scale=0.5]{build/choleskeho_rozklad.png}
+\begin{proof}$\ $
+ \includegraphics[scale=0.5]{build/spravnost_choleskeho.png} 
 \end{proof}
 \end{veta}
 
 \item Vyslovte a dokažte větu o diagonalizovatelnosti matic forem.
 
-
 \begin{veta}
+Pokud je $g$ kvadratická forma na $V$ dimenze $n$ nad $\mathbb{K}$, $char(\mathbb{K} \neq 2$, pak má forma diagonální matici vzhledem k vhodné bázi $X$.
 
-\begin{proof}
+Neboli: Pro symetrickou $A \in \mathbb{K}^{n \times n}$, $char(\mathbb{K}) \neq 2$ existuje regulární $R$, t.ž. $R^TAR$ je diagonální.
+\begin{proof} 
+Indukcí podle n.
 
+\[ A = A_n = \begin{array}{|c|c|} \hline  \alpha & a^T  \\ \hline  a & \tilde{A} \\ \hline \end{array} \] \begin{itemize}
+
+\item Když $\alpha \neq 0$
+
+Volíme $P_n = \begin{array}{|c|c|} \hline  1 & 0^T  \\ \hline  -\frac{1}{\alpha}a & I_{n-1} \\ \hline \end{array} $
+
+Pak 
+
+\[P_nA_nP_n^T =  \begin{array}{|c|c|} \hline  \alpha & 0^T  \\ \hline  0 & A_{n-1} \\ \hline \end{array} \]
+
+Kde $A_{n-1} = \tilde{A} - \frac{1}{\alpha} aa^T$ je symetrická.
+
+Dle indukčního předpokladu $\exists R_{n-1}$ pro $A_{n-1}$
+
+Zvolíme $R_n = \begin{array}{|c|c|} \hline  1 & 0^T  \\ \hline 0 & R_{n-1} \\ \hline \end{array} \cdot P_n$
+
+Pak $ R_nA_nR_n^T = \begin{array}{|c|c|} \hline  \alpha & 0^T  \\ \hline 0 & R_{n-1}A_{n-1}R_{n-1}^T \\ \hline \end{array}  $ je diagonální.
+
+\item $\alpha = 0$ a $a \neq 0$, pak $a_{i,1} \neq 0$ pro nějaké $i$.
+
+Použijeme elementární matici $E$ pro přičtení $i$-tého řádku k prvnímu, vezmeme $A^\prime = EAE^T$ namísto $A$ a můžeme postupovat jako v prvním případě.
+
+\item $\alpha = 0$ a $a = 0$, vezmeme $A_{n-1} = \tilde{A}$ a $R_n = \begin{array}{|c|c|} \hline  1 & 0^T  \\ \hline 0 & R_{n-1} \\ \hline \end{array} $
+
+\end{itemize}
 \end{proof}
 \end{veta}
 
-\item Uved'te a dokažte Sylvesterův zákon setrvačnosti | o diagonalizaci kvadratických forem.
-
-
+\item Uved'te a dokažte Sylvesterův zákon setrvačnosti o diagonalizaci kvadratických forem.
 \begin{veta}
-
+Každá kvaddratická forma na konečně generovaném reálném prostoru má vzhledem k vhodné bázi diagonální matici pouze s $-1$, $1$ a $0$.
 \begin{proof}
+\begin{enumerate}
+\item \textbf{Existence}
 
+$B$ je matice formy vzhledem k nějaké bázi $X$.
+
+Reálné symetrické matice lze diagonalizovat.
+
+$B = R^TDR$ pro $R$ regulární.
+
+Nyní $D = S^TD^\prime S$ kde $d_{i,i} \begin{cases} 
+= 0 & d^\prime_{i,i} = 0 \quad s_{i,i} = 1 \\
+> 0 & d^\prime_{i,i} = 1 \quad s_{i,i} = \sqrt{d_{i,i}} \\
+< 0 & d^\prime_{i,i} = -1 \quad s_{i,i} = \sqrt{-d_{i,i}} \end{cases}$
+
+$SR$ je regulární.
+
+\[ B = (SR)^TD^\prime(SR)\]
+
+Zvolíme bázi $Y$: souřadnice vektorů $Y$ vzhledem k $X$ jsou sloupce $SR$.
+
+\[ [id]^T_{XY}B[id]_{XY} = ((SR)^{-1})(SR)^TD^\prime(SR)(SR)^{-1}  = D^\prime\]
+
+\item \textbf{Jednoznačnost počtu $\pm 1$}
+
+Nechť $X,Y$ jsou dvě báze: $X = (u_1, ..., u_n )$, $Y = (v_1, ..., v_n)$, t. ž. odpovídající matice $B$ a $B^\prime$ formy $g$ jsou diagonální s $1, -1, 0$ uspořádanými tak, že nejdříve jsou $1$, pak $-1$ a pak $0$.
+
+Protože součiny s regulární maticí $[id]_{XY}$ nemění hodnost, platí, že počty nul v obou maticích jsou shodné, a sice: $\# 0 = n - rank(B)$
+
+\hfill
+
+Nechť $r = \#0$ v $B$ a $s = \#0$ v $B^\prime$
+
+Pokud $r > s$, uvažme podprostory $\mathcal{L}(v_1, ..., v_r)$ a  $\mathcal{L}(v_{s+1}, ..., v_n)$
+
+Součet jejich dimenzí přesahuje $n$, mají tedy netriviální průnik. 
+
+Zvolme $w \in \mathcal{L}(v_1, ..., v_r) \cap \mathcal{L}(v_{s+1}, ..., v_n) \setminus 0$.
+
+\[[w]_X = (x_1, ..., x_r, 0, ..., 0)^T\]
+
+\[[w]_Y = ( 0, ..., 0, y_{s+1}, ..., y_n)^T\]
+
+\hfill
+
+Nyní
+
+\[ g(w) = [w]_X^TB[w]_X = x_1^2 + \cdot x_r^2 \geq 0 \]
+\[ g(w) = [w]_X^TB[w]_X = -y_{s+1}^2 - \cdot -y_n^2 \leq 0 \]
+
+\hfill
+
+\[ 0 \leq g(w) \geq 0 \]
+
+Spor, tedy $r \ngtr s$. Symetricky $r \nless s$, tedy $r = s$. Počet $-1$ je doplněk do řádu matice, takže taky shodný pro obě matice. 
+ 
+\end{enumerate}
 \end{proof}
 \end{veta}
 
