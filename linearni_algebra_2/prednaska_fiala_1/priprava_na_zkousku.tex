@@ -43,7 +43,7 @@
 
 \item Definujte znaménko permutace.
 
-\paragraph{Znaménko permutace} je $1^\text{počet inverzí v permutaci}$.
+\paragraph{Znaménko permutace} je $(-1)^{\# \text{ inverzí v permutaci}}$.
 
 \item Definujte determinant.
 
@@ -85,10 +85,10 @@ kde $a_n \neq 0$ a $\forall i: a_i \in \mathbb{K}$. Píšeme $p \in \mathbb{K}(x
 
 
 Pro $x_0, ..., x_n$ je $\begin{pmatrix}
-1 & x_0 & x_0^2 & ... & x_0^{n+1} \\
-1 & x_1 & x_1^2 & ... & x_1^{n+1} \\
+1 & x_0 & x_0^2 & ... & x_0^{n} \\
+1 & x_1 & x_1^2 & ... & x_1^{n} \\
 \vdots &&& \\
-1 & x_n & x_n^2 & ... & x_n^{n+1} 
+1 & x_n & x_n^2 & ... & x_n^{n	} 
 \end{pmatrix} = V_{n+1}(x_0, ..., x_n)$ tzv. \textbf{Vandermondova matice}.
 
 \item Definujte vlastní číslo a vlastní vektor lineárního zobrazení.
@@ -328,7 +328,7 @@ det(AB) &= det(E_1E_2 ... E_kB) = det(E_1)det(E_2 ... E_kB) = ... = \\
 \item Vyslovte a dokažte větu o Laplaceově rozvoji determinantu.
 
 \begin{veta}
-\[ \forall A \in K^{n \times n}: \forall i \in [n]: det(A) = \sum_{i=1}^n a_{i,j}(-1)^{i+j}det(A^{i,j})\]
+\[ \forall A \in \mathbb{K}^{n \times n}: \forall i \in [n]: det(A) = \sum_{i=1}^n a_{i,j}(-1)^{i+j}det(A^{i,j})\]
 \begin{proof}
 $i$-tý řádek vyjádříme jako lin. kombinaci vektorů kanonické báze.
 
@@ -487,7 +487,7 @@ Nechť p je prvočíslo a $0 \neq a \in \mathbb{Z}_p$. Pak $a^{p-1} = 1$ v těle
 
 \begin{proof}
 Využijeme zobrazení z předchozího důkazu: 
-Definujeme pro každé $a$ zobrazení $f_a: \{0, ..., n-1 \} \to \{0, ..., n-1 \}$ předpisem $f_a(x) = a \cdot x \mod p$
+Definujeme pro každé $a$ zobrazení $f_a: \{1, ..., p-1 \} \to \{1, ..., p-1 \}$ předpisem $f_a(x) = a \cdot x \mod p$
 
 Ukažme, že $f_a$ je prosté: Sporem. Kdyby nebylo, $\exists b,c, b \neq c: f_a(b) = f_a(c) \implies 0 \equiv ab-ac \implies a (b-c) \equiv 0$. Ale $a \neq 0$ a $b-c \neq 0$. Spor.
 
@@ -706,7 +706,7 @@ Protože je daná matice hermitovská a prvek $\lambda$ leží na diagonále, $\
  
 Podle indukčního předpokladu existuje $R_{n-1}$, t.ž. $R^{-1}_{n-1}A_{n-1}R_{n-1} = D_{n-1}$.
 
-Položme $R_n = P_n \cdot\begin{array}{|c|c|} \hline  \lambda & 0^T  \\ \hline  0 & R_{n-1} \\ \hline \end{array}$.
+Položme $R_n = P_n \cdot\begin{array}{|c|c|} \hline  1 & 0^T  \\ \hline  0 & R_{n-1} \\ \hline \end{array}$.
 
 Pak $R^{-1}_nA_nR_n = D_n$
  
@@ -771,31 +771,27 @@ Nechť $Z = \{v_1, ..., v_n\}$ je ortonormální báze $V$, pak
 \end{proof}
 \end{veta}
 
-\item Vyslovte a dokažte větu o skalárním součinu dvou vektorů a Gramově matici.
-
-
-\begin{veta}
-V je prostor se skalárním součinem a bází $X = (v_1, ..., v_n)$
-
-Potom gramova matice $A,\ a_{ij} = \langle v_i | v_j \rangle$ splňuje
-
-\[ \forall u,w \in V: \langle u | w \rangle = [w]_X^H A^T [u]_X \]
-\begin{proof}
-Označme $[u]_X = (\alpha_1, \alpha_2, ..., \alpha_n)^T$ a
-
-$[w]_X = (\beta_1, \beta_2, ..., \beta_n)^T$
-
-Pak
-\[  \langle u | w \rangle = \left\langle \sum^n_{i=1} \alpha_i v_i | \sum^n_{j=1} \beta_j v_j \right\rangle = \sum^n_{i=1}\sum^n_{j=1} \alpha_i \beta_j  \langle v_i |  v_j \rangle = [w]_X^H A^T [u]_X \]
-
-\end{proof}
-\end{veta}
 
 \item Uved'te a dokažte správnost Gram-Schmidtovy ortonormalizace.
 
-\begin{lemma}[o ortogonální projekci] $u = p_Z(u) \perp v_i \forall v_i \in Z$
+\begin{lemma}[o ortogonální projekci] Pro prostor $V$ s bází $Z$ $ \forall u \in V: \forall v_i \in Z: u - p_Z(u) \perp v_i $
 \begin{proof}
 \[   \langle u - p_Z(u) | v_i \rangle =  \left\langle u - \sum_{j=j}^n  \langle u | v_j \rangle v_j | v_i \right\rangle = \langle u | v_i \rangle - \sum_{j=1}^n  \langle u | v_j \rangle \langle v_j | v_i \rangle = 0  \]
+\end{proof}
+\end{lemma}
+
+\begin{lemma}[o výměně] $V$ je vektorový prostor nad $\mathbb{K}$ a $X = \{v_1, ..., v_n\}$ je systém generátorů $V$.
+
+Potom pro libovolný vektor $u \in V$ platí, že když lze $u$ vyjádřit jako $u = \displaystyle \sum^n_{i=1} a_1v_1$, tak pro každé $i$, kde $a_i \neq 0$ platí, že $X^\prime = (X \setminus v_i) \cup u$ také generuje $V$
+
+\begin{proof}
+\begin{equation*}
+u = a_1v_1 + ... + a_nv_n \implies v_i = \frac1a_i (u - (a_1v_1 + ... + a_{i-1}v_{i-1}+  a_{i+1}v_{i+1} + ...  a_{n}v_{n}))
+\end{equation*}
+\begin{equation*}
+\forall w \in V: w = \sum_{j=1}^n b_j v_j
+\end{equation*}
+V tomto součtu můžeme za $v_i$ nahradit vyjádření vyše, což bude lineární kombinace $X^\prime$
 \end{proof}
 \end{lemma}
 
@@ -832,9 +828,9 @@ Lineární zobrazení $f$ je izometrie $\iff ||u|| = ||f(u)||$
 Vyplývá z definice normy
 \item $\impliedby$
 
-\[ ||u + aw|| = ||u||^2 + a \langle w|u \rangle + \overline{a}\langle u | w \rangle + a\overline{a} ||w||^2 \]
+\[ ||u + aw||^2 = ||u||^2 + a \langle w|u \rangle + \overline{a}\langle u | w \rangle + a\overline{a} ||w||^2 \]
 
-\[ ||f(u + aw)|| = ||f(u)||^2 + a \langle f(w)|f(u) \rangle + \overline{a}\langle f(u)| f(w) \rangle + a\overline{a} ||f(w)||^2 \]
+\[ ||f(u + aw)||^2 = ||f(u)||^2 + a \langle f(w)|f(u) \rangle + \overline{a}\langle f(u)| f(w) \rangle + a\overline{a} ||f(w)||^2 \]
 
 Ale 
 
@@ -883,7 +879,7 @@ Pro prostor $W$ se skalárním součinem a konečnou dimenzí a podprostor $V$ p
 \item $\dim(W) = \dim(V) + \dim(V^\perp)$
 \end{enumerate}
 \begin{proof}
-Zvolíme ortonormální bázi $X$ $V$ a doplníme ji na ortonormální bázi $Z$ $X$
+Zvolíme ortonormální bázi $X$ prostoru $V$ a doplníme ji na ortonormální bázi $Z$ prostoru $W$
 
 $Y = Z \setminus X \quad X = (x_1, ..., x_k) \quad Y = (y_1, ..., y_l)$
 
@@ -894,7 +890,8 @@ Tedy $ \mathcal{L}(Y) \subseteq V^\perp$
 
 Abychom dokázali $ \mathcal{L}(Y) \supseteq V^\perp$, vezměme $w \in V^\perp$ a uvažme $[w]_Z$
 
-$Z$ je ortonormální, takže koeficienty $[w]_Z$ jsou Fourierovy koeficienty. Prvních $k$ souřadnic je ale nulových, tedy \[w \in \mathcal{L}(Y) \implies V^\perp \supseteq \mathcal{L}(Y) \implies V^\perp = \mathcal{L}(Y)\]
+$Z$ je ortonormální, takže koeficienty $[w]_Z$ jsou Fourierovy koeficienty dané skalárním součinem $w$ s prvky báze $Z$.
+Protože $w \in V^\perp$, máme $\langle w|x_i \rangle i = 0$ pro každé $x_i \in X$. Všechny x-ové souřadnice jsou nulové, tedy \[w \in \mathcal{L}(Y) \implies V^\perp \subseteq \mathcal{L}(Y) \implies V^\perp = \mathcal{L}(Y)\]
 
 \hfill
 
@@ -902,6 +899,27 @@ Nyní \[ \dim(V) + \dim(V^\perp) = |X| + |Y| = |Z| = \dim(W) \]
 a \[(V^\perp)^\perp =  \mathcal{L}(Z \setminus Y) =  \mathcal{L}(X) = V  \]
 \end{proof}
 \end{veta}
+
+\item Vyslovte a dokažte větu o skalárním součinu dvou vektorů a Gramově matici.
+
+
+\begin{veta}
+V je prostor se skalárním součinem a bází $X = (v_1, ..., v_n)$
+
+Potom gramova matice $A,\ a_{ij} = \langle v_i | v_j \rangle$ splňuje
+
+\[ \forall u,w \in V: \langle u | w \rangle = [w]_X^H A^T [u]_X \]
+\begin{proof}
+Označme $[u]_X = (\alpha_1, \alpha_2, ..., \alpha_n)^T$ a
+
+$[w]_X = (\beta_1, \beta_2, ..., \beta_n)^T$
+
+Pak
+\[  \langle u | w \rangle = \left\langle \sum^n_{i=1} \alpha_i v_i | \sum^n_{j=1} \beta_j v_j \right\rangle = \sum^n_{i=1}\sum^n_{j=1} \alpha_i \beta_j  \langle v_i |  v_j \rangle = [w]_X^H A^T [u]_X \]
+
+\end{proof}
+\end{veta}
+
 
 \item Vyslovte a dokažte větu o třech ekvivalentních podmínkách pro pozitivně definitní matice.
 
@@ -1110,13 +1128,48 @@ Spor, tedy $r \ngtr s$. Symetricky $r \nless s$, tedy $r = s$. Počet $-1$ je do
 \end{proof}
 \end{veta}
 
-
 \item Vyslovte a dokažte větu o počtu přímek pod stejným úhlem.
 
-
 \begin{veta}
-
+V $\mathbb{R}^d$ může nejvíce $\binom{d+1}{2}$ přímek svírat stejný úhel 
 \begin{proof}
+Předpokládejme, že existuje $n$ takových přímek a svírají úhel $\phi$. Zvolíme jednotkové vektory $v_1, ..., v_n$, z každé přímky jeden.
+
+Dostaneme $\langle v_i | v_j \rangle = \begin{cases} 1 & i=j \\ \cos \varphi & i \neq j \end{cases}$
+
+\hfill
+
+Ukážeme, že matice $v_1v_1^T, v_2v_2^T, ..., v_nv_n^T$ jsou lineárně nezávislé. Pak nutně $n \leq \binom{d+1}{2}$, protože dimenze prostoru symetrických matic v $\mathbb{R}^{d \times d}$ je $\binom{d+1}{2}$.
+
+\hfill
+
+Předpokládejme $\sum^n_{i=1}a_iv_iv_i^T = 0$.
+
+Pro každé $j \in 1, ..., n$:
+
+\[ 0 = v_j^T0v_j = v_j^T\left( \sum^n_{i=1}a_iv_iv_i^T \right) v_j \]
+\[=  \sum^n_{i=1}a_i v_j^Tv_iv_i^Tv_j = \sum^n_{i=1}a_i \langle v_j | v_i \rangle \langle v_i | v_i \rangle
+\]
+
+Protože jsme v $\mathbb{R}$
+
+\[ \sum^n_{i=1}a_i \langle v_j | v_i \rangle^2 = a_j + \cos^2 \varphi \sum_{i \neq j} a_i
+\]
+
+To nám dá soustavu
+\[
+\begin{pmatrix}
+1 & \cos^2 \varphi & \cdots &  \cos^2 \varphi \\
+\cos^2 \varphi & 1 &  \ddots & \cos^2 \varphi\\
+\vdots &  \ddots & \ddots &  \vdots \\
+\cos^2 \varphi & \cdots &  \cos^2 \varphi & 1 
+\end{pmatrix}\begin{pmatrix}
+a_1 \\ a_2 \\ \vdots \\ a_n
+\end{pmatrix} = 0
+\]
+
+Tato matice je regulární, tedy $a = 0_n$.
+Tudíž jsou matice lineárně nezávislé.
 
 \end{proof}
 \end{veta}
