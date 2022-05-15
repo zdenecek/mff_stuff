@@ -1184,19 +1184,148 @@ Tudíž jsou matice lineárně nezávislé.
 (U přehledových otázek uved'te definice, tvrzení, věty, příklady a souvislosti. Důkazy u přehledových otázek nejsou vyžadovány.)
 \begin{enumerate}
 \item Přehledově sepište, co víte o výpočtu determinantů.
+
+\begin{itemize}
+\item Definice determinantu
+\item Sarrusovo pravidlo, výpočet pro matice $2 \times 2$
+\item $\det(A) = \det(A^T)$
+\item Zpermutování řádků mění determinant o znaménko permutace.
+\item Linearita determinantu
+\item Při výpočtu používáme upravenou Gaussovu eliminaci
+\item Laplaceův rozvoj
+\item $\det(AB) = \det(A) \det(B)$
+\item $\det(A^{-1})=\frac{1}{\det(A)}$
+\item Determinant singulárních matic je nulový
+\item Geometrický význam determinantu
+\end{itemize}
+
 \item Přehledově sepište, co víte o determinantech a jejich geometrickém významu.
+\begin{itemize}
+\item Pro vektory $v_1, ..., v_n \in \mathbb{R}^m$ je objem rovnoběžnostěnu daného vektory roven $\det(A)$ kde $A$ je matice tvořena vektory jako sloupce.
+\item Determinant matice zobrazení odpovídá koeficientu změny objemu ($k$-dimenzionálního) zobrazení. 
+\end{itemize}
+
 \item Přehledově sepište, co víte o počtu koster grafu.
+\begin{itemize}
+\item Definice kostry
+\item Rekurence $\kappa(G) = \kappa(G \circ e) + \kappa(G \setminus e)$
+\item Definice Laplaceovy matice
+\item Věta o počtu koster grafu
+\item Cayleho vzorec: Úplný graf má $\kappa(K_n) = n^{n-2}$ koster
+\end{itemize}
+
 \item Přehledově sepište, co víte o polynomech.
+\begin{itemize}
+\item Definice: Polynom, kořen, algebraická násobnost kořene, algebraicky uzavřené těleso.
+\item reprezentace:
+\begin{itemize}[label=+]
+\item koeficienty
+\item kořeny
+\item $n+1$ hodnot v různých bodech.
+\end{itemize}
+\item Přechody mezi reprezentacemi: Lagrangeova interpolace, Vandermondova matice
+
+\end{itemize}
 \item Přehledově sepište, co víte o vlastních číslech a vlastních vektorech.
+\begin{itemize}
+\item Definice: vlastní číslo, vektor, zobrazení i matice. Algebraická i geometrická násobnost, spektrum.
+\item Vlastní čísla diagonálních matic.
+\item Vlastní vektory odpovídající číslu tvoří podprostor.
+\item Vlastní vektory odpovídající různým vlastním číslům jsou lin. nezávislé.
+\item Nalezení pomocí charakteristického polynomu.
+\item Co to je zobecněný vlastní vektor. Jaká je podobnost/význam vzhledem k vlastním vektorům
+\end{itemize}
+
+
 \item Přehledově sepište, co víte o charakteristickém polynomu a jeho koeficientech.
+\begin{itemize}
+\item Definice
+\item Cayley-Hamiltonova věta.
+\item Koeficienty: \begin{itemize}[label=+]
+\item Pro $t^n$: $(-1)^n$
+\item Pro $t^{n-1}$: $(-1)^{n-1} \sum_{i=1}^n a_{i,i}$
+\item  Pro $t^0$: $det(A)$
+\end{itemize}
+\end{itemize}
+
+
 \item Přehledově sepište, co víte o podobných maticích a diagonalizaci.
+\begin{itemize}
+\item Definice
+\item Podobné matice mají stejná vlastní čísla.
+\item Postačující podmínka: vlastní vektory tvoří bázi.
+\item Hermitovské matice jsou diagonalizovatelné unitární maticí.
+\item Jordanova normální forma, každá matice je podobná matici v této formě.
+\end{itemize}
+
+
 \item Přehledově sepište, co víte o speciálních komplexních maticích.
+\begin{itemize}
+\item Hermitovská transpozice, Hermitovská matice, unitární matice, ortogonální matice.
+\item Součin dvou unitárních matic je unitární.
+\item Každý komplexní vektor lze doplnit na unitární matici.
+\item Hermitovské matice jsou diagonalizovatelné unitární maticí
+\end{itemize}
+
+
 \item Přehledově sepište, co víte o skalárním součinu a související normě.
+\begin{itemize}
+\item Definice, příklady - standartní, definovaný maticí, integrálem
+\item Norma
+\item Geometrický význam v euklidovském prostory
+\item Cauchy-Schwarzova nerovnost, věta o průměrech, trojúhelníkové nerovnosti
+\item Kolmost, viz dále. 
+\end{itemize}
+
+
 \item Přehledově sepište, co víte o ortogonalitě a kolmé projekci.
+\begin{itemize}
+\item Definice
+\item Ortonormální báze. 
+\item Matice ortonormálních vektorů je unitární.
+\item Fourierovy koeficienty, věta o nich.
+\item Ortogonální projekce
+\item Lemma ortogonální projekce $u - p_Z(u) \perp v \in Z$
+\item Lze definovat také pomocí normy: $p_Z(u)$ je vektor s minimální $||u - p_Z(u)||$
+\item metoda nejmenších čtverců
+\item Ortogonální doplněk
+\item Kolmost jádra na řádkový prostor
+\item Věta o vlastnostech ortogonálního doplňku
+\item Gram-Schmidtova ortonormalizace
+\item izometrie, izometrii lze definovat normou, matice izometrie je unitární
+\item Gramova matice, je hermitovská
+\end{itemize}
+
+
 \item Přehledově sepište, co víte o ortonormálních bazích.
+
+viz výše
+
 \item Přehledově sepište, co víte o ortogonálním doplňku.
+
+viz výše
+
 \item Přehledově sepište, co víte o pozitivně definitních maticích.
+
+\begin{itemize}
+\item Definice
+\item Tři ekvivalentní podmínky
+\item Choleského rozklad, správnost
+\item Rekurentní podmínka
+\item Sylvesterova podmínka
+\end{itemize}
+
+
 \item Přehledově sepište, co víte o bilineárních a kvadratických formách a jejich maticích.
+\begin{itemize}
+\item Definice: formy, matice
+\item $f(v_i, v_j) = \frac12 (g(v_i + v_j) - g(v_i) - g(v_j))$
+\item Použití matic, aplikace matice přechodu pro změnu báze
+\item Analytický výraz
+\item Matice kvadratických forem nad tělesem charakteristiky různé od dvou jsou diagonalizovatelné
+\item Sylvesterův zákon setrvačnosti
+\item signatura
+\end{itemize}
 \end{enumerate}
 
 
