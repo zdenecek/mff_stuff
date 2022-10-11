@@ -1,0 +1,49 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{mathtools, array, enumitem, xcolor}
+\usepackage[margin=0.7in]{geometry}
+\setlength{\parindent}{0em}
+
+\usepackage[czech]{babel}
+
+\theoremstyle{plain}
+\newtheorem{veta}{Věta}
+\theoremstyle{definition}
+\newtheorem{definice}[veta]{Definice}
+
+
+\title{Řešení domácího úkolu z MA č. 13}
+\author{přezdívka: Zdeněk}
+\date{}
+
+\begin{document}
+
+Pedro a Jose skáčou do dálky. Pedro skáče do dálky s normálním rozdělení se střední hodnotou 5 metrů a odchylkou 40 cm. Jose skáče s normální rozdělením se střední hodnotou 6 metrů a směrodatnou odchylkou 30 cm. \begin{enumerate}
+\item Jaká je pravděpodobnost, že Pedro skočí vzdálenost kratší než 4,7m?
+\item S jakou pravděpodobností skočí Pedro dále než Jose?
+\end{enumerate}
+
+\textbf{Řešení}
+
+\begin{enumerate}
+\item Normální rozdělení $N(\mu = 6m, \sigma^2 = (0.3m)^2)$
+Distribuční funkce normálního rozdělení je $\Phi$. Výsledek se spočítá prostým dosazením:
+
+\[P = \Phi\left(\frac{x-\mu}{\sigma}\right)\]
+\[\Phi\left(\frac{4.7m-5m}{30 cm}\right) = \Phi(-1) \]
+
+Tohle už je výsledek. Numerická hodnota se dá najít v tabulce v taháku, nebo podle pravidla tří sigma (68, 95, 99.7) je s pravděpodobností asi $68\%$ délka, kterou Pedro doskočí, v rozsahu $\nu \pm \sigma$ neboli ve vzdálenosti do jedné směrodatné odchylky od středu. Takže pravděpodobnost, že je mimo tento rozsah je asi $100\% - 68\% = 32\%$, to je pravděpodobnost, že délka je vzdálená od střední hodnoty o alespoň jednu směrodatnou odchylku nahoru nebo dolu, pokud chceme jeden směr, vydělíme to dvěma, takže asi $16\%$.
+
+\item Podíváme se na rozdíl délek, to je rozdíl náhodných veličin, neboli součet obou veličin, kde jedna je opačná (ale se stejným rozdělením). Součet normálních rozdělení je normální rozdělení, kde se sečtou střední hodnoty a rozptyl. $N(\mu = Jose - Pedro = 6m - 5m = 1m,   \sigma^2 = (0.3m)^2 + (0.4m)^2 = (0.5m)^2 ) = N(1m, (0.5m)^2)$. Toto je rozdělení, o kolik skočí Jose dál než Pedro, takže chceme znát pravděpodobnost, s jakou je tato veličina rovna nebo menší nule.
+
+\[ P(Jose < Pedro) = P(Jose - Pedro < 0) = \Phi\left(\frac{0-1m}{50 cm}\right) = \Phi(-2) \]
+
+Hodnota je opět v tabulce, nebo je to polovina doplňku do druhé sigmy $\sim \frac{1-0.95}{2} \approx 2\%$
+
+
+
+\end{enumerate}
+
+
+\end{document}

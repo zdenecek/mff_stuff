@@ -1,0 +1,520 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{mathtools, array, enumitem, xcolor}
+\usepackage[margin=0.7in]{geometry}
+\setlength{\parindent}{0em}
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.11}
+
+\usepackage[czech]{babel}
+
+\theoremstyle{plain}
+\newtheorem{veta}{Věta}
+\theoremstyle{definition}
+\newtheorem{definice}[veta]{Definice}
+
+
+\title{Příprava na zkoušku z předmětu Pravděpodobnost a statistika}
+\author{Zdeněk Tomis}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{Definice}
+
+\begin{enumerate}
+\item \textbf{Pravděpodobnostní prostor} je trojice $(\Omega, \mathcal{F}, P)$, kde
+
+\begin{itemize}
+\item $\Omega$ je \textbf{množina elementárních jevů} (sample space), $\Omega \neq \emptyset$
+\item $\mathcal{F}$ je \textbf{prostor jevů} (sigma algebra/$\sigma$) $\mathcal{F} 2^\Omega$, takový že
+\begin{enumerate}
+\item $\emptyset, \Omega \in \mathcal{F} $
+\item $A \in \mathcal{F} \implies \Omega \setminus A \in \mathcal{F}$
+\item $A_1, A_2, ... \in \mathcal{F} \implies \cup^\infty_{i=1} A_i \in \mathcal{F}$ Pro $A_1, A_2, ...$ po dvou disjunktní
+\end{enumerate}
+
+Tedy $\mathcal{F}$ je uzavřená na průniku, sjednodcení (spočetném), doplňku.
+\item $P$ je \textbf{pravděpodobnost}  $P: \mathcal{F} \to [0,1]$, taková že
+\begin{enumerate}
+\item $P(\Omega) = 1$
+\item $P(\cup^\infty_{i=1}) = \sum^\infty_{i=1} P(A_i)$
+\end{enumerate}
+\end{itemize}
+
+\item \textbf{Podmíněná pravděpodobnost} pro $A,B \in \mathcal{F}, P(B) > 0$
+\[P(A|B) = \frac{P(A \cap B)}{P(B)}\]
+
+\item \textbf{Nezávislost jevů}. Dva jevy jsou nezávislé, pokud 
+
+\[P(A) \cdot P(B) = P(A\cap B)\]
+
+Pro více jevů:
+\[\prod_{j \in I^\prime} P(A_j) = P\left( \bigcap_{j \in I^\prime \subseteq I} A_j\right)\]
+
+\item \textbf{Náhodná diskrétní veličina.} X je náhodná diskrétní veličina, pokud
+
+\begin{itemize}
+\item $X: \Omega \to \mathbb{R}$, t. ž. $Im(X)$ je spočetná množina
+\item $\forall x \in \mathbb{R}: \{\omega \in Omega: X(\omega) = x \} \in \mathcal{F}$
+\end{itemize}
+
+\item \textbf{Pravděpodobnostní funkce} náhodné veličiny $X$ (probability mass function) je \[p_X: \mathbb{R} \to [0,1] \]
+taková, že  
+\[ p_X(x) = P(X = x) \]
+
+\item \textbf{Indikátorová náhodná veličina} jevu $A$ je 
+\[ I_A = \begin{cases} 1 & \omega \in A \\ 0 & \omega \notin A \end{cases}\]
+
+Platí $(I_A) \sim Bern(P(A))$
+
+\item \textbf{Střední hodnota} náhodné veličiny $X$ je
+
+\[ \mathbb{E}(X) = \sum_{x \in Im(X)} x \cdot p_X(x)\]
+
+pokud má součet smysl.
+
+\item \textbf{Podmíněná střední hodnota} náhodné veličiny $X$ je
+\[ \mathbb{E}(X|B) = \sum_{x \in Im(X)} x \cdot p(X = x|B)\]
+
+\item \textbf{Rozptyl} náhodné veličiny $X$ je
+
+Střední hodnota čtverců vzdáleností od střední hodnoty.
+
+\[ var(x) = \mathbb{E}\left[(X-\mathbb{E}(X))^2 \right] \]
+
+\item\textbf{Směrodatná odchylka} náhodné veličiny $X$ je
+
+\[ \sigma_X = \sqrt{var(X)} \]
+
+\item \textbf{Sdružená pravděpodobnostní funkce} náhodných veličin $X,Y$
+
+\[ P_{X,Y}: \mathbb{R}^2 \to [0,1]\]
+\[ P_{X,Y}(x,y) = P(X = x \  \& \  Y = y)\]
+
+\item \textbf{Nezávislost veličin}. Náhodné veličiny $X,Y$ jsou nezávislé, pokud
+
+\[ \forall x,y: \{ X=x \} \ \text{a} \ \{Y=y\} \text{ jsou nezávislé}\]
+
+\item Multinomiální rozdělení (?) 
+
+\[P_{X_1, ..., X_n}(k_1, ..., k_n) = \binom{n}{k_1, ..., k_n} \  p_1^{k_1} \cdot ... \cdot p_n^{k_n} \]
+
+\item \textbf{Kovariance} náhodných veličin je 
+\[ cov(X,Y) = \mathbb{E}(XY) - \mathbb{E}(X) \mathbb{E}(Y) \]
+
+\item \textbf{Korelace} náhodných veličin $X,Y$ je
+
+\[ cor(X,Y) = \frac{cov(X,Y)}{\sigma_X \cdot \sigma_Y} \]
+
+\item \textbf{Obecná náhodná veličina} $X$
+
+\begin{itemize}
+\item $X: \Omega \to \mathbb{R}$,  $Im(X)$ nemusí být spočetná
+\item $\forall x \in \mathbb{R}: \{\omega \in Omega: X(\omega) = x \} \in \mathcal{F}$
+\end{itemize}
+
+\item \textbf{Distribuční funkce} (cummulative distribution function) náhodné veličiny $X$ je $F_X$
+
+\[ F_X(x) = P(X \leq x)\]
+
+\item \textbf{Spojitá náhodná veličina} je taková náhodná veličina, která má hustotu:
+
+\[ \exists f_X: \mathbb{R} \to [0, \infty) \]
+
+taková, že
+
+\[ F_X(x) = \int^x_{-\infty} f_X(t) dt\]
+
+\item \textbf{Střední hodnota spojité veličiny}. $X$ je spojitá náhodná veličina s hustotou $f_X$
+
+\[ \mathbb{E}(X) = \int^{\infty}_{-\infty} x f_X(t)dt\]
+
+\item Kvantilová funkce
+
+Pro $X$ náhodnou veličinu, $Q_X : [0,1] \to \mathbb{R}$
+
+\[ Q_X(p) = min(\{x \in \mathbb{R}: p \leq F_X(x) \})\]
+
+Pokud je $F_X$ spojitá a rostoucí, pak $Q_X = F^{-1}_X$
+
+\item \textbf{Náhodný vektor} je dvojice (n-tice) náhodných veličin
+
+\[\forall x,y \in \mathbb{R}\] je definována \textbf{sdružená distribuční funkce}
+\[F_{X,Y}(x,y) = P(X = x\ \&\ Y = y)\]
+
+\item \textbf{Sdružená spojitost}
+
+Pokud $\forall x,y: F_{X,Y}(x,y) = \int^x_{-\infty}\int^y_{-\infty} f_{X,Y}(s,t) dt ds$
+
+$X,Y$ jsou sdružené spojité a $f_{X,Y}$ je jejich sdružená hustota.
+
+\item (Alternativně) \textbf{Nezávislost náhodných veličin}.
+
+\[ \forall x,y: \{ X\leq x \} \ \text{a} \ \{Y \leq y\} \text{ jsou nezávislé}\]
+
+\end{enumerate}
+
+\section{Věty}
+
+\subsection*{Diskrétní}
+
+\begin{veta}[O pravděpodobnostech] \ 
+
+
+\begin{enumerate}
+\item $P(A) + P(A^C) = 1$
+\item $A \subseteq B \implies P(A) \leq P(B)$
+\item $P(A \cup B) = P(A) + P(B) - P(A \cap B)$
+\item $P(A_1 \cup A_2 \cup ...) \leq P(A_1) + P(A_2) + ...$
+\end{enumerate}
+
+\begin{proof}
+\begin{enumerate}
+\item Množiny jsou disjunktní, tedy platí $P(A) + P(A^C) = P(A \cup A^C) = P(\Omega) = 1$
+\item $B = A \cup (B \setminus A)$
+
+\[ P(B) = P(A) + P(B \setminus A) \]
+\[  P(B \setminus A)  \in [0,1] \]
+\[ P(B) \geq P(A) \]
+
+\item \[ P(A \cup B) = P( (A \setminus B) \cup (A \cap B) \cup (B \setminus A))\]
+\[ = P(A \setminus B) +  P(A \cap B) + P(B \setminus A)\]
+\[ = P(A) -  P(A \cap B)+  P(A \cap B) + P(B) +  P(A \cap B)\]
+\[ = P(A) + P(B) - P(A \cap B)  \]
+
+\item Trik zdisjunktnění
+
+$B_1 = A_1$
+
+$B_2 = A_2 - A_1$
+
+$B_i = A_i - \sum_{j=1}^{i-1} A_j$
+
+\[ P(\bigcup A_i) = P(\bigcup B_i) = \sum P(B_i) \leq \sum P(A_i)\]
+
+\end{enumerate}
+\end{proof}
+
+\end{veta}
+
+\begin{veta}[O průnicích]
+\[ P(A_1 \cap ... \cap A_n) = P(A_1) \cdot P(A_2|A_1) \cdot ... \cdot P(A_n|A_1 \cap ... \cap A_n) \]
+\begin{proof}
+\[ = P(A_1) \cdot \frac{P(A_1 \cap A_2)}{P(A_1)} \cdot \frac{P(A_1 \cap A_2 \cap A_3)}{P(A_1 \cap A_2)} \cdot ... \cdot 
+\frac{P(A_1 \cap ... \cap A_n)}{P(A_1 \cap ... \cap A_{n-1})} = P(A_1 \cap ... \cap A_n) \]
+\end{proof}
+\end{veta}
+
+
+\begin{veta}[O úplné pravděpodobnosti]
+Pro $A, B_1, ... \in \mathcal{F}$
+
+Kde $B_1, B_2, ...$ je rozklad $\Omega$ platí
+
+\[ P(A) = \sum P(B_i) \cdot P(A|B_i)\] 
+
+Kde pro $P(B_i) = 0$ je sčítanec definován jako nula.
+
+\begin{proof}
+\[ P(A) = \sum P(A \cap B_i) = \sum P(A)P(A|B_i) \]
+\end{proof}
+\end{veta}
+
+
+\begin{veta}[Bayesova]
+\[ P(A|B) = \frac{P(B|A) P(A)}{P(B)}\]
+\begin{proof}
+\[ P(A|B)  = \frac{P(A \cap B)}{P(B)} = \frac{P(B|A) P(A)}{P(B)} \]
+\end{proof}
+\end{veta}
+
+
+\begin{veta}
+$g(X)$ je diskrétní náhodná veličina, kdykoliv $X$ je diskrétní náhodná veličina.
+\begin{proof}
+\begin{enumerate}
+\item $Im(g \circ X)$ je nejvýše spočetný
+\item $\forall y \in Im(Y): Y^{-1}(y) \in \mathcal{F}$
+\end{enumerate}
+\end{proof}
+\end{veta}
+
+
+\begin{veta}[Law of the unconscious statistician (LOTUS)]
+\[ \mathbb{E}(g(X)) = \sum_{x \in Im(X)} g(x) P(X = x)\]
+\begin{proof}
+
+\[ \mathbb{E}(Y) 
+= \sum_{y \in Im(Y)} y \  P(Y = y) \]\[ 
+\{ Y = y \} = \{ \omega: g(X(\omega)) = y \} = \bigcup_{x \in Im(X) \ \&\ g(x) = y} \{ \omega: X(\omega) = x \} \]
+
+Tedy 
+
+\[ = \sum_{y \in Im(Y)} y \sum_{\begin{matrix}x \in Im(X) \\ g(x) = y \end{matrix}}\ P(X=x) = \sum_{y \in Im(Y)}\ \sum_{\begin{matrix}x \in Im(X) \\ g(x) = y \end{matrix}} g(x)\ P(X=x) =  \]\[
+=  \sum_{x \in Im(X)} g(x)\ P(X=x) \]
+\end{proof}
+\end{veta}
+
+
+\begin{veta}[Vlastnosti $\mathbb{E}$]
+\begin{enumerate} \ 
+\item $P(X \geq 0) = 1\ \&\ \mathbb{E}(X) = 0 \implies P(X = 0) = 1$
+\item $\mathbb{E}(X) \geq c \implies P(X \geq c) > 0$
+\item $\mathbb{E}(aX + b) = a\mathbb{E}(X)+b$
+\item $\mathbb{E}(X + Y) = \mathbb{E}(X) + \mathbb{E}(Y)$
+\end{enumerate}
+\begin{proof}
+\begin{enumerate}  
+\item[3.] 
+$g(x) = ax + b$
+\[ \mathbb{E}(aX + b) =\mathbb{E}(g(x)) = \sum_{x \in Im(X)} g(x)\ P(X=x) \]
+\[ = a \sum_{x \in Im(X)} x\ P(X=x) + \sum_{x \in Im(X)} b\ P(X=x) = a\mathbb{E}(X)+ b   \]
+\item[4.] Pouze pro diskrétní prostor
+\[\mathbb{E}(X + Y) = \sum_{\omega in \Omega} (X(\omega) + Y(\omega)) P(\omega) =
+\sum_{\omega in \Omega} X(\omega) +  \sum_{\omega in \Omega} Y(\omega) P(\omega) = \mathbb{E}(X) + \mathbb{E}(Y)\]
+\item[1.] 
+\[ \mathbb{E}(X) = \sum_{x \in Im(X)} x P(X=x) \geq 0\]
+Ale zároveň pro $x < 0: P(X = x) = 0$. Máme tedy pouze nezáporné členy
+\[ \implies x P(X = x) = 0 \]
+\[ \implies \forall x \neq 0: P(X = x) = 0 \]
+\item[2.]
+\[c \leq \mathbb{E}(X) = \sum x P(X = x)\]
+
+Sporem.
+
+\[P(X \geq c) = 0 \implies \forall x \geq c: P(X = x) = 0\]
+\[ \implies \sum x P(X = x) <  \sum c P(X=x) = c \sum P(X = x) = c \]
+\[ c < c\]
+\end{enumerate}
+
+\end{proof}
+\end{veta}
+
+
+\begin{veta}[O celkové $\mathbb{E}$]
+
+$X$ je diskrétní náhodná veličina. $B_1, B_2, ...$ je rozklad $\Omega$
+
+\[ \mathbb{E}(X) = \sum P(B_i) \ \mathbb{E}(X|B_i)\]
+\begin{proof}
+\[\mathbb{E}(X) = \sum x P(X=x) = \sum_x x \sum_i P(B_i) P(X=x|B_i)  \]
+\[\sum_i \sum_x x\ P(B_i) P(X=x|B_i) = \sum_i \mathbb{E}(X|B_i) \]
+\end{proof}
+\end{veta}
+
+\begin{veta}[O rozptylu]
+\[var(X) = \mathbb{E}(X^2) - \mathbb{E}(X)^2 \]
+\begin{proof}
+$\nu = \mathbb{E}(X)$
+
+\[ var(X) = \mathbb{E}\left[ (X-\mu)^2 \right] =\mathbb{E}\left[ X^2 - 2X\mu + \mu^2 \right] \]\[= \mathbb{E}(X^2) - 2\mathbb{E}(X)\mathbb{E}(X) + \mathbb{E}(X)^2 = \mathbb{E}(X^2) -\mathbb{E}(X)^2 \]
+\end{proof}
+\end{veta}
+
+\begin{veta}
+\[ var(aX + b) = a^2 var(X) \]
+\end{veta}
+
+
+\begin{veta}
+Pro $Im(X) \subseteq \mathbb{N}_0$
+
+\[\mathbb{E}(X)  = \sum^{\infty}_{n=0} P(X > n)\]
+\end{veta}
+
+\begin{veta}[Konvoluce]
+\[ P(X + Y = z) = \sum_{x \in Im(X)} P(X = x \ \&\ Y=z-x)\]
+\[ \sum_{x \in Im(X)} p_X(x) \cdot p_Y(z-x) \]
+\end{veta}
+
+\begin{veta}
+\[\mathbb{E}(g(X,Y)) = \sum_{\begin{matrix}
+x \in Im(X) \\ y \in Im(Y)
+\end{matrix}} g(x,y) P_{X,Y}(x,y)\]
+\end{veta}
+
+\begin{veta}[Alternativní důkaz pro vlastnosti $\mathbb{E}$]
+\[\mathbb{E}(X+Y) = \mathbb{E}(X) + \mathbb{E}(Y)\]
+\begin{proof}
+\[ = \sum_{\begin{matrix}
+x \in Im(X) \\ y \in Im(Y)
+\end{matrix}} (x+y)P(X = x \ \&\ Y=y) \]\[
+= \sum_{\begin{matrix}
+x \in Im(X) \\ y \in Im(Y)
+\end{matrix}} xP(X = x \ \&\ Y=y) \quad + \sum_{\begin{matrix}
+x \in Im(X) \\ y \in Im(Y)
+\end{matrix}} yP(X = x \ \&\ Y=y)
+\]\[
+= \sum_x x \sum_y P(...) +  \sum_y y \sum_x P(...) \]\[
+=  \mathbb{E}(X) + \mathbb{E}(Y)
+\]
+\end{proof}
+\end{veta}
+
+\begin{veta}
+Pro nezávislé náhodné veličiny $X,Y$
+\[ \mathbb{E}(XY) = \mathbb{E}(X)\mathbb{E}(Y)\]
+\begin{proof}
+\[\mathbb{E}(XY) = \sum_{x,y} (xy) P(x = X\ \&\ Y=y) = \sum_{x,y} (x,y)P(Y=y)P(X=x)  \]\[ 
+= \left( \sum_x p_X(x)x) \right) \cdot \left( \sum_y p_Y(y)y) \right) 
+= \mathbb{E}(X)\mathbb{E}(Y)\]
+\end{proof}
+\end{veta}
+
+
+\begin{veta}
+\[var(X+Y) = var(X) + var(Y) + 2cov(X,Y) \]
+\begin{proof}
+\[ a = \mathbb{E}\left[ (X+Y)^2 \right] = \mathbb{E}(X^2)  + \mathbb{E}(Y^2) + 2\mathbb{E}(XY)  \]
+\[ b  = \left[ \mathbb{E}(X+Y) \right]^2  =  \mathbb{E}(X^2)  + \mathbb{E}(Y^2) + 2 \mathbb{E}(X) \mathbb{E}(Y)\]
+\[ var(X+Y) = a - b = var(X) + var(Y) + 2(\mathbb{E}(XY) -\mathbb{E}(X) \mathbb{E}(Y)) \]
+\end{proof}
+\end{veta}
+
+
+\begin{veta}
+\[ cov(X,Y) = \mathbb{E}\left[ (X-\mathbb{E}(X))(Y-\mathbb{E}(Y)) \right]\]
+\begin{proof}
+Roznásobit a sečíst.
+\end{proof}
+\end{veta}
+
+
+\begin{veta}[Cauchyho nerovnost]
+\[cov(X,Y) \leq \sqrt{var(X)\cdot var(Y)}\]
+
+neboli
+
+\[-\sigma_X\cdot \sigma_Y \leq cov(X,Y) \leq \sigma_X\cdot \sigma_Y\]
+\end{veta}
+
+
+\begin{veta}[Rozptyl součtu]
+\[ var(X_1 + ... + X_n) = \]
+\begin{enumerate}
+\item \[ = \sum_i \sum_j cov(X_i, X_j)\]
+\item \[ = \sum_i  var(X_i) \sum_{j \neq j} cov(X_i, X_j)\]
+\item Pro nezávislé veličiny
+ \[ = \sum_i  var(X_i) \]
+\end{enumerate}
+\begin{proof}
+Kombinatoricky
+\[ \mathbb{E}\left[\left(\sum X_i\right)^2\right] = \sum_i \sum_j \mathbb{E}( X_i X_j) \] 
+
+\[ \left[ \mathbb{E} \left(\sum X_i\right)^2\right]^2 = \sum_i \sum_j \mathbb{E}( X_i) \mathbb{E}(X_j) \]
+
+\begin{enumerate}
+\item \[\implies  var\left(\sum X_i \right) = \sum_i \sum_j \mathbb{E}( X_i X_j) - \mathbb{E}( X_i) \mathbb{E}(X_j)  =   \sum_i \sum_j = cov(X_i, X_j) \] 
+\item $cov(X,X) = var(X)$
+\item Pro nezávislé veličiny je kovariance nulová.
+\end{enumerate}
+\end{proof}
+\end{veta}
+
+\subsection*{Spojité náhodné veličiny}
+
+\begin{veta}[O]
+\[\]
+\begin{proof}
+\[\]
+\end{proof}
+\end{veta}
+
+
+\begin{veta}[O]
+\[\]
+\begin{proof}
+\[\]
+\end{proof}
+\end{veta}
+
+
+\begin{veta}[O]
+\[\]
+\begin{proof}
+\[\]
+\end{proof}
+\end{veta}
+
+
+\begin{veta}[O]
+\[\]
+\begin{proof}
+\[\]
+\end{proof}
+\end{veta}
+
+
+\subsection*{Statistika}
+
+\section{Veličiny}
+
+\subsection{Diskrétní veličiny}
+
+\renewcommand{\arraystretch}{3}
+
+\begin{tabular}{| l | c | c | c | c | }
+\hline
+  & Značení & pravděpodobnostní funkce & $\mathbb{E}$ & rozptyl \\ 
+   \hline
+Bernouliho  & $Bern(p)$ & $p_X(1) = p$, $p_X(0) = 1 - p$  & $p$ & $p(1-p)$ \\
+ \hline
+Geometrické  &  $Geom(p)$ & $p_X(x) = (1-p)^{x-1}p$ & $\frac1p$ & $\frac{1-p}{p^2}$\\
+ \hline
+Binomiální  & $Bin(n,p)$ & $p_X(k) \binom{n}{k}p^k(1-p)^{n-k}$ pro správná k, jinak $0$ & $np$ & $np(1-p)$ \\
+ \hline
+Hypergeometrické  & & $p_X(k) = \frac{\binom{K}{k}\binom{N-K}{n-k}}{\binom{N}{n}}$ & & $n\frac{K}{N}$ \\
+ \hline
+Poissonovo  & $Poi(\lambda)$ & $p_X(k) = e^{-\lambda} \frac{\lambda^k}{k!}$ & & $\lambda$\\
+ \hline
+  
+\end{tabular}
+
+\subsection{Spojité veličiny}
+
+\begin{tabular}{| l | c | c | c | c | c | }
+\hline
+  & Značení & hustota & $F$ & $\mathbb{E}$ & rozptyl \\ 
+ \hline
+Uniformní & $U(a,b)$ & $\begin{cases} \frac1{b-a} & x \in [a,b] \\ 0 & x \notin [a,b] \end{cases}$ &  $\frac{x-a}{b-a}$ & $\frac{a+b}2$ & $\frac{(b-a)^2}{12}$ \\
+ \hline
+Exponenciální & $Exp(\lambda)$ & $\lambda e^{-\lambda x}$ &  $1 - e^{-\lambda x}$ & $\frac{1}{\lambda}$&  $\frac{1}{\lambda^2}$  \\
+ \hline
+Normální & $N(\mu, \sigma^2)$& $\frac{1}{\sigma}\varphi(\frac{x-\mu}{\sigma})$ & $\Phi(\frac{x-\mu}{\sigma})$  & $\mu$ & $\sigma^2$ \\
+ \hline
+ 
+ Cauchyho & & $\frac1{\pi(x+1)^2}$ & $\frac1\pi \arctan x - \frac12 $ & nemá &  nemá \\
+ \hline
+  
+\end{tabular}
+
+\paragraph{Náhodné vektory}
+
+Hustota a distribuční funkce
+\[ F_{X,Y}(x,y) = \int_{-\infty}^x  \int_{-\infty}^y  f_{X,Y} (s,t) dt ds\]
+\[  f_{X,Y}(x,y)= \int_{-\infty}^x = \frac{\partial^2 F_{X,Y}(x,y)}{\partial x \partial y} \]
+Marginální hustota
+\[ f_X(x) = \int^\infty_{-\infty} f_{X,Y}(x,y)dy\]
+Množiny
+\[ P((X,Y) \in A) = \int_A f_{X,Y}(x,y) dx dy \]
+Nezávislost X,Y
+\[  \iff f_{X,Y}(x,y) = f_{X}(x) f_{Y}(y) \iff F_{X,Y}(x,y) = F_{X}(x) F_{Y}(y) \]
+
+\renewcommand{\arraystretch}{0.8}
+
+
+\begin{tabular}{| c | c | c | c | c | c |}
+\hline
+x & 0 & 1 & 2 & 3 & 4 \\
+\hline
+$\Phi(x)$ & 0.5 & 0.84135 & 0.97725 & 0.99865 & 0.99997 \\
+\hline
+\end{tabular}
+
+\end{document}
