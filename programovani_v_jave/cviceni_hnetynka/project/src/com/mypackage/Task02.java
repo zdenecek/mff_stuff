@@ -1,8 +1,7 @@
-package com.src;
+package com.mypackage;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-
 
 public class Task02 {
     public static void main(String[] args) {
