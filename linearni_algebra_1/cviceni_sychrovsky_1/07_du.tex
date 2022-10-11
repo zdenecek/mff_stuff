@@ -1,0 +1,167 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{array}
+\setlength{\parindent}{0em}
+\begin{document}
+1.
+
+V podstatě máme zjistit, jestli pro soustavu:
+
+\begin{equation*}
+\alpha_1 \begin{pmatrix}
+1 \\ 2 \\ 0
+\end{pmatrix} 
++
+\alpha_2 \begin{pmatrix}
+0 \\ 1 \\ -1
+\end{pmatrix}
+=
+\beta_1 \begin{pmatrix}
+2 \\ 1 \\ 3
+\end{pmatrix}
++
+\beta_2 \begin{pmatrix}
+-1 \\ 0 \\ -2
+\end{pmatrix}
+\end{equation*}
+Dokážeme pro libovolné alfy najít bety a naopak. Jinými slovy řešíme soustavu tak, aby bety nebo alfy byly volnými proměnými.
+
+\begin{equation*}
+\begin{matrix}
+\alpha_1 & \alpha_2 & \beta_1 & \beta_2
+\end{matrix} 
+\end{equation*}
+\begin{equation*}
+\begin{pmatrix}
+1 & 0 & -2 & 1 \\
+2 & 1 & -1 & 0 \\
+0 &-1 & -3 & 2 \\
+\end{pmatrix}
+\end{equation*}
+
+Chceme mít pivoty pouze ve dvou sloupcích, musíme tedy najít nulový řádek, protože máme tři řádky. Pokusme se o Gausovu eliminaci.
+
+Od třetího řádku odečteme dvojnásobek prvního a přičteme druhý a vznikne nulový řádek a pivoty zůstanou v prvních dvou sloupcích. Význam je takový, že si za bety můžeme zvolit libovolné hodnoty a alfy dopočítat.
+
+Bylo by ještě možné, že jeden obal měl jiný rozměr než ten druhý, v tomto případě by byl ten druhý méněrozměrný, protože si za bety můžeme zvolit libovolné hodnoty, takže druhý je určitě minimálně podprostorem prvního. (Potom bychom si za bety mohli zvolit libovolná čísla, ale v geometrické interpretaci bychom se pohybovali na přímce či bodu v případě dvou nulových vektorů.)
+
+To můžeme ověřit tak, že zkusíme udělat pivoty z posledních dvou sloupců, respektive sloupce přehodíme a provedeme opět Gausovu eliminaci. 
+
+Jednodušší je ale ověřit, že oba obaly jsou dvojrozměrné, a to tak, že ověříme, že vektory, které obaly určují, nejsou lineárně závislé. Toto je jednoduché, protože každý obal určují pouze dva vektory. Vidíme, že oba obaly jsou dvojrozměrné, třeba proto, že vektory mají nuly v jiných řádcích. Obaly tedy musí být shodné.
+
+\hfill
+
+2.
+
+Lineární nezávislost vektorů můžeme opět popsat jako soustavu rovnic, kdy platí, že jediné řešení soustavy
+
+\begin{equation}
+\alpha_1 \vec{v_1} + \alpha_2 \vec{v_2} + ... + \alpha_n \vec{v_n} = 0
+\end{equation}
+
+je nulové řešení, právě tehdy, když jsou vektory lineárně nezávislé.
+
+Pro vektory dané vztahem $\vec{v}_n^\prime = \sum_{i=1}^n \vec{v_i}$ můžeme soustavu přepsat takto:
+
+\begin{equation*}
+\beta_1 \vec{v_1}^\prime + \beta_2 \vec{v_2}^\prime + ... + \beta_n \vec{v_n}^\prime = 0
+\end{equation*}
+
+Což můžeme přepsat jako
+
+\begin{equation*}
+\beta_1 \vec{v_1} + \beta_2  (\vec{v_1} + \vec{v_2}) + \beta_3  (\vec{v_1}+ \vec{v_2} + \vec{v_3}) + \hdots = 0
+\end{equation*}
+
+To můžeme upravit jako
+
+\begin{equation}
+\vec{v_1} (\beta_1 + \beta_2 + ... + \beta_n) + \vec{v_2} (\beta_2 + ... + \beta_n) + ... + \vec{v_n} \beta_n   = 0
+\end{equation}
+
+\hfill
+
+Nyní ukažme, že, slovy:
+
+1. Rovnice (1) $\textbf{má}$ nenulové řešení $\implies$ rovnice (2) má nenulové řešení,
+
+2. Rovnice (1) $\textbf{nemá}$ nenulové řešení $\implies$ rovnice (2) nemá nenulové řešení,
+
+3. Rovnice (2) $\textbf{má}$ nenulové řešení $\implies$ rovnice (1) má nenulové řešení.
+
+4. Rovnice (2) $\textbf{nemá}$ nenulové řešení $\implies$ rovnice (1) nemá nenulové řešení.
+
+\hfill
+
+Pokud víme, že jedna z rovnic nenulové řešení má, k nalezení nenulového řešení druhé rovnice použijeme vztah $\alpha_m = \beta_m + \beta_{m+1} + ... + \beta_n$., dosazením pak získáme z první rovnice rovnici druhou.
+Tyto rovnice řešíme jako soustavu:
+
+\begin{equation*}
+\left(
+\begin{array}{c|cccc}
+\alpha & \beta_1 & \beta_2 & ... & \beta_n
+\end{array}
+\right)
+\end{equation*}
+\begin{equation*}
+\left(
+\begin{array}{c|cccc}
+\alpha_1 & 1 & 1 & ... & 1 \\
+\alpha_2 & 0 &  1 & ... & 1 \\
+\vdots \\
+\alpha_n & 0 & ... & 0 & 1
+\end{array}
+\right)
+\end{equation*}
+
+Vzhledem k tomu, že máme pivot v každém sloupci, má soustava jenom jedno řešení.
+
+Pro nenulové řešení rovnice (1) (nenulový vektor pravých stran) má soustava řešení, které ale není nulové (kdyby bylo řešení nulové, alespoň v jednom řádku by vyšlo $1=0$). [tvrzení 1]
+
+Naopak pokud má soustava nenulové řešení, musí být vektor pravých stran nenulový, protože jinak by měla soustava i nulové řešení, což už by byla dvě řešení, což by byl spor s existencí pouze jednoho řešení. [tvrzení 3]
+
+Tvrzení 2 a 4 dokažme sporem. Uvědomme si, že není možné, aby jedna rovnice měla nenulové řešení a druhá ho neměla, protože pokud má první rovnice nenulové řešení, jsme schopni nalézt nenulové řešení rovnice druhé, a naopak. Pokud tedy jedna rovnice nemá nenulové řešení, nemá ho ani druhá. Takto jsme vlastně sporem dokázali tvrzení 2 a 4.
+
+Proto platí celá věta.
+
+\hfill
+
+3.
+Ověřme, zda platí axiomy:
+
+\begin{itemize}
+	\item $\mathbb{R}$ je těleso - to víme
+	\item $(+, \mathbb{R}^+)$ tvoří Abelovu grupu
+	
+	
+	\begin{itemize}
+		\item násobení je komutativní
+		\item násobení je asociativní
+		\item neutrální prvek je 1
+		\item inverzní prvek je $\frac1x$ - vždy patří do množiny
+	\end{itemize}
+	\item $\forall u \in \mathbb{R}^+: 1 \otimes u = u$ (neutrální prvek pro násobení v $\mathbb{R}$ je $1$)
+	
+	$ 1 \otimes u = u^1 = u$
+	\item asociativita násobení
+	\begin{equation*}
+	(a \cdot b) \otimes x = x^{ab} = (x^b)^a = a \otimes (b \otimes x) 
+	\end{equation*}
+	\item distributivita násobení k oběma sčítáním
+	\begin{itemize}
+		\item k sčítání na $\mathbb{R}$: $a \otimes (u \oplus w) = (uw)^a = u^aw^a = (a\otimes u) \oplus (a \otimes w) $
+		\item k sčítání na tělese:
+			$(a + b) \otimes u = u^{a+b}= u^a \cdot u^b = (a \otimes u)\oplus (b \otimes u)$
+	\end{itemize}
+	
+\end{itemize}
+
+Všechny axiomy platí, jedná se tedy o vektorový prostor.
+
+\end{document}
+
+
+

@@ -1,0 +1,82 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\setlength{\parindent}{0em}
+\begin{document}
+1.
+
+Tento úkol jsem nespočítal.
+
+2.
+
+Uvažme převod matice do REF pomocí gausovy eliminace.  
+
+Začneme tím, že první řádek vynásobíme číslem $c_1$ a druhý řádek vynásobíme číslem $c_2$ tak, aby po odečtení prvního od druhého vznikla nula.
+
+Uvědomme si, že touto operací nikdy nezrušíme pivot na druhém řádku. 
+
+\hfill
+
+Hledáme čísla $c_1$ a $c_2$ tak, aby $c_1 \cdot a_{11} = c_2 \cdot a_{21}$. Toho můžeme docílit vždy tak, aby $c_1 \cdot a_{11} = c_2 \cdot a_{21} = nsn(a_{11}, a_{21})$. Prvočíselný rozklad nejmenšího společného násobku ale bude obsahovat vždy tolik dvojek, kolik je jich je v rozkladu $a_{21}$, a to proto, že v rozkladu $a_{11}$ není žádná dvojka, protože je to liché číslo, zatímco v rozkladu $a_{21}$ je alespoň jedna dvojka.
+To znamená, že druhý řádek nebudeme muset násobit žádným násobkem dvojky, pouze lichými čísly, a proto zůstane člen (pivot) na druhé (diagonální) pozici lichým. Při odečtení prvního řádku potom ale tento pivot nevylujeme, protože odečtení sudého čísla od lichého nám nikdy nevyjde nula, protože si tato čísla nemůžou být rovna.
+
+\hfill
+
+Toto můžeme zobecnit triviálně pro jakýkoliv řádek, ale taky pro jakýkoliv sloupec, protože v gausově eliminaci postupujeme stejně pro jakýkoliv $n$-tý sloupec, jenom zanedbáme prvních $n-1$ sloupců a řádků, protože ty sloupce už jsme pod pivotem vynulovali.
+
+Protože si ale žádné číslo na diagonále nikdy nevynulujeme, budeme mít maximální počet pivotů a matice tak bude vždy regulární.
+
+\hfill
+
+3.
+
+
+i. Matice je singulární, protože druhý řádek je dvojnásobkém prvního. Pro každý sloupec zůstává $j$ stejné a $i$ je dvojnásobné. Odečtením dvojnásobku prvního řádku od druhého dostaneme nulový řádek. Toto samozřejmě nemůžeme udělat, pokud má matice pouze jeden řádek, pak je regulární
+
+\begin{equation*}
+A \text{ je } \begin{cases} 
+\text{regulární pro } n = 1\\
+\text{singulární pro } n > 1
+\end{cases}
+\end{equation*}
+
+\hfill
+
+ii.
+
+$(i+1)$-ní řádek
+\begin{equation*}
+\begin{pmatrix}
+i+1+1 & i+1+2 & i+1+3 & \hdots & i+1+n
+\end{pmatrix}
+\end{equation*}
+$i$-tý řádek
+\begin{equation*}
+\begin{pmatrix}
+i+1 & i+2 & i+3 & \hdots & i+n
+\end{pmatrix}
+\end{equation*}
+
+Odečteme-li od $(i+1)$-ního řádku $i$-tý řádek, dostaneme řádek ve tvaru
+\begin{equation*}
+\begin{pmatrix}
+1 & 1 & \hdots & 1
+\end{pmatrix}
+\end{equation*}
+
+Pro $n \geq 3$ můžeme odečíst druhý řádek od třetího a potom také první od druhého, a dostaneme dva stejné řádky, které můžeme odečíst od sebe a dostaneme jeden nulový řádek.
+
+Pro $n = 2$ můžeme vytvořit maximálně jeden jednotkový řádek, ať už provedeme jakoukoliv jinou operaci, nulový řádek nedostaneme, matice je regulérní.
+
+Pro $n = 1$ nulový řádek žádnou operací nemůžeme vytvořit.
+
+\begin{equation*}
+A \text{ je } \begin{cases} 
+\text{regulární pro } n \leq 2\\
+\text{singulární pro } n > 2
+\end{cases}
+\end{equation*}
+
+\end{document}

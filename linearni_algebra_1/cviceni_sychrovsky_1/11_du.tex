@@ -1,0 +1,222 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage[margin=0.7in]{geometry}
+\setlength{\parindent}{0em}
+\usepackage{xcolor}
+
+
+\title{Řešení domácího úkolu č. 11}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{} 
+
+V soustavě rovnic $Ax = b$ reprezentují prvky $v \in \mathfrak{R}(A)$ lineární kombinace levých stran rovnic soustavy:
+
+\begin{equation*} 
+v = \alpha_1 \cdot L_1 + \alpha_2 \cdot L_2 + ... + \alpha_m \cdot L_m
+\end{equation*}
+
+kde 
+\begin{align*}
+L_j &= \begin{pmatrix}
+a_{j,1} & a_{j,2}& ... & a_{j,n}
+\end{pmatrix} 
+\end{align*}
+
+dosazením bychom získali:
+
+\begin{align*}
+L_j(x) &= L_j^T \times x = a_{j,1} \cdot x_1 + a_{j,2} \cdot x_2 + ... + a_{j,n} \cdot x_n
+\end{align*}
+
+Formálně pak můžeme dosadit do $v^Tx$:
+\begin{align*}
+v^Tx &= ( \alpha_1 \cdot L_1 + \alpha_2 \cdot L_2 + ... + \alpha_m \cdot L_m)^T \times x \\
+&= \alpha_1 \cdot L_1^T \times x + ... + \alpha_m \cdot L^T_m\times x \\
+&= \alpha_1 \cdot L_1(x) + ... + \alpha_m \cdot L_m(x)
+\end{align*}
+
+pokud ale platí, že $Ax = b$, potom prostým dosazení do rovnice platí, že
+
+\begin{equation*}
+L_i(x) = P_i(x) = b_i
+\end{equation*}
+
+To můžeme dosadit:
+\begin{align*}
+v^Tx &= \alpha_1 b_1 + ... + \alpha_m b_m
+\end{align*}
+
+To je konstantní pro vybrané $b$ a $v$ (vybrání $v$ odpovídá vybrání $\alpha_1 ... \alpha_m$).
+
+\pagebreak
+
+\section{}
+Aby se jednalo o prostor, musí být uzavřený na sčítání i násobení. Pro součet dvou matic, kde každá má řádkové součty rovny $k$, platí: řádkové součty nové matice musí být pořád $k$, to znamená, že pro $M_k$ musí v maticích platit $k+k=0$. Co se týče tělesa, operace násobení musí být opět konečná, abychom vždy zachovali součet $k$.
+
+Jako příklad uvedu, co musí platit, abychom zachovali uzavřenost obou operací v prostoru $M_i \subset \mathbb{R}^{1 \times 1}$:
+
+Jediný prvek je $(i)$ a tedy platí:
+
+\begin{equation*}
+(i) \oplus (i) = (i)
+\end{equation*}
+
+\begin{equation*}
+\forall a \in \mathbb{K}: a \odot (i) = (i)
+\end{equation*}
+
+Pro $i \neq 0$ toto není chování reálných matic.
+
+Podívejme se na následující příklad $M_j \subset \mathbb{R}^{2 \times 2}$:
+
+Prvky jsou ve tvaru:
+
+\begin{equation*}
+\begin{pmatrix}
+a & j - a\\
+b & j - b
+\end{pmatrix}
+\end{equation*}
+
+Když pro pro součet reálných matic platí:
+
+\begin{equation*}
+\begin{pmatrix}
+a & j - a\\
+b & j - b
+\end{pmatrix} \oplus
+\begin{pmatrix}
+c & j - c\\
+d & j - d
+\end{pmatrix} =
+\begin{pmatrix}
+a+c & 2j - (a + c)\\
+b+d & 2j - (b + d)
+\end{pmatrix}
+\end{equation*}
+
+Řádkový součet je roven $2j$. $2j = j$ může opět platit pouze pro $j = 0$. Vidíme, že opravdu platí $k+k=0$. Řekněme tedy, že prostor existuje pouze když $k = 0$ a nalezněme jeho bázi:
+
+Intuitivně můžeme říct, že pro každý řádek můžeme zvolit libovolnou hodnotu pro $n-1$ pozic a poslední hodnota již bude jednoznačně dána tak, aby odpovídal součet. Počet vektorů v bázi pro každý řádek bude tedy $n-1$, když je řádků $n$, je pak dimenze $n\cdot (n-1)$. To že každý řádek je nezávislý je jasné. Pro názornost uvedu příklad bázických vektorů, které by mohly odpovídat prvnímu řádku (uvádím pouze první řádek matice, ostatní jsou nulové, s nulovým sedícím součtem): 
+\begin{equation*}
+\{
+\begin{pmatrix} 1 & -1 & 0 & 0 & ... & 0 \end{pmatrix},
+\begin{pmatrix} 0 & 1 & -1 & 0 & ... & 0 \end{pmatrix},
+...,
+\begin{pmatrix} 0 & ... & 0 & 1 & -1& 0 \end{pmatrix}, \begin{pmatrix} 0 & ... & 0 & 0 & 1 & -1 \end{pmatrix} 
+\}
+\end{equation*}
+
+Odpověď je tedy:
+
+\begin{equation*}
+\dim(M_k) = \begin{cases}
+n\cdot(n-1) & k = 0 \\
+\text{nedefinováno} & k \neq 0
+\end{cases}
+\end{equation*}
+
+\pagebreak
+
+\section{}
+\begin{enumerate}[label=\roman*]
+\item Neuvažujeme zde řádkové úpravy, každou matici musíme umět sestrojit bez řádkových úprav.
+
+
+\begin{itemize}
+\item 
+Symetrické matice: Intuitivně řečeno si můžeme doplnit jakákoliv čísla do horního pravého trojúhelníku, včetně diagonály, a zbylé pozice už jsou jednoznačně určeny.
+
+
+\begin{equation*}
+B_S = \left\{ \forall r, c, c \geq r: X_{r,c}: \left( (X_{r,c})_{i,j} = \begin{cases} 1 & (i = r \wedge j = c) \vee (i = c \wedge j = r) \\ 0 & \text{jinak} \end{cases} \right) \right\}
+\end{equation*}
+
+Báze je lineárně nezávislá a nutně generuje celou množinu.
+
+Počet bázických vektorů bude součet počtů pozic na diagonále a pozic nad diagonálou.
+
+\begin{equation*}
+dim(S) = |B_S| = n + \frac{n^2 - n}2 = \frac{n^2 + n}2
+\end{equation*}
+
+\item Antisymetrické matice: Jedná se o stejnou úvahu, pouze na odpovídající pozici dle převrácení bude číslo opačné a na diagonále pak musí být nuly.
+
+\begin{equation*}
+B_A = \left\{ \forall r, c, c > r: X^\prime_{r,c}: \left( (X^\prime_{r,c})_{i,j}  = 
+\begin{cases} 
+1 & i = r \wedge j = c \\
+-1 & i = c \wedge j = r \\
+0 & \text{jinak} 
+\end{cases}
+\right) \right\}
+\end{equation*}
+
+Počet bázických vektorů bude počet pozic nad diagonálou.
+
+\begin{equation*}
+dim(A) = |B_A| = \frac{n^2 - n}2
+\end{equation*}
+
+\end{itemize}
+\item Obě matice si můžeme vyjádřit jednoznačně jako lin. kombinace bází:
+
+\begin{equation*}
+S = 
+\alpha_{1,1} X_{1,1} + ... + \alpha_{1,n} X_{1,n} +
+\alpha_{2,2} X_{2,2} + ... + \alpha_{2,n} X_{2,n} +
+... + 
+\alpha_{n,n} X_{n,n} 
+\end{equation*}
+\begin{equation*}
+A = 
+\beta_{1,2} X^\prime_{1,2} + ... + \beta_{1,n} X^\prime_{1,n} +
+\beta_{2,3} X^\prime_{2,3} + ... + \beta_{2,n} X^\prime_{2,n} +
+... + 
+\beta_{n-1,n} X^\prime_{n-1,n} 
+\end{equation*}
+
+Prvky $B$ na diagonále určují prvky na diagonále symetrické matice. Ostatní prvky obou matic jsou určeny takto:
+\begin{equation*}
+b_{i,j} = \begin{cases}
+j > i & s_{i,j} + a_{i,j} \\
+j < i & s_{j,i} + a_{j,i} = s_{i,j} - a_{i,j} \\
+j = i & s_{j,i} \text{ prvek je na diagonále, zmíněno výše}
+\end{cases}
+\end{equation*}
+
+Se zvolenými jednotkovými bázemi lze rovnice přepsat, protože daný prvek v anti/symetrické matici určuje pouze jedna báze.
+
+\begin{equation*}
+b_{i,j} = \begin{cases}
+j > i & \alpha_{i,j} + \beta_{i,j} \\
+j < i & \alpha_{i,j} - \beta_{i,j} \\
+\end{cases}
+\end{equation*}
+
+Pro každou dvojici prvků $b_{i,j}$ a $b_{j, i}$ $j > i$ máme dvě rovnice s dvěma proměnnými 
+
+\begin{align*}
+b_{i,j} &= \alpha_{i,j} + \beta_{i,j}\\
+b_{i,j} &= \alpha_{i,j} - \beta_{i,j}
+\end{align*}
+
+
+A dvě rovnice o dvou neznámých nám dávají jednoznačné řešení.
+
+Každá $\alpha_{i,i}$ je jednoznačně určena prvky na diagonále $B$, a protože tím máme určeny všechny bety a alfy jednoznačně, jsou určeny jednoznačně i $A$ a $S$.
+
+\end{enumerate}
+
+
+\end{document}

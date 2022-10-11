@@ -1,0 +1,176 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{array}
+\setlength{\parindent}{0em}
+\begin{document}
+1. 
+
+Neutrální prvek existuje:
+
+\begin{equation*}
+e = 0 =
+\begin{pmatrix}
+cos(0) & -sin(0) \\
+sin(0) & cos(0)
+\end{pmatrix} 
+=
+\begin{pmatrix}
+1 & 0 \\
+0 & 1
+\end{pmatrix} 
+\end{equation*}
+
+Najděme inverzní prvek:
+
+\begin{align*}
+\alpha^{-1} &= \beta 
+\end{align*}
+\begin{align*}
+0 &=
+\begin{pmatrix}
+cos(\alpha) & -sin(\alpha) \\
+sin(\alpha) & cos(\alpha)
+\end{pmatrix} 
+\cdot
+\begin{pmatrix}
+cos(\beta) & -sin(\beta) \\
+sin(\beta) & cos(\beta)
+\end{pmatrix} \\
+0 &=
+\begin{pmatrix}
+cos(\alpha + \beta) 	& -sin(\alpha + \beta) \\
+sin(\alpha + \beta)	&  cos(\alpha + \beta)
+\end{pmatrix} \\
+0 &= \alpha + \beta\\
+\alpha^{-1} &= -\alpha
+\end{align*}
+
+Asociativita vyplývá z předchozího vzorce, pro reálné úhly platí:
+
+\begin{equation*}
+(\alpha + \beta) + \gamma = \alpha + (\beta + \gamma)
+\end{equation*}
+
+Aplikujme matici na vektor, mělo by se jednat o lineární transformaci, protože prvky matice jsou reálná čísla:
+
+\begin{align*}
+\begin{pmatrix}
+cos(\alpha) & -sin(\alpha) \\
+sin(\alpha) & cos(\alpha)
+\end{pmatrix} 
+\cdot
+\begin{pmatrix}
+x  \\
+y
+\end{pmatrix} 
+=
+\begin{pmatrix}
+x \cdot cos(\alpha) - y \cdot sin(\alpha) \\
+x \cdot sin(\alpha) - y \cdot cos(\alpha)
+\end{pmatrix} 
+\end{align*}
+
+Zakresleme si transformaci na jednotkové kružnici:
+
+Dejme, že transformovaný vektor $\vec{v}$ leží na ose x a promítne se do jiného vektoru na jednotkové kružnici:
+
+\begin{align*}
+\begin{pmatrix}
+x \cdot cos(\alpha) - y \cdot sin(\alpha)  \\
+x \cdot sin(\alpha) - y \cdot cos(\alpha)
+\end{pmatrix} = 
+\begin{pmatrix}
+1 \cdot \frac{x^{\prime}}{|\vec{v}^{\prime}|} - 0 \\
+1 \cdot \frac{y^{\prime}}{|\vec{v}^{\prime}|} - 0
+\end{pmatrix} = 
+\begin{pmatrix}
+ \frac{x^{\prime}}{1}\\
+ \frac{y^{\prime}}{1}
+\end{pmatrix} = 
+\begin{pmatrix}
+x^{\prime}\\
+y^{\prime}
+\end{pmatrix} 
+\end{align*}
+
+Jedná se tedy o rotaci o úhel.
+
+
+\hfill
+
+2.
+
+Neutrální prvek
+
+\begin{align*}
+(a \cdot e) \mod 6 = a \\
+e = 1
+\end{align*}
+ 
+Inverzní prvek:
+
+\begin{align*}
+(a \cdot a^{-1}) \mod 6 = 1  \\
+a \cdot a^{-1} = k \cdot 6 + 1
+\end{align*}
+
+Například pro dvojku takový prvek nenajdeme: dvojka je sudé číslo, součinem nevznikne liché číslo.
+
+O grupu se nejedná.
+
+\hfill
+
+3.
+
+Úvahou nemá řešení. Výpočtem:
+
+\begin{equation*}
+\left(
+\begin{array}{ccc|c}
+0 & 1 & 1 & 1 \\
+1 & 0 & 1 & 1 \\
+1 & 1 & 0 & 1 \\
+\end{array}
+\right)
+\sim
+\left(
+\begin{array}{ccc|c}
+1 & 1 & 0 & 0 \\
+1 & 0 & 1 & 1 \\
+1 & 1 & 0 & 1 \\
+\end{array}
+\right)
+\sim
+\left(
+\begin{array}{ccc|c}
+1 & 1 & 0 & 0 \\
+0 & 1 & 1 & 1 \\
+0 & 0 & 0 & 1 \\
+\end{array}
+\right) 
+\end{equation*}
+\begin{equation*}
+(0 + 0 + 0) \mod 2 \neq 1
+\end{equation*}
+
+Nemá řešení
+
+\hfill
+
+4.
+
+Spočtěme exponent v $\mathbb{Z}_7$:
+
+\begin{equation*}
+5! = 5 \cdot 4 \cdot 3 \cdot 2 = 6 \cdot 3 \cdot 2 = 4 \cdot 2 = 1
+\end{equation*}
+
+Nyní je to jednoduché, umocněním na prvou získáme opět $A$.
+
+
+
+
+\end{document}

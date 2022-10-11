@@ -1,0 +1,120 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{array}
+\setlength{\parindent}{0em}
+\begin{document}
+1.
+
+Nejdříve ukažme, že $m$ vektorů z $\mathbb{R}^n$ nemůže být nezávislých, když $m > n$:
+
+Opět vyjádříme nezávislost jako soustavu:
+\begin{equation*}
+\alpha_1 \vec{v}_1 + ... + \alpha_m \vec{v}_m = 0
+\end{equation*}
+
+Tuto soustavu si opět můžeme zapsat maticí soustavy, kde $m$ bude počet sloupců a $n$ bude počet řádků. Pokud má matice více sloupců než řádků, nemůže mít v každém sloupci pivot, protože v každém řádku je nejvýše jeden pivot, a tudíž musí mít více řešení, tedy i nenulové řešení a vektory nemůžou být nezávislé.
+
+
+\hfill 
+
+Platí $m \leq n$  
+
+\hfill
+
+Aby mohly být výsledné vektory nezávislé, musí mít matice $A$ nanejvýš $m - n$ nulových řádků. Kdyby jich měla více, dostaneme ve výsledné soustavě rovnic vyjádřující nezávislost opět matici, která bude mít $m$ sloupců a $n$ řádků, ale pro každý nulový řádek v $A$ zde bude taktéž jeden nulový řádek a soustava bude mít nenulové řešení ($j$-tý nulový řádek $A$ způsobí, že v každém z výsledných vektorů bude $j$-tá souřadnice nulová).
+
+\hfill
+
+Tedy pokud $m = n$, musí být $A$ regulární. Pokud $m < n$, nemusí být $A$ regulární, není to ale jediná podmínka. Představme si $A$ jako lineární transformaci, pokud se dva vektory původního prostoru zobrazí do stejného vektoru, bude výsledná množina závislá. To znamená, že pokud má matice nulové řádky, musí je mít na správných místech.
+
+
+\hfill
+ 
+Vyjádřeme to pomocí rovnic
+
+\begin{equation*}
+\alpha_1 (A \times \vec{v}_1) + ... + \alpha_m (A \times \vec{v}_m) = 0
+\end{equation*}
+\begin{equation*}
+ (A \times \vec{v}_1)\alpha_1 + ... +  (A \times \vec{v}_m)\alpha_m = 0
+\end{equation*}
+\begin{equation*}
+ A \times (\vec{v}_1 \alpha_1) + ... +  A \times (\vec{v}_m \alpha_m) = 0
+\end{equation*}
+\begin{equation*}
+ A \times (\vec{v}_1 \alpha_1 + ... + \vec{v}_m \alpha_m) = 0
+\end{equation*}
+
+Jednoduše řešeno nemůže transformace zobrazit žádný vektor z obalu kromě nulového vektoru do nulového vektoru. To znamená, že
+$Ax = 0$, musí mít jediné řešení v podprostoru s bázemi $v_i$.
+
+
+
+2.
+
+a) nad $\mathbb{R}$:
+
+Přepišme jako soustavu čtyř rovnic:
+
+\begin{equation*}
+\begin{pmatrix}
+1 & 1 & 1 \\
+2 & 1 & 2 \\
+1 & 0 & 2 \\
+2 & 1 & 0 \\ 
+\end{pmatrix}
+\sim
+\begin{pmatrix}
+1 & 1 & 1 \\
+0 & -1& 0 \\
+0 & -1& 1 \\
+0 & -1& -2\\ 
+\end{pmatrix}
+\sim
+\begin{pmatrix}
+1 & 0& 0 \\
+0 & 1& 0 \\
+0 & 0& 1 \\ 
+0 & 0& 0 
+\end{pmatrix}
+\end{equation*}
+
+Tato soustava má jen jediné řešení, nulové, množina je lineárně nezávislá.
+
+b)  podmnožina $M(\mathbb{Z}_3)$ 
+
+
+\begin{equation*}
+\begin{pmatrix}
+1 & 1 & 1 \\
+2 & 1 & 2 \\
+1 & 0 & 2 \\
+2 & 1 & 0 \\ 
+\end{pmatrix}
+\sim
+\begin{pmatrix}
+1 & 1 & 1 \\
+0 & 2 & 0 \\
+0 & 2 & 1 \\
+0 & 2 & 1 \\ 
+\end{pmatrix}
+\sim
+\begin{pmatrix}
+1 & 0& 0 \\
+0 & 1& 0 \\
+0 & 0& 1 \\ 
+0 & 0& 0 
+\end{pmatrix}
+\end{equation*}
+
+Množina je nezávislá.
+
+
+
+\end{document}
+
+
+

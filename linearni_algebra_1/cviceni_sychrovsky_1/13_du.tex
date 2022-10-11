@@ -1,0 +1,57 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage{mathtools, array, enumitem, xcolor}
+\usepackage[margin=0.7in]{geometry}
+\setlength{\parindent}{0em}
+
+
+\title{Řešení domácího úkolu č. 13}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{}
+
+Průchod bodem $[0,0]$ nasvědčuje nulovému konstantnímu členu.
+Koeficient $a$ určíme dosazením.
+
+$a = \frac12$
+
+$b = 0$
+
+\section{}
+
+Tvrzení \[ \forall n \in \mathbb{N}_0 \exists k \in \mathbb{N}_0 :  n^3 - n = 6k \]
+
+\begin{proof} indukcí:
+
+\begin{itemize}
+\item Základní případy $n \in \{0, 1\}$
+Za $k$ můžeme dosadit v obou případech nulu.
+\item Indukční krok: Předpokládejme, že tvrzení platí pro $n$, a rozeberme platnost pro $n+2$:
+
+Rozepišme rovnici:
+
+
+\[ (n+2)^3 - (n + 2) = 6k \]
+
+\[ n^3 + 6n^2 + 12n + 8 - n - 2 = 6k \]
+
+\[ (n^3 - n) + 6(n^2 + 2n + 1) = 6k \]
+
+Využijeme indukční předpoklad:
+
+\[ 6k^\prime + 6(n^2 + 2n + 1) = 6k \]
+\[ k = k^\prime + n^2 + 2n + 1  \]
+
+Pro každé $n$ se můžeme indukčními kroky dostat na základní případ, tedy tvrzení platí. 
+
+
+\end{itemize}
+\end{proof}
+
+
+\end{document}

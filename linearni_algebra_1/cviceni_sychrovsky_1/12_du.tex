@@ -1,0 +1,179 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage{mathtools, array, enumitem, xcolor}
+\usepackage[margin=0.7in]{geometry}
+\setlength{\parindent}{0em}
+
+
+\title{Řešení domácího úkolu č. 12}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{} 
+\begin{equation*}
+{}_{B^\prime}[id]_B = \begin{pmatrix}
+1 & 2 \\ 3 & 4
+\end{pmatrix},
+B = \{u,v\}, B^\prime = \{x,y\}
+\end{equation*}
+
+\begin{enumerate}[label=\roman*]
+\item od $\{v, u\}$ k $\{y, x\}$
+Vezměme matici přechodu jakožto zobrazení $f$. Víme, že matice zobrazení nám udává obrazy bázických vektorů, takže víme, že:
+	
+\begin{equation*}
+f([u]_B) = f((1, 0)^T) =[(1, 3)^T]_{B^\prime}
+\end{equation*}	
+\begin{equation*}
+f([v]_B) = [(2, 4)^T]_{B^\prime}
+\end{equation*}
+
+Jestliže se nám prohodily báze v $B$, potom musíme prohodit sloupce matice přechodu. Prohodily se nám také vektory báze $B^\prime$, takže musíme prohodit i řádky.
+
+\begin{equation*}
+{}_{\{y, x\}}[id]_{\{v, u\}} = \begin{pmatrix}
+ 4 & 3 \\2 & 1 
+\end{pmatrix}
+\end{equation*}
+
+\item od $\{5u, 2v\}$ k $\{x, y\}$
+První bázický vektor je pětkrát větší, tudíž výsledný obraz musí být pětkrát větší. Kontrolou třeba když aplikuji na vektor $[\frac15, 0]^T_{\{5u, 2v\}} $, musí mi vyjít $(1,3)^T$ protože $[\frac15, 0]^T_{\{5u, 2v\}} = u$. Obdobně vynásobím druhý sloupec dvojkou.
+
+\begin{equation*}
+{}_{B^\prime}[id]_{\{5u, 2v\}} = \begin{pmatrix}
+ 5 & 4 \\ 15 & 8 
+\end{pmatrix}
+\end{equation*}
+
+\item $\{u + v, v\}$ k $\{x, y\}$
+
+Druhý sloupec matice zůstává stejný jako v zadání. K prvnímu sloupci musím přičíst kam se promítne bázický vektor $v$, takže druhý sloupec:
+
+\begin{equation*}
+{}_{B^\prime}[id]_{\{u + v, v\}} = \begin{pmatrix}
+ 3 & 2 \\ 7 & 4 
+\end{pmatrix}
+\end{equation*}
+
+\end{enumerate}
+\newpage
+\section{}
+
+\begin{equation*}
+A = \begin{pmatrix}
+1 & 0 & -1 \\ 0 & 1 & 0 \\ 1 & 1 & 0
+\end{pmatrix},
+B^\prime = \{ (1,1,0)^T, (1,0,0)^T, (0,1,-1)^T\}
+\end{equation*}
+
+\begin{enumerate}
+\item $A = {}_{B^\prime}[id]_B$
+
+Matice nám udává obrazy bázických vektorů, ale v bázi $B^\prime$, převeďme tyto vektory do kanonické báze, matici přechodu vytvoříme poskládáním bázických vektorů do sloupců:
+
+\begin{equation*}
+\begin{pmatrix}
+1 & 1 & 0\\ 
+1 & 0 & 1\\
+0 & 0 & -1
+\end{pmatrix}\begin{pmatrix}
+1 & 0 &-1 \\ 
+0 & 1 & 0 \\
+1 & 1 & 0
+\end{pmatrix} = 
+\begin{pmatrix}
+1 & 1 &-1 \\ 
+2 & 1 &-1 \\
+-1&-1 & 0
+\end{pmatrix}
+\end{equation*}
+
+
+\begin{equation*}
+B = \{(1, 2, -1)^T, (1,1,-1)^T, (-1,-1,0)^T \}
+\end{equation*}
+
+\item naopak
+
+Matice udává nám známe vektory v neznáme bázi.
+
+Dva postupy:
+
+Zjistíme matici opačného přechodu jako inverzi a postup z prvního bodu.
+
+NEBO řešíme jako soustavu, jedna z rovnic je například:
+
+\begin{equation*}
+b_1 + b_3 =(1,1,0)^T
+\end{equation*} 
+
+Nechci zadávat inverzi do wolframu, zvolím tedy druhý způsob.
+
+Sestavíme matici (levá část je transpozice, pravá známé vektory):
+
+\begin{equation*}
+\left( \begin{array}{ccc|c}
+1 & 0 & 1 & (1,1,0)^T \\ 
+0 & 1 & 1 & (1,0,0)^T \\
+-1& 0 & 0 & (0, 1,-1)^T
+\end{array} \right) \sim 
+\left( \begin{array}{ccc|c}
+1 & 0 & 1 & (1,1,0)^T \\ 
+0 & 1 & 1 & (1,0,0)^T \\
+0 & 0 & 1 & (1, 2,-1)^T
+\end{array} \right) \sim 
+\left( \begin{array}{ccc|c}
+1 & 0 & 0 & (0,-1,1^T) \\ 
+0 & 1 & 0 & (0,-2,1)^T \\
+0 & 0 & 1 & (1, 2,-1)^T
+\end{array} \right)
+\end{equation*}
+
+\begin{equation*}
+B = \{(0, -1, 1)^T, (0,-2,1)^T, (1,2,-1)^T \}
+\end{equation*}
+
+\end{enumerate}
+\newpage
+\section{}
+
+Nejrychlejší bude asi si to přepsat ručně:
+
+\begin{itemize}
+\item $f(1) = 1 + x^2$
+\item $f(1 + x) = 2 + 1 + x = 3 +x$
+\item $f(x^2) = 3 + 2 + 2x = 5 + 2x$
+\end{itemize}
+
+
+Z toho můžeme zpočítat, kam by se zobrazí nové bázické vektory.
+
+\begin{enumerate}
+\item 1 ... víme
+\item $f(x) = f(1 + x) - f(1) = 3 + x  - (1 + x^2) = -x^2 + x + 2 $
+\item $f(1 + x^2) = f(1) + f(x^2)= x^2 + 1 + 5 + 2x = x^2 + 2x + 6$
+\end{enumerate}
+
+Teď už jen vyjádřit pomocí nové báze:
+
+\begin{enumerate}
+\item $1 + x^2 = [0,0,1]$
+\item $-x^2 + x + 2 = 3\cdot 1 + 1\cdot x -1(x^2+1) = [3,1,-1]$
+\item $x^2 + 2x + 6 =5\cdot 1 + 2\cdot x + 1(x^2+1) = [5,2,1] $
+\end{enumerate}
+
+Teď obrazy zapíšeme za sebe:
+
+\begin{equation*}
+{}_{B^\prime}[f]_{B^\prime} = \begin{pmatrix}
+0 & 3 & 5\\
+0 & 1 & 2\\
+1 &-1 & 1
+\end{pmatrix}
+\end{equation*}
+
+\end{document}

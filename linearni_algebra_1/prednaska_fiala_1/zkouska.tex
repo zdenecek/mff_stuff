@@ -1,0 +1,927 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage{amssymb, amsthm, amsmath, amsfonts}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{array, xcolor}
+\usepackage{enumitem}
+\usepackage{graphicx}
+
+\usepackage[czech]{babel}
+\usepackage[utf8]{inputenc}
+
+\setlength{\parindent}{0em}
+
+\title{Zpracování vybraných otázek ke zkoušce z LA1}
+\date{}
+\author{Zdeněk Tomis}
+
+\begin{document}
+
+\maketitle
+
+"Seznam  není  vyčerpávající  ani  povinný  —  občas  může  být  požadována  i  znalost pojmů a skutečností, které nejsou v tomto seznamu uvedeny."
+
+\hfill
+
+V závorce uvádím číslo přednášky, na které se pojem řešil.
+
+\part{Definice (3 otázky)}
+
+\begin{enumerate}
+\item Definujte rozšířenou matici soustavy. (1)
+
+\paragraph{Rozšířená matice soustavy}
+Pro soustavu $Ax = b$, kde $A$ je matice soustavy, $x$ je vektor neznámých a $b$ je vektor pravých stran, je rozšířená matice soustavy $\left(\begin{array}{c|c}
+A & b
+\end{array}\right)$
+
+\item Definujte elementární řádkové operace. (1)
+\paragraph{Elementární řádkovou úpravou} vznikne z matice $A$ matice $A^\prime$, a to buď
+
+\begin{enumerate}
+\item vynásobením i-tého řádku nenulovým reálným číslem $t$
+\item přičtením $j$-tého řádku k $i$-tému, $i \neq j$
+\end{enumerate}
+Z těchto úprav lze odvodit také:	
+\begin{enumerate}
+\item[(c)] přičtení t-násobku j-tého řádku k i-tému, $j \neq i$
+\item[(d)] prohození dvou řádků
+\end{enumerate}
+
+\item Definujte odstupňovaný tvar matice. (1)
+\paragraph{Odstupňovaný tvar}
+
+Označme $j(i) = min(\{j: a_{i,j} = 0\})$
+
+Matice $A \in \mathbb{R}^{m \times n}$ je v odstupňovaném tvaru právě tehdy, když $\exists r \in \{1, ..., m \}$, takové že
+
+\begin{enumerate}
+\item $j(1) < j(2) < ... < j(r) \leq n$  neboli $\forall k,l, k < l \leq r: j(k) < j(l)$ (Nenulové řádky jsou seřazeny podle počtu počátečních nul, který je u každého řádku jiný)
+\item $\forall i,j,  m \geq i > r, 1 \leq j \leq n: a_{i, j} = 0$ (nulové řádky jsou až za nenulovými)
+\end{enumerate}
+
+\item Napište pseudokód pro Gaussovu eliminaci. (1)
+
+\paragraph{Pseudokód pro Gaussovu eliminaci}
+
+\begin{enumerate}
+\item[1.] Seřaď řádky podle počtu počátečních nul.
+\item[2.] Pokud mají dva nenulové řádky stejný počet počátečních nul ($i$-tý a $i+1$-ní), tak od $i+1$-ního odečteme $\frac{a_{i+1, j(i)}}{a_{i, j(i)}}$-násobek $i$-tého.
+\item[3.] Opakuj, dokud nemají každé dva nenulové řádky různé počty počátečních nul.
+\end{enumerate}
+
+Algoritmus je konečný, protože po kroku 2. vždy vzroste celkový počet počátečních nul alespoň o jedna.
+
+\item Definujte volné a bázické proměnné. (2)
+
+\paragraph{Bázické proměnné} soustavy s maticí soustavy $A$ jsou ty proměnné, jimž odpovídají sloupce, ve kterých je v odstupňovaném tvaru $A$ pivot. Volné proměnné jsou všechny ostatní.
+
+\item Definujte hodnost matice. (2)
+
+Zopakovat definici pivotu
+
+\paragraph{Hodnost matice} je počet pivotů v matici v odstupňovaném tvaru, kterou lze z matice získat.
+
+\item Definujte jednotkovou matici. (3)
+
+\paragraph{Jednotková matice} Jednotková matice $I_n \in \mathbb{R}^{n \times n}$ je taková matice pro kterou platí:
+
+
+\begin{equation*}
+(I_n)_{i,j} = \begin{cases} 
+1 &\text{pokud }  i = j \\
+0 &\text{pokud }  i \neq j
+\end{cases}
+\end{equation*}
+
+\item Definujte transponovanou matici. (3)
+
+\paragraph{Transponovaná matice} k matici $A \in \mathbb{R}^{m \times n}$ je taková matice $A^T \in \mathbb{R}^{n \times m}$, pro kterou platí:
+\begin{equation*}
+A^T_{i,j} = A_{j,i}
+\end{equation*}
+ 
+\item Definujte symetrickou matici. (3)
+
+\paragraph{Symetrická matice} je taková čtvercová matice $A \in \mathbb{R}^{n \times n}$, pro kterou platí:
+
+\begin{equation*}
+A_{j,i} = A_{i, j} \text{, neboli } A = A^T
+\end{equation*}
+
+\item Definujte maticový součin. (3)
+
+\paragraph{Maticový součin}: Pro součin matic $A \in \mathbb{R}^{m \times n}$ a $B \in \mathbb{R}^{n \times o}$ platí:
+
+\begin{equation*}
+(AB)_{i,j} = \displaystyle \sum_{k = 1}^n a_{i,k} \cdot b_{k,j}
+\end{equation*}
+
+\item Definujte inverzní matici. (4)
+
+\paragraph{Inverzní matice} k čtvercové matici $A \in \mathbb{R}^{n \times n}$  je taková matice $A^{-1} \in \mathbb{R}^{n \times n}$, pro kterou platí:
+
+\begin{equation*}
+A \times A^{-1} = I_n 
+\end{equation*}
+ 
+\item Definujte regulární matici. (4)
+
+\paragraph{Regulární matice} je taková matice, ke které existuje inverzní matice.
+
+Je nutno zopakovat definici inverzní matice.
+
+\item Definujte binární operaci. (4)
+
+\paragraph{Binární operace na množině $X$} je zobrazení $X \times X \to X$. 
+
+Případně lze definovat zobrazení (pomocí relace) a relaci (pomocí kartézského součinu).
+
+\item Definujte komutativní a asociativní binární operace. (4-5)
+
+Binární operace $\circ$ na množině $X$, tj. zobrazení $\circ: X \times X \to X$, je
+
+
+\paragraph{asociativní,} pokud 
+\begin{equation*}
+\forall a,b,c \in X: (a \circ b) \circ c = a \circ (b \circ c)
+\end{equation*}
+
+\paragraph{komutativní,} pokud 
+\begin{equation*}
+\forall a,b \in X: a \circ b = b \circ a
+\end{equation*}
+ 
+\item Definujte neutrální prvek. (5)
+
+\paragraph{Neutrální prvek} v množině $X$ vzhledem k binární operaci $\circ$ je takové $e \in X$, pro které platí: $\forall x \in X: x \circ e = e \circ x = x$
+
+\item Definujte inverzní prvek. (5) 
+\paragraph{Inverzní prvek} k prvku x v množině $X$ vzhledem k binární operaci $\circ$ je takové $x^{-1} \in X$, pro které platí: $x \circ x^{-1} = x^{-1} \circ x = e$, kde $e$ je neutrální prvek v $X$ vzhledem k $\circ$
+
+\item Definujte grupu. (5)
+
+\paragraph{Grupa} je dvojice $(G, \circ)$, kde $G$ je množina a $\circ$ je binární operace na $G$, která splňuje následující:
+
+\begin{enumerate}
+\item Neutrální prvek: $\exists e \in G: \forall x \in G: x \circ e = e \circ x= x$
+\item Inverzní prvek: $\forall x \in G: \exists x^{-1} \in G: x \circ x^{-1} = x^{-1} \circ x = e$
+\item Asociativita: $\forall a,b,c \in G:  (a \circ b) \circ c = a \circ (b \circ c)$
+\end{enumerate}
+
+\item Definujte permutaci. (5)
+
+\paragraph{Permutace} je bijekce (injektivní/prosté a surjektivní/na zobrazení) na $\{1, 2, ..., n\}$
+ 
+\item Definujte transpozici. (5)
+
+\paragraph{Transpozice} je permutace na množině velikosti $n$, která má jeden cyklus délky $2$ a $n-2$ pevných bodů.
+
+\item Definujte inverzi v permutaci. (5)
+
+\paragraph{Inverze v permutaci} je taková dvojice prvků $(i, j)$, pro které platí $i < j$, $p(i) > p(j)$.
+
+\item Definujte znaménko permutace.  (5)
+
+\paragraph{Znaménko permutace} $p$ je číslo $sgn(p) = (-1)^{\# \text{ počet inverzí v } p}$.
+
+\item Definujte těleso. (5-6)
+
+\paragraph{Těleso} je taková trojice $(T, \oplus, \otimes)$, pro kterou platí:
+
+\begin{enumerate}
+\item $(T, \oplus)$ tvoří Abelovu grupu
+\item $(T \setminus \{0\}, \otimes)$, kde $0$ je neutrální prvek k $\oplus$, tvoří Abelovu grupu
+\item $0$ komutuje s $\otimes$
+\item platí distributivní zákon $\otimes$ na $\oplus$:
+$\forall a,b,c \in T: a \otimes (b \oplus c) = (a \otimes b) \oplus (a \otimes c)$ 
+(Lze rozepsat i pro násobení zprava)
+
+\end{enumerate}
+
+\item Definujte charakteristiku tělesa. (6)
+
+\paragraph{Charakteristika tělesa} je $\begin{cases} 
+\text{nejmenší } n & \text{pro které platí:} \underbrace{1+1+...+1}_{\text{n-krát}} = 0
+\\ 0 & \text{pokud takové n neexistuje}
+ \end{cases}$
+
+\item Definujte vektorový prostor. (6-7)
+
+\paragraph{Vektorový prostor} nad tělesem $\mathbb{K}$ je množina $V$ spolu se zobrazeními $\oplus: V \times V \to V$ a $\odot: \mathbb{K} \times V \to V$, pokud platí:
+
+\begin{enumerate}
+\item $(V, \oplus)$ tvoří Abelovu grupu
+\item $\forall u \in V: 1 \odot u = u$, kde 1 je neutrální prvek pro násobení v $\mathbb{K}$
+\item asociativita násobení: $\forall a,b \in \mathbb{K}, u \in V: (a \cdot b) \odot u = a \odot (b \odot u)$
+\item distributivita na obou sčítání:
+\begin{itemize}
+\item $\forall a \in \mathbb{K}, u,v \in V: a \odot (u \oplus v) = (a \odot u) \oplus (a \odot v)$
+\item $\forall a,b \in \mathbb{K}, w \in V: (a+b) \odot w = (a \odot w) \oplus (b \odot w)$
+\end{itemize}
+\end{enumerate}
+
+\item Definujte podprostor vektorového prostoru. (7)
+
+Nechť $(V, \oplus, \odot)$ je vektorový prostor nad $\mathbb{K}$ a $U \subseteq V, U \neq \emptyset$ a 
+\begin{enumerate}
+\item $U$ je uzavřená na $\oplus$,
+\item $U$ je uzavřená na $\odot$,
+\end{enumerate}
+
+potom se $U$ nazývá podprostor $V$. 
+
+\item Definujte lineární kombinaci. (7)
+
+\paragraph{Lineární kombinace} vektorů $v_1, ..., v_n$ je libovolný vektor, který lze zapsat ve tvaru $a_1 \cdot v_1 + \cdots + a_n \cdot v_n$, kde $a_1, ..., a_n$ jsou prvky tělesa.
+
+\item Definujte lineární obal (podprostor generovaný množinou). (7)
+
+\paragraph{Lineární obal} množiny $X \subseteq V$, kde $V$ je libovolný vektorový prostor nad $\mathbb{K}$, je průnik všech podprostorů $V$, které obsahují $X$.
+ 
+\item Definujte řádkový a sloupcový prostor matice.
+
+Řádkový/sloupcový prostor matice je prostor generovaný jejími řádky/sloupci.
+
+Formálně:
+Pro matici $A \in \mathbb{K}^{m \times n}$
+
+\begin{equation*}
+\mathfrak{S}(A) = \{u: u \in \mathbb{K}^n: u = Ax: x \in \mathbb{K}^n\}
+\end{equation*}
+Neboli všechny lineární kombinace sloupců.
+
+\begin{equation*}
+\mathfrak{R}(A) = \{u: u \in \mathbb{K}^m: u = A^Tx: x \in \mathbb{K}^m\}
+\end{equation*}
+Neboli všechny lineární kombinace řádků.
+
+\item Definujte jádro matice.
+
+Jádro matice  $A \in \mathbb{K}^{m \times n}$ je podprostor  $ \mathbb{K}^n$ tvořený řešeními homogenní soustavy $Ax =0$. Značí se $Ker(A)$
+
+\item Definujte lineárně nezávislé vektory. (8)
+
+Množina vektorů $X$ ve vektorovém prostoru $V$ je lineárně nezávislá, pokud nelze z $X$ vybrat $k$ vektorů $v_1, ..., v_k$ a sestavit skaláry $a_1, ..., a_k$ tak, že alespoň jedno $a$ je různé od nuly a $\displaystyle \sum a_i v_i = 0$
+
+Nebo také
+
+\begin{equation*}
+\sum_{v_i \in V} a_i v_i = 0 \implies \forall i: a_i = 0
+\end{equation*}
+
+\item Definujte bázi vektorového prostoru. (8)
+
+\paragraph{Báze vektorového prostoru} $V$ je libovolná množina $X \subseteq V$, taková že:
+
+\begin{enumerate}
+\item $\mathfrak{L}(X) = V$
+\item $X$ je lineárně nezávislá
+\end{enumerate}
+
+\item Definujte dimenzi vektorového prostoru. 
+
+Nechť má $V$ konečnou bázi. Potom je dimenze $V$ mohutnost jeho báze. Značíme $dim(V)$.
+
+\item Definujte vektor souřadnic.
+\paragraph{Vektor souřadnic}
+Nechť $X = (v_1, v_2, ..., v_n)$ je konečná uspořádaná báze prostoru $V$ nad tělesem $\mathbb{K}$. Pro libovolný vektor $u \in V$ nazveme koeficienty $(a_1, ..., a_n)^T \in \mathbb{K}^n$ z jednoznačného vyjádření $u = \displaystyle \sum^n_{i=1} a_i v_i$ vektorem souřadnic vektoru $u$ vzhledem k bázi $X$ a značíme jej $[u]_X$.
+
+\item Definujte lineární zobrazení. 
+Nechť $V$ a $W$ jsou vektorové prostory nad stejným tělesem $\mathbb{K}$. Potom zobrazení $f: V \to W$ se nazývá lineární zobrazení, pokud platí:
+\begin{enumerate}
+\item $\forall u,v \in V: f(u+v) = f(u) + f(v)$
+\item $\forall u \in V, \forall a \in \mathbb{K}: f(a\cdot v) = a\cdot f(u)$
+\end{enumerate}
+
+\item Definujte matici lineárního zobrazení. 
+
+Nechť $V$ a $W$ jsou vektorové prostory nad stejným tělesem $\mathbb{K}$ a $X = (v_1, ..., v_n), Y=(w_1, ..., w_m)$ jsou jejich báze. Potom pro lineární zobrazení $f$ nazveme matici $[f]_{XY} \in \mathbb{K}^{m \times n}$  sestavenou z vektorů souřadnic obrazů vektorů báze X vůči Y maticí f vzhledem k bázím X a Y.
+
+Formálně:
+
+\begin{equation*}
+[f]_{XY} = \left( [f(v_1)]_Y, ..., [f(v_n	)]_Y \right)
+\end{equation*}
+
+\item Definujte matici přechodu. ??
+
+Nechť V je prostor a X a Y jsou jeho dvě konečné báze. Maticí přechodu od báze X k bázi Y nazveme matici $[id]_{XY}$, kde id je identické zobrazení.
+ 
+
+\item Definujte izomorfismus vektorových prostorů.
+
+Nechť $V$ a $W$ jsou vektorové prostory nad stejným tělesem $\mathbb{K}$. Potom lineární zobrazení $f: V \to W$, které je prosté a na, nazýváme izomorfismem prostorů V a W.
+ 
+\item Definujte afinní prostor a jeho dimenzi.
+
+Afinním prostorem $A = A(V)$ nad vektorovým prostorem V rozumíme trojici ${A, V, +}$, kde A je množina, jejíž prvky nazýváme body, V je vektorový prostor, + je operace, která bodu a vektoru přířadí bod: $+: A \times V \to A$ splňující následující axiomy:
+\begin{enumerate}
+\item $\forall a \in A: a + 0 = a$
+\item $\forall a \in A, \forall u,w \in V: a + (u + w) = (a + u) + w$
+\item Ke každé dvojici bodů $a, b \in A \exists! v \in V: a+v = b$. Tento vektor značíme $b - a$
+\end{enumerate}
+
+\end{enumerate}
+
+\newpage
+\part{Věty}
+\begin{enumerate}
+
+
+\item Uved’te a dokažte vztah mezi elementárními řádkovými operacemi a soustavami rovnic.
+
+
+Mějme soustavy $Ax = b$ a $A^\prime x = b^\prime$, takové že $(A|b) \sim \sim (A^\prime|b^\prime)$, potom tyto soustavy mají stejné řešení.
+
+\begin{proof}
+Stačí dokázat u úprav (a) a (b), neboť dle definice jsou (c) i (d) od těchto dvou odvozené.
+
+\begin{enumerate}
+\item Vynásobení $i$-tého řádku nenulovým skalárem $t$.
+\begin{enumerate}
+\item $X^\prime \subseteq X$
+\item $X \subseteq X^\prime$ 
+\end{enumerate}
+
+\item Přičtení $j$-tého řádku k $i$-tému
+\begin{enumerate}
+\item $X^\prime \subseteq X$
+\item $X \subseteq X^\prime$ 
+\end{enumerate}
+
+\end{enumerate}
+
+Nutno vypsat úpravy
+
+\end{proof}
+
+\item Vyslovte a dokažte větu o jednoznačnosti volných a bázických proměnných.
+
+Pro každou matici $A$ platí, že sloupce s pivoty v libovolné matici $A^\prime$ v odstupňovaném tvaru, kterou lze získat z A elementárními řádkovými úpravami, jsou určeny jednoznačně.
+
+\begin{proof}
+Sporem. Nechť $A^\prime, A^{\prime\prime} \sim \sim A$, platí ale $(A^\prime|0) \sim \sim(A^{\prime\prime}|0) \sim \sim (A|0)$ t. j. tyto soustavy mají shodná řešení. Nechť je bez újmy na obecnosti $x_k$ bázická v $(A^\prime|0)$ a volná v $(A^{\prime \prime}|0)$, a všechny ostatní promměné mají stejný charakter v obou maticích.
+Zafixujme hodnoty $x_j$ pro $j > k$, potom je ale \begin{itemize}
+\item v $(A^\prime|0)$ $x_k$ určena jednoznačně,
+\item v $(A^{\prime \prime}|0)$ může být $x_k$ libovolná
+\end{itemize} 
+
+To je spor, neboť obě soustavy mají shodná řešení.
+\end{proof}
+
+
+\item Vyslovte a dokažte Frobeniovu větu.
+
+\paragraph{Frobeniova věta} Soustava $Ax = b$ má řešení právě tehdy, když $rank(A) = rank((A | b))$
+\begin{proof}
+Vezměme libovolnou $(A^\prime|b^\prime)$  v odstupňovaném tvaru, t. ž. $(A^\prime|b^\prime) \sim \sim (A | b)$. Pak platí:
+
+$Ax = b$ má řešení $\iff (A^\prime|b^\prime)$ nemá pivot v sloupci $b^\prime \iff$ pivoty $A^\prime$ jsou pivoty $(A^\prime|b^\prime) \iff rank(A^\prime) = rank((A|b))$ 
+\end{proof}
+
+\item Vyslovte a dokažte větu o vztahu mezi řešeními Ax = b a Ax = 0. 
+
+Nechť $x_0$ je libovolným řešením nehomogenní soustavy $Ax = b$. Potom zobrazení $g: \overline{x} \to \overline{x} + x_0$ je bijekcí  mezi množinami řešení  soustav $Ax = 0$ a $Ax = b$.
+
+\begin{proof} 
+Značení: $V \subseteq \mathbb{R}^n$ množina řešení $Ax = 0$
+
+$W \subseteq \mathbb{R}^n$ množina řešení $Ax = b$
+
+Definujeme: $g: V \to \mathbb{R}^n$ předpisem $g(\overline{x})= \overline{x} + x_0$
+
+$h: W \to \mathbb{R}^n$ předpisem $g(x)= x - x_0$
+
+potom $h \circ g$ je identita na $V \implies g$ je prosté.
+$g \circ h$ je identita na $W \implies g$ je na. 
+
+$g$ je tedy bijekce.
+\end{proof}
+
+\item Uved’te a dokažte větu popisující všechna řešení Ax = b.
+
+Nechť A je matice řádu $m \times n$ a hodnosti $r$. Potom všechna řešení soustavy $Ax = 0$ lze vyjádřit ve tvaru
+
+\begin{equation*}
+x = p_1x_1 + p_2x_2 + ... + p_{n - r}x_{n-r}
+\end{equation*}
+
+kde $p_i \in \mathbb{R}$ a $x_j$ jsou vhodné řešení soustavy $Ax =0$
+
+Soustava má pouze triviální řešení $x = 0$ právě tehdy, když A je hodnosti $n$.
+
+Důsledek: Obecné řešení soustavy $Ax = b$ lze vyjádřit ve tvaru:
+
+\begin{equation*}
+x = x_0 +p_1x_1 + p_2x_2 + ... + p_{n - r}x_{n-r}
+\end{equation*}
+
+kde $x_0$ je libovolné řešení soustavy $Ax = b$, $r$ je hodnost A, $p_i \in \mathbb{R}$ a $x_j$ jsou vhodné řešení soustavy $Ax =0$
+
+\begin{proof}
+Řešení získané zpětnou substitucí závisí na $n-r$ hodnotách volných proměnných. Označme je parametry $p_1, ..., p_{n-r}$.
+
+Potom řešení x lze vyjádřit 	lineárním výrazem:
+
+\begin{equation*}
+\begin{array}{c}
+x_1 = \alpha_{11}p_1 + ... + \alpha_{1, n-r}p_{n-r} \\
+\vdots \\
+x_n = \alpha_{n1}p_1 + ... + \alpha_{n, n-r}p_{n-r} \\
+\end{array}
+\end{equation*}
+
+Označíme $x_1 = (\alpha_{11}, ..., \alpha_{n,1})^T ... x_{n-r} = (\alpha_{1,n-r}, ..., \alpha_{n,n-r})^T $
+
+Tyto vektory ale zároveň řeší soustavu $Ax = 0$, protože libovolné $x^i$ lze získat volbou parametrů $p_i = 1, p_j = 0, j \neq i$
+
+Druhá část věty: (není nutno dokázat)
+$rank(A) = n \iff$ soustava nemá volné proměnné $\iff$ existuje právě jedno řešení soustavy $Ax =0$, a to $x = 0$. 
+
+Důkaz důsledku: Použijeme bijekci mezi řešeními (předchozí věta).	
+
+\end{proof}
+
+\item Vyslovte a dokažte větu o ekvivalentních definicích regulárních matic. 
+
+Pro čtvercovou matici řádu $n$ jnpe: 
+\begin{enumerate}[label=\arabic*]
+\item A je regulární, tj. $\exists A^{-1}: AA^{-1} = I_n$
+\item A má hodnost $n$
+\item A lze elementárními úpravami převést na $I_n$
+\item Homogenní soustava $Ax = 0$ má pouze triviální řešení.
+\end{enumerate}
+
+\begin{proof}
+\begin{itemize}
+\item $2 \iff 4$: Z věty o řešení homogenních soustav 5.: 
+\begin{equation*}
+rank(A) = n \iff A^\prime \sim A \text{ neobsahuje volné proměnné } \iff  \text{ existuje právě jedno řešení }
+\end{equation*}
+\item $2 \implies 3$:
+Provedeme Gaussovu eliminaci a potom eliminujeme prvky nad pivoty.
+\item $3 \implies 2$: triviální.
+
+\item $1 \iff 2$: \begin{itemize}
+
+\item $2 \implies 1$
+
+Označme $e_1 ... e_n$ sloupce matice $I_n$ a uvažme $n$ soustav pro $Ax^i = e^i$ pro $i = 1 ... n$
+
+$rank(A) = n \implies$ tyto soustavy mají řešení $\implies A^{-1} = (x_1, ..., x_n)$
+
+\item $1 \implies 2$
+
+Sporem. Kdyby $rank(A) < n \implies$ nějaký i-tý řádek lze eliminovat ostatními $\implies$ soustava $Ax_i = e_i$ nemá řešení, protože 1 na i-tém řádku v $e_i$ nelze eliminovat nulami. ... spor s existencí $A^{-1}$.
+
+\end{itemize}
+
+\end{itemize}
+\end{proof}
+
+\item Vyslovte a dokažte větu o znaménku složené permutace.
+
+\begin{equation*}
+sgn(q \circ p) = sgn(q) \cdot sqn(p)
+\end{equation*}
+
+\begin{proof} 
+Pro počet inverzí ve složené permutaci platí, že:
+
+\begin{equation*}
+\# \text{ inverzí } p \circ q = \# \text{ inverzí } p + \# \text{ inverzí } q - 2 \cdot |\{(i,j): i, j \text{ je inverzí v q}, (q(i), q(j)) \text{ je inverzí v } p \}| 
+\end{equation*}
+
+V rámci diagramu: křížení s ostatními hranami neovlivní celkový počet.
+
+Odečtením dvojnásobku, tj. sudého čísla, zachováme paritu.
+
+\end{proof}
+
+\item Uved’te a dokažte větu charakterizující, kdy Zn je těleso.
+
+$\mathbb{Z}_n$ je těleso $\iff$ $n$ je prvočíslo.
+
+\begin{proof}
+\begin{itemize}
+\item $\impliedby$
+Sporem. Nechť $n = p\cdot q, 1 < p,q < n$. 
+\begin{equation*}
+pq \equiv 0 \mod n \implies p = 0 \vee q = 0
+\end{equation*}
+Spor. (Proč je to spor, když tam je kongruence a ne rovná se...)
+
+\item $\implies$
+Je potřeba ukázat platnost axiomů. Všechny axiomy plynou z celých čísel, kromě existence inverzních prvků:
+
+Ukažme existenci inverzního prvku v násobení $\forall a \exists a^{-1}: a\cdot a^{-1} \equiv 1 \mod n$
+
+Definujeme pro každé $a$ zobrazení $f_a: \{0, ..., n-1 \} \to \{0, ..., n-1 \}$ předpisem $f_a(x) = a \cdot x \mod n$
+
+Ukažme, že $f_a$ je prosté: Sporem. Kdyby nebylo, $\exists b,c, b \neq c: f_a(b) = f_a(c) \implies 0 \equiv ab-ac \implies a (b-c) \equiv 0$. Ale $a \neq 0$ a $b-c \neq 0$. Spor.
+
+$f_a$ je prosté $\implies$ je na $\implies \exists a^{-1}$ splňující $f_a(a^{-1}) = 1$.
+
+\end{itemize}
+\end{proof}
+\item Vyslovte a dokažte malou Fermatovu větu.
+
+Nechť p je prvočíslo a $0 \neq a \in \mathbb{Z}_p$. Pak $a^{p-1} = 1$ v tělese $\mathbb{Z}_p$.
+
+
+\begin{proof}
+Využijeme zobrazení z přechozího důkazu: 
+Definujeme pro každé $a$ zobrazení $f_a: \{0, ..., n-1 \} \to \{0, ..., n-1 \}$ předpisem $f_a(x) = a \cdot x \mod n$
+
+Ukažme, že $f_a$ je prosté: Sporem. Kdyby nebylo, $\exists b,c, b \neq c: f_a(b) = f_a(c) \implies 0 \equiv ab-ac \implies a (b-c) \equiv 0$. Ale $a \neq 0$ a $b-c \neq 0$. Spor.
+
+$f_a$ je prosté $\implies$ je na $\implies$ je bijekcí.
+
+Potom 
+
+\begin{equation*}
+\prod_{i=1}^{p-1} i = \prod_{i=1}^{p-1} f_a(a) = \prod_{i=1}^{p-1} a\cdot i = a^{p-1} \prod_{i=1}^{p-1} i  \implies a^{p-1} = 1
+\end{equation*}
+\end{proof}
+
+
+\item Vyslovte a dokažte větu o průniku vektorových prostorů.
+
+Nechť $U_i, i \in I$ je systém podprostorů $V$, Potom $\displaystyle \bigcap_{i \in I} U_i$ je také podprostorem V.
+
+\begin{proof}
+Označme $W = \displaystyle \bigcap_{i \in I} U_i$.
+
+Ověřme uzavřenost na obou operacích:
+\begin{enumerate}
+\item Uzavřenost na $\odot$
+\begin{equation*}	
+\forall a \in \mathbb{K}: u \in W \implies \forall i: u \in U_i \implies \forall i: a \odot u \in U_i \implies a \odot u \in W	
+\end{equation*}
+
+\item Uzavřenost na $\oplus$
+
+\begin{equation*}
+u, v \in W \implies \forall i: u,v \in U_i \implies \forall i: u\oplus v \in U_i \implies u\oplus v \in W
+\end{equation*}
+\end{enumerate}
+
+\end{proof}
+
+
+\item Vyslovte a dokažte větu o ekvivalentních definicích lineárního obalu.
+
+Lineární obal jsme definovali dvěma způsoby, tzv. výstavbami "zevnitř" a "zevnějšku".
+
+Obě definice jsou ekvivalentní:
+
+\begin{enumerate}[label=\arabic*]
+\item Lineární obal množiny $X \subseteq V$ je průnik všech podprostorů, které obsahují $X$, kde $V$ je vektorový prostor nad $\mathbb{K}$.
+\item Lineární obal množiny $X$ je množina, která obsahuje všechy lineárních kombinace vektorů z $X$.
+\end{enumerate}
+
+\begin{proof}
+Označme 
+
+$W_1 = \displaystyle \bigcap_{X \subseteq U_i \subseteq V} U_i$ 
+
+$W_2 = \{ \displaystyle \sum^n_{i=1} a_i \cdot v_i: a_i \in \mathbb{K}, v_i \in X, n \in \mathbb{N} \}$
+
+Dokažme $W_1 = W_2$:
+
+\begin{enumerate}
+
+\item $W_2 \subseteq W_1$
+\begin{equation*}
+u \in W_2 \implies u = \sum_{v_i \in X} a_i v_i \underset{\forall U \text{ je uzavřený na } +, \cdot }{\implies} \forall U: u \in U \implies u \in W_1
+\end{equation*}
+
+\item $W_1 \subseteq W_2$
+
+ 
+$W_2$ je podprostor uzavřený na sčítání a násobení (lze ukázat jednoduše), nutně obsahuje množinu $X$ (stačí zvolit vždy $a_i = 1, a_{j\neq i} = 0$), čili jeden z možných podprostorů U tvořících průnik ($\exists i: U_i = W_2$), tedy definičně $W_1 \subseteq U_i \implies W_1 \subseteq W_2$
+
+\end{enumerate}
+
+
+\end{proof}
+
+\item Uved’te a dokažte Steinitzovu větu o výměně (včetně lemmatu, pokud jej potřebujete). 
+
+\paragraph{Lemma o výměně} $V$ je vektorový prostor nad $\mathbb{K}$ a $X = {v_1, ..., v_n}$ je systém generátorů $V$.
+
+Potom pro libovolný vektor $u \in V$ platí, že když lze $u$ vyjádřit jako $u = \displaystyle \sum^n_{i=1} a_1v_1$, tak pro každé $i$, kde $a_i \neq 0$ platí, že $X^\prime = (X \setminus v_i) \cup u$ také generuje $V$
+
+\begin{proof}
+\begin{equation*}
+u = a_1v_1 + ... + a_nv_n \implies v_i = \frac1a_i (u - (a_1v_1 + ... + a_{i-1}v_{i-1}+  a_{i+1}v_{i+1} + ...  a_{n}v_{n}))
+\end{equation*}
+\begin{equation*}
+\forall w \in V: w = \sum_{j=1}^n b_j v_j
+\end{equation*}
+V tomto součtu můžeme za $v_i$ nahradit vyjádření vyše, což bude lineární kombinace $X^\prime$
+\end{proof}
+
+\paragraph{Steinitzova o výměně} $V$ je vektorový prostor nad $\mathbb{K}$ a $X \subseteq V$ je lineárně nezávislá množina a $Y$ je systém generátorů $V$, kde Y je konečná.
+
+Potom platí $|X| \leq |Y|$ a existuje $Z$, taková že: \begin{enumerate}
+\item $\mathfrak{L}(Z) = V$
+\item $|Z| = |Y|$
+\item $X \subseteq Z$
+\item $Z \setminus X \subseteq Y$
+\end{enumerate}
+
+\begin{proof}
+Indukcí dle $|X \setminus Y|$
+\begin{itemize}
+\item Základní krok $|X \setminus Y| = 0$: Určitě platí $|X| \leq |Y|$, lze použít $Z = Y$
+\item Indukční krok $X \setminus Y \neq \emptyset$
+
+Vyberu $u \in X \setminus Y$ libovolné a položíme $X^\prime = X \setminus u$
+
+Použijeme indukční předpoklad pro $X^\prime$ a $Y$ a najdeme $Z^\prime$ splňující předpoklady a-d.
+
+Použijeme  lemma o výměně pro $Z^\prime = \{ v_1, ..., v_n\}$ a $u$ vyměníme za $v_i$, takové že $v_i \in Z^\prime \setminus X^\prime$.
+
+Takové $v_i$ existuje, protože jinak by byla $X^\prime$ lineárně závislá. (je to složité na představu, intuitivně: množina Y umí vygenerovat u, ale množina $X^\prime$ to nemůže umět, jinak by $X^\prime \cup {u}$ nebylo lin. nezavislé...).
+\end{itemize}
+\end{proof}
+
+
+\item Vyslovte a dokažte větu o jedinečnosti lineárního zobrazení.
+
+\begin{proof}
+
+\end{proof}
+
+\item Vyslovte a dokažte větu o charakterizaci izomorfismu mezi vektorovými prostory.
+
+\begin{proof}
+
+\end{proof}
+
+\item Vyslovte a dokažte větu o vektorových prostorech souvisejících s maticí A.
+
+\begin{proof}
+
+\end{proof}
+
+\end{enumerate}
+
+
+
+\newpage
+\part{Přehled}
+(U  přehledových  otázek  uved’te  definice,  tvrzení,  věty,  příklady  a  souvislosti.  Důkazy  u přehledových otázek nejsou vyžadovány.)
+
+
+\begin{enumerate}
+
+\item Přehledově sepište, co víte o elementárních řádkových operacích a Gaussově eliminaci. 
+
+\begin{itemize}[label=$\circ$]
+\item Definice řádkových úprav - dvě hlavní a dvě odvozené.
+\item Soustava jejiž matici lze vytvořit řádkovými úpravami rozšířené matice sosutavy má stejné řešení jako tato soustava.
+
+\item Řádkové úpravy lze zapsat jako regulární matice. 
+\end{itemize}
+
+\item Přehledově sepište, co víte o řešení homogenních a nehomogenních soustav lineárních rovnic.
+
+\begin{itemize}[label=$\circ$]
+\item Co to je soustava, matice soustavy, pravých stran, rozšířená matice soustavy a vektor neznámých.
+\item Gaussova eliminace a zpětná substituce
+\item Charakter proměnné v odstupňovaném tvaru je určen jednoznačně. (Důkaz sporem)
+\item Libovolné hodnoty volných proměnných lze doplnit jednoznačně hodnotami bázických proměnných a získat řešení soustavy. (Důkaz indukcí dle řádku odspodu začínaje prvním nenulovým řádkem)
+\item Zpětnou substitucí lze získat každé řešení. (Jak to dokázat)
+\item Frobeniova věta
+\item Každé řešení homogenní soustavy lze zapsat jako: $x = p_1\overline{x}_1 + ... + p_{n-rank}\overline{x}_{n-rank} $
+\begin{proof}
+Volné proměnné přepíšu jako parametry a provedu zpětné dosazení. (Postup ze cvika)
+\end{proof}
+
+\item Jak popsat všechna řešení?
+\begin{itemize}
+\item Pokud $Ax^0 = b$ a $Ax = b \implies x-x^0 = \overline{x}, A\overline{x} = 0$
+
+Důkaz triviální.
+\item $A\overline{x} = 0$ a $Ax^0 = b \implies A(\overline{x} + x^0) = b$ 
+\end{itemize}
+
+
+\item Věta: Nechť $Ax^0 = b$, potom $f: \overline{x} \to \overline{x} + x^0$ je bijekcí množiny řešení $Ax = 0$ 
+\begin{proof}
+Nechť $g: x \to x - x^0:$ 
+
+$g \circ f = id$ možných řešení homogenní soustavy.
+
+$f \circ g = id$ možných řešení heterogenní soustavy.
+
+$\implies f$ je bijekce.  
+\end{proof}
+
+Důsledek: Každé řešení $Ax =b$ lze zapsat jako $x^0 +p_1\overline{x}_1 + ... + p_{n-rank}\overline{x}_{n-rank}$
+
+
+\end{itemize}
+
+\item Přehledově sepište, co víte o maticových operacích.
+
+\begin{itemize}[label=$\circ$]
+\item Definice nulové matice, jednotkové matice.
+\item Definice násobení skalárem, sčítání a maticového součinu.
+\begin{itemize}
+\item Násobení skalárem je komutativní asociativní i ditributivní na sčítání, neutrální prvek je 1.
+\item Sčítání je komutativní a asociativní, neutrální prvek je nulová matice.
+\item Maticový součin není komutativní, je asociativní $A(BC) = (AB)C$a neutrální prvek je jednotková matice správného rozměru.
+\item Různým uzávorkováním maticového součinu můžeme změnit počet nutných operací k jeho výpočtu, to je možno brát v potaz při výpočtu.
+\item Maticový součin je distributivní na sčítání.
+\end{itemize}
+\item Definice transponované matice
+
+\item $(AB)^T = B^T A^T$
+\end{itemize}
+
+\item Přehledově sepište, co víte o regulárních a singulárních maticích. 
+
+\begin{itemize}[label=$\circ$]
+\item Definice regulární matice (Čtvercová matice, k níž jde sestrojit inverzi)
+\item Věta o ekvivalentních definicích regulárních matic
+\begin{itemize}
+\item $A$ je regulární
+\item $rank(A) = n$  
+\item $A \sim\sim I_n$
+\item $Ax = 0 \implies x = 0$
+\end{itemize}
+\item platí $A^{-1} A = I_n$
+\begin{proof}
+Nepřímo, ukažme $A^{-1}$ je regulární:
+
+Sporem: $\exists x, x\neq 0: A^{-1}x = 0$.
+
+$x= I_n x = A A^{-1}x = A0 = 0$ Spor.
+\end{proof}
+\item Pro R regulární platí $A = B \iff AR = BR \iff RA = RB$
+\item $(A^{-1})^{-1} = A$
+\item Jak vypočítat inverzi matice?
+\begin{proof}
+$(A^{-1})^{-1} = I_n (A^{-1})^{-1}  = A A^{-1}(A^{-1})^{-1} = A I_n = A$
+\end{proof}
+\item součin regulárních matic je regulární
+\begin{proof}
+$(AB)(B^{-1}A^{-1}) = A(BB^{-1})A^{-1} = I_n$.  Existuje $(AB)^{-1})$, a to $(B^{-1}A^{-1})$.
+\end{proof}
+\item $(AB)^{-1} = B^{-1}A^{-1}$
+Důkaz stejně jako výše.
+\item $(A^T)^{-1} =(A^{-1})^T$
+\begin{proof}
+Využijeme, že $X^T Y^T = (YX)^T$:
+
+$(A^{-1})^T = (A^{-1})^T A^T (A^T)^{-1} =(AA^{-1})^T  (A^T)^{-1} =  I_n (A^T)^{-1} = (A^T)^{-1} $ 
+ 
+\end{proof}
+\end{itemize}
+
+\item Přehledově sepište, co víte o binárních operacích a jejich vlastnostech. 
+
+Není toho moc, co by se dalo říct
+
+\begin{itemize}[label=$\circ$]
+\item Binární operace na X je zobrazení $X \times X \to X$.
+\item Definice zobrazení, relace, kartézského součinu.
+\item Možné vlastnosti operací: Asociativita, Komutace, Distribuce na jiné operaci, inverzní a neutrální prvky.
+
+\item Příklady
+\item Grupa, Abelova grupa
+\end{itemize}
+
+
+\item Přehledově sepište, co víte o (obecných) grupách.
+
+\begin{itemize}[label=$\circ$]
+\item Definice, tři podmínky
+\item Abelova grupa
+\item Neutrální a inverzní prvky jsou určeny jednoznačně (Důkaz přičtením nuly/ násobením jedničkou)
+\item Platí ekvivalentní úpravy $a = b \iff c \circ a = c \circ b \iff a \circ c = b \circ c$
+\item Rovnice $a \circ x = b$ a $x \circ a = b$ mají jednoznačná řešení.
+\item $(a^{-1})^{-1} = a$
+\item $(ab)^{-1} = (b^{-1}a^{-1})$ 
+\item Příklady: aditivní grupy, multiplikativní, ostatní (symetrická - množina permutací na 1 až n)
+
+\end{itemize}
+
+\item Přehledově sepište, co víte o permutačních grupách. 
+
+\begin{itemize}[label=$\circ$]
+\item
+\end{itemize}
+
+\item Přehledově sepište, co víte o tělesech.
+
+\begin{itemize}[label=$\circ$]
+\item Definice (4 podbody)
+\item Příklady: $\mathbb{R, Q, Z}_p$, racionální lomené funkce
+\item Tělesa nejsou $\mathbb{R, Q, Z}_p$ kde p není prvočíslo
+\item Vlastnosti: \begin{itemize}
+\item $\forall a, a \times 0 = 0$
+\item $ab = 0 \implies a = 0 \vee b = 0$ \begin{proof}
+Sporem: $\exists a^{-1}, b^{-1}: 1 = a^{-1}abb^{-1}= aba^{-1}b^{-1} = 0a^{-1}b^{-1} = 0$
+\end{proof}
+\item $a (-1) = -a$ \begin{proof}
+$0 = 0a = (1-1)a = 1a + (-1)a \implies -a = (-1)a$
+\end{proof}
+\item rovnice $a^\prime x = b$ a $a + x = b$ mají jednoznačené řešení, pokud $a^\prime \neq 0$ 
+\item lze používat ekvivalentní úpravy (přičtení, násobení)
+\item charakteristika (def)
+\end{itemize}
+\item Věty \begin{itemize}
+\item  $\mathbb{Z}_p$ je těleso $\iff p$ je prvočíslo ($\implies:$ Obrácenou implikaci sporem. $\impliedby$: dokázat axiomy, hlavně inverzní prvky přes $f_a$)
+\item Malá fermatova věta (důkaz přes $f_a$)
+\item Charakteristika tělesa je vždy 0 nebo prvočíslo (důkaz sporem)
+\end{itemize}
+\end{itemize}
+
+\item Přehledově sepište, co víte o vektorových prostorech a jejich podprostorech. 
+
+\begin{itemize}[label=$\circ$]
+\item Definice (sčítání tvoří Abelovu grupu, násobení jedničkou, asociativita, distributivita zprava, zleva)
+\item Pojem skalár, vektor
+\item Příklady: $\mathbb{K}^n$, posloupnosti, funkce, polynomy
+\item $a0 = 0u = 0$
+\item $a u = 0 \implies a = 0 \vee u = 0$
+\item Podprostor \begin{itemize}
+\item Definice
+\item Podprostor je prostor
+\item Příklady, geometrická interpretace R
+\item Věta: Průnik podprostorů je podprostor (ověří se uzavřenost na +,.) 
+\item Lineární kombinace, obal (věta o dvojím budování)
+\end{itemize} 
+\end{itemize}
+
+\item Přehledově sepište, co víte o vektorových prostorech určených s maticí A. 
+
+Pro $A \in \mathbb{K}^{m\times n}$
+\begin{itemize}[label=$\circ$]
+\item Řádkový prostor $\mathfrak{R}(A)= \{ r \in \mathbb{K}^n: r =A^Tu, u \in \mathbb{K}^m\}$
+\item Sloupcový prostor $\mathfrak{S}(A)= \{ s \in \mathbb{K}^m: s =Au, u \in \mathbb{K}^n\}$
+\item jádro $Ker(A)= \{ u \in \mathbb{K}^n: Au =  0 \}$
+\item Elementární řádkové úpravy zachovávají řádkový prostor, sloupcový zachovávat nemusí. (+ Jádro)
+\item $dim(\mathfrak{R}) = rank(A)$,$dim(Ker{R}) = n - rank(A)$
+\item Věta o shodnosti dimenzí: $ dim(\mathfrak{R}) = dim(\mathfrak{S})$ (Důkaz pomocí lemmy která říká, že po úpravě (vynásobením regulární maticí) se dimenze sloupcového prostoru zmenší nebo zůstane stejná).
+\end{itemize}
+
+
+\item Přehledově sepište, co víte o lineární závislosti.
+
+\begin{itemize}[label=$\circ$]
+\item Definice: Množina je lineárně nezávislá, pokud $\sum = 0 \implies \forall i: a_i = 0$
+\item Příklady: \begin{itemize}
+\item $|X| = 1 \begin{cases} X = \{0\} & \text{ závislá} \\ \text{ jinak} & \text{ nezávislá} \end{cases}$  
+\item $0 \in X \implies X$ je lineárně závislá.
+\item Řádky/sloupce diagonální matice jsou lineárně nezávislé.
+\item Nenulové řádky v matici v REF jsou lineárně nezávislé
+\end{itemize}
+\item Y je lineárně nezávislá a $X \subseteq Y \implies X$ je lineárně nezávislá
+\item X je lineárně závislá a $X \subseteq Y \implies X$ je lineárně závislá
+\item  X je lineárně nezávislá $\iff \forall u \in X: u \notin \mathfrak{L}(X\setminus u)$
+\item Asi je možné zmínit báze
+\end{itemize}
+
+
+\item Přehledově sepište, co víte o bázích vektorových prostorů. 
+
+\begin{itemize}[label=$\circ$]
+\item Definice 
+\item Vektor souřadnic
+\item Pro libovolnou bázi platí: (předpoklady neuvádím) $[x]_B + [y]_B = [x+y]_B$, $[a x]_B = a [x]_B$
+\item Věta: $\mathfrak{L}(X) = V, \forall Y \subset X: \mathfrak{L}(Y) \neq V \implies X$ je báze. Důsledek: Z každého systému generátorů lze vytvořit bázi.
+\item Důsledek: Každý prostor má bázi.
+\item Z každého systému generátorů lze vytvořit bázi
+\item Steinitzova věta o výměně (+ lemma)
+\item Pokud má prostor konečnou bázi, potom mají všechny báze stejnou mohutnost
+
+
+\end{itemize}
+
+\item Přehledově sepište, co víte o lineárních zobrazeních a jejich maticích.
+
+\begin{itemize}[label=$\circ$]
+\item Definice
+\item Příklady: nulové, identické 
+\item Složení lineárních zobrazení je lineární
+\item Matice lineárního zobrazení - definice
+\item $[f(u)]_Y = [f]_{XY} \cdot [u]_{X}$
+\item Skládání zobrazení vyjádříme součinem matic
+\item Matice přechodu - definice, užití
+\item Zobrazení je isomorfismus, iff jeho matice je regulární,
+\item pak platí inverzní matice je maticí inverzního zobrazení
+\item Vektorový prostor dimenze n je isomorfní prostoru nad $\mathbb{K}^n$
+	
+\end{itemize}
+
+\end{enumerate}
+
+
+
+\end{document}

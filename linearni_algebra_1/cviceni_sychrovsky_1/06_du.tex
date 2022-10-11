@@ -1,0 +1,162 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{array}
+\setlength{\parindent}{0em}
+\begin{document}
+1.
+
+Identická permutace:
+\begin{equation*}
+I =
+\begin{pmatrix}
+1 & 2 & 3 & 4 \\
+1 & 2 & 3 & 4
+\end{pmatrix} 
+\end{equation*}
+
+
+Osové symetrie:
+
+Když je osa rovnoběžná na stranu.
+
+\begin{equation*}
+O_1 =
+\begin{pmatrix}
+1 & 2 & 3 & 4 \\
+2 & 1 & 4 & 3
+\end{pmatrix} = (1,2)(3,4)
+\end{equation*}
+\begin{equation*}
+O_2 =
+\begin{pmatrix}
+1 & 2 & 3 & 4 \\
+3 & 4 & 1 & 2
+\end{pmatrix} = (1,3)(2,4)
+\end{equation*}
+
+Když je osa diagonála
+\begin{equation*}
+O_3 =
+\begin{pmatrix}
+1 & 2 & 3 & 4 \\
+1 & 3 & 2 & 4
+\end{pmatrix} = (2,3)
+\end{equation*}
+\begin{equation*}
+O_4 =
+\begin{pmatrix}
+1 & 2 & 3 & 4 \\
+4 & 2 & 3 & 1
+\end{pmatrix} = (1,4)
+\end{equation*}
+
+Středová symetrie:
+\begin{equation*}
+S =
+\begin{pmatrix}
+1 & 2 & 3 & 4 \\
+4 & 3 & 2 & 1
+\end{pmatrix} = O_1 \circ O_2
+\end{equation*}
+
+Rotační symetrie:
+\begin{equation*}
+R_1 =
+\begin{pmatrix}
+1 & 2 & 3 & 4 \\
+4 & 1 & 2 & 3
+\end{pmatrix} = (1,4)(2,1)(3,2)(4,3)
+\end{equation*}
+\begin{equation*}
+R_2 =
+\begin{pmatrix}
+1 & 2 & 3 & 4 \\
+3 & 4 & 1 & 2
+\end{pmatrix} = R_1^2
+\end{equation*}
+\begin{equation*}
+R_3 =
+\begin{pmatrix}
+1 & 2 & 3 & 4 \\
+2 & 3 & 4 & 1
+\end{pmatrix} = R_1^3
+\end{equation*}
+
+Neutrální prvek je I stejně jako v $S_4$
+
+Inverzní prvky jsou stejné jako v $S_4$ a pro všechny symetrie kromě rotace jsou inverzemi samotné permutace, pro rotace se pak rotace doplní tak, aby se celkem rotovalo 4-krát.
+
+Asociativita platí, protože se jedná o podmnožinu permutací, na kterých asociativita platí.
+
+Zbývá naznačit uzavřenost: Každou takovouto operací zachováváme tvar čtverce, taky se jedná o všechny možné permutace zachovávající tvar čtverce, proto je podgrupa uzavřená.
+
+\hfill
+
+2.
+
+1)
+
+\hfill
+
+Podívejme se na součin:
+
+$\sum_{k=1}^n P_{i,k} \cdot P^T_{k,j}$
+
+Přičemž $P_{i,k} \cdot P^T_{k,j} = 1$, pokud $P_{i,k} = P^T_{k,j} = 1$
+
+To znamená, že $p(i) = k$, ale taky si uvědomme, že transpozice znamená prohození souřadnic, takže vlastně taky platí $p(j) = k$.
+
+Protože je ale $p$ bijekcí, musí platit $j = i$, tedy součinem bude jednotková matice.
+
+\hfill
+
+Z poznatků výše si můžeme uvědomit, že $P^T$ je permutační matice inverzní permutace. Je pak zřejmé, že složením těchto permutací dostaneme identitu, a permutační maticí identity je jednotková matice.
+
+
+\hfill
+
+2) Každá permutace $p$ se skládá z cyklů maximální délky $n$, horní mez k bude nejmenší společný násobek všech možných délek cyklů, což se bude rovnat součinu všech prvočísel rovných nebo menších $n$.
+
+
+\hfill
+
+3) 
+Najděme permutaci o cyklech délky dva a tři, například:
+$p = (1 2 3)(4 5)$
+
+\begin{equation*}
+P =
+\begin{pmatrix}
+0 & 1 & 0 & 0 & 0 \\
+0 & 0 & 1 & 0 & 0 \\
+1 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 1 \\
+0 & 0 & 0 & 1 & 0
+\end{pmatrix}
+\end{equation*}
+
+\hfill
+
+4) 
+
+Aby byl součin definován, musí platit $A \in \mathbb{R}^{n \times n}$
+
+Permutaci P nejdříve aplikujeme jako řádkovou úpravu, prohodíme $k$-tý řádek s $(n-k + 1)$-ním řádkem, potom aplikujeme jako sloupcovou úpravu inverzní permutaci (která bude ve skutečnosti stejná jako původní permutace, protože délky cyklů jsou dva) prohodíme $(n-k + 1)$-ní sloupec s $k$-tým.
+
+
+\begin{equation*}
+(PA)_{i,j} = A_{n-i+1,j}
+\end{equation*}
+\begin{equation*}
+(PAP^T)_{i,j} = A_{n-i+1,n-j+1}
+\end{equation*}
+
+Představit si to můžeme takto: Nejdříve v matici přehodíme řádky podle osy prostředního(ch) řádku(ů), potom přehodíme sloupce podle osy prostředního(ch) sloupce(ů), takže převrátíme prvky matice podle středu, podobně jako u čtverce v úloze jedna.
+
+\end{document}
+
+
+
