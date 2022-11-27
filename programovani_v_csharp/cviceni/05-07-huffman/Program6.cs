@@ -9,9 +9,9 @@ namespace task5_huffman;
 
 using Frequencies = List<(byte, ulong)>;
 
-public class Program
+public class Program6
 {
-    public static void Main(string[] args)
+    public static void Main2(string[] args)
     {
         if (args.Count() != 1)
         {

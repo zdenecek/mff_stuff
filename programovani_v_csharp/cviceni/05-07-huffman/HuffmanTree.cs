@@ -11,6 +11,12 @@ using Frequencies = List<(byte, ulong)>;
 public class HuffmanTree
 {
     public Node Root { get; private set; }
+
+    public HuffmanTree(Node root)
+    {
+        Root = root;
+    }
+
     public HuffmanTree(Frequencies frequencies)
     {
         IEnumerable<Node> a = frequencies

@@ -95,6 +95,7 @@ namespace task5_huffman
         private void WriteData(HuffmanTree tree, BinaryReader data)
         {
             var codes = createCodes(tree);
+
             try
             {
                 for (; ; )
