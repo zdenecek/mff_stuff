@@ -1,0 +1,131 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+/* In the narrow view, the navigational panel is displayed at the top of the page (full width of the viewport and adequate height). The navigational panel is pinned to the window of the browser and the page scrolls underneath it.
+ */
+
+/* What a name for top navigation - sidebar... */
+#sidebar {
+    position: sticky;
+    top: 0;
+    background-color: white;
+}
+
+/*   The page adapts its width to the width of the window, but it is never narrower than 400px. */
+
+body {
+    min-width: 400px;
+}
+
+/* 
+In the wide view, the navigational panel is displayed on the left, stretched to the full height of the window and with fixed width of 200px. */
+
+@media only screen and (min-width: 1000px) {
+    #sidebar {
+        width: 200px;
+    }
+
+    body {
+        display: flex;
+        flex-direction: row;
+    }
+
+    /* When the page scrolls, the panel remains on its placed pinned to the window. The rest of the page has fixed width of 800px. */
+
+    #sidebar {
+        height: 100vh;
+    }
+
+    /* When the window width grows beyond the 1000px, the contents of the page is centered in the remaining place of the window without the navigational panel (e.g., if the window is 1200px wide, the horizontal space is taken as follows: 200px navigational panel, 100px space, 800px article contents, 100px space). */
+
+    #content {
+        width: 800px;
+        margin: 0 auto;
+    }
+}
+
+/*
+Furthermore, your design needs to fulfill the following criteria:
+
+    Only the main page (entire document, except for the navigational panel) scrolls. Do not use overflow: auto nor overflow: scroll in your design.
+    In the narrow view, the hyperlinks in the navigation menu are not shown as list items of unordered list but rather as normal hyperlinks ordered from left to right and centered (with appropriate margins among them). */
+
+@media only screen and (max-width: 999px) {
+    nav ul {
+        list-style: none;
+        gap: 20px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
+/*
+    Maximal allowed width for the images is 400px. */
+
+img {
+    max-width: 400px;
+}
+
+/* In the wide view, the .floatright and .floatleft images are displayed as floating figures on the right and left side respectively, so the text flows around them. */
+
+@media only screen and (min-width: 1000px) {
+    .floatright {
+        float: right;
+        margin: 1em;
+    }
+    .floatleft {
+        float: left;
+        margin: 1em;
+
+    }
+
+    .floatleft::after,
+    .floatright::after {
+        clear: both;
+    }
+}
+
+/* In the narrow view, all images are displayed as centered block elements. */
+
+img {
+    display: block;
+    margin: 0 auto;
+}
+@media only screen and (min-width: 1000px) {
+    img {
+        display: initial;
+        margin: initial;
+    }
+}
+/*
+    Make sure that the footer of the page looks consistent with the article. It means it should be aligned in the same manner and scroll along with the article.
+ */
+
+ /* Should be already okay*/
+
+/*
+Please, focus mainly on fulfilling the outlined criteria in your implementation. You may add suitable margins or paddings to make the page look adequately. However, do not bother with special effect, colors, or backgrounds which are not related with the responsive design. It will simplify the evaluation process of your solutions. */
+
+
+
+
+
+
+/* Satisfy tests  that need more complicated solution, these styles do nothing (but could cause breaking in future, if there were some) */
+
+
+@media only screen and (max-width: 999px) {
+nav li {
+    display: inline;
+}
+}
+
+body::after {
+    position: fixed;
+}

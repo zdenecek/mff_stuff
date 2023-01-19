@@ -1,0 +1,154 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+
+}
+
+body {
+  background-color: powderblue;
+  margin: 0px;
+  
+}
+
+.container {
+  background-color: white;
+  max-width: 920px;
+  margin: 0px auto;
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex-grow: 1;
+}
+
+/* Header */
+
+#logo {
+  max-height: 150px;
+  max-width: 150px;
+}
+
+.logo-heading {
+  font-weight: bold;
+  font-size: 2em;
+  
+  display: block;
+  margin-bottom: 0.2em;
+  margin-top: 1em;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+header nav ul {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  gap: 10px;
+  padding-left: 0;
+}
+
+header nav a {
+  color: black;
+  text-decoration: none;
+}
+
+header nav a:hover {
+  color: powderblue;
+}
+
+/* main */
+
+main {
+  padding: 50px;
+}
+
+.news {
+  list-style: none;
+  padding-left: 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.news-item {
+  padding: 10px;
+  border: 2px solid powderblue;
+  border-radius: 10px;
+}
+
+.news-item h2 + p::before{
+  content: "Ze dne ";
+  color: darkgray;
+}
+
+p {
+  line-height: 1.2em;
+  text-indent: inherit;
+
+}
+
+.cat {
+  max-width: 150px;
+  max-height: 150px;
+}
+
+td {
+  padding: 10px;
+  text-align: center;
+}
+
+dt {
+  float: left;
+  clear: left;
+  margin-right: 15px;
+}
+
+dt::after {
+  content: ":";
+}
+
+dd {
+  margin-left: 0px;
+}
+
+dd,
+dt {
+  margin-bottom: 5px;
+}
+
+
+/* footer */
+
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+/* why would you force me to do this nonsense */
+.my ul #selector[name="class"] {
+  display: inherit;
+}
+
+
+a:visited {
+  color: blue;
+}
+
+footer {
+  background-image: url("1.jpg");
+  background-repeat: repeat-x;
+  background-size: contain;
+  filter: invert(100%);
+}
+

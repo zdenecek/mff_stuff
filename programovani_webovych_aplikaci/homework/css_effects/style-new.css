@@ -1,0 +1,107 @@
+/* 
+Load a custom font and use it in the page. To simplify our verification procedure, set the identifier of the font to myCustomFont. 
+*/
+
+@font-face {
+    font-family: "myCustomFont";
+    src: url(StreetExplorer-X3Y9Z.otf);
+}
+
+body {
+    font-family: "myCustomFont";
+}
+
+/*
+    Use transitions to create an interesting visual effect. The effect should be triggered when a mouse cursor is placed over the corresponding element. */
+
+img {
+    transition: 1s;
+}
+
+img:hover {
+    opacity: 0;
+
+    transform: scale(0) rotate(10deg) perspective(10cm);
+}
+
+/* Use suitable 3D transformation (e.g., rotation). Do not forget to set perspective.
+    Use :target pseudo-class (in combination with appropriate hyperlinks) to emphasize selected part of the page (e.g., make table rows selectable and highlighted).
+*/
+
+
+:target {
+    color: aqua;
+    transform: rotateY(360deg);
+    transition: 5s;
+}
+
+/* END OF THIS TASK */
+
+/* from previous assignment */
+
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+}
+#sidebar {
+    position: sticky;
+    top: 0;
+    background-color: white;
+}
+body {
+    min-width: 400px;
+}
+@media only screen and (min-width: 1000px) {
+    #sidebar {
+        width: 200px;
+    }
+    body {
+        display: flex;
+        flex-direction: row;
+    }
+    #sidebar {
+        height: 100vh;
+    }
+    #content {
+        width: 800px;
+        margin: 0 auto;
+    }
+}
+@media only screen and (max-width: 999px) {
+    nav ul {
+        list-style: none;
+        gap: 20px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+img {
+    max-width: 400px;
+}
+@media only screen and (min-width: 1000px) {
+    .floatright {
+        float: right;
+        margin: 1em;
+    }
+    .floatleft {
+        float: left;
+        margin: 1em;
+    }
+    .floatleft::after,
+    .floatright::after {
+        clear: both;
+    }
+}
+img {
+    display: block;
+    margin: 0 auto;
+}
+@media only screen and (min-width: 1000px) {
+    img {
+        display: initial;
+        margin: initial;
+    }
+}

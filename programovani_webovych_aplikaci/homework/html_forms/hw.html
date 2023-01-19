@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" >
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+        <title>Submit a comment</title>
+    </head>
+    <body>
+        <div class="container">
+            <h2>Submit a comment</h2>
+            <form method="POST" action="http://demo.stools.net">
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username" required >
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email">
+                <label for="age">Age</label>
+                <input name="age" id="age" type="number" min="0" >
+                <label for="comment" class="span">Comment text</label>
+                <textarea name="comment" class="span" id="comment" required></textarea>
+                <label for="age">Visibility</label>
+                <select name="publish" id="publish">
+                    <option value="private" selected>private</option>
+                    <option value="public">public</option>
+                </select>
+                <input type="submit" class="span" value="Send" >
+            </form>
+        </div>
+    </body>
+</html>
