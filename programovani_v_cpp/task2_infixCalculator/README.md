@@ -1,0 +1,13 @@
+- test0: constant and basic operators with and without spaces for int arithmetics
+- test1: constant and basic operators with and without spaces for **double** arithmetics
+- test2: unary minus
+- test3: double arithemtics operations
+- test4: modulus operator
+- test5: division by zero
+- test6: basic variables
+- test7: invalid variables
+- test8: reassignment of variables
+- test9: variable case sensitivity
+- test10: test from recodex
+- test11: valid paretheses
+- test12: invalid paretheses

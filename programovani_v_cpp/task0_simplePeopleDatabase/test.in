@@ -1,0 +1,14 @@
+insert
+adolf 10
+insert
+blanca 9
+insert
+c 8
+insert
+dan 7
+sort_age
+print
+remove_name
+blanca
+print
+exit

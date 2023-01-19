@@ -1,0 +1,3 @@
+- super Makefile :)
+-0.5p chybi `#include <vector>`
+-0.5p pouzivani `std::shared_ptr` misto `unique_ptr`
