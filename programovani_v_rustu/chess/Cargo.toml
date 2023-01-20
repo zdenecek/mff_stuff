@@ -1,0 +1,17 @@
+[package]
+name = "solution"
+version = "0.1.0"
+edition = "2021"
+
+
+[lib]
+name = "solution"
+path = "src/solution.rs"
+
+[[bin]]
+name = "main"
+path = "src/main.rs"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
