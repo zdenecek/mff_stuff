@@ -8,29 +8,30 @@ Please do not directly copy solutions from this repository. It might have some c
 
 ## Courses
 
-| Course                    |  Year    | What is here | TBD                             | External                                                                             |
-| -------------------------  | ------- | ------------ | --------------------------------- | ------------------------------------------------------------------------------------ |
-| [Operating Systems]()       | 2022/23 |              | Update public repo, add team repo | [Student repo](https://gitlab.mff.cuni.cz/tomisz/operacni_systemy_public), Team repo |
-| [Linux Administration]()    | 2022/23 |              | Update public repo                | [Student repo](https://gitlab.mff.cuni.cz/tomisz/linux_administration_public)        |
-| [Introduction to Linux]()    | 2021/22 |              |                                   | [Student repo](https://gitlab.mff.cuni.cz/tomisz/linux_public)                       |
-| [C# Programming]()                    | 2022/23 |     solved homework tasks         |                       Add recodex            |  |
-| [Java Programming]()                    | 2022/23 |   solved homework tasks           |              Add recodex                     |  |
-| [C++ Programming]()                    | 2022/23 |  three homework tasks, one exam task, first four simple hw task for Faltín            |                                   | |
-| [Rust Programming]()                    | 2022/23 | |                 homework tasks                   | |
-| [Web Applications Programming]()                    | 2022/23 |  homework tasks            |                                  |  [final CMS web app, including exam extension (likes)](https://github.com/zdenecek/cmstwt) |
-| [Programming 1 (Python)]()                    | 2021/22 |              |      make pretty                             | |
-| [Programming 2 (C#)]()                    | 2021/22 |              |          make pretty                                 | |
-| [Linear Algebra 1]()                    | 2021/22 | Exam notes, hw solution for Sychrovsky practical           |                                   | |
-| [Mathematical Analysis 1]()                    | 2021/22 |  hw solution for Sychrovsky practical           |                                   | |
-| [Linear Algebra 2]()                    | 2021/22 |  Exam notes, hw solution for Fiala practical           |                                   | |
-| [Computer systems]()                    | 2021/22 |    Homework Arduino tasks for Bednárek, including final         |                                   | |
-| [Programming in Python]()                    | 2021/22 |             |                  Homework tasks                 | |
-| [ML for Greenhorns]()                    | 2021/22 |             |            Homework                       | |
-| [Software developement tools]()                    | 2022/23 |             |       Homework                            | |
-| [Probability and statistics]()                    | 2021/22 |             |   Exam notes                                | |
-| [Discrete mathematics]()                    | 2021/22 |     Exam notes        |                                   | Homework on Owl clone (below) |
-| [Algorithms and Data Structures 2]()                    | 2022/23 |             |                                   | Some homework tasks on Owl clone (below) |
-| [Algorithms and Data Structures 1]()                    | 2021/22 |             |                                   | Some homework tasks on Owl clone (below) |
+| Course                               | Year    | What is here                                                                | TBD                               | External                                                                                  |
+|--------------------------------------|---------|-----------------------------------------------------------------------------|-----------------------------------|-------------------------------------------------------------------------------------------|
+| [Operating Systems]()                | 2022/23 |                                                                             | Update public repo, add team repo | [Student repo](https://gitlab.mff.cuni.cz/tomisz/operacni_systemy_public), Team repo      |
+| [Linux Administration]()             | 2022/23 |                                                                             | Update public repo                | [Student repo](https://gitlab.mff.cuni.cz/tomisz/linux_administration_public)             |
+| [Introduction to Linux]()            | 2021/22 |                                                                             |                                   | [Student repo](https://gitlab.mff.cuni.cz/tomisz/linux_public)                            |
+| [C# Programming]()                   | 2022/23 | solved homework tasks                                                       | Add recodex                       |                                                                                           |
+| [Java Programming]()                 | 2022/23 | solved homework tasks                                                       | Add recodex                       |                                                                                           |
+| [C++ Programming]()                  | 2022/23 | three homework tasks, one exam task, first four simple hw task for Faltín   |                                   |                                                                                           |
+| [Rust Programming]()                 | 2022/23 |                                                                             | Homework tasks                    |                                                                                           |
+| [Web Applications Programming]()     | 2022/23 | Homework tasks                                                              |                                   | [final CMS web app, including exam extension (likes)](https://github.com/zdenecek/cmstwt) |
+| [Programming 1 (Python)]()           | 2021/22 | Homework tasks                                                              |                                   |                                                                                           |
+| [Programming 2 (C#)]()               | 2021/22 | Homework tasks                                                              |                                   |                                                                                           |
+| [Linear Algebra 1]()                 | 2021/22 | Exam notes, hw solution for Sychrovsky practical                            |                                   |                                                                                           |
+| [Mathematical Analysis 1]()          | 2021/22 | Homework tasks solution for Sychrovsky practical                            |                                   |                                                                                           |
+| [Linear Algebra 2]()                 | 2021/22 | Exam notes, hw solution for Fiala practical                                 |                                   |                                                                                           |
+| [Computer systems]()                 | 2021/22 | Homework Arduino tasks for Bednárek, including final                        |                                   |                                                                                           |
+| [Programming in Python]()            | 2021/22 | Homework tasks                                                              |                                   |                                                                                           |
+| [ML for Greenhorns]()                | 2021/22 |                                                                             | Homework                          |                                                                                           |
+| [Software developement tools]()      | 2022/23 |                                                                             | Homework                          |                                                                                           |
+| [Probability and statistics]()       | 2021/22 | Exam notes, exam cheatsheet (very condensed), guide on normal distributions |                                   |                                                                                           |
+| [Discrete mathematics]()             | 2021/22 | Exam notes                                                                  |                                   | Homework on Owl clone (below)                                                             |
+| [Algorithms and Data Structures 2]() | 2022/23 |                                                                             |                                   | Some homework tasks on Owl clone (below)                                                  |
+| [Algorithms and Data Structures 1]() | 2021/22 |                                                                             |                                   | Some homework tasks on Owl clone (below)                                                  |
+
 
 
 ## My static OWL Clone
