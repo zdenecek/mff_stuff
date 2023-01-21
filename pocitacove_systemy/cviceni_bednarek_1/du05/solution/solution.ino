@@ -67,7 +67,7 @@ class SevenSegmentDisplay
 private:
   int _latch_pin, _clock_pin, _data_pin;
   int led_count;
-  unsigned int digit_period;
+  unsigned int glyph_period;
   int number;
   unsigned long last_change;
   int led_shown;
@@ -98,7 +98,7 @@ public:
     _latch_pin = latch_pin_;
     _data_pin = data_pin_;
     led_count = led_count_;
-    digit_period = digit_period_in_ms;
+    glyph_period = digit_period_in_ms;
   }
 
   void setup()
@@ -125,7 +125,7 @@ public:
   void update(unsigned long time)
   {
 
-    bool passed = (time - last_change) >= digit_period;
+    bool passed = (time - last_change) >= glyph_period;
     if (changed || passed)
     {
       changed = false;
@@ -142,7 +142,7 @@ public:
       }
 
       setState(val, led_shown);
-      last_change += digit_period;
+      last_change += glyph_period;
     }
   }
 };
