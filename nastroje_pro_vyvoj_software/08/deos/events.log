@@ -1,0 +1,7 @@
+19:20:46,720 [1] DEBUG DEOS.Thread - Successfully created thread idle
+19:20:46,732 [1] DEBUG DEOS.Thread - Successfully created thread main
+19:20:46,732 [1] DEBUG DEOS.Thread - Successfully started thread main
+19:20:46,733 [1] DEBUG DEOS.Thread - Successfully created thread user1
+19:20:46,733 [1] DEBUG DEOS.Thread - Successfully started thread user1
+19:20:46,733 [1] DEBUG DEOS.Thread - Successfully created thread user2
+19:20:46,733 [1] DEBUG DEOS.Thread - Successfully started thread user2

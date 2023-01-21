@@ -1,0 +1,13 @@
+JAVA - DEOS
+
+idle created
+Thread.startChargingCPUTime
+main created
+user1 created
+user2 created
+****************************
+Current time: -1
+idle is the current thread
+Choice 0:
+idle waiting until next period
+Attempt to acquire head of empty list!

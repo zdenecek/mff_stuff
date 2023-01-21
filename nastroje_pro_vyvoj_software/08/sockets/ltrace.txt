@@ -1,0 +1,16 @@
+% time     seconds  usecs/call     calls      function
+------ ----------- ----------- --------- --------------------
+ 36.82    0.004481        4481         1 openlog
+ 19.82    0.002412        2412         1 _ZNSt8ios_base4InitC1Ev
+ 10.61    0.001291        1291         1 _ZNSirsERt
+  6.01    0.000731         731         1 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+  5.87    0.000714         714         1 socket
+  4.92    0.000599         599         1 _ZNSolsEPFRSoS_E
+  4.44    0.000540         540         1 bind
+  3.94    0.000479         479         1 listen
+  1.99    0.000242         242         1 htonl
+  1.92    0.000234         234         1 htons
+  1.89    0.000230         230         1 _ZNSolsEt
+  1.79    0.000218         218         1 __cxa_atexit
+------ ----------- ----------- --------- --------------------
+100.00    0.012171                    12 total
