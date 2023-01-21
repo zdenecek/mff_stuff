@@ -12,6 +12,7 @@ def sieve(num):
         n += 1
     return prime.sum() - 2
 
+
 def main():
     num = int(sys.stdin.readline())
     print(sieve(num))

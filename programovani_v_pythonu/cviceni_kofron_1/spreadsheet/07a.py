@@ -384,6 +384,7 @@ class SheetParser:
         return sheet
 
 
+
     def parse_cell(self, cellStr, sheet):
 
         if cellStr == "":
@@ -464,10 +465,36 @@ class ExpressionParser:
 
 def main():
 
+    test2='''5;3;9;5;100;=SUM(A1:E1);;
+123;;777;11;=C1+D2
+=A4+1;xxxx;
+=A4;=A1+B1;=C1/0'''
+    test = ''';3;=B1*A2
+    19;=C1+C2;42
+    car;
+    =B2/A1;=A1-B4;=C2+A4
+    =error;=A1+bus'''
+    test = '''=ahoj
+=A1+blbost
+ahoj
+=A3*A3
+=A5/A5
+'''
+    test = '''=A2+C3
+=A3+C4
+=A4+C5
+=A5+C6
+=A6+C7
+=A2+C5'''
     csvparser = CsvParser()
     sheetparser = SheetParser()
+    # table = csvparser.parse(test.split())
     table = csvparser.parse(sys.stdin)
     sheet = sheetparser.parse_sheet(table)
+
+
+    # c = sheet.get(1,0)
+    # c.eval()
 
     for r in range(len(table)):
 
