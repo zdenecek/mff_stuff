@@ -1,10 +1,15 @@
 # Stuff from my MFF studies  
-Field: Informatika (Computer Science)
+Informatika (Computer Science)
 
 [Charles University, Faculty of Mathematics and Physics, Prague, Czech Republic](https://www.mff.cuni.cz)
 
-## If anyone happens to find this
-Please do not directly copy solutions from this repository. It might have some consequences for me, but what is more important, it WILL have consequences for you. You will NOT PASS as apps like recodex will detect plagiarism. I am not responsible for any consequences of copying solutions from this repository. If you are looking for solutions, you should try to solve the tasks yourself. If you are stuck or in a hurry, you can use this repository, but do not directly copy code/text!
+## Disclaimer
+
+This repository is for my private use only, to quickly navigate subjects and keep an archive of all my subjects.
+
+**Do not access this repository if you are not me**; this repository is public only for me to avoid logging in.
+
+Thank you for understanding.
 
 ## Courses
 
@@ -33,8 +38,6 @@ Please do not directly copy solutions from this repository. It might have some c
 | Algorithms and Data Structures 1 | 2021/22 |                                                                             |                                   | Some homework tasks on [Owl clone](http://owl.zdenektomis.eu/c/all.html)                                                  |
 
 ## My static OWL Clone
-
-Some homework tasks for some of the courses can be found in my static OWL clone.
 
 [The owl clone can be found here](http://owl.zdenektomis.eu/c/all.html).
 
