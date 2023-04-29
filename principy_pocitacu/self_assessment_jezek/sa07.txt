@@ -1,0 +1,68 @@
+24)
+pomocné údaje:
+adresy 32 bitových proměnných
+one | 0xA404
+two | 0xA410
+
+1277 = 0x000004FD (LE zápis: 0xFD 0x04 0x00 0x00)
+
+a) two = one;
+
+	i) assembler
+	LDA $A404
+	STA $A410
+	LDA $A405
+	STA $A411
+	LDA $A406
+	STA $A412
+	LDA $A407
+	STA $A413
+
+	ii) strojový kód jako hexdump
+		  01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
+	1400: AD 04 A4 8D 10 A4 AD 05 A4 8D 11 A4 AD 06 A4 
+	1410: 8D 12 A4 AD 07 A4 8D 13 A4
+
+
+b) one = 1277;
+
+	i) assembler
+	LDA #$FD
+	STA $A404
+	LDA #$04
+	STA $A405
+	LDA #$00
+	STA $A406
+	STA $A407 
+	
+	
+	ii) strojový kód jako hexdump (adresa je pouze orientační/relativní)
+		  01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
+	1500: A9 FD 8D 04 A4 A9 04 8D 05 A4 A9 00 8D 06 A4
+	1510: 8D 07 A4
+
+25)
+Kopie zadaného hexdumpu: 
+	  00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F 
+2000: A9 03 8D 00 A9 4C 0A 20 A9 AB 8D 01 A9 EA AD 09 
+2010: 20 8D 02 A9 4C 00 50 EA EA EA EA EA EA EA EA EA
+
+Pomocný přepis do assembleru s adresami a komentari:
+2000 LDA #$03   nacte 0x03 do A
+2002 STA $A900  ulozi 0x03 do 0xA900
+2005 JMP $200A  preskoci dalsi instrukci
+2008 LDA #$AB   nevykona se
+200A STA $A901  ulozi 0x03 do 0xA901
+200D NOP          
+200E LDA $2009  nacte 0xAB do A
+2011 STA $A902  ulozi 0xAB do 0xA902
+2014 JMP $5000  PC presahne hodnotu 201F
+2017 NOP
+...
+201F NOP
+
+Změněné hodnoty:
+Adresa | Nová hodnota
+0xA900 | 0x03
+0xA901 | 0x03
+0xA902 | 0xAB

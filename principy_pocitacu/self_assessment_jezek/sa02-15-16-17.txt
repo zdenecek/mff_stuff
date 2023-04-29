@@ -1,0 +1,21 @@
+15) Chceme navrhnout formát paketu, který obsahuje datum ve formě: den/měsíc/rok. Jak má paket vypadat? Kolik bude doopravdy potřeba (bude vhodné) bitů pro reprezentaci jednotlivých částí paketu
+
+Den může nabývat hodnot 1 až 31, na to vystačí pět bitů 5 bitů. Měsíc může nabývat hodnot 1 až 12, vystačí 4 bity. Pokud chceme pro rok být schopni reprezentovat všechny roky od počátku letopočtu, můžeme použít například 12 bitů, tím budeme schopni vyjádřit až rok 4095, což bohatě postačí. Informace můžeme uspořádat za sebou třeba v pořadí den-měsíc-rok.
+Nabízí se připomínka, že některé bitové kombinace nikdy nevyužijeme, například pro den máme další 4 možné hodnoty, které nikdy nepošleme (0, 13, 14, 15), pro měsíc je to jedna (0).
+Mohli bychom sloučit všechny údaje do dnů a posílat počet dní od nějakého referenčního času (pro shodnou podporu by to bylo od 1. 1. roku 0), to by ale navíc vyžadovalo, abychom standardizovali kalendář - například přechod na gregoriánský kalendář by mohl zapříčinit velkou komplexitu při převodu na formát den-měsíc-rok.
+
+Formát paketu by byl takovýto:
+
+|DDDDD|MMMM|YYYYYYYYYYYY|
+
+16) Navrhněte formát paketu, kterým chceme přenášet aktuální čas s přesností na milisekundy. Existuje více možností, jak takový formát navrhnout?
+
+Zde už bychom mohli zvážit sloučení všech údajů do jednoho, obzvláště protože nepotřebujeme přenášet časy v dávné historii. Mohli bychom jako referenční bod zvolit třeba rok 
+2000 a pak přenášet počet milisekund, které už uběhly. Kdybychom například přenášeli 40 bitů, mohli bychom přenést rozsah pro až přibližně 348 let, což bohatě postačí.
+
+Formát paketu by bylo jednoduše 40 bitů, vyjadřující počet milisekund uplynulých od 1.1.2000 0:00.000.
+
+17) Mějme sériovou RS-232 linku s 1 start bitem, 8 datovými bity, a 1 stop bitem. Pro vaše formáty paketů z otázek 15 a 16 určete, kolik RS-232 přenosů bude potřeba pro přenesení jednoho takového paketu.
+
+ 15. Máme 4+5+12 = 21 datových bitů, což zvládneme přenést v rámci tří přenosů.
+ 16. Máme 40 datových bitů, což zvládneme přenést v rámci pěti přenosů.

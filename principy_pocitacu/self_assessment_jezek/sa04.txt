@@ -1,0 +1,72 @@
+2) 
+8-bitová rotace: 00101110 ROL 5
+
+00101110 << 5 = 11000101
+ 
+8-bitová rotace: 00101110 ROL 8
+
+00101110 << 8 = 00101110
+
+8-bitová rotace: 0x1C ROL 4 
+
+0x1C << 4 = 0xC1
+
+32-bitová rotace: 0x84ACFF09 ROL 8
+
+0x84ACFF09 << 8 = 0xACFF0984
+
+
+
+8-bitová rotace: 10101110 ROR 3
+
+10101110 >> 3 = 11010101
+
+8-bitová rotace: 10101110 ROR 7 
+
+10101110 >> 7 = 01011101
+
+32-bitová rotace: 0x84ACFF09 ROR 12
+
+0x84ACFF09 >> 12 = 0xF0984ACF
+
+
+3) Pro následující hodnoty napište jejich reprezentaci jako znaménkové číslo (a) s explicitním znaménkovým bitem, (b) v jedničkovém doplňku, (c) ve dvojkovém doplňku. Po každou hodnotu napište všechny 3 varianty její reprezentace, a výsledek vždy zapište jako 8-bitovou hodnotu ve dvojkové soustavě:
+
+10
+a. 00001010
+b. 11110101
+c. 11110110
+ 
+0
+a. 00000000
+b. 11111111
+c. 00000000
+
+
+-3 
+a. 10000011
+b. 01111100
+c. 01111101
+
+-5
+a. 10000101
+b. 01111010
+c. 01111011
+
+-124
+a. 11111100
+b. 00000011
+c. 00000100
+
+
+8)Předpokládejte následující fragmenty Python programů využívajících modul numpy.
+Pokud bychom po každém z těchto fragmentů provedli v programu příkaz print(cislo, type(cislo)), tak co by v uvedených příkladech vypsal?
+a) 5 <class 'int'>
+b) 256 <class 'int'> 
+c) 1278 <class 'int'>
+d) 251 <class 'numpy.uint8'>
+e) 0 <class 'numpy.uint8'>
+f) 254 <class 'numpy.uint8'> 
+
+
+    

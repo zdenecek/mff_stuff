@@ -1,0 +1,14 @@
+14) Napište v šestnáctkové soustavě hodnoty všech bytů, které budou přeneseny po I2C sběrnici v průběhu celého přenosu (tj. veškeré byty poslané mezi START a STOP condition; pro každý přenášený byte uvažujte pouze hodnoty 8 bitů bez ACK bitu), kdy nějaký master čte ze senzoru hodnotu naměřeného tlaku a teploty. Předpokládejte, že senzorem posílaná 14-bitová hodnota tlaku je rovna 16018, a 11-bitová hodnota teploty je rovna 902.
+
+Pomocný zápis
+
+tlak = 16018 = 	11 1110 1001 0010 
+teplota = 902 = 	011 1000 0110
+
+Adresa      |(7adr-1R)	|0101 0001   | 0x51 
+tlak MSB    |(-6)		|0011 1110   | 0x3E
+tlak LSB  	|(8)		|1001 0010   | 0x92
+teplota MSB	|(8)  		|0111 0000	 | 0x70
+teplota LSB	|(3-)		|1100 0000	 | 0xC0
+
+Odpověď: 0x51 0x3E 0x92 0x70 0xC0

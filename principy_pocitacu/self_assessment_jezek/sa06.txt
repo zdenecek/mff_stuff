@@ -1,0 +1,40 @@
+4) Pro následující kapacity pamětí napište (a) nejméně kolika bitový musí být adresový prostor, kterým jsme schopni celou takovou paměť uadresovat, (b) jaká by byla nejspíše typická velikost adresového prostoru (kolika bitový by byl), který by daná paměť používala ve svém komunikačním protokolu:
+128 B
+a) 7 bitový
+b) 8 bitový
+ 
+384 B 
+a) 9 bitový
+b) 16 bitový
+
+2 kB 
+a) 11 bitový
+b) 16 bitový
+
+8 kB
+a) 13 bitový
+b) 16 bitový
+
+64 kB
+a) 16 bitový
+b) 16 bitový
+ 
+128 kB
+a) 17 bitový
+b) 24 bitový
+ 
+1 MB 
+a) 24 bitový
+b) 20 bitový
+
+2 GB 
+a) 31 bitový
+b) 32 bitový
+
+500 GB 
+a) 39 bitový
+c) 40 bitový
+
+4 TB
+a) 42 bitový
+b) 48 bitový

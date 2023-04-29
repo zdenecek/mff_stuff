@@ -1,0 +1,66 @@
+22)
+
+Záleží na formátu disku - základní formát o velikosti sektoru 512B nebo advanced format AF o velikosti sektoru 4kB.
+Každý soubor bude obsahovat navíc metadata o souboru v rámci souborového systému. Velikost těchto metadat je různá na různých souborových
+systémech, například jsem našel (ne přímo ve specifikaci), že na NTFS je záznam v master file table velký 1kB. Metadata jsou uložena spolu 
+s dalšími metadaty, a tak nemusí zabírat celý sektor. 
+
+a) 189 B
+
+1 sektor + metadata
+
+na NTFS: 4kB + 1kB = 5kB
+
+b) 4096 B
+
+1 AF sektor + metadata
+
+na NTFS: 4kB + 1kB = 5kB
+
+c) 1 MB
+
+256 AF sektorů + metadata
+
+na NTFS: 1024kB + 1kB = 1025 kB 
+
+d) 5,6 kB
+
+2 AF sektory + metadata
+
+na NTFS: 8kB + 1kB = 9kB
+
+e) 0 B (prázdný soubor) – zkuste vymyslet, jak by takový soubor byl asi v souborovém systému reprezentovaný
+
+Záleží na tom, jestli souborový systém přiřadí souboru sektor. Pokud ne, což je logicky správná varianta, bude soubor zabírat
+pouze velikost metadat.
+
+Na NTFS: 1kB
+
+
+30) DIB hlavička má velikost 40B
+
+informace se nachází na ofsetech 12 (width) a 16 (height)
+
+w = 2554
+h = 1295
+
+To odpovídá ověření při otevření obrázku v editoru.
+
+31) Dané informace se nacházejí na ofsetech 08 (max x) a 0A (max y)
+
+max x = 490	
+max y = 356
+
+w = 491
+h = 357
+
+Odpovídá informacím v editoru.
+
+
+34) Jaké slovo je tajným heslem (SECRET)?
+
+Blue
+
+35) Jaké anglické slovo je v souboru BOOK.TXT uloženo od offsetu 1019?
+
+inadvertently

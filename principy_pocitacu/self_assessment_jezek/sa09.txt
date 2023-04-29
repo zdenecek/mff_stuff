@@ -1,0 +1,89 @@
+13)
+
+V příkladech a) a b) je nutno použít logické posuny:
+
+a) A * 256 = A << 8
+b) B / 32 = B >> 5
+
+
+c) A / B - toto podle mě není přímočaře možné
+
+V příkladech d) a e) je nutno použít aritmetické posuny, ne logické:
+
+d) C * 8 = A << 3
+e) D / 16 = D >> 4
+
+
+14)
+
+a) 14,75 jako fixed-point 5.3
+
+01110110
+
+b) 14,75 jako fixed-point 4.4
+
+11101100
+
+c) 270,625 jako fixed-point 10.6
+
+01000011 10101000
+
+d) 270,625 jako fixed-point 22.2
+
+Takové číslo není možné zapsat, protože nemáme dostatek bitů pro necelou část. Můžeme reprezentovat 270.50 a 270.75.
+
+Pokud bychom se rozhodli zaokrouhlit číslo k nejbližšímu, poté můžeme zapsat 270.5 jako fixed point takto (nebude odpovídat přesně původnímu zadání):
+
+00000000 00000100 00111010
+
+e) 511,5 jako fixed-point 10.6
+
+01111111 11100000
+
+f) 254 jako fixed-point 8.8
+
+11111110 00000000
+
+
+15)
+
+Odpověď:
+
+		  00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F 
+0010F300: 00 00 60 12 00 00 00 00 00 00 26 01 80 10 00 00
+0010F310: 18 00 00 00 00 FF FF 00 00 00 00 00 00 00 00 00
+
+Postup:
+
+a) 18,375 jako fixed-point 8.24 na adrese $0010F300
+
+0001 0010 0110 0000 0000 0000 0000 0000 = 12 60 00 00 = 00 00 60 12        
+
+b) 18,375 jako fixed-point 12.20 na adrese $0010F308
+
+0000 0001 0010 0110 0000 0000 0000 0000 = 01 26 00 00 = 00 00 26 01
+
+c) 1040,5 jako fixed-point 8.8 na adrese $0010F30C
+
+Toto číslo je pro reprezentaci ve fixed-point 8.8 příliš velké
+
+[0000 0100] 0001 0000 1000 0000 = [04] 10 80 = 80 10 [04]
+
+Teď je otázka, jestli při přetečení 
+ i. se přepíšou jiné adresy, 
+ ii. číslo se usekne, 
+ iii. číslo se reprezentuje pomocí nejblížšího možného čísla 
+  iii.1 255,5
+  iii.2 255,9...
+ iiii. zápis neproběhne
+ 
+Defaultní chování by mohlo být snad ii.
+
+d) 1,5 jako fixed-point 4.4 na adrese $0010F310
+
+0001 1000 = 18 = 18
+
+e) 65535 jako fixed-point 24.8 na adrese $0010F314
+
+0000 0000 1111 1111 1111 1111 0000 0000 = 00 FF FF 00 = 00 FF FF 00
+

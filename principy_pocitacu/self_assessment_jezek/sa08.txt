@@ -1,0 +1,84 @@
+4)
+	one ... 0xA400 ... 32 bit
+	two ... 0xA404 ... 32 bit
+
+
+	a) two = two & one;
+
+	LDA $A404
+	AND $A400
+	STA $A404
+
+	b) one = ~two;
+
+	LDA $A404
+	EOR #$FF
+	STA $A400
+
+7)
+	one ... 0xA400 ... 32 bit unsigned
+	two ... 0xA404 ... 32 bit unsigned
+	three . 0xA408 ... 16 bit unsigned
+
+	a) two = one + two;
+
+	CLC
+	LDA $A400
+	ADC $A404
+	STA $A404
+	LDA $A401
+	ADC $A405
+	STA $A405
+	LDA $A402
+	ADC $A406
+	STA $A406
+	LDA $A403
+	ADC $A407
+	STA $A407
+
+	c) two = one + three;
+
+	LDA $A400
+	STA $A404
+	LDA $A401
+	STA $A405
+	CLC
+	LDA $A402
+	ADC $A408
+	STA $A406
+	LDA $A403
+	ADC $A409
+	STA $A407
+
+14) 8-bitové unsigned proměnné 
+	A ... 0xC12A
+	B ... 0xC12B
+	C ... 0xC12C
+
+	16-bitové unsigned proměnné 
+	D ... 0xC200
+	E ... 0xC202
+
+	dočasné proměnné ... paměť mezi adresami 0xD500 a 0xD600.
+
+	a) A = A + B + C;
+
+	LDA $C12A
+	CLC
+	ADC $C12B
+	CLC
+	ADC $C12C
+	STA $C12A
+
+	b) A = (A - B) + (A – C);
+
+	LDA $C12A
+	SEC
+	SBC $C12B
+	STA $D500
+	LDA $C12A
+	SEC
+	SBC $C12C
+	CLC
+	ADC $D500
+	STA $C12A
