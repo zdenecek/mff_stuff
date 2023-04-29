@@ -1,0 +1,600 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{mathtools, array, enumitem, xcolor}
+\usepackage{stackengine}
+\usepackage[margin=0.7in]{geometry}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{0.6em}
+
+\usepackage{graphicx}
+\newcommand\sbullet[1][.5]{\mathbin{\vcenter{\hbox{\scalebox{#1}{$\bullet$}}}}}
+
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.11}
+
+\usepackage[czech]{babel}
+
+\newtheorem*{lemma}{Lemma}
+\theoremstyle{plain}
+\newtheorem*{veta}{Věta}
+\newtheorem*{pozorovani}{Pozorování}
+\newtheorem*{tvrzeni}{Tvrzeni}
+\newtheorem*{domnenka}{Domněnka}
+
+
+\renewcommand{\arraystretch}{1.5}
+
+
+\title{Příprava na zkoušku z předmětu Kombinatorika a Grafy 1}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\subsection{Odhady}
+
+\begin{veta}
+	\[ \forall n \in \mathbb{N}: n^{\frac{n}2} \leq n! \leq n^n\]
+	\begin{proof}
+		\begin{itemize}
+			\item \[ (n!)^2 = (1\cdot n) \cdot ... \cdot (n\cdot 1) \geq n^n \]
+			Rozepsat.
+			\item triv.
+		\end{itemize}
+	\end{proof}
+\end{veta}
+
+\begin{lemma}[1.3]
+	\[\forall r \in \mathbb{R}: 1+x \leq e^x \]
+	\begin{proof}
+		Analyzujeme funkci $f(x) = e^x - x - 1$.
+	\end{proof}
+\end{lemma}
+
+\begin{veta}[1.2]
+	\[ e\left(\frac{n}{e}\right)^n \leq n! \leq e\cdot n \left(\frac{n}{e}\right)^n \]
+	\begin{proof}
+		Obě části indukcí. Vyjdeme z úpravy $n \left( \frac{n-1}{e} \right)^{n-1} = e \left( \frac{n}{e} \right)^n \cdot e \left( \frac{n-1}{n} \right)^{n-1}$
+	\end{proof}
+\end{veta}
+
+\begin{veta}[Stirlingova formule]
+	\[ n! \sim \left( \frac{n}e \right)^n \cdot \sqrt{2\pi e} \]
+\end{veta}
+
+\begin{veta}[1.5] \begin{enumerate}[]
+		\item \[ \left) \frac{n}{K} \right)^n \leq \binom{n}{K} \leq n^K \]
+		\item Největší binomický koeficient je pro $\lceil  \frac{K}2 \rceil$ a $\lfloor  \frac{K}2 \rfloor$
+\end{enumerate}	
+\begin{proof}
+	\begin{enumerate}
+		\item \[ \binom{n}{K} = \prod_{i=0}^{K-1} \frac{n-i}{K-i} \begin{cases}
+		\leq n \\
+		\geq \frac{n}{K}		
+		\end{cases} \]
+
+	\item  \[ \binom{n}{K} = \binom{n}{K-1} \frac{n+1-K}{K} \begin{cases}
+		< 1 & \text{pro } k > \frac{n+1}2\\
+		> 1  & \text{pro } k < \frac{n+1}2
+		\end{cases} \]
+\end{enumerate}
+\end{proof}
+\end{veta}
+
+\begin{veta}[1.6]
+	\[\forall m \in \mathbb{N}: \frac{2^{2m}}{2\sqrt{m}} \leq \binom{2m}{m} \leq  \frac{2^{2m}}{\sqrt{2m}}\]
+	\begin{proof}
+		\begin{itemize}
+			\item Definujeme $P = \frac{1 \cdot 3 \cdot 5 \cdot \cdots \cdot (2m-1)}{2 \cdot 4 \cdot 6 \cdot \cdots \cdot (2m)} $
+			\[ P = P \cdot \frac{2 \cdot 4 \cdot 6 \cdot \cdots \cdot 2m}{2 \cdot 4 \cdot 6 \cdot \cdots \cdot 2m} = \frac{(2m)!}{2^{2m}}(m!)^2 = \frac{1}{2^{2m}} \binom{2m}{m} \]
+
+			Stačí ukázat $P < \frac{1}{\sqrt{2m}}$
+			\[ 1 > \left( 1- \frac{1}{2^2} \right)\left( 1- \frac{1}{4^2} \right)\cdots \left( 1- \frac{1}{(2m)^2} \right)
+			= \left( \frac{1 \cdot 3}{2^2} \right)\left( \frac{3 \cdot 5}{4^2} \right)\cdots \left( \frac{(2m-1) \cdot (2m+1)}{(2m))^2} \right)
+			= P^2 (2m+1) \] \[
+				\implies P < \frac{1}{\sqrt{2m+1}} < \frac{1}{\sqrt{2m}}
+				\]
+		\end{itemize}
+	\end{proof}
+\end{veta}
+
+\subsection{Vytvořující funkce}
+
+\paragraph{Vytvořující funkce posloupnosti} $(a_i)^\infty_{i=0}$ je \[ \sum_{i=0}^\infty a_i x^i \]
+\paragraph{Základní vytvořující funkce}
+\begin{enumerate}
+\item \[(\underbrace{1,1,...,1}_{(n+1)-\text{krát}},0,0,...) \to 1 + x + x^2 + ... + x^n = \frac{1-x^{n+1}}{1-x} \]
+\item \[(1,1,1,1,...) \to 1 + x + x^2 + ...  = \frac{1}{1-x} \]
+\item \[\left(\binom{n}{0},\binom{n}{1},\binom{n}{2},... \right) \to \binom{n}{0} + \binom{n}{1}x + \binom{n}{2}x^2 + ... + \binom{n}{n}x^n  = (1+x)^n \]
+\end{enumerate}
+
+
+\paragraph{Operace s vytvořujícími funkcemi}
+
+\subsection{Binomická věta}
+
+\paragraph{Zobecněný binomický koeficient} pro $r \in \mathbb{R}$ a $k \in \mathbb{N}_0$ definujeme jako $\binom{r}{k} = \frac{r(r-1)...(r-k+1)}{k!}$
+
+\begin{veta}[Zobecněná binomická věta]
+	\[ \forall r \in \mathbb{R} \text{ je } (x+1)^r \text{ vytvořující funkcí } \left( \binom{r}0, \binom{r}1, ... \right)\]
+	Navíc pro $x \in (-1;4)$ řada $\sum_{i=0}^\infty \binom{r}i x^i$ konverguje.
+	\begin{proof}
+		Přes taylorův rozvoj.
+	\end{proof}
+\end{veta}
+
+\begin{veta}
+	\[  \]
+\end{veta}
+
+\begin{veta}[Počet zakořeněných stromů]
+	\[b_n = \frac{1}{n+1} \binom{2n}{n} \]
+	\begin{proof}
+	
+	\end{proof}
+\end{veta}
+
+
+
+\subsection{Konečné projektivní roviny}
+
+\paragraph{Hypergraf} je trojice $(V,E, k), k \in k \geq 2$, $E \subseteq \binom{V}{k}$
+
+\paragraph{Množinový systém} je dvojice $(X, \mathcal{P})$, kde \begin{itemize}
+\item $X$ je nosná množina
+\item $\mathcal{P} \subset 2^X$
+\end{itemize}
+$X$ jsou body a $\mathcal{P}$ jsou přímky.
+
+\paragraph{Konečná projektivní rovina} je množinový systém $(X, \mathcal{P})$, ve kterém platí tyto tři podmínky: 
+\begin{enumerate}[label=(A\arabic*)]
+\item Každé dva body tvoří právě jednu přímku
+\[\forall x,y \in X, x \neq y: \exists! Q \in \mathcal{P}: x,y \in P \]
+\item Každé dvě přímky se protínají v právě jednom bodě
+\[\forall P,Q \in \mathcal{P}, P \neq Q: \exists! x \in X: x \in P \wedge x \in Q \]
+\item Exitují čtyři body v obecné poloze, kde žádné tři nejsou na přímce:
+\[ \exists C \subseteq X, |C| = 4: \forall P \in \mathcal{P}: |C \cap P| \leq 2 \]
+\end{enumerate}
+
+\subparagraph{Přiklad: Fanova rovina}
+
+\paragraph{Řád KPR} je $\# \text{bodů na přímce roviny} - 1$
+\paragraph{Duální množinový systém} k $(X, \mathcal{P})$ je množinový systém 
+\[ (\mathcal{P}, \{ \{ P \in \mathcal{P} | x \in P  \} | x \in X\})\]
+\paragraph{Incidenční graf} pro množinový systém $(X, \mathcal{P})$ je bipartitní graf 
+$(X \cup \mathcal{P}, E)$, kde $E = \{ \{ x, P \} | x \in P \}$
+
+\subsection{Latinské čtverce}
+
+\paragraph{Latinský čtverec řádu $n$} je tabulka $n \times n$,  s prvky $\{1,...,n\}$, kde v každém řádku i sloupci je každý prvek právě jednou.
+
+\paragraph{Ortogonalita} Latinské čtverce $L, L^\prime$ jsou ortogonální, pokud \[ \forall l, l^\prime \in \{1,...,n\}: \exists i,j \in \{1,...,n\}: L_{i,j}^\prime = l \& L_{i,j} = l^\prime \]
+
+\subsection{Grafy}
+
+\paragraph{Vrcholové pokrytí} grafu $G = (V,E)$ je množina $C \subseteq V$, kde platí
+$\forall e \in E: C \cap e \neq \emptyset$
+
+\paragraph{Párování v grafu} G je podgraf tvořený disjunktními hranami.
+
+\paragraph{Množinový systém} Nechť $X$ a $I$ jsou množiny: Množinový systém na $X$ je $|I|$-tice $\mathcal{M}=(M_i | i \in I)$, kde $M_i \subseteq X$.
+
+\paragraph{Systém různých reprezentantů} (SRR) pro $\mathcal{M}$ množ. systém je prostá $f: I \to X$, t.ž. $\forall i \in I: f(i) \in M_i$.
+
+\subsection{Souvislost grafů}
+\paragraph{Hranový řez} v $G=(V,E)$ je $F \subseteq E$, t.ž. $G \setminus F = (V; E \setminus F)$ je nesouvislý.
+
+\paragraph{Vrcholový řez} v   $G=(V,E)$ je $A \subseteq V$, t.ž. $G \setminus A = (V \setminus A, E \cap \binom{V \setminus A}{2})$ je nesouvislý.
+
+\paragraph{Hranová souvislost} $k_e(G) = \begin{cases} 
+\text{minimální velikost hranového řezu} \\
+ 1 \text{ pro } G \equiv K_1 \end{cases}$
+ 
+\paragraph{Vrcholová souvislost} $k_v(G) = \begin{cases} 
+\text{minimální velikost vrcholového řezu} \\
+ n-1 \text{ pro } G \equiv K_n \\
+ 1 \text{ pro } G \equiv K_1 \end{cases}$
+ 
+\paragraph{k-souvislost} G je $\circ\  k$-souvislý, pokud $k_\circ(G) \geq k$ 
+ 
+\paragraph{Most} je hranový řez velikosti 1
+\paragraph{Artikulace} je vrcholový řez velikosti 1
+\paragraph{Podrozdělení hrany} Pro $G=(V,E), e \in E$ je podrozdělení hrany $e$ nahrazení hrany cestou.
+
+\paragraph{Laplacián} grafu $G$ je $L(G) \in \mathbb{R}^{n \times n}$, kde 
+\[ L(G)_{i,j} = \begin{cases}
+deg(i) & i=j \\
+-1		& i\neq j, \{i,j\} \in E \\
+1		& i\neq j, \{i,j\} \notin E
+\end{cases}\]
+
+\subsection{Ramseyova teorie}
+
+\paragraph{Nezávislý systém} Systém $M \subseteq 2^\{1,...,n\}$ je nezávislý, pokud
+\[\forall A,B \in M, A \neq B: A \nsubseteq B\ \&\ B \nsubseteq A\]
+
+\paragraph{Ramseyovo číslo} $R(k,l)$ je $\min n \in \mathbb{N}$, t.ž. každé červeno-modré obarvení $E(K_n)$ obsahuje červené $K_k$, nebo modré $K_l$
+
+\paragraph{Obecné Ramseyovo číslo} $R_p(n_1, ..., n_r)$ je $\min n \in \mathbb{N}$, t.ž. 
+
+\[\forall X, |X| \geq n\] 
+\[\forall r\text{-obarvení } \chi \text{ množiny } \binom{X}{p}\]
+\[\exists \text{barva } i \in \{1,...,r\}\]
+\[\exists Y \subseteq X:\]
+\[|Y| = n_i \text{ a všechny p-tice z } \binom{Y}{p} \text{ mají barvu } i\]
+
+\subsection{Samoopravné kódy}
+
+\paragraph{Abeceda} $\Sigma$ je konečná množina symbolů.
+\paragraph{Slovo délky n} je uspořádáná n-tice symbolů z abecedy
+\paragraph{ $\Sigma^n$ } je množina všech slov délky $n$
+\paragraph{Hammingova vz8dlenost slov} $x=(x_1,...,x_n)$ a $y=(y_1,...,y_n)$ je $d(x,y)$ definována jako počet indexů, kde se x a y liší. 
+
+$d$ je metrika a  $(\Sigma^n, d)$ je metrický prostor
+
+\paragraph{(Blokový) Kód} C je $C \subseteq \Sigma^n$ množina kódových slov.
+
+\paragraph{Parametry kód} jsou \begin{itemize}
+\item Délka slov n
+\item Velikost abecedy q
+\item Dimenze $k = log_q|C|$
+\item Minimální vzdálenost d dvou různých kódových slov
+\end{itemize}  
+
+Kód s parametry $n,q,k,d$ značíme $(n,k,d)_q$.
+
+\paragraph{Hadamardova matice} je $H \in \{-1,1\}^{n\times n}$, kde $HH^T = n \cdot I_n$
+
+\paragraph{Příklady kódů} \begin{itemize}
+\item \textbf{Opakovací kód} $(n,1,n)_q$, vznikne opakováním symbolů. Malá dimenze, ale velká vzdálenost.
+\item \textbf{Charakteristické vektory přímek KPR} $(X, \mathcal(P))$ řádu n. $(n^2+n+1=|X|,log_2 n^2+n+1 = |\mathcal{P}|, 2n)_2$. $\Sigma=\{0,1\}, C=\{ v \in \{0,1\}^{|X|} \text{ je charakteristický vektor nějaké přímky } p \in \mathcal{P} \}$
+
+Minimální vzdálenost: $n+1$, $n+1$ dvě přímky, průnik v jednom bodě.
+
+Lze přidat $\{1\}^{|X|}$ a doplňky slov.
+\item \textbf{Hadamardovy kódy} Jsou tvořeny řádky Hadamardovy matice.  $(n,log_2 2n, \frac{n}2)_2$
+
+\end{itemize}
+
+\paragraph{Sylvesterova konstrukce Hadamardových matic} \[H_1 = (1)\]
+\[ H_{2n} = \begin{pmatrix}
+H_n & H_n \\
+H_n & -H_n
+\end{pmatrix} \]
+
+\paragraph{Ekvivalence kódů} Kódy $c$ a $c^\prime$ jsou si ekvivalentní, pokud $\exists \pi$ permutace na $\{1,...,n\}$, kde 
+\[ \forall x \in \Sigma^n: x \in C \iff (x_{\pi_1}, x_{\pi_2}, ..., x_{\pi_n}) \in C^\prime \]
+
+\paragraph{Kombinatorická koule} $B(x,t)$ se středem x a poloměrem t je $\{y \in \Sigma^n: d(x,y) \leq t\}$
+
+\paragraph{Objem koule $B(x,t)$} je \[ V(t) = |B(x,t)| = \sum^t_{i=0} \binom{n}i (q-1)^i\]
+
+\paragraph{Perfektní kód} je kód $(n,k,2t+1)_q$ s $\frac{q^n}{V(t)}$ slovy
+
+\paragraph{Lineární kód} je vektorový podprostor prostoru $\mathbb{K}^n$ kde $\mathbb{K}$ je konečné těleso. 
+Značíme $[n,k,d]_q$. $|C| = |\mathbb{K}^{\dim(C)}| = |\mathbb{K}^{k}|$
+
+\begin{itemize}
+\item Opakovací kódy jsou lineární, $\Sigma = \mathbb{Z}_q$
+\item Ch. vektory KPR \textbf{nejsou} lineárními kódy
+\item Hadamardovy kódy obecně nejsou, ty z Sylvesterovy konstruce jsou.
+\end{itemize}
+
+\paragraph{Generující matice}  lineárního kódu C je $M in \mathbb{F}_q^{K\times n}$, kde řádky jsou vektory nějaké báze C.
+
+Na $\mathbb{F}_q^{K\times n}$ definujeme "skalární součin" pro $x=(x_1,...,x_n), y=(y_1, ..., y_n), x,y \in\mathbb{F}_q^{n}$ jako $\langle x,y \rangle = \sum^n_{i=1} x_i y_i$
+
+\paragraph{Duální kód $C^\perp$} ke kódu C je ortogonální doplněk C.
+\[ C^\perp = \{ x \in \mathbb{F}_q^{n} : \langle x,y \rangle = 0 \text{ pro } y \in C \} \]
+
+\paragraph{Kontrolní matice $M^\perp$} je generující matice $C^\perp$
+
+\paragraph{Standardní tvar} BÚNO je Generující matice ve Standardním tvaru, tedy prvních n sloupců tvoří $I_k$:
+
+\[
+\begin{array}{|c|c|}
+\hline
+I_k & B \\
+\hline
+\end{array}
+\]
+
+Pak je kontrolní matice ve tvaru:
+
+\[ M^\perp =
+\begin{array}{|c|}
+\hline
+I_k \\
+\hline
+-B^T \\
+\hline
+\end{array}
+\]
+
+\paragraph{Syndrom slova} y je $S(y)$, kde $S: \mathbb{F}_q^{n} \to \mathbb{F}_q^{n-k}$ je zobrazení \[ S(y) = M^\perp g\]
+
+\paragraph{Hammingovy kódy} jsou perfektní kódy s parametry $q=2, r \geq 2$ dané generujícimi maticemi
+\[ M = \begin{array}{|c|c|}
+\hline
+I_{2^r-r-1} & \text{řádky}\\
+\hline
+\end{array}\]
+
+\[ M^\perp = \begin{array}{|c|c|}
+\hline
+-B^T & I_r \\
+\hline
+\end{array}\]
+
+
+\section{Věty}
+
+
+
+\subsection{KPR Konečné projektivní roviny}
+
+\begin{tvrzeni}[4.1  O velikosti přímek]
+V každé KPR mají všechny přímky stejnou velikost.
+\begin{proof}
+Mějme $P,Q \in \mathcal{P}, P \neq Q$
+
+Existuje $x \in X: x \notin P, Q$ (Rozepsat důkaz z pomocí A3).
+
+Platí $|P| \leq |Q|$:
+
+Definujeme $\varphi: P \to Q$, kde pro $y \in P$ je $\varphi(y) =$ bod průniku $\overline{xy}$ s Q.
+
+Z A2 plyne $\varphi$ je zobrazení.
+
+Ukažme, že je prosté.
+
+$P = \{y_1,...,y_k\}, z_i = \varphi(y_i)$
+
+Sporem $\exists z_i = z_j$ pro $i \neq j$
+
+potom $\overline{xy_i}, \overline{xy_j}$ obsahují x.
+
+Musí platit $z_i \neq z_j$, jinak by se přímky $\overline{xy_i}, \overline{xy_j}$ protly ve dvou bodech.
+
+Spor s A2 ?
+
+Tedy $|P| \leq |Q|$.
+
+Stejně $|Q| \leq |P|$.
+
+$|P| = |Q|$
+\end{proof}
+\end{tvrzeni}
+
+\begin{tvrzeni}
+Pro KPR $(X, \mathcal{P})$ platí řádu $n$:
+\begin{enumerate}
+\item $\forall x \in X$: bodem x prochází $n+1$ přímek
+\item $|X| = n^2 + n+ 1$
+\item $|\mathcal{P}| = n^2 + n+ 1$
+\end{enumerate}
+\begin{proof}
+\begin{enumerate}
+\item Mějme $x \in X$, ukážeme, že existuje přímka bez x. 
+
+(A3) $\implies \exists a,b,c,d$ v obecné poloze. BÚNO $x \notin \{a,b,c\}$. Pak $\overline{ab}$ nebo $\overline{ac}$ neobsahují x. Pro každý bod na přímce existuje další přímka, která prochází x.
+
+$\implies$ alespoň $n+1$
+
+(A2) $\implies$ každá přímka s x protíná P v jednom bodě.
+
+$\implies$ nejvýše $n+1$
+\item Uvažme $a \in X$ a $P \in \mathcal{P}: a \notin P$
+
+\[ |X| \geq (n+1)(n+1-1) + 1\]
+
+Dále $a \neq x \in X$ x leží na přímce, ta protíná P. Podle (A1) $x \in \overline{ax_i}$ pro nějaké i.
+
+\[ |X| \leq (n+1)(n+1-1) + 1\]
+
+Tedy 
+
+\[ |X| = n^2 + n+1\]
+
+\item Plyne z (2) a z duality
+\end{enumerate}
+\end{proof}
+\end{tvrzeni}
+
+\begin{tvrzeni}[4.3 O duálu KPR]
+Duálem KPR řádu n je KRP řádu N
+\begin{proof}
+Zachování řádu plyne z $|X| = |\mathcal{P}| = n^2+n+1$.
+
+Ověříme axiomy \begin{enumerate}[label=(A\arabic*)*]
+\item \[\forall P \neq Q \in \mathcal{P} \exists! L_x = \{ S \in \mathcal{P} | x \in S\}: P,X \in L_X \]
+\[\iff  \forall P \neq Q \in \mathcal{P} \exists! x \in X: x \in Q \cap P \iff (A2) \]
+
+\item \[\forall L_x = \{ S \in \mathcal{P} | x \in S\}, L_y = \{ S \in \mathcal{P} | y \in S\} \exists! P \in mathcal{P}: P \in L_x \cap L_y \]
+\[\iff \forall x\neq y in X: \exists! P \in \mathcal{P}: \{x,y\} \subseteq Q \iff (A1)\]
+\item $(A3) \implies \exists a,b,c,d \in X$ v obecné poloze.
+$C^\prime = \{\overline{ab}, \overline{ad}, \overline{bc}, \overline{cd}\}$ je v obecné poloze duálu, každá trojice má dvě přímky, které sdílí bod, který není ve třetí.
+\end{enumerate}
+\end{proof}
+\end{tvrzeni}
+
+\begin{domnenka}
+Existuje KPR řádu n, pokud n je mocnina prvočísla.
+\end{domnenka}
+
+\begin{veta}[5.1 KPR a tělesa] 
+Existuje algebraické těleso s n prvky $implies$ existuje KPR řádu n.
+\begin{proof}
+$\mathbb{K} = $ těleso s n prvky.
+
+Zavedeme na $\mathbb{K}^3$ ekvivalenci $\sim$, kde $(x,y,z) \sim (\alpha x, \alpha y, \alpha z)$ pro $\alpha \in \mathbb{K}, \alpha \neq 0$.
+
+Body jsou třídy ekvivalence na $\mathbb{K}^3 \setminus \{(0,0,0)\}$
+
+\[|X| = \frac{n^3-1}{n-1}\]
+
+Přímky jsou $\forall (a,b,c) \in mathbb{K}^3 \setminus \{0\}:$
+\[ P_{a,b,c} = \{ [(x,y,z)]_\sim | ax+by+cz = 0 \}\]
+
+Pro  $(a,b,c) \sim (a^\prime,b^\prime,c^\prime): P_{a,b,c} = P_{a^\prime,b^\prime,c^\prime}$
+
+$(X, \mathcal{P})$ je KPR:
+
+\begin{enumerate}[label=A\arabic*]
+\item mějme $(x,y,z)\nsim (x^\prime,y^\prime,z^\prime) \in X$. Položme 
+\[\begin{pmatrix}
+x&y&z \\ x^\prime&y^\prime&z^\prime
+\end{pmatrix} = M \]
+\[ Rank(M) = 2 \implies Rank(Ker(M)) = 1 \]
+\item Analogicky přes $\begin{pmatrix}
+a&b&c \\ a^\prime&b^\prime&c^\prime
+\end{pmatrix}$
+\item Stačí zvolit \[ C = \{ [(0,0,1)]_\sim, [(0,1,0)]_\sim, [(0,0,1)]_\sim, [(1,1,1)]_\sim,\}\]
+\end{enumerate}
+\end{proof}
+\end{veta}
+
+\subsection{Latinské čtverce}
+
+\begin{pozorovani}
+Pro $L$ a $L^\prime:$
+\[ \forall l,l^\prime \in [n]: \exists! i,j: L_{i,j} = l \wedge L^\prime = l^\prime \]
+\end{pozorovani}
+
+\begin{pozorovani}
+Permutace latinského čtverce je latinský čtverec. Stejné permutace dvou ortogonálních čtverců jsou ortogonální. Speciálně, odteď mají všechny latinské čtverce první řádek 1,2,3,...
+\end{pozorovani}
+
+\begin{pozorovani}
+Navzájem ortogonálních latinských čtverců řádu $n$ je nejvýše $n-1$.
+\begin{proof}
+Sporem triv.
+\end{proof}
+\end{pozorovani}
+
+\begin{veta}
+\[\forall n \geq 2: \exists KPR \text{ řádu } n \iff \exists n - 1 \text{ NOLČ řádu }n\]
+\begin{proof}
+\begin{itemize} $\implies$
+
+Uvažme přímku $P = \{ y_0, ..., y_n \}$, $\forall y_i$ prochází bodem přímky $P_{i_i}, P_{i_n}$
+
+Buď $\{X_{i,j} = P_{0_i} \cap P_{n_j}\}$.
+
+Pro $k=1,...,n-1$ definujeme
+\[ {L_k}_{i,j} = l \iff X_{i,j} \in P_{k,l}\]
+
+Tyto čtverce jsou NOLČ. \begin{itemize}
+\item Každé pole má přiřazené číslo: Podle (A1) $y_k, x_{i,j}$ musí procházet nějaká přímka.
+\item V řádcích nejsou opakování. Sporem \[\exists i,j \neq j^\prime,l (L_k)_{i,j}= (L_k)_{i,j^\prime} = l\]
+\[ \implies x_{i,j}= x_{i,j^\prime} \in P_{k,l} \implies |P_{k,l} \cap P_{0,i} | > 1\]
+Spor s A2
+\item Analogicky pro sloupce. 
+\item Ortogonalita: Pro $k\neq k^\prime, l \neq l^\prime$ chceme $i,j$...
+
+Přímky $P_{k,l}, P_{k^\prime,l^\prime}$. Tyto přímky mají nutně průnik, $exists x_{i,j}$.
+\end{itemize}
+\item $\impliedby$
+TODO
+\end{itemize}
+\end{proof}
+\end{veta}
+
+\subsection{Grafy}
+
+\begin{veta}[König-Egerváry]
+V bipartitním grafu je velikost maximálního párování rovna velikosti minimálního vrcholového pokrytí.
+\begin{proof}
+\end{proof}
+\end{veta}
+
+\begin{veta}[7.2 Hallova]
+Množinový systém $\mathcal{M}$ pro I,X má systém různých reprezentantů $\iff \forall J \subseteq I: |J| \leq \left|\bigcup_{j \in J} M_j \right|$
+\begin{proof}
+\begin{itemize}
+\item $\implies$ mějme f SRR a zvolme $J \subseteq I$
+\[ \left|\bigcup_{j \in J} M_j \right| \overset{\supseteq}{\geq}  |\{ f(j) | j \in J\}| \overset{\text{f je prosté}}{=} |J| \]
+
+\item $\impliedby$
+\end{itemize}
+\end{proof}
+\end{veta}
+
+\begin{veta}[7.3]
+V každém bipartitiním grafu $(A \cup B, E)$ kde $\deg(a) \geq deg(b)$ a $E \neq \emptyset$
+exxistuje párování velikosti $|A|$
+\begin{proof}
+
+\end{proof}
+\end{veta}
+
+\begin{veta} [7.4]
+Každý latinský obdelník typu $k \times n$ lze doplnit na čtverec.
+\begin{proof}
+Mějme obdelník. S sloupce, H hodnoty. Definujeme $G = (S \cup H, E)$, kde $\{ S_{i,j} \} \in E \iff j$ není ve sloupci $i$.
+
+Každý sloupec má n-k hran, $\deg(S_i) = k-n$ Každá hodnota má $deg(n) = n-k$.
+
+Podle věty o párování v bipartitním grafu existuje párovnání velikosti n. Indukcí dotvoříme čtverec.
+\end{proof}
+\end{veta}
+
+\subsection{Kódy}
+
+\newcommand*{\maxerrors}{\lfloor \frac{d-1}2 \rfloor}
+
+\begin{veta}[12.0.1 Charakteristika kódu]
+Za pomoci kódu c jsme schopni opravit $\leq t$ chyb, pokud $\forall y \in \Sigma^n$ existuje nanejvýš jedno $x \in C$, t.ž. $d(x,y) \leq t$
+\end{veta}
+
+\begin{veta}[12.0.2 Charakteristika kódu]
+S kódem $(n,K,d)_q$ jsme schopni opravit nanejvýš $\maxerrors$ chyb.
+\begin{proof}
+Množiny slov ve vzdálenosti $\leq \maxerrors$ od kódových slov jsou disjunktní.
+\end{proof}
+\end{veta}
+
+\begin{veta}[Hadamardova domněnka]
+\[\forall n, 4|n: \exists H_n \]
+\end{veta}
+
+\begin{pozorovani}[12.1 (Koule kódových slov o malém poloměru jsou disjunktní)] 
+$\forall$ kód se vzdáleností $2t+1, \forall x,y \in C, x \neq y$
+\[ B(x,t) \cap B(y,t) = \emptyset 
+\]
+\begin{proof}
+Sporem: $ \exists z \in  B(x,t) \cap B(y,t) $
+\[ d(x,y) \leq d(x,z)+d(z,y) \leq t + t = 2t < 2t+1 \]
+Spor s minimální vzdáleností.
+\end{proof}
+\end{pozorovani}
+
+\begin{veta}[12.2 Hammingův odhad]
+$\forall$ kód C s parametry $(n,k,2t+1)_q$ platí \[ |C| \leq \frac{q^n}{V(t)} \]
+\begin{proof}
+Máme $q^n$ slov. Podle pozorování platí dvě koule $B(x,t)$ jsou disjunktní pro různá $x \in C$. 
+\[ \bigcup_{x \in C} B(x,t) \subseteq \Sigma^n \implies |C|V(t) \leq |\Sigma^n| = q^n \]
+Úpravou dostaneme požadovaný odhad.
+\end{proof}
+\end{veta}
+
+\begin{veta}[12.3 Gilbert;v-Varschamův odhad]
+$\forall n,d,q \in \mathbb{N}: \exists$ kód C s parametry $|C| \geq \frac{q^n}{V(d-1)}$
+\begin{proof}
+C vyrobíme hladově z $\Sigma^n$ odebíráním kódových slov s příslušnými koulemi. Toto lze iterovat $ \frac{q^n}{V(d-1)}$ krát.
+C je kód.
+\end{proof}
+\end{veta}
+
+\begin{pozorovani}[12.4 minimální vzdálenost lineárních kódů] 
+\[d = \min_{x \in C, x \neq 0} d(0,x) \]
+\end{pozorovani}
+
+
+
+
+\end{document}
