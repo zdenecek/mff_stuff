@@ -1,0 +1,271 @@
+2
+s9 d5 s4 sX sQ
+cX cQ cK cA sK
+
+s9 d5 s4 sX sQ
+sA d7 d9 dX dA
+
+s9 d5 s4 sX sQ
+d6 cJ sJ dJ s3
+
+s9 d5 s4 sX sQ
+d3 d4 s6 s7 s5
+
+s9 d5 s4 sX sQ
+c5 c4 c6 c7 c9
+
+s9 d5 s4 sX sQ
+h8 d8 s8 c8 c3
+
+s9 d5 s4 sX sQ
+h2 d2 s2 c2 h9
+
+s9 d5 s4 sX sQ
+h7 h4 h3 h5 h6
+
+s9 d5 s4 sX sQ
+hX hJ hK hA hQ
+
+cX cQ cK cA sK
+s9 d5 s4 sX sQ
+
+cX cQ cK cA sK
+sA d7 d9 dX dA
+
+cX cQ cK cA sK
+d6 cJ sJ dJ s3
+
+cX cQ cK cA sK
+d3 d4 s6 s7 s5
+
+cX cQ cK cA sK
+c5 c4 c6 c7 c9
+
+cX cQ cK cA sK
+h8 d8 s8 c8 c3
+
+cX cQ cK cA sK
+h2 d2 s2 c2 h9
+
+cX cQ cK cA sK
+h7 h4 h3 h5 h6
+
+cX cQ cK cA sK
+hX hJ hK hA hQ
+
+sA d7 d9 dX dA
+s9 d5 s4 sX sQ
+
+sA d7 d9 dX dA
+cX cQ cK cA sK
+
+sA d7 d9 dX dA
+d6 cJ sJ dJ s3
+
+sA d7 d9 dX dA
+d3 d4 s6 s7 s5
+
+sA d7 d9 dX dA
+c5 c4 c6 c7 c9
+
+sA d7 d9 dX dA
+h8 d8 s8 c8 c3
+
+sA d7 d9 dX dA
+h2 d2 s2 c2 h9
+
+sA d7 d9 dX dA
+h7 h4 h3 h5 h6
+
+sA d7 d9 dX dA
+hX hJ hK hA hQ
+
+d6 cJ sJ dJ s3
+s9 d5 s4 sX sQ
+
+d6 cJ sJ dJ s3
+cX cQ cK cA sK
+
+d6 cJ sJ dJ s3
+sA d7 d9 dX dA
+
+d6 cJ sJ dJ s3
+d3 d4 s6 s7 s5
+
+d6 cJ sJ dJ s3
+c5 c4 c6 c7 c9
+
+d6 cJ sJ dJ s3
+h8 d8 s8 c8 c3
+
+d6 cJ sJ dJ s3
+h2 d2 s2 c2 h9
+
+d6 cJ sJ dJ s3
+h7 h4 h3 h5 h6
+
+d6 cJ sJ dJ s3
+hX hJ hK hA hQ
+
+d3 d4 s6 s7 s5
+s9 d5 s4 sX sQ
+
+d3 d4 s6 s7 s5
+cX cQ cK cA sK
+
+d3 d4 s6 s7 s5
+sA d7 d9 dX dA
+
+d3 d4 s6 s7 s5
+d6 cJ sJ dJ s3
+
+d3 d4 s6 s7 s5
+c5 c4 c6 c7 c9
+
+d3 d4 s6 s7 s5
+h8 d8 s8 c8 c3
+
+d3 d4 s6 s7 s5
+h2 d2 s2 c2 h9
+
+d3 d4 s6 s7 s5
+h7 h4 h3 h5 h6
+
+d3 d4 s6 s7 s5
+hX hJ hK hA hQ
+
+c5 c4 c6 c7 c9
+s9 d5 s4 sX sQ
+
+c5 c4 c6 c7 c9
+cX cQ cK cA sK
+
+c5 c4 c6 c7 c9
+sA d7 d9 dX dA
+
+c5 c4 c6 c7 c9
+d6 cJ sJ dJ s3
+
+c5 c4 c6 c7 c9
+d3 d4 s6 s7 s5
+
+c5 c4 c6 c7 c9
+h8 d8 s8 c8 c3
+
+c5 c4 c6 c7 c9
+h2 d2 s2 c2 h9
+
+c5 c4 c6 c7 c9
+h7 h4 h3 h5 h6
+
+c5 c4 c6 c7 c9
+hX hJ hK hA hQ
+
+h8 d8 s8 c8 c3
+s9 d5 s4 sX sQ
+
+h8 d8 s8 c8 c3
+cX cQ cK cA sK
+
+h8 d8 s8 c8 c3
+sA d7 d9 dX dA
+
+h8 d8 s8 c8 c3
+d6 cJ sJ dJ s3
+
+h8 d8 s8 c8 c3
+d3 d4 s6 s7 s5
+
+h8 d8 s8 c8 c3
+c5 c4 c6 c7 c9
+
+h8 d8 s8 c8 c3
+h2 d2 s2 c2 h9
+
+h8 d8 s8 c8 c3
+h7 h4 h3 h5 h6
+
+h8 d8 s8 c8 c3
+hX hJ hK hA hQ
+
+h2 d2 s2 c2 h9
+s9 d5 s4 sX sQ
+
+h2 d2 s2 c2 h9
+cX cQ cK cA sK
+
+h2 d2 s2 c2 h9
+sA d7 d9 dX dA
+
+h2 d2 s2 c2 h9
+d6 cJ sJ dJ s3
+
+h2 d2 s2 c2 h9
+d3 d4 s6 s7 s5
+
+h2 d2 s2 c2 h9
+c5 c4 c6 c7 c9
+
+h2 d2 s2 c2 h9
+h8 d8 s8 c8 c3
+
+h2 d2 s2 c2 h9
+h7 h4 h3 h5 h6
+
+h2 d2 s2 c2 h9
+hX hJ hK hA hQ
+
+h7 h4 h3 h5 h6
+s9 d5 s4 sX sQ
+
+h7 h4 h3 h5 h6
+cX cQ cK cA sK
+
+h7 h4 h3 h5 h6
+sA d7 d9 dX dA
+
+h7 h4 h3 h5 h6
+d6 cJ sJ dJ s3
+
+h7 h4 h3 h5 h6
+d3 d4 s6 s7 s5
+
+h7 h4 h3 h5 h6
+c5 c4 c6 c7 c9
+
+h7 h4 h3 h5 h6
+h8 d8 s8 c8 c3
+
+h7 h4 h3 h5 h6
+h2 d2 s2 c2 h9
+
+h7 h4 h3 h5 h6
+hX hJ hK hA hQ
+
+hX hJ hK hA hQ
+s9 d5 s4 sX sQ
+
+hX hJ hK hA hQ
+cX cQ cK cA sK
+
+hX hJ hK hA hQ
+sA d7 d9 dX dA
+
+hX hJ hK hA hQ
+d6 cJ sJ dJ s3
+
+hX hJ hK hA hQ
+d3 d4 s6 s7 s5
+
+hX hJ hK hA hQ
+c5 c4 c6 c7 c9
+
+hX hJ hK hA hQ
+h8 d8 s8 c8 c3
+
+hX hJ hK hA hQ
+h2 d2 s2 c2 h9
+
+hX hJ hK hA hQ
+h7 h4 h3 h5 h6
+

@@ -1,0 +1,4 @@
+Player 1: High card (sQ)
+Player 2: Straight (h2 h3 h4 h5 d6)
+Player 3: Flush (h7 hJ hQ hK hA) (WINNER)
+

@@ -1,0 +1,11 @@
+Player 1: High card (sQ)
+Player 2: One pair (cK sK)
+Player 3: One pair (dA sA)
+Player 4: Three of a kind (cJ dJ sJ)
+Player 5: Straight (d3 d4 s5 s6 s7)
+Player 6: Flush (c4 c5 c6 c7 c9)
+Player 7: Four of a kind (c8 d8 h8 s8)
+Player 8: Four of a kind (c2 d2 h2 s2)
+Player 9: Straight flush (h3 h4 h5 h6 h7)
+Player 10: Straight flush (hX hJ hQ hK hA) (WINNER)
+

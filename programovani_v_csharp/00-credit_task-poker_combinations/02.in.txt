@@ -1,0 +1,11 @@
+10
+s9 d5 s4 sX sQ 
+cX cQ cK cA sK
+sA d7 d9 dX dA
+d6 cJ sJ dJ s3
+d3 d4 s6 s7 s5
+c5 c4 c6 c7 c9
+h8 d8 s8 c8 c3
+h2 d2 s2 c2 h9
+h7 h4 h3 h5 h6
+hX hJ hK hA hQ

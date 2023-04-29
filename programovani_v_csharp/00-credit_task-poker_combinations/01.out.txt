@@ -1,0 +1,4 @@
+Player 1: Three of a kind (c7 h7 s7) (WINNER)
+Player 2: One pair (dX sX)
+Player 3: High card (dQ)
+

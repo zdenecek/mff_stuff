@@ -1,0 +1,2 @@
+Here should be a error message. Not uncaught exception. Some other output is acceptible. (E.g.: First round was correct, in second round there was a player with only 3 cards. -> write an error message)
+

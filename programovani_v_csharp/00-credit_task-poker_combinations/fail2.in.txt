@@ -1,0 +1,39 @@
+c5 h7 d9 cJ dK
+h6 h8 d2 d3 cK
+s5 h2 c9 hJ hK
+
+c5 h7 d9 cJ dK
+h6 h8 d2 d3 cK
+c2 h2 d2 s2 dQ
+
+cA cK cQ cJ cX
+h6 h8 d2 d3 cK
+c2 h2 d2 s2 dQ
+
+cJ cX cA cK cQ
+h6 h8 d2 d3 cK
+c2 h2 d2 s2 dQ
+
+c5 h7 d9 cJ dK
+h6 h8 d2 d3 cK
+c2 h2 d3 s2 dQ
+
+c5 h7 d9 cJ dK
+c8 h8 d2 c2 h2
+c3 h2 d3 sA dQ
+
+c5 h7 d9 cJ dK
+c8 h8 d2 d4 cK
+c3 h2 d3 sA dQ
+
+h2 hA hQ hX h4
+c5 h7 d9 cJ dK
+c8 h8 d2 d4 cK
+
+cJ hX c9 cK cQ
+h6 h8 d2 d3 cK
+s5 h2 c9 hJ hK
+
+s5 dX h2 hX sX
+c5 d9 h2 s9 h9
+h5 c8 h3 h8 d8

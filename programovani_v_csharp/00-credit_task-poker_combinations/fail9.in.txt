@@ -1,0 +1,20 @@
+3
+d2 hA sX cJ c6
+s4 d4 s7 s6 s5
+s5 cX h2 hX dX
+
+c3 hA hA hA s6
+c4 hA dJ h6 d2
+c2 d2 h2 h7 d7
+
+s8 dJ dX dQ s9
+c5 d5 c8 h5 cA
+h4 s5 h6 h7 s7
+
+s2 cX h2 hX dX
+c5 c6 c8 c7 cA
+sJ c2 hJ h2 d2
+
+dQ dX dA dJ dK
+hX hQ hK h9 hJ
+cK cA dA hA sA
