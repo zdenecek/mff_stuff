@@ -1,0 +1,133 @@
+\documentclass{article}
+
+\title{%
+    Domácí úkol č. 1 - Turingovy stoje \\
+    NTIN090
+}
+\author{Zdeněk Tomis}
+\date{6. 10. 2024}
+
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt} 
+
+\usepackage[margin=0.7in]{geometry}
+\hyphenpenalty=10000
+
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{gensymb}
+\usepackage{amsmath}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{graphicx}
+
+\begin{document}
+
+
+\maketitle
+
+
+\section{ Jen dvě akce najednou}
+
+Pro \( M = (\mathcal{Q}, \Sigma, \delta, q_0, F ) \) sestrojme \(M^\prime\) následovně:  
+
+Vytvoříme stroj, který nikdy nebude najednou měnit stav pásky a zároveň hýbat hlavou, a to tak, že místo toho nejdříve zapíšeme na pásku, ale stav změníme na mezistav, který nám řekne pouze kam v dalším kroku pohnout hlavou a na jaký konečný stav nastavit stav.
+
+Formálně (alespoň částečně):
+
+\[ Q^\prime = Q \cup Q_{mezi} \]
+
+kde 
+
+\[ Q_{mezi} = Q \times \{ L,R,N \}  \]
+
+Máme původní stavy a pak stavy složené, takové mezistavy, které nám říkají, kam v mezikroku pohnout páskou a na jaký stav se nastavit poté.
+
+Abeceda, počáteční stav, přijimajíci stavy zustanou nezměněny.
+
+Přechodovou funkci nejprve upravíme takto:
+
+\begin{align*} \forall q \in Q; l_0,l_1 \in \Sigma; m \in \{ L,R,N \}&: \\
+ \delta(q,l_0) &= (q_n, l_1,  m) \implies \\
+ \delta^\prime(q,l_0) &= ( (q_n, m), l_1, N) \  \wedge \\
+ \delta^\prime((q_n, m), l_1) &= (q_n, l_1, m)    
+\end{align*}
+
+Všimněme si, že oba kroky přechodové funkce (oba prvky), zachovávají buď zachovávají písmeno na pásce ($ l_1 \to l_1 $), nebo nehýbou hlavou - pevně nastavené $N$.
+
+Toto není jediný přístup, jako další mě napadá kódovat mezistav ne do stavu, ale na pásku ve formě rozšířené abecedy.
+
+
+\section{RESTART - Hello, IT, have you tried turning it off and on again?}
+
+Zde budeme muset adresovat dva problémy
+
+\begin{enumerate}
+    \item chybí pohyb doleva
+    \item chybí pohyb nikam
+    \item páska je jednostranná,   
+          pohybem doleva lze narazit na kraj
+\end{enumerate}
+
+\subsection{Pohyb do leva (L)}
+
+Pohyb do leva nasimulujeme takto:
+
+Abecedu si rozšíříme: $\Sigma^\prime = \Sigma \cup (\Sigma \times \{ \prime, \prime\prime \} )$
+
+Když se chceme pohnout doleva, uděláme toto:
+
+\begin{enumerate}
+    \item napíšeme místo znaku znak se zarážkou ($\prime$) (a posuneme se doprava)
+    \item provedeme RESTART
+    \item pokud jsme na pozici se zarážkou, jsme na začátku pásky (vizte poslední bod řešení)
+    \item zkontrolujeme, jestli zarážka není hned za první buňkou, v takovém případě se RESTARTem dostaneme na buňku nalevo. (zarážku odmažeme)
+    \item jinak, první pozici označíme druhou, posouvací zarážkou ($\prime\prime$)
+    \item opakujeme:
+    \begin{enumerate}
+        \item zkontrolujeme, jestli první druhá zarážka není dvě buňky před první: 
+        \begin{itemize}
+            \item Jedeme po pásce v pravo, dokud nenarazíme na posouvací zarážku ($\prime\prime$)
+            \item Když na ni narazíme, posuneme se dvakrát v pravo a zkontrolujeme, jestli tam není první zarážka. \\
+            Pokud ano, vyskočíme z cyklu, jinak RESTART a pokračujeme na (b)
+        \end{itemize}
+        \item Posuneme posouvací zarážku doprava
+       \begin{itemize}
+        \item Jedeme v pravo
+        \item až narazíme na posouvací zarážku, smažeme ji, posuneme se doprava a připíšeme ji
+        \item RESTART
+        \item pokračujeme na (a)
+       \end{itemize}
+    \end{enumerate}
+
+    \item Nyní jsme ve stavu, kde posouvací zarážka $\prime\prime$ je vlevo od místa, kde chceme mít hlavu, zarážka $\prime$ je o dvě buňky vpravo.
+    \item Odmažeme původní zarážku $\prime$
+    \item RESTART
+    \item Posuneme se na zarážku $\prime\prime$
+    \item Odmažeme $\prime\prime$, nastavíme stav na stav před posunem a při tom se posuneme doprava.
+\end{enumerate}
+
+Nyní jsme o jednu pozici vlevo, páska je v původním stavu a stav je nastaven jako před posunem.
+
+Všechny tyto operace lze kodifikovat v konečném množství stavů, původní stav si zapamatujeme tak, že stavy obsahují i tento původní stav (opět kartézský součit)
+
+\subsection{Pohyb nikam (N)} 
+
+Pohyb nikam můžeme nasimulovat pohybem doprava a poté doleva dle postupu výše. Zabere to mnoho kroků, ale o to nám zde nejde.
+
+\subsection{Omezení pásky}
+
+Tento problém jsme řešili na cvičení.
+
+V tomto případě ho detekujeme tak, že při pohybu doleva v kroku 3. výše popsaného algoritmu narazíme na hlavní zarážku $\prime$ ihned po restartu.
+
+V tomto případě můžeme celou pásku posunout o jedno do prava, poté provést RESTART.
+
+Nově přidané levé pole bude prázdné, což je správně, nutnost posunu pásky potvrzuje, že pole ještě nebylo navšítveno, tudíž má být prázdné.
+
+Problém, který jsme neadresovali ani na cvičení, může být, že nevíme, jakou část pásky musíme posunout do prava, tedy kdy můžeme přestat s přesunem.
+
+Tento problém se dá vyřešit tak, že si vytvoříme nějakou zarážku napravo od vstupu. Pokaždé, když chceme psát na tuto zarážku, nebo se posunout za ni, posuneme ji doprava a pak se posuneme zpět doleva (simulovaně)
+
+\end{document}
