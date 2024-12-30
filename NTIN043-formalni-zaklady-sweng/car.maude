@@ -1,0 +1,195 @@
+
+
+--- Sensor Data Module
+mod SENSOR-DATA is
+  protecting FLOAT .
+  protecting STRING .
+  protecting BOOL .
+  protecting QID .  
+
+  sorts SensorData .
+  subsort SensorData < Qid .
+
+  op sensorData : Float Float String String String Bool -> SensorData .
+  op getSpeed : SensorData -> Float .
+  op getPosition : SensorData -> Float .
+  op getCamera : SensorData -> String .
+  op getLidar : SensorData -> String .
+  op getRadar : SensorData -> String .
+  op getObstacleDetected : SensorData -> Bool .
+
+  vars F G : Float .
+  vars Str1 Str2 Str3 Str4 : String .
+  vars B : Bool .
+
+  eq getSpeed(sensorData(F, G, Str1, Str2, Str3, B)) = F .
+  eq getPosition(sensorData(F, G, Str1, Str2, Str3, B)) = G .
+  eq getCamera(sensorData(F, G, Str1, Str2, Str3, B)) = Str1 .
+  eq getLidar(sensorData(F, G, Str1, Str2, Str3, B)) = Str2 .
+  eq getRadar(sensorData(F, G, Str1, Str2, Str3, B)) = Str3 .
+  eq getObstacleDetected(sensorData(F, G, Str1, Str2, Str3, B)) = B .
+endm
+
+
+--- Control Actions Module
+mod CONTROL-ACTIONS is
+  protecting QID .
+
+  sorts ControlAction .
+  subsort ControlAction < Qid .
+
+  ops maintainSpeed accelerate decelerate stop turnLeft turnRight : -> ControlAction .
+endm
+
+
+
+--- Environment Module
+mod ENVIRONMENT is
+  protecting STRING .
+  protecting BOOL .
+
+
+  sorts Obstacle OtherCar Pedestrian Lane Weather EnvironmentState .
+  subsort Obstacle OtherCar Pedestrian Lane Weather < EnvironmentState .
+
+  --- Obstacle Types
+  op obstacle : String -> Obstacle [ctor] .
+  op otherCar : String -> OtherCar [ctor] .
+  op pedestrian : String -> Pedestrian [ctor] .
+
+  --- Lane Information
+  op lane : String -> Lane [ctor] .
+  op isLaneAvailable : Lane -> Bool [ctor] .
+
+  --- Weather Conditions
+  op weather : String -> Weather [ctor] .
+  op isWeatherClear : Weather -> Bool [ctor] .
+
+  var Str : String .
+
+  --- Basic Equations for Environment Elements
+  eq isLaneAvailable(lane(Str)) = (Str == "open") .
+  eq isWeatherClear(weather(Str)) = (Str == "clear") .
+endm
+
+--- Car State Module
+mod CAR-STATE is
+  protecting SENSOR-DATA .
+  protecting CONTROL-ACTIONS .
+  protecting ENVIRONMENT .
+
+  sorts CarState .
+  subsort CarState < Qid .
+
+  op carState : SensorData ControlAction  EnvironmentState -> CarState [ctor] .
+endm
+
+--- Autonomous Car Control System
+mod AUTONOMOUS-CAR is
+  protecting NAT .
+  protecting STRING .
+  protecting FLOAT .
+  protecting BOOL .
+  protecting QID .
+  protecting SENSOR-DATA .
+  protecting CONTROL-ACTIONS .
+  protecting ENVIRONMENT .
+  protecting CAR-STATE .
+endm
+
+
+--- Car Rules Module
+mod CAR-RULES is
+  protecting CAR-STATE .
+  protecting CONTROL-ACTIONS .
+  protecting ENVIRONMENT .
+  protecting SENSOR-DATA .
+
+  vars SD : SensorData .
+  vars CA : ControlAction .
+  vars ES : EnvironmentState .
+  vars Str : String .
+
+  op transition : CarState -> CarState .
+
+  --- Transition Logic: Compute a new car state based on sensor data and environment.
+  eq transition(carState(SD, CA, ES)) =
+    carState(SD, computeAction(SD, CA, ES), ES) .
+
+  op computeAction : SensorData ControlAction EnvironmentState -> ControlAction .
+
+  --- Compute Action Rules
+
+  --- Rule 1: Maintain Speed if no obstacle and weather is clear
+  ceq computeAction(SD, CA, weather(Str)) = maintainSpeed
+    if not getObstacleDetected(SD) /\ isWeatherClear(weather(Str)) .
+
+  --- Rule 2: Stop if obstacle detected and there's a pedestrian
+  ceq computeAction(SD, CA, pedestrian(Str)) = stop
+    if getObstacleDetected(SD) /\ hasPedestrian(pedestrian(Str)) .
+
+  --- Rule 3: Decelerate if weather is not clear
+  ceq computeAction(SD, CA, weather(Str)) = decelerate
+    if not isWeatherClear(weather(Str)) .
+
+  --- Rule 4: Turn Left if right lane is not available
+  ceq computeAction(SD, CA, lane("right")) = turnLeft
+    if not isLaneAvailable(lane("right")) .
+
+  --- Rule 5: Turn Right if left lane is not available
+  ceq computeAction(SD, CA, lane("left")) = turnRight
+    if not isLaneAvailable(lane("left")) .
+
+  --- Default Rule: Maintain Speed if no other rules apply
+  eq computeAction(SD, CA, ES) = maintainSpeed [owise] .
+
+  --- Helper Function
+  op hasPedestrian : EnvironmentState -> Bool .
+  eq hasPedestrian(pedestrian(Str)) = true .
+  eq hasPedestrian(ES) = false [owise] .
+
+endm
+
+
+---- Test Cases Module
+mod TEST-CASES is
+  protecting CAR-STATE .
+  protecting CAR-RULES .
+
+  vars SD : SensorData .
+  vars CA : ControlAction .
+
+  vars ES : EnvironmentState .
+  vars W : Weather .
+  vars P : Pedestrian .
+  vars L : Lane .
+  vars Str : String .
+
+  
+
+  op testCase1 : -> Bool .
+  eq testCase1 = 
+    transition(carState(sensorData(50.0, 100.0, "clear", "clear", "clear", false), maintainSpeed, weather("clear")))
+    == carState(sensorData(50.0, 100.0, "clear", "clear", "clear", false), maintainSpeed, weather("clear")) .
+
+  op testCase2 : -> Bool .
+  eq testCase2 = 
+    transition(carState(sensorData(30.0, 80.0, "obstacle", "pedestrian", "obstacle", true), stop, pedestrian("crossing")))
+    == carState(sensorData(30.0, 80.0, "obstacle", "pedestrian", "obstacle", true), stop, pedestrian("crossing")) .
+
+  op testCase3 : -> Bool .
+  eq testCase3 = 
+    transition(carState(sensorData(70.0, 150.0, "clear", "clear", "clear", false), decelerate, weather("rainy")))
+    == carState(sensorData(70.0, 150.0, "clear", "clear", "clear", false), decelerate, weather("rainy")) .
+
+  op testCase4 : -> Bool .
+  eq testCase4 = 
+    transition(carState(sensorData(60.0, 120.0, "lane", "clear", "clear", false), turnLeft, lane("right")))
+    == carState(sensorData(60.0, 120.0, "lane", "clear", "clear", false), turnLeft, lane("right")) .
+
+  op testCase5 : -> Bool .
+  eq testCase5 = 
+    transition(carState(sensorData(40.0, 90.0, "clear", "clear", "clear", false), maintainSpeed, weather("clear")))
+    == carState(sensorData(40.0, 90.0, "clear", "clear", "clear", false), maintainSpeed, weather("clear")) .
+
+endm

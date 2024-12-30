@@ -1,0 +1,82 @@
+\documentclass{article}
+
+\title{%
+    Domácí úkol č. 2 - Jazyky \\
+    NTIN090
+}
+\author{Zdeněk Tomis}
+\date{10. 11. 2024}
+
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt} 
+
+\usepackage[margin=0.7in]{geometry}
+\hyphenpenalty=10000
+
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{gensymb}
+\usepackage{amsmath}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{graphicx}
+\usepackage{enumitem}   % For customizing enumerate labels (e.
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+\begin{document}
+
+
+\maketitle
+
+
+\section{}
+
+\begin{enumerate}[label=\alph*)]
+    \item 
+    \( PP = \{ \langle M, x \rangle \mid M \text{ při výpočtu nad vstupem } x \text{ skončí a na konci bude páska prázdná } \} \)
+
+    Turingův stroj N přijímající jazyk $PP$ postupuje následujícím způsobem. Podobně jako univerzální TS simuluje M(x). Pokud se M zastaví a páska je prázdná, N přijme. Pokud M skončí výpočet s neprázdnou páskou, N odmítne. Simulace ovšem nemusí skončit.
+    \item 
+        \( PPE = \{ \langle M \rangle \mid (\exists x \in \Sigma^*)[ \langle M, x \rangle \in PP ] \} \)    
+
+
+        
+        Uvažujeme lexikografické pořadí, v němž se nejprve porovnává délka a teprve u řetězců téže délky se porovnávají znaky.
+
+        Konstrukci popisuje nasledující algoritmus:
+
+        \begin{algorithm}
+            \caption{}
+            \begin{algorithmic}[1]
+                \State Inicializuj prázdný seznam probíhajících výpočtů \( S \)
+                \ForAll{$x \in \Sigma^*$ v lexikografickém pořadí}
+                    \State Přidej do \( S \) nový výpočet \( M(x) \)
+                    \State Vykonej 1 krok každého výpočtu v \( S \)
+                    \If{M se zastavil a páska byla prázdná}
+                        \State přijmi
+                    \EndIf
+                \EndFor
+            \end{algorithmic}
+            \end{algorithm}
+            
+\end{enumerate}
+
+\section{}
+
+Kdyby existoval $M_{PP}$, mohli bychom vytvořit $M_{L_u}$, který by využíval $M_{PP}$ jako podprogram. $M_{L_U}$ by postupoval následovně:
+
+\begin{algorithm}
+    \caption{}
+    \begin{algorithmic}[1]
+        \State {Uprav M  na $M^\prime$ tak, aby při přijetí a skončení vymazal pásku a skončil (přidáme kód, který vymaže pásku). Při skončení a odmítnutí napsal něco na pásku a skončil. Toho lze docílit konečnou úpravou kódu M.}
+        \State {Spusť $M_{PP}$ s  $M^\prime$ jako vstupem}
+        \State {Pokud $M_{PP}$ přijme, přijmi}
+        \State {Jinak odmítni}
+    \end{algorithmic}
+\end{algorithm}
+    
+Pokud by $M_{PP}$ existoval, mohli bychom vytvořit takto $M_{L_u}$, který by využíval $M_{PP}$ jako podprogram, a který by tedy vždy skončil. To by bylo v rozporu s tím, že $L_u$ není rozhodnutelný.
+
+\end{document}

@@ -1,1 +1,0 @@
-alert("TypeScript version not implemented!")

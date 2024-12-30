@@ -1,0 +1,157 @@
+Autonomní auto v Maude
+
+Zdeněk Tomis
+
+2024
+
+---
+
+Task 1:
+
+přiložen
+
+---
+
+Task 2: Hlavní rysy řešení
+
+
+1. Moduly 
+    Moduly jako `CAR-RULES` a `SENSOR-DATA` poskytují jasně definované rozhraní a oddělení zodpovědností.
+
+2. Přechod mezi stavy 
+    Přechody mezi stavy jsou definovány pomocí pravidel, což umožňuje jednoduchou a přehlednou specifikaci chování autonomního vozu. Samotný přechod se odehrává přepisem funkce transition.
+
+3. Pravidla
+    Chování je založeno na sadě pravidel, která definují, jakým způsobem se má autonomní vůz chovat v různých situacích.
+
+4. Vstupy  
+   Vstupy jsou reprezentovány pomocí proměnných, jako je rychlost, poloha, počasí a překážky zakodovaných do struktury `sensorData` a `environment`, kde jsou následně použity pro rozhodování o chování vozu. 
+
+5. Test Cases:
+   Test cases are provided for validation, using logical equivalences to ensure that transitions yield the expected outcomes under different Tests.
+
+---
+
+Task 3: Real Traffic Tests and Test Cases
+
+ Test 1: Clear Weather, No Obstacle
+- Inputs:
+  - Speed: 50.0
+  - Position: 100.0
+  - Weather: Clear
+  - Obstacle: None
+- Expected Output: Maintain speed.
+- Test Case:
+  ```maude
+  transition(carState(sensorData(50.0, 100.0, "clear", "clear", "clear", false), maintainSpeed, weather("clear")))
+  == carState(sensorData(50.0, 100.0, "clear", "clear", "clear", false), maintainSpeed, weather("clear")) .
+  ```
+
+Test 2: Obstacle Detected, Pedestrian Crossing
+
+- Inputs:
+  - Speed: 30.0
+  - Position: 80.0
+  - Obstacle: True
+  - Environment: Pedestrian crossing
+- Expected Output: Stop.
+- Test Case:
+  ```maude
+  transition(carState(sensorData(30.0, 80.0, "obstacle", "pedestrian", "obstacle", true), stop, pedestrian("crossing")))
+  == carState(sensorData(30.0, 80.0, "obstacle", "pedestrian", "obstacle", true), stop, pedestrian("crossing")) .
+  ```
+
+ Test 3: Rainy Weather
+- Inputs:
+  - Speed: 70.0
+  - Weather: Rainy
+- Expected Output: Decelerate.
+- Test Case:
+  ```maude
+  transition(carState(sensorData(70.0, 150.0, "clear", "clear", "clear", false), decelerate, weather("rainy")))
+  == carState(sensorData(70.0, 150.0, "clear", "clear", "clear", false), decelerate, weather("rainy")) .
+  ```
+
+ Test 4: Blocked Right Lane
+- Inputs:
+  - Lane: Right lane blocked
+- Expected Output: Turn Left.
+- Test Case:
+  ```maude
+  transition(carState(sensorData(60.0, 120.0, "lane", "clear", "clear", false), turnLeft, lane("right")))
+  == carState(sensorData(60.0, 120.0, "lane", "clear", "clear", false), turnLeft, lane("right")) .
+  ```
+
+ Test 5: Maintain Speed Default Rule
+- Inputs:
+  - Speed: 40.0
+  - Weather: Clear
+  - No Obstacle
+- Expected Output: Maintain Speed.
+- Test Case:
+  ```maude
+  transition(carState(sensorData(40.0, 90.0, "clear", "clear", "clear", false), maintainSpeed, weather("clear")))
+  == carState(sensorData(40.0, 90.0, "clear", "clear", "clear", false), maintainSpeed, weather("clear")) .
+  ```
+
+
+Jak spustit testy:
+
+
+load car.maude
+
+reduce testCase1 .
+
+
+This should output True
+
+---
+
+Task 4: Vyhodnocení modelu
+
+Abstrakce 
+
+Řešení naznačuje, jak se dají reprezentovat jednotlivé části autonomního vozu pomocí modulu separovaně.
+
+Zjednodušení
+
+Praždá pravidla jsou jednoduchá a snadno pochopitelná.
+Nezohlednují, jak sensory fungují v realném světe.
+Není zahrnuto zacházení s více překážkami najednou.
+
+Nejednoznačnost vs. Přesnost
+
+    Nejednoznačnost: Nízká; pravidla jsou přesná a jednoznačná.
+    Omezení: Chybí řešení okrajových případů a podmínek, které nejsou binární (např. "částečně zablokovaný pruh").
+
+Úplnost
+
+    Pokrývá různé scénáře (jasné počasí, překážky, dostupnost pruhů, chodce a změny počasí).
+    Chybějící scénáře:
+        Více současných překážek.
+        Interakce s jinými autonomními vozidly.
+        Nouzové situace (např. náhlý výskyt překážky).
+
+---
+
+Task 5: Názorové hodnocení Maude
+
+Výhody:
+  Asi podporuje širokou škálu funkcí, ale při mém jednoduchém úkolu jsem neměl šanci pochopit ani ověřit.
+
+Nevýhody:
+
+   Těžko pochopitelné
+
+   Syntax není podobná ničemu, co jsem znal.
+
+   Nepopulární, žádná komunita, málo materiálů. Velmi omezená webová stránka.
+
+
+Kdy by se dalo použít
+
+Těžko vymyslet, asi hlavně v případech kritické bezpečnosti, real time systémech atd.
+
+Použil bych to v praxi?
+
+Zatím jsem se nesetkal s žádným problémem, který bych chtěl řešit pomocí Maude.

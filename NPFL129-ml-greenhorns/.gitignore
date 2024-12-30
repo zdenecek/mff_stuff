@@ -1,0 +1,7 @@
+*.npz
+*.txt
+*.LICENSE
+*.model
+*.pickle
+venv/
+__pycache__/

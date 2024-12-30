@@ -1,0 +1,167 @@
+DROP KEYSPACE IF EXISTS tomisz;
+
+CREATE KEYSPACE tomisz WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 3};
+
+USE tomisz;
+
+-- Create the jokes table
+CREATE TABLE jokes (
+    joke_id UUID PRIMARY KEY,
+    text TEXT,
+    rating FLOAT,
+    category TEXT,
+    created_at TIMESTAMP
+) WITH compaction = { 'class' : 'LeveledCompactionStrategy' };
+
+
+-- Insert jokes into the jokes table
+INSERT INTO jokes (joke_id, text, rating, category, created_at)
+VALUES (uuid(), 'Why don''t scientists trust atoms? Because they make up everything!', 8.5, 'Science', toTimestamp(now()));
+
+INSERT INTO jokes (joke_id, text, rating, category, created_at)
+VALUES (uuid(), 'Why did the chicken join a band? Because it had the drumsticks!', 7.2, 'Animal', toTimestamp(now()));
+
+INSERT INTO jokes (joke_id, text, rating, category, created_at)
+VALUES (uuid(), 'What do you call fake spaghetti? An impasta!', 8.0, 'Food', toTimestamp(now()));
+
+-- Query jokes based on rating
+SELECT * FROM jokes WHERE rating > 8.0 ALLOW FILTERING;
+
+===========================
+
+CREATE TABLE joke_categories (
+    category TEXT,
+    joke_id UUID,
+    PRIMARY KEY (category, joke_id)
+);
+
+INSERT INTO joke_categories (category, joke_id)
+VALUES ('Science', uuid());
+
+INSERT INTO joke_categories (category, joke_id)
+VALUES ('Animal', uuid());
+
+INSERT INTO joke_categories (category, joke_id)
+VALUES ('Food', uuid());
+
+-- Retrieve jokes by category
+SELECT joke_id FROM joke_categories WHERE category = 'Science';
+
+===========================
+
+CREATE TABLE users (
+    user_id TEXT PRIMARY KEY,
+    first_name TEXT,
+    last_name TEXT,
+    liked_jokes SET<UUID>
+);
+
+-- add user data with liked jokes
+INSERT INTO users (user_id, first_name, last_name, liked_jokes)
+VALUES ('user1', 'John', 'Doe', {uuid(), uuid()});
+
+-- add more liked jokes for a user
+UPDATE users SET liked_jokes = liked_jokes + {uuid()} WHERE user_id = 'user1';
+
+-- liked jokes for a user
+SELECT user_id, liked_jokes FROM users WHERE user_id = 'user1';
+
+-- delete a liked joke for a user
+UPDATE users SET liked_jokes = liked_jokes - {uuid()} WHERE user_id = 'user1';
+
+===========================
+
+-- later users table to add favorite_categories
+ALTER TABLE users ADD favorite_categories LIST<TEXT>;
+
+-- Add favorite categories for a user
+UPDATE users SET favorite_categories = ['Science', 'Food'] WHERE user_id = 'user1';
+
+-- add a category
+UPDATE users SET favorite_categories = ['Animal'] + favorite_categories WHERE user_id = 'user1';
+
+-- append a category
+UPDATE users SET favorite_categories = favorite_categories + ['Humor'] WHERE user_id = 'user1';
+
+-- favorite categories
+SELECT user_id, favorite_categories FROM users WHERE user_id = 'user1';
+
+===========================
+
+-- alter users table to add to-do tasks for jokes
+ALTER TABLE users ADD todo MAP<UUID, TEXT>;
+
+-- add a task for a joke
+UPDATE users SET todo = {uuid() : 'Rate this joke 5 stars'} WHERE user_id = 'user1';
+
+-- Update the task for a joke
+UPDATE users SET todo[uuid()] = 'Rate this joke 4 stars' WHERE user_id = 'user1';
+
+-- delete a to-do task for a joke
+DELETE todo[uuid()] FROM users WHERE user_id = 'user1';
+
+===========================
+
+-- create a contacts table for people involved in joke creation
+CREATE TYPE person (
+    first TEXT,
+    last TEXT
+);
+
+CREATE TABLE contacts (
+    id INT,
+    name person,
+    address TUPLE<TEXT, TEXT, INT>,
+    emails SET<TEXT>,
+    apps LIST<TEXT>,
+    phones MAP<TEXT, TEXT>,
+    PRIMARY KEY (id)
+);
+
+-- insert data into contacts
+INSERT INTO contacts (id, name, address, emails, apps, phones)
+VALUES (
+    1,
+    {first: 'John', last: 'Smith'},
+    ('123 Joke Street', 'Humor City', 10001),
+    {'john.smith@jokes.com'},
+    ['WhatsApp', 'Messenger'],
+    {'work': '+1234567890'}
+);
+
+INSERT INTO contacts (id, name, emails, apps, phones)
+VALUES (
+    2,
+    {first: 'Jane', last: 'Doe'},
+    {'jane.doe@jokes.com', 'jane.d@gmail.com'},
+    ['Signal', 'Telegram'],
+    {'mobile': '+9876543210'}
+);
+
+SELECT * FROM contacts;
+
+===========================
+
+-- Create the users2 table and index
+CREATE TABLE users2 (
+    username TEXT PRIMARY KEY,
+    firstname TEXT,
+    lastname TEXT,
+    birth_year INT,
+    country TEXT
+);
+
+CREATE INDEX ON users2(birth_year);
+
+-- insert sample users
+INSERT INTO users2 (username, firstname, lastname, birth_year, country)
+VALUES ('johndoe', 'John', 'Doe', 1985, 'US');
+
+INSERT INTO users2 (username, firstname, lastname, birth_year, country)
+VALUES ('janedoe', 'Jane', 'Doe', 1990, 'UK');
+
+-- query users by birth year
+SELECT firstname, lastname FROM users2 WHERE birth_year = 1985;
+
+-- query users with filtering
+SELECT firstname, lastname FROM users2 WHERE birth_year = 1990 AND country = 'UK' ALLOW FILTERING;

@@ -1,0 +1,109 @@
+\documentclass{article}
+
+\title{%
+    Domácí úkol č. 3   \\
+    NTIN090
+}
+\author{Zdeněk Tomis}
+\date{19. 11. 2024}
+
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt} 
+
+\usepackage[margin=0.7in]{geometry}
+\hyphenpenalty=10000
+
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{gensymb}
+\usepackage{amsmath}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{graphicx}
+\usepackage{enumitem}   % For customizing enumerate labels (e.
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+\begin{document}
+
+
+\maketitle
+
+
+\section{Variace na existenční kvantifikaci}
+
+\subsection{$\implies$}
+
+\begin{equation}
+    \exists B_1 \text { rozhodnutelný} \cap
+    A=\{ x \in \Sigma^* \mid(\exists  \in \Sigma^* [\langle x,y\rangle \in B_1]\} \implies A \text{ je rozhodnutelný} 
+\end{equation}
+
+Plyne z existenční kvantifikace (5. přednáška). Stačí využít existence jednoho z jazyků $B_1$ a $B_2$.
+
+\subsection{$\impliedby$}
+
+Existuje Turingův stroj $M$ pro jazyk $A$ přijimajici $L(A = L(M))$.
+
+Platí 
+\begin{equation}
+    L = \{x \mid (\exists n \in N)[M(x)\text{ přijme do n kroků}]\}
+\end{equation}
+
+"přijme do n kroků" je rozhodnutelná podmínka, stačí spustit $M$ po $n$ kroků na $x$.
+
+Definujeme 
+
+\begin{equation} 
+    B_1 = \{\langle x , \langle n \rangle \rangle \mid M(x)\text{ přijme do n kroků}\}
+    B_2 = \{\langle x , \langle n \rangle \rangle \mid M(x)\text{ přijme do n+1 kroků}\}
+\end{equation}
+
+Jsou to různé jazyky, oba jsou rozhodnutelné a splňují 
+
+\begin{equation}
+    L = \{ x \in \Sigma^* \mid (\exists y \in \Sigma^* )[ \langle x,y \rangle \in B_i ]\}
+\end{equation}
+
+kde $y = \langle n \rangle $ pro $B_1$ a $y = \langle n+1 \rangle $ pro $B_2$.
+
+\section{Rozhodnutelnost $PTS$(D)}
+
+$PTS$ není rozhodnutelný. Kdyby byl rozhodnutelný, byl by nutně rozhodnutelný jeho doplněk, který odpovídá problému: Existuje alespoň jeden řetězec $x$, pro který se výpočet $M(x)$ zastaví, ale na pásce zůstane slovo $y$, které není delší než $x$?
+
+Kdyby byl tento jazyk rozhodnutelný, existoval by k němu Turingův stroj $M_{\overline{PTS}}$, který by ho rozhodoval.
+
+Ukažme, že $ \overline{PTS} \le_T L_U $
+
+Kdyby existoval $M_{\overline{PTS}}$, mohli bychom sestrojit $M_{L_U}$, který by ho využíval jako podprogram, a to takto:
+
+Pro daný $M, x$, upravíme $M$ na $M^\prime$ těmito třemi úpravami:
+
+\begin{enumerate}
+    \item Uložíme vstup $x^\prime$ bokem a místo něho použijeme $x$ - například stroj simulujeme na části pásky.
+    \item Při přijetí před skončením smažeme pásku (nahradíme $\lambda$)
+    \item Při zamítnutí před skončením na pásku napíšeme $x^\prime . 0$ a uměle tak necháme na pásce prodloužený vstup.
+\end{enumerate}
+
+Takto upravený stroj při přijetí skončí s páskou kratší nebo stejně dlouhou jako vstup (stejně při vstupu nulové délky). Při zamítnutí bude mít pásku delší než vstup.
+
+Spustíme $M_{\overline{PTS}}$ na $M^\prime$. Pokud zamítne, znamená to, že M nepřijme, nebo se nezastaví nad $x$.
+
+Pokud přijme, znamená to, že $M$ přijme a zastaví se nad $x$.
+
+Tímto chytákem odignorování původního vstupu docílíme chování $M_{L_U}$.
+
+To ale není možné, protože $L_U$ není rozhodnutelný, tudíž $\overline{PTS} $ není rozhodnutelný a z uzavřenosti $PTS$ není rozhodnutelný.
+
+\subsection{Částečná rozhodnutelnost}
+
+Ukázali jsme, že  $ \overline{PTS} \le_T L_U $. Ve skutečnosti jsme ale ukázali více, a sice m-převoditelnost, protože konstrukce $M^\prime$ je vyčíslitelná funkce.
+
+Tedy  $ \overline{PTS} \le_m L_U $. 
+
+$L_U$ je částečně rozhodnutelný, tedy i $\overline{PTS}$ je částečně rozhodnutelný.
+
+Zároveň víme, že $PTS$ není ani částečně rozhodnutelný, protože kdyby byl rozhodnutelný $PTS$ i jeho doplněk, byl by $PTS$ rozhodnutelný.
+
+\end{document}
