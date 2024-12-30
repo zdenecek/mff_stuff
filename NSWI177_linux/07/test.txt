@@ -1,0 +1,18 @@
+abcd
+acacz
+abbbe
+az
+A.C
+AA
+A
+ABCABC
+ABCCCC
+
+1. `https0://myweb.org` -> `https0://example.com`
+2. `://aaa` -> `://example.com`
+3. `http://a/b/c` -> `http://example.com`
+4. `https://otherweb.com` -> `https://example.com`
+5. `http://web1.cz and https://web2.cz` -> `http://example.com and https://example.com`
+6. `ftp://abc.org/file1, https://def.org/file2` -> `ftp://abc.org/file1, https://example.com/file2`
+7. `HTTPS://ghi.io/` -> `HTTPS://example.com/`
+8. `download("http://company.com","~/homepage.html")` -> `download("http://example.com","~/homepage.html")`

@@ -1,0 +1,7 @@
+Volume is {{ volume }} l ({{ volume | l2gal | round | int }} imperial gallons).
+
+The number is {{ number }} ({{ number | arabic2roman }}).
+
+The colors are: {% set comma = joiner(", ") %}{% for COLOR in colors %}{{ comma() }}{{ COLOR }}{% endfor %}.
+
+{{ content }}

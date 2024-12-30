@@ -1,0 +1,10 @@
+tomisz/hw/00/04-forward-agent
+
+> One should be careful with the ForwardAgent SSH option because you have to trust the remote server, a root user on the remote could access the local user-agent with all the stored identities.
+
++10 points (maximum)
+
+Total = 10+0 points
+
+If anything seems wrong, let me know (mail). Thanks :).
+                                      - David

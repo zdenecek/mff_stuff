@@ -1,0 +1,1 @@
+The course is a cornerstone for understanding the function of computers, compilers, and operating systems. The skills and knowledge acquired at this course are necessary for completing other subjects. An integral part of the course are practical exercises on suitably selected simple hardware or in an emulated environment.

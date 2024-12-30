@@ -1,0 +1,14 @@
+# syntax=docker/dockerfile:1
+
+# expects updated code to be in ./twytter-main
+# could also use a golang image
+FROM docker.io/alpine:latest
+RUN apk add go 
+COPY ./twytter-main /usr/twytter
+WORKDIR /usr/twytter
+RUN go build .
+
+FROM docker.io/alpine:latest
+COPY --from=0 /usr/twytter /usr/twytter
+USER nobody
+ENTRYPOINT ( . /usr/twytter/env.dev && /usr/twytter/twytter )

@@ -1,0 +1,26 @@
+# No fingerprints were provided in tomisz/hw/03/01-ssh-fingerprints-gw!
+# OK, but found some in tomisz/hw/03/01-ssh-fingerprint-gw (typo?)
+# SHA256:3gd9jHAJ6rOS9/aDIjxpzhfKWMA8zA2XmNxA5BTk8NQchannel 0: open failed: connect failed: No route to host
+stdio forwarding failed
+kex_exchange_identification: Connection closed by remote host
+Connection closed by UNKNOWN port 65535
+SSH not running on 10.0.0.41:22
+channel 0: open failed: connect failed: No route to host
+stdio forwarding failed
+kex_exchange_identification: Connection closed by remote host
+Connection closed by UNKNOWN port 65535
+SSH not running on 10.0.0.81:22
+ssh running on 10.0.0.121:22
++100 points (maximum) is awarded by default, points deduced where (and if) appropriate below:
+# DNS is set up correctly
+# NTP is running
+# Can ping google.com
+# dcepelik can use sudo
+LANG="en_US.UTF-8"
+# Locale is set in /etc/locale.gen
+# Local time zone is configured in /etc/localtime
+
+Total = 100+0 points
+
+If anything seems wrong, let me know (mail). Thanks :).
+                                      - David

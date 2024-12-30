@@ -1,0 +1,9 @@
+---
+volume: 42
+number: 21
+colors:
+  - red
+  - white
+  - blue
+---
+This is the content.

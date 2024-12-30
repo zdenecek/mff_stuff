@@ -1,0 +1,66 @@
+html {
+    margin: 0;
+    padding: 0;
+    /* https://pixabay.com/photos/penguins-shore-beach-4710224/ */
+    background: white url("bg.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+
+.wrap {
+    position: fixed;
+    top: 10%;
+    left: 0%;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+H1 {
+    margin: 2vh;
+    font-size: 10vh;
+    text-align: center;
+    line-height: 180%;
+}
+H1 SPAN {
+    padding: 3em;
+    padding: 3vh;
+    background-color: #ffffffa0;
+    -webkit-border-radius: 0.5em;
+    -moz-border-radius: 0.5em; 
+    border-radius: 0.5em;
+}
+
+ADDRESS {
+    position: fixed;
+    bottom: 10%;
+    left: 0%;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    margin: 2vh;
+    font-size: 2vh;
+    font-style: normal;
+}
+
+ADDRESS A {
+    padding: 1em;
+    padding: 1vh;
+    background-color: #ffffffa0;
+    -webkit-border-radius: 0.5em;
+    -moz-border-radius: 0.5em; 
+    border-radius: 0.5em;
+    color: black;
+}
+ADDRESS A:link, ADDRESS A:visited {
+    color: black;
+}
+ADDRESS A:hover, ADDRESS A:active {
+    background-color: black;
+    background-color: #000000a0;
+    color: white;
+}

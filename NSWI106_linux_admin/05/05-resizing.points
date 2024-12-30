@@ -1,0 +1,56 @@
+tomisz/hw/05/05-resizing
+
+>
+> For this purpose i used an archiso with the disk attached as sda and a second disk of size 300M attached for swapping.
+> /dev/sda1 is btrfs, /dev/sda2 is ext4
+>
+> First i shrunk the ext4 filesystem with
+>
+> > resize2fs /dev/sda2 300M
+>
+> then i moved it to the other disk with dd
+>
+> > dd if=/dev/sda2 of=/dev/sdb bs=300M
+>
+> then i recreated the partitions:
+>
+> > fdisk
+> ...
+> delete both paritions
+> make new partitions, the first one must start at the same sector (easy, default 2048)
+> with sizes 500M and 300M
+>
+> # resize btrfs
+>
+> First mount it with
+> > mkdir mnt
+> > mount /dev/sda1 mount
+> then resize with
+> > btrfs filesystem resize /dev/sda1 +100M
+>
+> > umount mnt
+>
+> # move ext4 back
+>
+> > dd if=/dev/sdb of=/dev/sda2
+>
+> # check with
+>
+> > btrfs check /dev/sda1
+>
+> No errors
+>
+> > fsck /dev/sda2
+>
+> Done
+
++15 points, this is perfect, good job!
+
+> I believe no non-standard tool were used.
+
++10 bonus points, indeed.
+
+Total = 15+10 points
+
+If anything seems wrong, let me know (mail). Thanks :).
+                                      - David

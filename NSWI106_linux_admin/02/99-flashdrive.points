@@ -1,0 +1,28 @@
+tomisz/hw/02/99-flashdrive
+
+> /home/tomisz/flashdrive.raw does not exist on c
+> /home/tomisz/flashdrive.raw does not exist on d
+> Found /home/tomisz/flashdrive.raw on e!
+> NAME      MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+> loop0       7:0    0  256M  0 loop
+> `-loop0p1 259:1    0  254M  0 part
+> ++ losetup -fP --show /home/tomisz/flashdrive.raw
+> + loopdev=/dev/loop0
+> + lsblk /dev/loop0
+> + part=/dev/loop0p1
+> + '[' -e /dev/loop0p1 ']'
+> + cryptsetup open --type luks --key-file psks/tomisz /dev/loop0p1 flashdrive
+> + mount /dev/mapper/flashdrive mnt
+> + cat mnt/protected
+> life is temporary, death is imminent
+
+I know, right?
+
+> + set +x
+
++15 points (maximum)
+
+Total = 15+0 points
+
+If anything seems wrong, let me know (mail). Thanks :).
+                                      - David

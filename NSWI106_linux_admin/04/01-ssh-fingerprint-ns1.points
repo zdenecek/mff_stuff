@@ -1,0 +1,24 @@
+tomisz/hw/04/01-ssh-fingerprint-ns1
+
+> SHA256:s4Rtl1AEWqGMaOi9Wt8cJrqK7PM6FZtxdnzBYAGRA2I
+
+You're missing newline at the end of file. You don't want that, for
+various reasons! For example,
+
+~/mff/linux-adm/repos/tomisz/hw/04% (main) wc -l 01-ssh-fingerprint-ns1
+0 01-ssh-fingerprint-ns1
+
+According to wc, that file has 0 lines. I'm sure you can see how that
+might confuse _a_lot_ of scripts.
+
+Also, are these really all the fingerprints your server has?
+
++3 points
+
+If anything seems wrong, let me know (mail). Thanks :).
+                                      - David
+
+Total = 3+0 points
+
+If anything seems wrong, let me know (mail). Thanks :).
+                                      - David

@@ -1,0 +1,1 @@
+Introduction to combinatorics and graph theory. We lay stress on active knowledge of basic definitions and methods (relation, mapping, graph, exact formulation of mathematical theorems, problem solving and proofs of simple statements).

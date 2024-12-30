@@ -1,0 +1,44 @@
+# No fingerprints were provided in tomisz/hw/03/01-ssh-fingerprints-gw!
+# OK, but found some in tomisz/hw/03/01-ssh-fingerprint-gw (typo?)
+# SHA256:3gd9jHAJ6rOS9/aDIjxpzhfKWMA8zA2XmNxA5BTk8NQchannel 0: open failed: connect failed: No route to host
+stdio forwarding failed
+kex_exchange_identification: Connection closed by remote host
+Connection closed by UNKNOWN port 65535
+ssh not running on 10.0.0.161:22
+channel 0: open failed: connect failed: No route to host
+stdio forwarding failed
+kex_exchange_identification: Connection closed by remote host
+Connection closed by UNKNOWN port 65535
+ssh not running on 10.0.0.41:22
+channel 0: open failed: connect failed: No route to host
+stdio forwarding failed
+kex_exchange_identification: Connection closed by remote host
+Connection closed by UNKNOWN port 65535
+ssh not running on 10.0.0.81:22
+ssh running on 10.0.0.121:22
+# No fingerprints were provided in tomisz/hw/04/01-ssh-fingerprints-ns1!
+# OK, but found some in tomisz/hw/04/01-ssh-fingerprint-ns1 (typo?)
+# SHA256:s4Rtl1AEWqGMaOi9Wt8cJrqK7PM6FZtxdnzBYAGRA2I# No fingerprints were provided in tomisz/hw/04/02-ssh-fingerprints-ns2!
+# OK, but found some in tomisz/hw/04/02-ssh-fingerprint-ns2 (typo?)
+# SHA256:jZNTwUTh1VFu7QcZPk5yrXjuhfRqs0ZUFDQqlgqOtk0
+### Checking gw
++11 points, Can ping dcepelik's ns1 VM on 10.0.5.2
+
+### Checking ns1...
++11 points, Can ping dcepelik's ns1 VM on 10.0.5.2
+
+### Checking ns2...
++11 points, Can ping dcepelik's ns1 VM on 10.0.5.2
+
+### Checking from dcepelik's ns1...
++11 points, dcepelik's ns1 can ping your gw on 10.0.0.121
+# dcepelik's ns1 can't ping your ns1 on 10.0.31.2
+# dcepelik's ns1 can't ping your ns2 on 10.0.131.2
+
+Are you exporting your routes correctly? Is firewall set up to allow
+ICMP? Please fix and ping me, happy to award points later.
+
+Total = 44+0 points
+
+If anything seems wrong, let me know (mail). Thanks :).
+                                      - David

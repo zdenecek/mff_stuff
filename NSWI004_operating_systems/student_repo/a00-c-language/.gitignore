@@ -1,0 +1,14 @@
+*.o
+*.dep
+example-list
+example-vararg
+test-freq-basic
+test-freq-cmp
+test-freq-multi
+test-print-buffer
+test-print-hex
+test-print-int
+test-print-list
+test-print-pointer
+test-print-string
+test-print-timespec

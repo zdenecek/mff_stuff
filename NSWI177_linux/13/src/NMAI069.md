@@ -1,0 +1,1 @@
+The seminar is intended for first-year bachelor students of Computer Science at the Faculty of Mathematics and Physics. Basic mathematical skills used in mathematical courses at our faculty are discussed. A special emphasis is put on logic reasoning.

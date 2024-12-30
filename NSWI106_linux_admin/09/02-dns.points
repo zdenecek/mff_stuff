@@ -1,0 +1,49 @@
+# No fingerprints were provided in tomisz/hw/03/01-ssh-fingerprints-gw!
+# OK, but found some in tomisz/hw/03/01-ssh-fingerprint-gw (typo?)
+# SHA256:3gd9jHAJ6rOS9/aDIjxpzhfKWMA8zA2XmNxA5BTk8NQchannel 0: open failed: connect failed: No route to host
+stdio forwarding failed
+kex_exchange_identification: Connection closed by remote host
+Connection closed by UNKNOWN port 65535
+SSH not running on 10.0.0.161:22
+channel 0: open failed: connect failed: No route to host
+stdio forwarding failed
+kex_exchange_identification: Connection closed by remote host
+Connection closed by UNKNOWN port 65535
+SSH not running on 10.0.0.41:22
+channel 0: open failed: connect failed: No route to host
+stdio forwarding failed
+kex_exchange_identification: Connection closed by remote host
+Connection closed by UNKNOWN port 65535
+SSH not running on 10.0.0.81:22
+ssh running on 10.0.0.121:22
+
+Checking 10.0.31.2...
+Error: error sending query: Could not send or receive, because of network error
+# drill @10.0.31.2 A router.tomisz.una. (from dcepelik's VM) returns no answer/fails
+Error: error sending query: Could not send or receive, because of network error
+# drill @10.0.31.2 CNAME gw.tomisz.una. (from dcepelik's VM) returns no answer/fails
+Error: error sending query: Could not send or receive, because of network error
+# drill @10.0.31.2 A ns1.tomisz.una. (from dcepelik's VM) returns no answer/fails
+Error: error sending query: Could not send or receive, because of network error
+# drill @10.0.31.2 A ns2.tomisz.una. (from dcepelik's VM) returns no answer/fails
+
+Checking 10.0.131.2...
+Error: error sending query: Could not send or receive, because of network error
+# drill @10.0.131.2 A router.tomisz.una. (from dcepelik's VM) returns no answer/fails
+Error: error sending query: Could not send or receive, because of network error
+# drill @10.0.131.2 CNAME gw.tomisz.una. (from dcepelik's VM) returns no answer/fails
+Error: error sending query: Could not send or receive, because of network error
+# drill @10.0.131.2 A ns1.tomisz.una. (from dcepelik's VM) returns no answer/fails
+Error: error sending query: Could not send or receive, because of network error
+# drill @10.0.131.2 A ns2.tomisz.una. (from dcepelik's VM) returns no answer/fails
+
+cat: /etc/unbound/unbound.conf: No such file or directory
+# Unbound not configured?
+
+It seems neither NSD nor Unbound is configured. I can award the points
+later, but please ping me.
+
+Total = 0+0 points
+
+If anything seems wrong, let me know (mail). Thanks :).
+                                      - David

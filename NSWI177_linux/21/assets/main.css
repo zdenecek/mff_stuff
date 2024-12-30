@@ -1,0 +1,71 @@
+HTML {
+  margin: 0;
+  padding: 0;
+  /* https://pixabay.com/photos/camera-film-vintage-film-camera-219958/ */
+  background: white url("bg.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+BODY {
+  margin: 0;
+  padding: 0;
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+HEADER {
+  text-align: center;
+  padding: 1em;
+  background: #fefefc;
+  color: black;
+}
+
+ARTICLE {
+  padding: 1em;
+}
+
+P.album-link {
+  display: inline-block;
+  text-align: center;
+  padding: 1ex 1em 0 0;
+  line-height: 2;
+}
+
+P.photo-item {
+  display: inline-block;
+  text-align: center;
+  padding: 1ex 1em 0 0;
+  line-height: 2;
+  margin: 0 auto;
+}
+
+P.album-link IMG, P.photo-item IMG {
+  border: 2px solid #dfdbd2;
+  border-radius: 20px;
+}
+
+P.album-link IMG:hover, P.photo-item IMG:hover {
+  border-color: #de9261;
+}
+
+A:link {
+  color: #193764;
+  text-decoration: none;
+}
+
+A:visited {
+  color: #193764;
+}
+
+A:hover {
+  color: #974B1A;
+  text-decoration: underline;
+}
+
+A:active {
+  color: #974B1A;
+}
+
+

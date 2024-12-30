@@ -1,0 +1,78 @@
+> 
+> I set up a disk with arch installed in file disk_image2.raw with uefi boot. It runs on machine e, i.e 10.10.50.10. The VNC server is protected with the password.
+> 
+> Bellow follow all the things I needed to do. I know a log of instructions was not required, but I keep it here for my own needs as well.
+> 
+> ---
+> 
+> touch disk_image.raw
+> fallocate -l 10G disk_image.raw
+> wget http://mirror.dkm.cz/archlinux/iso/2022.10.01/archlinux-2022.10.01-x86_64.iso
+> 
+> qemu-system-x86_64 -m 4G -cdrom archlinux-2022.10.01-x86_64.iso -drive format=raw,file=disk_image2.raw -smp cpus=4 -drive if=pflash,format=raw,file=OVMF-2.fd
+> ssh -L 9999:localhost:5905 -N 10.10.50.10
+> 
+> lsblk
+> 
+> fdisk /dev/sda
+> g
+> n 
+> 1...
+> ...
+> +300MiB
+> t
+> 1
+> n 
+> 2...
+> ...
+> ...
+> 
+> lsblk
+> 
+> cd / ;
+> mkfs.btrfs /dev/sda2 ;
+> mkdir mount ;
+> mount /dev/sda2 mount ;
+> mkfs.fat -F32 /dev/sda1 ;
+> mkdir mount/boot ;
+> mount /dev/sda1 mount/boot ;
+> 
+> pacstrap -K mount linux base ; # maybe next time include text editor
+> 
+> genfstab -U mount >>mount/etc/fstab
+> 
+> arch-chroot mount
+> 
+> pacman -S grub efibootmgr 
+> grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
+> grub-mkconfig -o boot/grub/grub.cfg
+> 
+> passwd
+> 
+> setup internet by enabling dhcp
+> 
+> ---
+> 
+> qemu-system-x86_64 -m 4G -drive format=raw,file=disk_image2.raw -smp cpus=4 -drive if=pflash,format=raw,file=OVMF-2.fd -vnc :4131,password=on -monitor stdio
+> 
+> set_password vnc ...
+> 
+> # check with 
+> 
+> ss -tlnp
+> ssh -L 9999:localhost:10031 -N 10.10.50.10
+
+Cool!
+
+# Trying VNC on d port 10031...
+# VNC not running on d
+# Trying VNC on e port 10031...
++50 points, VM running on e
++15 points, VNC access enabled and password-protected
++10 bonus points for password-protecting VNC access
++10 bonus points for UEFI boot
+
+Total = 65+20 points
+
+If anything seems wrong, let me know (mail). Thanks :).
+                                      - David

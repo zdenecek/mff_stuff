@@ -1,0 +1,3 @@
+Příkaz cut vezme daný text (ze souboru) a rozkrájí každý řádek podle delimiteru, který je parametrem -d nastaven na mezeru. Z každého řádku pak vezme
+první pole, sloupec, což je specifikováno parametrem -f s hodnotou 1. Toto pak vytiskne na řádky. Protože soubor má jenom jeden řádek,
+vytiskne pouze první položku prvního řádku.

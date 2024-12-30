@@ -1,0 +1,21 @@
+tomisz/hw/05/01-snapper-setup.sh
+
+> # usage: override device and runs script
+>
+> device=ns1
+> ssh -t $device "sudo mv /var /@var; sudo btrfs subvolume create /var; sudo mv /@var/* /var/;"
+> # tmp is tmpfs
+> ssh -t $device "sudo pacman -Syu snapper;sudo snapper -c config create-config /;"
+> # default settings are all right, no need to override config
+>
+> # however, I would for what is my life worth never run pacman over ssh and risk breaking everything.
+
+As long as you've got VNC, you should be fine. But I agree it would be a
+hazard to mass-execute this against a set of production servers.
+
++10 bonus points
+
+Total = 0+10 points
+
+If anything seems wrong, let me know (mail). Thanks :).
+                                      - David

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>$title$</title>
+<link rel="stylesheet" href="main.css">
+</head>
+<body>
+<header>
+<h1>$title$</h1>
+</header>
+
+<article>
+$body$
+
+<div class="album-list">
+$for(site.albums)$
+<p class="album-link">
+<a href="$it.dir$/index.html">
+$it.title$ <br />
+<img src="$it.dir$/$it.image$" width="200" height="200">
+</a>
+</p>
+$endfor$
+</div>
+
+</article>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+tomisz/hw/04/02-ssh-fingerprint-ns2
+
+> SHA256:jZNTwUTh1VFu7QcZPk5yrXjuhfRqs0ZUFDQqlgqOtk0
+
+No newline here either.
+
+Your filenames are incorrect. I renamed this one (01-ssh-fingerprint-ns2
+-> 02-ssh-fingerprint-ns2) and even that's wrong; should be
+*-fingerprints-*, not fingerprint. Please don't type the names, copy
+them from the website. Thanks.
+
++3 points, is this really the only key your server has?
+
+Total = 3+0 points
+
+If anything seems wrong, let me know (mail). Thanks :).
+                                      - David

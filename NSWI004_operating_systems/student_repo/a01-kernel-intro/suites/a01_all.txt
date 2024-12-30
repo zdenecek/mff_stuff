@@ -1,0 +1,16 @@
+# My custom suite with all available tests
+kernel adt/list1
+kernel adt/list2
+kernel basic/dump_function
+kernel printk/funcpointer
+kernel printk/list
+kernel printk/char
+kernel printk/hex
+kernel printk/int
+kernel printk/nested
+kernel printk/newline
+kernel printk/pointer
+kernel printk/string
+kernel printk/uint
+kernel basic/stack_pointer
+

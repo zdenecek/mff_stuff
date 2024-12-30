@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>$title$</title>
+</head>
+<body>
+<h1>$title$</h1>
+
+$body$
+
+<ul>
+$for(site.albums)$
+<li><a href="$it.dir$/index.html">$it.title$</a></li>
+$endfor$
+</ul>
+
+</body>
+</html>

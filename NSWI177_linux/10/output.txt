@@ -1,0 +1,26 @@
+PTY allocation request failed on channel 0
+
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+2: ens0s01: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    link/ether 00:71:10:36:9f:db brd ff:ff:ff:ff:ff:ff
+    inet 10.10.50.171/24 brd 10.10.50.255 scope global ens0s01
+       valid_lft 2044sec preferred_lft 2044sec
+3: ens3s12: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    link/ether 00:01:17:6a:af:c9 brd ff:ff:ff:ff:ff:ff
+    inet 100.86.182.111/21 brd 100.86.183.255 scope global ens3s12
+       valid_lft 2044sec preferred_lft 2044sec
+4: ens4sa5: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc fq_codel state DOWN group default qlen 1000
+    link/ether 00:01:17:53:b0:88 brd ff:ff:ff:ff:ff:ff
+5: ens5sce: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    link/ether 00:01:17:5e:2b:91 brd ff:ff:ff:ff:ff:ff
+    inet 100.74.232.247/24 brd 100.74.232.255 scope global ens5sce
+       valid_lft 2044sec preferred_lft 2044sec
+6: ens6sa4: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    link/ether 00:01:17:42:f3:63 brd ff:ff:ff:ff:ff:ff
+    inet 100.108.10.141/10 brd 100.127.255.255 scope global ens6sa4
+       valid_lft 2044sec preferred_lft 2044sec
+
+Connection to linux.ms.mff.cuni.cz closed.

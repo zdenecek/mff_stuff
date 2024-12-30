@@ -1,0 +1,1 @@
+One should be careful with the ForwardAgent SSH option because you have to trust the remote server, a root user on the remote could access the local user-agent with all the stored identities.

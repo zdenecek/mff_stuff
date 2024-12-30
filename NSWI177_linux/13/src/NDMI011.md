@@ -1,0 +1,1 @@
+Inclusion-exclusion principle and its applications. Generating functions. Finite projective planes, latin squares. Hall theorem and its applications. Flows in digraphs. k-connectivity of graphs. Ramsey theory.

@@ -1,0 +1,8 @@
+FROM docker.io/alpine:latest
+RUN apk add go
+WORKDIR /usr/
+COPY ./twytter-main /usr/twytter
+WORKDIR /usr/twytter
+RUN go build .
+USER nobody
+ENTRYPOINT ( . /usr/twytter/env.dev && /usr/twytter/twytter )

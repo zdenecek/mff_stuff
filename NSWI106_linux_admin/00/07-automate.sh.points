@@ -1,0 +1,259 @@
+tomisz/hw/00/07-automate.sh
+
++30 bonus points, this looks great. I read through the source code and
+added some comments inline.
+
+> #!/bin/sh
+
+set -eu is incredibly useful.
+
+>
+> die() {
+>     exit_code="$1"
+>     shift
+>     if [ "$#" -gt 0 ] ; then
+>         echo "$@" >&2
+>     fi
+
+Two tips:
+
+First, you could do away with the "if" altogether if you wanted:
+
+    [ $# -gt 0 ] && echo "$@" >&2
+
+This idiom is sometimes useful for short conditions. (BTW, you don't
+need quotes around "$#" since that always expands to something
+non-empty.)
+
+Second, echo is a portability nightmare, may I suggest printf instead?
+https://www.in-ulm.de/~mascheck/various/echo+printf/
+
+>     exit "${exit_code}"
+> }
+>
+> debug_msg() {
+>     if [ "$verbose" = 1 ] ; then
+>         echo "debug:" "$@"
+>     fi
+> }
+>
+> show_help() {
+>     echo "This script generates a key and configures ssh connection to machines at the Mala strana building of Matfyz."
+>     echo "Options:"
+>     (   echo "-h           | Show this help."
+>         echo "-v           | Verbose mode."
+>         echo "-l,--login   | (required) User name used for ssh connection."
+>         echo "-f,--filename| (required) Filename where the keys should be stored."
+>         echo "-i,--include-config| File with ssh_config for the connection. Defaults to ~/.ssh/config.mff" ) | column -t -s'|' -l 2
+>     die 0
+> }
+
+A nice trick to write usage() is using a heredoc:
+
+usage() {
+	cat <<-EOF
+This script generates a key and configures ssh connection to machines at the Mala strana building of Matfyz.
+
+Options:
+  -h                   Show this help.
+  -v                   Verbose mode.
+  -l, --login          (required) User name used for ssh connection.
+  -f, --filename       (required) Filename where the keys should be stored.
+  -i, --include-config File with ssh_config for the connection. Defaults to ~/.ssh/config.mff
+	EOF
+}
+
+At first, this looks weird, but allows you to format the message exactly
+as you like.
+
+For the required options, you typically don't state that in the Options
+section of the usage. Instead, you could write it like this:
+
+usage() {
+	cat <<-EOF
+Usage: automate.sh [OPTIONS] -l LOGIN -f FILENAME
+       automate.sh -h
+
+This script generates a key and configures ssh connection to machines at
+the Mala strana building of Matfyz.
+
+Options:
+  -f, --filename       Filename where the keys should be stored.
+  -h                   Show this help.
+  -i, --include-config File with ssh_config for the connection.
+                       Defaults to ~/.ssh/config.mff
+  -l, --login          User name used for ssh connection.
+  -v                   Verbose mode.
+	EOF
+}
+
+This has the advantage of showing you directly the two modes of
+operation of the command: either you supply -h, so obviously nothing
+will happen and the other parameters are not in fact required; or you
+don't, then you must also supply -l and -f.
+
+Normally, you don't exit (or die, in your case) from usage, since it's
+used in two different contexts:
+
+- When the user supplies -h, the exit code is 0 and the output of usage
+  goes to stdout.
+- When there's an error, the exit code is not 0 and the output of usage
+  goes to stderr.
+
+>
+> opts_short="hvl:f:i:"
+> opts_long="login:,filename:,include-config:"
+> getopt -Q -o "$opts_short" -l "$opts_long" -- "$@" || exit 1
+> eval set -- "$( getopt -o "$opts_short" -l "$opts_long" -- "$@" )"
+>
+> ssh_config_include="$HOME/.ssh/config.mff"
+> verbose=0
+>
+> while [ $# -gt 0 ]; do
+>     case $1 in
+>         -l|--login)
+>             login="$2"
+>             shift 1
+>             ;;
+>         -f|--filename)
+>             filename="$2"
+>             shift 1
+>             ;;
+>         -i|--include-config)
+>             ssh_config_include="$2"
+>             shift 1
+>             ;;
+>         -h)
+>             show_help
+>             ;;
+
+With the usage implementation above, this would be:
+          -h) usage; exit 0;;
+
+>         -v)
+>             verbose=1
+>             shift
+>             ;;
+>         --)
+>             shift
+>             break
+>             ;;
+>         *)
+>             die 1 "Unknown option $1"
+>             ;;
+
+And here, it would be:
+
+          *)
+	      printf "Unknown option: %s\n", "$1"
+	      usage >&2
+	      exit 1
+	      ;;
+
+>     esac
+>     shift
+> done
+>
+>
+> mandatory_missing=""
+>
+> if [ -z ${login+x} ]; then
+>     mandatory_missing="$mandatory_missing login"
+> fi ; if [ -z ${filename+x} ]; then
+>     mandatory_missing="$mandatory_missing filename"
+> fi ; if [ "${#mandatory_missing}" -gt 0 ]; then
+>     # mandatory opts are not cool but...
+
+...but sometimes necessary? :)
+
+>     die 1 "Following options are required:$mandatory_missing"
+
+You could print usage here again.
+
+> fi
+>
+> file_path="$( realpath "$filename" )"
+>
+> colliding_files=""
+> colliding_files_count=0
+>
+>
+> debug_msg "checking for file collisions"
+>
+> if [ -f "$filename" ]; then
+>     colliding_files="$colliding_files $filename"
+>     colliding_files_count=$((colliding_files_count+1))
+> fi; if  [ -f "${filename}.pub" ]; then
+>     colliding_files="$colliding_files ${filename}.pub"
+>     colliding_files_count=$((colliding_files_count+1))
+> fi; if [ "$colliding_files_count" = 1 ]; then
+>     die 1 "File already exists:$colliding_files"
+>     elif [ "$colliding_files_count" = 2 ]; then
+>     debug_msg "key already exists"
+>     else
+>
+>     debug_msg "generating key files"
+>
+>     ssh-keygen -f "$file_path" -t ed25519
+>     sudo chmod 600 "$file_path"
+> fi
+>
+>
+> debug_msg "adding key to ssh agent"
+>
+> ssh-add "$file_path"
+>
+> debug_msg "creating config in $ssh_config_include"
+>
+> (echo "Host linux"
+> echo "    Hostname linux.ms.mff.cuni.cz "
+> echo "    User $login"
+> echo "    IdentityFile $file_path"
+> echo "" ) >"$ssh_config_include"
+>
+> machines="10.10.50.7 10.10.50.9 10.10.50.10 10.10.50.11"
+>
+> ( for machine in $machines ; do
+>     echo "Host $machine"
+>     echo "    User $login"
+>     echo "    IdentityFile $file_path"
+>     echo "    ProxyJump linux"
+>     echo ""
+> done ) >>"$ssh_config_include"
+>
+> sudo chmod 600 "$ssh_config_include"
+>
+> debug_msg "appending generated config to ~/.ssh/config"
+>
+> if !  grep -q "Include $ssh_config_include" <"$HOME/.ssh/config" ; then
+>     ( echo "Include $ssh_config_include"
+>     echo ""
+>     cat "$HOME/.ssh/config" ) > "$HOME/.ssh/config"
+
+This is a bit dangerous. The redirection (> "$HOME/.ssh/config") happens
+before anything else. If any command in the subshell dies (e.g., the
+user or the OOM killer terminate the cat), I will end up with an empty
+config file.
+
+It would be better to first generate the new config file, and then mv it
+to .ssh/config.
+
+>     else
+>     debug_msg "config was already appended"
+> fi
+>
+> debug_msg "copying the new key to following machines: linux.ms.mff.cuni.cz $machines"
+>
+>
+> ssh-copy-id -i "$file_path.pub" "linux"
+> for machine in $machines ; do
+>     ssh-copy-id -i "$file_path.pub" "$machine"
+> done
+>
+
+Good job, this is a very nice script!
+
+Total = 0+30 points
+
+If anything seems wrong, let me know (mail). Thanks :).
+                                      - David

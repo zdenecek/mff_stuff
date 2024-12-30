@@ -1,0 +1,1 @@
+Propositional logic, normal forms of propositional formulas, predicate logic of first order, prenex forms of formulas, completness theorems for propositional and predicate logic, models of first-order theories. The limits of formal method, Goedel's theorems

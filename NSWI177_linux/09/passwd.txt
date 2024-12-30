@@ -1,0 +1,1 @@
+tomisz:*:78002598:78002598:Tomis Zdenek:/home/tomisz:/bin/bash

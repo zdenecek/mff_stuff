@@ -1,0 +1,1 @@
+first course about programming and algorithms for first-year students studying computer science and computer science education. The course covers principles of algorithms, basic algorithms, data structures, programming techniques, typical programming environments and practical program design and debugging.

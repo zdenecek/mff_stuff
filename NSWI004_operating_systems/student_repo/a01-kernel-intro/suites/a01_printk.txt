@@ -1,0 +1,9 @@
+# 5 points
+kernel printk/char
+kernel printk/hex
+kernel printk/int
+kernel printk/nested
+kernel printk/newline
+kernel printk/pointer
+kernel printk/string
+kernel printk/uint

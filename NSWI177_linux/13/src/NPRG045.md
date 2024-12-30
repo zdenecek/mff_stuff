@@ -1,0 +1,1 @@
+The goal of this course is development of a software project using any common programming language. It is organized as individual work and consultations with a supervisor. The development consists of a specification, implementation, deployment, and relevant documentation.

@@ -1,0 +1,28 @@
+tomisz/hw/05/02-snapper
+
+> # No fingerprints were provided in tomisz/hw/03/01-ssh-fingerprints-gw!
+> # OK, but found some in tomisz/hw/03/01-ssh-fingerprint-gw (typo?)
+> # SHA256:3gd9jHAJ6rOS9/aDIjxpzhfKWMA8zA2XmNxA5BTk8NQchannel 0: open failed: connect failed: No route to host
+> stdio forwarding failed
+> kex_exchange_identification: Connection closed by remote host
+> Connection closed by UNKNOWN port 65535
+> SSH not running on 10.0.0.161:22
+> channel 0: open failed: connect failed: No route to host
+> stdio forwarding failed
+> kex_exchange_identification: Connection closed by remote host
+> Connection closed by UNKNOWN port 65535
+> SSH not running on 10.0.0.41:22
+> channel 0: open failed: connect failed: No route to host
+> stdio forwarding failed
+> kex_exchange_identification: Connection closed by remote host
+> Connection closed by UNKNOWN port 65535
+> SSH not running on 10.0.0.81:22
+> ssh running on 10.0.0.121:22
+> Snapper units running (if any):
+
+It seems to me you don't have snapper running at all?
+
+Total = 0+0 points
+
+If anything seems wrong, let me know (mail). Thanks :).
+                                      - David

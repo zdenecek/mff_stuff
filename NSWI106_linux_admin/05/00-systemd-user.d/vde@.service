@@ -1,0 +1,11 @@
+[Unit]
+Description=vde switch %i startup service
+
+
+[Service]
+Type=forking
+ExecStart=/usr/bin/vde_switch -daemon -sock /home/tomisz/vde/sw%i.sock
+
+[Install]
+WantedBy=multi-user.target
+RequiredBy=gw.service ns%i.service

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>$title$ | $site.title$</title>
+</head>
+<body>
+<h1>$title$</h1>
+
+<p><a href="../index.html">Back to gallery list</a></p>
+
+$body$
+
+$for(images)$
+<a href="$it.filename$">
+<img src="$it.filename$" width="200" height="200">
+</a>
+$endfor$
+
+</body>
+</html>

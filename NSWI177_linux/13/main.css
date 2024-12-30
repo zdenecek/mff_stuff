@@ -1,0 +1,79 @@
+body, html, header, section, aside {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: white;
+  color: black;
+  font-family: "Calibri","sans-serif";
+}
+
+p, ul, ol {
+  line-height: 150%;
+  margin-bottom: 1em;
+}
+
+code {
+  font-size: 150%;
+}
+
+h1 {
+  font-size: 200%;
+  margin: 1em 0 0 1ex;
+  padding: 0;
+}
+
+h2 {
+  font-size: 150%;
+  margin: 1em 0 0 1ex;
+  padding: 0;
+}
+
+header {
+  background-color: #d03145;
+  color: white;
+}
+
+header h1 {
+  margin: 0 auto;
+  padding: 1em;
+  text-align: center;
+}
+
+#wrapper {
+  display: grid;
+  margin: 0 auto;
+  grid-template-columns: 60% 40%;
+}
+nav {
+  margin: 1em;
+}
+nav ul {
+  column-count: 2;
+}
+nav ul li, nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+nav ul li {
+  width: 90%;
+  margin: 0.2ex auto;
+}
+nav a:link, nav a:visited, nav a:hover, nav a:active {
+  display: block;
+  padding: 1ex;
+  border-radius: 1ex;
+  text-decoration: none;
+  color: #d03145;
+}
+nav a:hover, nav a:active {
+  background: #d03145;
+  color: white;
+}
+
+article {
+  padding: 1em;
+}
+

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>$title$ | $site.title$</title>
+<link rel="stylesheet" href="../main.css">
+</head>
+<body>
+<header>
+<h1>$title$</h1>
+</header>
+
+<article>
+<p><a href="../index.html">Back to gallery list</a></p>
+
+$body$
+
+<div class="photo-list">
+$for(images)$
+<p class="photo-item">
+<a href="$it.filename$">
+<img src="$it.filename$" width="$it.width$" height="200">
+</a>
+Time: $it.time$
+</p>
+
+$endfor$
+</div>
+
+</article>
+
+</body>
+</html>

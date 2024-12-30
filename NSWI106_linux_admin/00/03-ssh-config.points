@@ -1,0 +1,17 @@
+tomisz/hw/00/03-ssh-config
+
+> Host linux
+>     Hostname linux.ms.mff.cuni.cz
+>     User tomisz
+>
+> Host 10.10.50.*
+>     ProxyJump linux
+>     User tomisz
+
++10 points (maximum)
++5 bonus points for wildcards
+
+Total = 10+5 points
+
+If anything seems wrong, let me know (mail). Thanks :).
+                                      - David

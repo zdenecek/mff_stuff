@@ -1,0 +1,10 @@
+[Unit]
+Description=gateway startup service
+Requires=vde@%i.service 
+After=vde@%i.service 
+
+[Service]
+ExecStart=/usr/bin/qemu-system-x86_64 -m 4G -drive format=raw,file=/home/tomisz/disk_image4ns%i.raw -smp cpus=4 -drive if=pflash,format=raw,file=/home/tomisz/OVMF-2.fd -vnc :583%i,password=on -nic vde,sock=/home/tomisz/vde/sw%i.sock,mac=52:54:00:36:79:1%i 
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,2 @@
+# 2 points
+kernel basic/dump_function

@@ -1,0 +1,59 @@
+tomisz/hw/00/06-feedback
+
+I'm sorry you found some of the assignments confusing.
+
+> Wording of task 02 doesn't is not clear: "Tell us what you did"
+
+Why is this particular instruction unclear? Tell us what you did to
+achieve the goal, which was:
+
+    Use ssh-agent to hold your SSH keys unlocked, so that they can be
+    used without password
+
+I agree that this was perhaps too open to interpretation, but it
+revealed a great deal about how people think about the problems,
+which I think is useful.
+
+> there is no hint
+
+The hint was
+
+    ssh-agent(1), ssh-add(1)
+
+which are the only two commands you need to finish the task :).
+
+> the word password is used when ssh-keygen operates with passphare (I
+> wasn't sure whether to set a password in a different way).
+
+Passphrase is indeed the correct term here, I will fix the assignment
+for next year. Thanks.
+
+> In general the tasks are already not as well worded as they could be.
+> I couldn't come to the first labs as an exception so the task wording
+> is the only thing to work with. For example, I also had problems with
+> task 07 - it isn't clear that the setup is for the same machines as
+> for task 03; by just adding one more line to the assignent, it would
+> be so much clearer.
+
+Certain amount of vagueness in the assignments is a feature, not a bug
+(see [1]). Going forward, I will try to eradicate as much unwanted
+confusion, while trying not to make it too easy. It will probably be a
+tough balancing act :).
+
+If anything is unclear going forward, please reach out to me.
+I certainly don't mind, and it will help others too.
+
+> Of course, if it is intentional obfuscation then I have no case.
+
+Definitely not.
+
+Thank you for constructive feedback!
+
++10 points (maximum)
+
+[1] https://d3s.mff.cuni.cz/teaching/nswi106/labs/03/#please-read-first-the-ideas-behind-the-assignments
+
+Total = 10+0 points
+
+If anything seems wrong, let me know (mail). Thanks :).
+                                      - David

@@ -1,0 +1,79 @@
+tomisz/hw/07/02-feedback
+
+Hi,
+
+Thanks for feedback!
+
+> I believe it were better if the homework was graded sooner after the
+> deadline.
+
+I agree. This absolutely sucks for you, and rest assured it sucks for
+me, too. I have severely underestimated how hard it would be to grade
+the homeworks. I'm really sorry. This is my first year lecturing, I
+already have a plan for next years (the grading needs to be fully
+automated, this is just impossible).
+
+> This way I am afraid of breaking something by working on
+> following homework and keep constantly checking if everything runs as
+> I think it should,
+
+This is not an apology, but this isn't entirely bad. This is how it's
+gonna work for next year (probably):
+
+- Grading will be fully automated;
+- There will be three groups of assignments: for grade 3, 2 and 1;
+- You need to have everything in group for grade 3 done to get 3, same
+  for other grades;
+- (Crucially) It's not enough to get it working once, it needs to work
+  at the moment when you want your credit (and it needs to work after a
+  cold boot of your VMs, automatically);
+- There will be no deadlines other than the ones imposed by the
+  University - I'm willing to award the credit at the latest moment I'm
+  allowed to.
+
+It's completely understandable to want to "tick the box and move on",
+but that's not how production systems work, and the course needs to
+reflect that. It's usually much easier to get something working than it
+is to keep it working. After all, your solution needs to be robust to
+work under a diverse set of (unexpected) conditions, and if I learned
+something in the past 5 years of doing this for a living, robustness
+is really hard to achieve.
+
+Obviously, the situation will be different, since there will be some web
+UI which will give you near-real-time feedback of which checks are
+currently working and which are not. Unlike now when I am the bottleneck
+and there's a three week delay.
+
+> Furthermore, I think there are too many open questions in **study**
+> materials. The answer should either be provided or the question should
+> be left out, it feels overwhelming this way.
+
+(Half-joking) If you don't feel overwhelmed in this course, you're not
+human. There are two poles: on one end, I could tell you nothing at all,
+or give you an extremely vague description of the task. On the other
+end, I could give you precise instructions.
+
+In the first case, nobody but the most committed, hardest-working
+people will get credit, which is IMHO wrong. In the second case, the
+course is useless (and builds an unrealistic expectation of future
+career, since this is not how things work in practice).
+
+I try to stay in between, c.f. previous years:
+https://web.archive.org/web/20200717125851/http://asch.cz/unix/
+There were no other instructions given. I got credit from Vojtech, the
+course was epic, it was fun and it was also extremely hard to pass.
+Half the people left during first two weeks. My goal was instead to keep
+everybody on board and see what happens.
+
+I welcome your thoughts on this topic. Send me an e-mail, or catch up
+after the labs.
+
+> There is a typo in this weeks assignment: oustide under Volumes.
+
++5 bonus points, thanks, fixed. Will publish w/ next set of changes to
+the website.
+
+Total = 0+5 points
+
+If anything seems wrong, let me know (mail). Thanks :).
+                                      - David

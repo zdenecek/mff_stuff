@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="$lang$" xml:lang="$lang$"$if(dir)$ dir="$dir$"$endif$>
+<head>
+  <meta charset="utf-8" />
+  <title>$pagetitle$ | Computer Science Courses</title>
+  <link type="text/css" rel="stylesheet" href="main.css" />
+</head>
+<body>
+
+<header>
+  <h1>$title$</h1>
+</header>
+
+<div id="wrapper">
+<aside id="sidebar">
+  <nav>
+$for(include-before)$
+$include-before$
+$endfor$
+
+  </nav>
+</aside>
+
+<section id="content">
+<article>
+$if(code)$
+<p>
+    Page in SIS:
+    <a href="https://is.cuni.cz/studium/eng/predmety/index.php?do=predmet&kod=$code$">$code$</a>
+</p>
+$endif$
+
+
+$body$
+</article>
+</section>
+</div>
+
+</body>
+</html>  

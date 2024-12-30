@@ -1,0 +1,2 @@
+I created five services: one for each device: ns1 ns2 switch1 switch2 and gw
+I used templates for ns1/2 and switch1/2 (services ns@.service and vde@.service)

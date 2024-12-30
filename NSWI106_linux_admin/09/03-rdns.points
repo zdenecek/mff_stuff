@@ -1,0 +1,22 @@
+# In the text of hw/09, I forgot to mention you should set up reverse DNS
+# entries. Some people still did, so I decided to award bonus points for that
+# instead.
+#
+# In case I didn't make it entirely clear during the lectures, please keep in
+# mind that reverse lookups are an important feature of DNS, and you typically
+# want to set up reverse DNS entries for your IPs.
+#
+# As an exmaple where that might be imporant: if your MX's IP doesn't have an
+# associated reverse entry, or if it does but the IP resolves to a different
+# hostname than what your mail server is using in its HELO/EHLO, mail from
+# your domain will be penalized and will likely end up being classified as spam.
+
+Error: error sending query: Could not send or receive, because of network error
+# drill @10.10.50.8 -x 10.0.31.2 returns no answer/fails
+Error: error sending query: Could not send or receive, because of network error
+# drill @10.10.50.8 -x 10.0.131.2 returns no answer/fails
+
+Total = 0+0 points
+
+If anything seems wrong, let me know (mail). Thanks :).
+                                      - David
