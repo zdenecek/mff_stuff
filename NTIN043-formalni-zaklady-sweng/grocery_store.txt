@@ -1,0 +1,61 @@
+task 2: document your solution
+	- explain key design decisions (in plain text)
+
+One of the first decision to make was that products don't have price, rather offerings are priced. This is crucial, because stores can have different offerings, online store also, offers can be seasonal. It provides a simple entrypoint for discounts. 
+
+Products are located in warehouses and stores, however there is no representation of how much of a product is where. This may seem like a mistake, however this is only a model and it has to end somewhere. It is obvious that these numbers are part of the domain, but I did not want to add any more lines.
+
+There are loayalty apps and coupons. It is easy to see how from this, the customers are so much easier to track from just a purchase with a Bill. This might be one of the reasons why every store these days has an app and also why I decided to also focus on this in the model.
+
+There are coupons, which are issued to a customer app profile and apply to a product. Here the model falls short, because coupon will have to have some restrictions, e.g. cannot be combined with online discounts, but again, we cannot model everything. A further simplification follows, coupon can provide only a flat discountRate. 
+
+There is one ternary association:
+Bill-Products-Coupons
+
+Represents a line on a bill, coupons can be applied and reduce the price.
+
+There is a constraint defined, that if any coupon is used on a bill, the bill has to be associated with the customer that the coupon was issued to.
+
+This association has a association class - BillItem.
+
+This relation would not make sense if it were only three binary relations without Bill item. It could be represented as BillItem with three binary relations, but it would be less clear and there would have to be more constraints added to rectify it.
+
+There are no other design decision that would need further comment.
+
+task 3: evaluate your solution (model) according to the following criteria
+
+In this model I focused two main basic areas:
+
+1. Stores, supply and distribution of Products, placement within stores, warehouses.
+2. Offerings of products in stores, online, their prices and customer bills, online orders. Loyalty app and coupons.
+
+Other than that, to make it more real, I touched on these areas:
+
+- Customer management
+- Suplier relations
+- Stores management
+- Employee management
+
+On the other hand, I totally disregarded following areas:
+
+- Representation of discounts
+- Payroll information, more complex employee management
+- Refunds
+- Shipment to customer
+- Recurring supply management
+- Detail of online stores/offerings, shipping (nowadays a crucial part of chain grocery stores)
+
+I omitted these because the scope of the model is already large. It is important to think about why we are modelling something. As this is an excercise, I chose I will model mostly the aforementioned areas and disregard the later. Still, the diagram is somewhat large and can be difficult to navigate.
+
+As for under/over constraining, it is hard to say in general. One thing is for sure, the model is over constrained in some areas and under constained in other. I find myself often using "0..*" relations, likely as a habit from DB design, where it can be simple to introduce constraints that make some inbetween-states impossible, while there is often a need to represent those (e.g. unknown customer, unassigned responsible employee, etc.)
+
+task 4: tell me your opinion about the modeling language, tools, and the whole approach (methodology) based on your personal experience
+
+I find UML very useful. It is a wide spread language and makes possible to communicate things quickly in domain of system development. From DB design, domain level understanding, class overviews, to state machines. Instead of first establishing a framework of communication, one can directly jump to drawing boxes and many people will understand what you are trying to convey.
+
+That is also my personal experience from work and outside: simple communication with clients, teammates, product people.
+
+As for the sticking to formally correct and complete diagrams: I am not so sure. Tool is always used for a purpose. The main purpose of UML for me is communication, or as !supplemental! documentation. As such, it is often not desirable to spend too much time on that.
+
+It can be used as a tool for requirements specification with clients, and formal model validation as well, but I see those as secondary usecases. My understanding is that large, formal models are a part of waterfall design, whereas today the most important way of requirement validation is feedback in short iterations.
+

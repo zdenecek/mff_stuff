@@ -1,0 +1,33 @@
+
+syntax = "proto3";
+
+// The goal of this task is to win a number guessing game. The server picks a
+// random number between 1 and 1_000_000 (inclusive) and the client sends guesses to the server.
+service GuessTheNumber {
+  // Plays a number guessing game. The server responds for each guess with
+  // the reason why the guess was wrong (too low, too high, etc.) or the instructions
+  // for the next task if the guess was correct.
+  rpc Play(stream Guess) returns (stream GuessResponse) {}
+}
+
+message Guess {
+  int32 guess = 1;
+}
+
+enum WrongGuessReason {
+  // The guess is too low.
+  TOO_LOW = 0;
+  // The guess is too high.
+  TOO_HIGH = 1;
+  // The guess is out of range.
+  INVALID_GUESS = 3;
+  // The client has made too many incorrect guesses.
+  TOO_MANY_TRIES = 4;
+}
+
+message GuessResponse {
+  oneof result {
+    string instructions = 1;
+    WrongGuessReason reason = 2;
+  }
+}

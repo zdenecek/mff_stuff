@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+// The goal of this task is to monitor the temperature of a room using a noisy sensor
+// and provide an estimate of the temperature.
+service NoisySensor {
+  // Returns a stream of temperature measurements as they come from the sensor. The measurements
+  // are noisy: you should take an average of about 30 measurements to get a good
+  // estimate. However, the stream is potentially infinite, so you **must** explicitly cancel the
+  // RPC when you have enough measurements.
+  rpc MonitorMeasurements(MonitorMeasurementsRequest) returns (stream Measurement) {}
+
+  // Submits an estimate of the temperature to the server. If the estimate is within 0.1 of the
+  // actual temperature, the server returns instructions for the next challenge.
+  rpc SubmitTemperatureEstimate(TemperatureEstimate) returns (TemperatureEstimateEvaluation) {}
+}
+
+message MonitorMeasurementsRequest { }
+
+message Measurement {
+  float temperature = 1;
+}
+
+message TemperatureEstimate {
+  float temperature = 1;
+}
+
+message TemperatureEstimateEvaluation {
+  bool success = 1;
+  string instructions = 2;
+}

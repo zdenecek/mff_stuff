@@ -1,0 +1,120 @@
+Server instructions: You have successfully completed the LabActivity task (1/4).
+
+For the next task, implement a client for the GroceryShopping service.
+You can find the proto file for the next task below.
+
+All RPCs from now on require that you provide your SIS login in the metadata under
+the key "sis-login". Read more at https://grpc.io/docs/guides/metadata/ (Custom headers).
+
+syntax = "proto3";
+
+// The grocery shopping service allows you to view products and manage shopping carts.
+// Use the service to create and checkout a cart with the necessary ingredients to cook
+// kulajda. You must purchase at least: 5x potato, 1x sour cream, 1x dill, and 4x egg.
+// Do not exceed the total price of 100 CZK.
+service GroceryShoppingService {
+  // Creates a new shopping cart for a user and returns the cart ID.
+  rpc CreateShoppingCart (CreateShoppingCartRequest) returns (CreateShoppingCartResponse);
+
+  // Adds a product to the shopping cart and returns the updated cart details.
+  rpc AddProductToCart (AddProductToCartRequest) returns (AddProductToCartResponse);
+
+  // Retrieves the details of the shopping cart, including the list of products and total price.
+  rpc ViewCart (ViewCartRequest) returns (ViewCartResponse);
+
+  // Deletes a specific product from the shopping cart and returns the updated cart details.
+  rpc DeleteProductFromCart (DeleteProductFromCartRequest) returns (DeleteProductFromCartResponse);
+
+  // Checks out and purchases all items in the shopping cart, returning the order details.
+  rpc Checkout (CheckoutRequest) returns (CheckoutResponse);
+
+  // Retrieves the list of available products for shopping.
+  rpc ViewProducts (ViewProductsRequest) returns (ViewProductsResponse);
+
+  // Retrieves details of all shopping carts.
+  rpc ViewAllCarts (ViewAllCartsRequest) returns (ViewAllCartsResponse);
+}
+
+message CreateShoppingCartRequest {}
+
+message CreateShoppingCartResponse {
+  string cart_id = 1;
+}
+
+message AddProductToCartRequest {
+  string cart_id = 1;
+  string product_id = 2;
+  int32 quantity = 3;
+}
+
+message AddProductToCartResponse {
+  Cart cart = 1;
+  Price total_price = 2;
+}
+
+message ViewCartRequest {
+  string cart_id = 1;
+}
+
+message ViewCartResponse {
+  Cart cart = 1;
+  Price total_price = 2;
+}
+
+message DeleteProductFromCartRequest {
+  string cart_id = 1;
+  string product_id = 2;
+}
+
+message DeleteProductFromCartResponse {
+  Cart cart = 1;
+  Price total_price = 2;
+}
+
+message CheckoutRequest {
+  string cart_id = 1;
+}
+
+message CheckoutResponse {
+  Order order = 1;
+  string instructions = 2;
+}
+
+message ViewProductsRequest {}
+
+message ViewProductsResponse {
+  repeated Product products = 1;
+}
+
+message ViewAllCartsRequest {}
+
+message ViewAllCartsResponse {
+  repeated Cart cart_details = 1;
+}
+
+message Price {
+  int32 value = 1;
+  string currency = 2;
+}
+
+message Product {
+  string product_id = 1;
+  string name = 2;
+  Price price = 3;
+}
+
+message ProductQuantity {
+  Product product = 1;
+  int32 quantity = 2;
+}
+
+message Cart {
+  string cart_id = 1;
+  repeated ProductQuantity product_quantities = 2;
+}
+
+message Order {
+  string order_id = 2;
+  repeated ProductQuantity product_quantities = 3;
+  Price total_price = 4;
+}

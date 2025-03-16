@@ -1,0 +1,70 @@
+task 2: document your solution
+
+Airplanes and runways are both modelled as tokens. Airplanes are assigned
+runways which are then marked as occupied by changing their runway token. This
+is handled by the Control tower, which keeps assignment tokens (plane-runway)
+and creates them. The radar is represented somewhat trivially, it has to provide
+RadarClear token for an assignment for takeoff to be made.
+
+Plane state is represented both by token encoded state (record colorset
+consisting of enumeration state colorset). This was chosen arbitrarily but makes
+the diagram look somewhat cleaner than putting everything into clolorsets
+
+task 3: evaluate your solution
+
+level of abstraction
+
+I am happy I managed to represent the runways as tokens instead of places,
+making the model much more usable than my initial try.
+
+The model is concerned only with takeoff and landing, and is quite simple. It is
+not concerned with what happens after or before. The model basically ensures
+just that every runway is used by one plane at most and information is passed
+between the radar and the control tower and the planes. No error states or
+anything else is considered.
+
+I went for a smaller scale model also because the tool CPN Tools was so hard to
+use, being only GUI based. And I already spent a lot of time trying to make it
+work.
+
+However, I believe I fulfilled the requirements of the task.
+
+I did not use timed nets, because the documentation was sparse and it seemed
+very complex.
+
+task 4:
+
+Language:
+
+Seems to be strong in what it can mdodel. It has very poor documentation, no
+guides for newbies. One youtube playlist was my saving grace -
+https://www.youtube.com/watch?v=8JuG99_nTTk.
+
+Mistakes are simple to make, for example: {id=#id ap, state=Takeoff} doesnt
+work, adding spaces {id= #id ap, state= Takeoff} works. The tool is very
+powerful, but the learning curve is very steep.
+
+Tool:
+
+The error messages are not helpful (maybe tool's fault rather than language).
+
+CPN Tools - obviously quite old and meant for already well versed users.
+
+CPN Ide - I could not make it work, always unknown server error on backend.
+("Unknown Error") Also, I spend a lot of time making it work (two months
+actually), because it did not say you need Java installed for it to work and I
+did not check before. - I was checking on various machines and it was always
+some error.
+
+Practical usecase:
+
+I think it is powerful, but not needed in most practical cases. The tooling is
+very bad. It seems to be focused on research.
+
+I think it would be necessary to add a text interface (it probably has, it is
+mentioned in the docs, but now is rather used as the underlying technology for
+the gui apps). The gui is limiting also because making the graph planar is hard.
+(when not using subnets or pages)
+
+More importantly, extensive documentation, examples and guides (which could come
+with community expansion).

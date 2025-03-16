@@ -1,0 +1,256 @@
+@startuml GroceryStore
+
+top to bottom direction
+
+enum PaymentMethod {
+  CASH
+  CREDIT_CARD
+  DEBIT_CARD
+  MOBILE_PAYMENT
+  BENEFIT
+  BENEFIT_COUPON
+}
+
+enum OrderStatus {
+  CREATED
+  ACCEPTED
+  SHIPPED
+  CANCELLED
+}
+
+class Supplier {
+  name: String
+  contactInfo: String
+  supplyProducts(products: List(Product), locations: List(Location))
+}
+
+Supplier "1.." -- "0..*" Product : provides
+
+class SupplierOrder {
+  date: Date
+  status: OrderStatus
+  products: List(Product)
+  generateInvoice(order: Order) -> SupplierInvoice
+}
+
+Employee "1" -- "0..*" SupplierOrder : creates
+Employee "1" -- "0..*" SupplierOrder : manages
+
+class SupplierInvoice {
+  totalAmount: Float
+  dateIssued: Date
+  fileUrl: String
+}
+
+SupplierOrder "0..*" -- "1" Supplier
+SupplierOrder "1" -- "0..*" SupplierInvoice
+
+class Shipment {
+  date: Date
+  scheduleShipment(products: List(Product), source: Location, destination: Location)
+}
+
+SupplierOrder "1..*" -- "0..*" Shipment 
+
+class Invoice {
+  totalAmount: Float
+  dateIssued: Date
+}
+
+class Product {
+  name: String
+  ean13: String
+}
+
+class Category {
+  name: String
+  addProduct(product: Product)
+  removeProduct(product: Product)
+}
+
+Category "1..*" -- "0..*" Product : belongs to
+
+class Rack {
+  placementDescription: String
+  addProduct(product: Product)
+  removeProduct(product: Product)
+}
+
+Rack "0.." -- "1" Product : is placed on
+Location "1" -- "0.." Rack : has
+
+abstract class Location {
+  address: String
+  receiveProducts(products: List(Product))
+  dispatchProducts(products: List(Product))
+}
+
+class Warehouse extends Location {
+}
+
+class Store extends Location {
+  receiveCustomerPurchase(bill: Bill)
+}
+
+class Department {
+  name: String
+  manageProducts(products: List(Product))
+}
+
+Department "1.." -- "1" Store 
+
+
+
+class Offering {
+  price: Float
+  validFrom: Date
+  validTo: Date
+}
+
+Offering "0..*" -- "0..*" Product 
+Offering "1" -- "0..*" Department : is in 
+
+class Employee {
+  name: String
+  role: String
+  processOrder(order: Order)
+}
+
+class StoreManager extends Employee {
+  assignStore(store: Store)
+}
+
+class DepartmentManager extends Employee {
+  assignDepartment(department: Department)
+}
+
+class GeneralManager extends Employee {
+  manageStore(store: Store)
+}
+
+StoreManager "1" -- "1" Store : manages
+DepartmentManager "1" -- "1" Department : manages
+GeneralManager "1" -- "0.." Store : manages
+
+class Customer {
+  name: String
+  contactInfo: String
+  hasLoyaltyApp: Boolean
+  placeOrder(order: Order)
+}
+
+Customer "1" -- "0.." Order : created
+
+class LoyaltyAppProfile {
+  applyDiscount(bill: Bill)
+  issueCoupons(coupon: CustomerIssuedCoupon)
+}
+
+Customer "1" -- "0..1" LoyaltyAppProfile
+
+
+LoyaltyAppProfile "0..*" -- "0..*" CustomerIssuedCoupon
+
+diamond LoyaltyAppProfileCouponProduct {}
+
+LoyaltyAppProfileCouponProduct "1" -- "0..*" LoyaltyAppProfile
+LoyaltyAppProfileCouponProduct "1" .. "0..*" CustomerIssuedCoupon
+LoyaltyAppProfileCouponProduct "0..*" -- "0..*" Product
+
+class CustomerIssuedCoupon {
+  dateIssued: Date
+  expiryDate: Date
+  discountRate: Float
+}
+
+class Bill {
+  totalAmount: Float
+  dateIssued: Date
+  paymentMethod: PaymentMethod
+}
+
+Store "1" -- "0.." Order
+Store "1" -- "0.." Bill
+
+diamond BillCustomerProductsCoupons {}
+
+BillCustomerProductsCoupons "1" -- "0..*" Product : purchased
+BillCustomerProductsCoupons "1" -- "0..*" CustomerIssuedCoupon : used
+BillCustomerProductsCoupons "1" -- "0..*" Bill : belongs
+
+class BillItem {
+  amount: Float
+  finalPrice: Float
+}
+
+BillCustomerProductsCoupons .. BillItem
+
+
+note top of BillCustomerProductsCoupons
+  Represents a line on a bill, which is a purchase of a product with zero or more coupons
+end note
+
+Bill -- "0..1" Customer
+
+note top of Bill 
+  context Bill
+  inv couponsBelongToCustomer: self.customerIssuedCoupons->forAll(c | c.customer = self.customer)
+end note
+
+class Order {
+  date: Date
+  status: OrderStatus
+  createOrder(products: List(Product))
+  updateStatus(newStatus: String)
+}
+
+Order "1" -- "0..*" Invoice
+
+note top of Supplier
+  context Supplier
+  inv validSupplierName: self.name.size() > 0
+end note
+
+note top of SupplierOrder
+  context SupplierOrder
+  inv productsNotEmpty: self.products->notEmpty()
+end note
+
+note top of Invoice
+  context Invoice::generateInvoice(order: Order)
+  post totalAmountCalculated: self.totalAmount = order.products->collect(p | p.price)->sum()
+end note
+
+note top of Invoice
+  context Invoice::totalAmount
+  derive: self.order.products->collect(p | p.price)->sum()
+end note
+
+note top of Product
+  context Product
+  inv priceNonNegative: self.price >= 0
+end note
+
+note top of Store
+  context Store::orderProducts(products: List(Product))
+  pre allPricesPositive: products->forAll(p | p.price > 0)
+end note
+
+note top of Employee
+  context Employee
+  inv validRole: self.role in ["Manager", "Cashier", "StockKeeper", "Delivery"]
+end note
+
+note top of Customer
+  context Customer
+  inv validContactInfo: self.contactInfo.matches('^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$')
+end note
+
+
+note top of Bill
+  context Bill
+  inv validTotalAmount: self.totalAmount > 0
+end note
+
+
+@enduml

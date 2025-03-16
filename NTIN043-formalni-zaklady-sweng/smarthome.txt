@@ -1,0 +1,47 @@
+Zdenek Tomis
+
+> task 2: document your solution
+> explain key design decisions and more advanced usage of VDM/Alloy
+
+After spending some time in Alloy docs and tutorials, I decided to include a state representation as a linear 
+ordering of states.
+
+There are systemStates, each is associated with exactly one smartHome, which represents a set of devices and users.
+
+A SystemState is a snapshot in time of one SmartHome with all device states.
+
+This can make an instance diagram complicated, I recommend projecting over SystemState
+
+-- advanced usage
+
+I tried to use more ways to express things, with both properties and relations and different ways of addressing them.
+
+Alloy6 has quite a lot of features and I didn't get to use a lot of them, as many are difficult to understand and over the scope of this task.
+
+> task 3: evaluate your solution (model) according to the following criteria
+
+- level of abstraction (in the sense "what details you ignored")
+
+
+I found it difficult to find such a scope, because topic like that have so many things that could be modelled, but I chose just some small part as an example.
+
+The model is probably under-constrained, I found it difficult to explore all the scenarios, even when using the projected views.
+
+However, the assertions I wanted to make hold, so in that sense it is not underconstrained, and I would not consider it over-constrained.
+
+For example, in every state change, at most one of the following things can happen:
+- remove/add sensor
+- remove/add device
+- remove/add user
+
+As I write this, I realize there is one over-constraint:
+User cannot be removed, because their devices would have to be removed at the same time (due to facts defined before). This could be checked by an assertion. and fixed (by expanding the model)
+
+task 4: tell me your opinion about the modeling language, tool, and the whole approach (methodology) based on your personal experience
+
+I can imagine using this, it is much more approachable than Maude, it is being developed and has proper tooling.
+
+I can think I could use it for some basic problem solving, for example I found an example where Alloy is used to solve the Farmer's problem (Fox, Farmer, Chicken crossing a river). Which seems to be a great usecase -> a tool ready exactly for that. That is, a sat solver with friendly interface and graphics.
+
+As for modeling real systems like a smart home, I have not yet had the chance to find a project where I could imagine this would be necessary. I guess the easiest usecase imaginable is some system where there clearly defined state and the transitions, where this could be used to discover some loopholes.
+
