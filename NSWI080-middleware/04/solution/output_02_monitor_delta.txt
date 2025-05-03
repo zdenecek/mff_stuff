@@ -1,0 +1,45 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------< cz.cuni.mff.d3s.nswi080.anomaly:anomaly >---------------
+[INFO] Building anomaly 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- exec:3.0.0:java (monitor) @ anomaly ---
+2025-05-02 19:51:56.563 monitor [delta]: measured 0.0
+2025-05-02 19:51:59.783 monitor [delta]: measured 0.0
+2025-05-02 19:52:02.801 monitor [delta]: measured 0.0
+2025-05-02 19:52:05.806 monitor [delta]: measured 0.0
+2025-05-02 19:52:08.813 monitor [delta]: measured 0.0
+2025-05-02 19:52:11.822 monitor [delta]: measured 0.0
+2025-05-02 19:52:14.830 monitor [delta]: measured 0.0
+2025-05-02 19:52:17.837 monitor [delta]: measured 0.0
+2025-05-02 19:52:20.840 monitor [delta]: measured 0.0
+2025-05-02 19:52:23.848 monitor [delta]: measured 0.0
+2025-05-02 19:52:26.858 monitor [delta]: measured 0.0
+2025-05-02 19:52:29.867 monitor [delta]: measured 0.0
+2025-05-02 19:52:32.870 monitor [delta]: measured 0.0
+2025-05-02 19:52:35.877 monitor [delta]: measured 0.0
+2025-05-02 19:52:38.885 monitor [delta]: measured 0.0
+2025-05-02 19:52:41.895 monitor [delta]: measured 0.0
+2025-05-02 19:52:44.905 monitor [delta]: measured 9.064990696853718E-259
+2025-05-02 19:52:47.912 monitor [delta]: measured 0.0
+2025-05-02 19:52:50.922 monitor [delta]: measured 0.0
+2025-05-02 19:52:53.928 monitor [delta]: measured 0.0
+2025-05-02 19:52:56.934 monitor [delta]: measured 0.0
+2025-05-02 19:52:59.940 monitor [delta]: measured 0.0
+2025-05-02 19:53:02.950 monitor [delta]: measured 0.0
+2025-05-02 19:53:05.965 monitor [delta]: measured 0.0
+2025-05-02 19:53:08.968 monitor [delta]: measured 0.0
+2025-05-02 19:53:11.974 monitor [delta]: measured 0.0
+2025-05-02 19:53:14.981 monitor [delta]: measured 0.0
+2025-05-02 19:53:17.990 monitor [delta]: measured 0.0
+2025-05-02 19:53:20.998 monitor [delta]: measured 6.172055694538629E100
+2025-05-02 19:53:24.004 monitor [delta]: measured 0.0
+2025-05-02 19:53:27.018 monitor [delta]: measured 0.0
+2025-05-02 19:53:30.025 monitor [delta]: measured 0.0
+2025-05-02 19:53:33.029 monitor [delta]: measured 0.0
+2025-05-02 19:53:36.033 monitor [delta]: measured 0.0
+2025-05-02 19:53:39.040 monitor [delta]: measured 0.0
+2025-05-02 19:53:42.046 monitor [delta]: measured 0.0
+2025-05-02 19:53:45.052 monitor [delta]: measured 0.0

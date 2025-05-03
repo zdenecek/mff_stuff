@@ -1,0 +1,46 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------< cz.cuni.mff.d3s.nswi080.anomaly:anomaly >---------------
+[INFO] Building anomaly 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- exec:3.0.0:java (monitor) @ anomaly ---
+2025-05-02 19:51:54.327 monitor [charlie]: measured 0.0
+2025-05-02 19:51:57.555 monitor [charlie]: measured 0.0
+2025-05-02 19:52:00.569 monitor [charlie]: measured 0.0
+2025-05-02 19:52:03.572 monitor [charlie]: measured 0.0
+2025-05-02 19:52:06.579 monitor [charlie]: measured 0.0
+2025-05-02 19:52:09.591 monitor [charlie]: measured 0.0
+2025-05-02 19:52:12.602 monitor [charlie]: measured 0.0
+2025-05-02 19:52:15.608 monitor [charlie]: measured 0.0
+2025-05-02 19:52:18.615 monitor [charlie]: measured 0.0
+2025-05-02 19:52:21.619 monitor [charlie]: measured 0.0
+2025-05-02 19:52:24.626 monitor [charlie]: measured 0.0
+2025-05-02 19:52:27.635 monitor [charlie]: measured 0.0
+2025-05-02 19:52:30.642 monitor [charlie]: measured 0.0
+2025-05-02 19:52:33.651 monitor [charlie]: measured 0.0
+2025-05-02 19:52:36.660 monitor [charlie]: measured 0.0
+2025-05-02 19:52:39.671 monitor [charlie]: measured 0.0
+2025-05-02 19:52:42.674 monitor [charlie]: measured 0.0
+2025-05-02 19:52:45.681 monitor [charlie]: measured 0.0
+2025-05-02 19:52:48.690 monitor [charlie]: measured 0.0
+2025-05-02 19:52:51.699 monitor [charlie]: measured 0.0
+2025-05-02 19:52:54.707 monitor [charlie]: measured 0.0
+2025-05-02 19:52:57.713 monitor [charlie]: measured 0.0
+2025-05-02 19:53:00.720 monitor [charlie]: measured 0.0
+2025-05-02 19:53:03.726 monitor [charlie]: measured 0.0
+2025-05-02 19:53:06.733 monitor [charlie]: measured 0.0
+2025-05-02 19:53:09.740 monitor [charlie]: measured 0.0
+2025-05-02 19:53:12.747 monitor [charlie]: measured 0.0
+2025-05-02 19:53:15.751 monitor [charlie]: measured 0.0
+2025-05-02 19:53:18.757 monitor [charlie]: measured 0.0
+2025-05-02 19:53:21.762 monitor [charlie]: measured 0.0
+2025-05-02 19:53:24.774 monitor [charlie]: measured 0.0
+2025-05-02 19:53:27.782 monitor [charlie]: measured 0.0
+2025-05-02 19:53:30.789 monitor [charlie]: measured 0.0
+2025-05-02 19:53:33.794 monitor [charlie]: measured 0.0
+2025-05-02 19:53:36.805 monitor [charlie]: measured 0.0
+2025-05-02 19:53:39.814 monitor [charlie]: measured 0.0
+2025-05-02 19:53:42.820 monitor [charlie]: measured 0.0
+2025-05-02 19:53:45.827 monitor [charlie]: measured 0.0

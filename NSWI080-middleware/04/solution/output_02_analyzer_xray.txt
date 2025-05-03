@@ -1,0 +1,126 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------< cz.cuni.mff.d3s.nswi080.anomaly:anomaly >---------------
+[INFO] Building anomaly 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- exec:3.0.0:java (analyzer) @ anomaly ---
+2025-05-02 19:51:59.977 analyzer [xray]: Subscribing to the monitor topic.
+2025-05-02 19:52:00.429 analyzer [xray]: Assigned monitor partitions [monitor-0, monitor-1, monitor-2].
+2025-05-02 19:52:00.495 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 0.
+2025-05-02 19:52:01.498 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 1.
+2025-05-02 19:52:02.506 analyzer [xray]: Read (delta, 0.0) from monitor partition 2 at offset 2.
+2025-05-02 19:52:03.511 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 3.
+2025-05-02 19:52:04.515 analyzer [xray]: Read (delta, 0.0) from monitor partition 2 at offset 4.
+2025-05-02 19:52:05.521 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 5.
+2025-05-02 19:52:06.522 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 0.
+2025-05-02 19:52:07.528 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 1.
+2025-05-02 19:52:08.534 analyzer [xray]: Read (alpha, -1.4284005495603943E142) from monitor partition 1 at offset 2.
+2025-05-02 19:52:09.536 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 3.
+2025-05-02 19:52:10.537 analyzer [xray]: Read (charlie, 0.0) from monitor partition 0 at offset 0.
+2025-05-02 19:52:11.543 analyzer [xray]: Read (charlie, 0.0) from monitor partition 0 at offset 1.
+2025-05-02 19:52:12.548 analyzer [xray]: Read (charlie, 0.0) from monitor partition 0 at offset 2.
+2025-05-02 19:52:13.554 analyzer [xray]: Read (delta, 0.0) from monitor partition 2 at offset 6.
+2025-05-02 19:52:14.558 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 7.
+2025-05-02 19:52:15.563 analyzer [xray]: Read (delta, 0.0) from monitor partition 2 at offset 8.
+2025-05-02 19:52:16.565 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 9.
+2025-05-02 19:52:17.567 analyzer [xray]: Read (delta, 0.0) from monitor partition 2 at offset 10.
+2025-05-02 19:52:18.571 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 11.
+2025-05-02 19:52:19.574 analyzer [xray]: Read (delta, 0.0) from monitor partition 2 at offset 12.
+2025-05-02 19:52:20.579 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 13.
+2025-05-02 19:52:21.583 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 4.
+2025-05-02 19:52:22.589 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 5.
+2025-05-02 19:52:23.591 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 6.
+2025-05-02 19:52:24.596 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 7.
+2025-05-02 19:52:25.600 analyzer [xray]: Read (charlie, 0.0) from monitor partition 0 at offset 3.
+2025-05-02 19:52:26.608 analyzer [xray]: Read (charlie, 0.0) from monitor partition 0 at offset 4.
+2025-05-02 19:52:27.613 analyzer [xray]: Read (charlie, 0.0) from monitor partition 0 at offset 5.
+2025-05-02 19:52:28.616 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 8.
+2025-05-02 19:52:29.621 analyzer [xray]: Read (charlie, 0.0) from monitor partition 0 at offset 6.
+2025-05-02 19:52:30.626 analyzer [xray]: Read (delta, 0.0) from monitor partition 2 at offset 14.
+2025-05-02 19:52:31.632 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 15.
+2025-05-02 19:52:32.637 analyzer [xray]: Read (delta, 0.0) from monitor partition 2 at offset 16.
+2025-05-02 19:52:33.642 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 17.
+2025-05-02 19:52:34.647 analyzer [xray]: Read (delta, 0.0) from monitor partition 2 at offset 18.
+2025-05-02 19:52:35.653 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 19.
+2025-05-02 19:52:36.659 analyzer [xray]: Read (delta, 0.0) from monitor partition 2 at offset 20.
+2025-05-02 19:52:37.663 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 21.
+2025-05-02 19:52:38.668 analyzer [xray]: Read (delta, 0.0) from monitor partition 2 at offset 22.
+2025-05-02 19:52:39.674 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 23.
+2025-05-02 19:52:40.680 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 9.
+2025-05-02 19:52:41.683 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 10.
+2025-05-02 19:52:42.689 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 11.
+2025-05-02 19:52:43.694 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 12.
+2025-05-02 19:52:44.700 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 13.
+2025-05-02 19:52:45.705 analyzer [xray]: Read (charlie, 0.0) from monitor partition 0 at offset 7.
+2025-05-02 19:52:46.708 analyzer [xray]: Read (charlie, 0.0) from monitor partition 0 at offset 8.
+2025-05-02 19:52:47.714 analyzer [xray]: Read (charlie, 0.0) from monitor partition 0 at offset 9.
+2025-05-02 19:52:48.717 analyzer [xray]: Read (charlie, 0.0) from monitor partition 0 at offset 10.
+2025-05-02 19:52:49.723 analyzer [xray]: Read (charlie, 0.0) from monitor partition 0 at offset 11.
+2025-05-02 19:52:50.771 analyzer [xray]: Committed state of monitor partition 0. Saved consumer offset is 12.
+2025-05-02 19:52:50.774 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=charlie, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 19:52:50.775 analyzer [xray]: Committed state of monitor partition 1. Saved consumer offset is 14.
+2025-05-02 19:52:50.775 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=alpha, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 19:52:50.776 analyzer [xray]: Committed state of monitor partition 2. Saved consumer offset is 24.
+2025-05-02 19:52:50.776 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=bravo, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 19:52:50.776 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=delta, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 19:52:50.776 analyzer [xray]: Revoked monitor partitions [monitor-0, monitor-1, monitor-2].
+2025-05-02 19:52:50.821 analyzer [xray]: Restored state of monitor partition 2. Starting from offset 24.
+2025-05-02 19:52:50.821 analyzer [xray]:     Restored AnomalyAnalyzer[hostname=bravo, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 19:52:50.821 analyzer [xray]:     Restored AnomalyAnalyzer[hostname=delta, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 19:52:50.922 analyzer [xray]: Assigned monitor partitions [monitor-2].
+2025-05-02 19:52:50.952 analyzer [xray]: Read (delta, 0.0) from monitor partition 2 at offset 24.
+2025-05-02 19:52:51.958 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 25.
+2025-05-02 19:52:52.961 analyzer [xray]: Read (delta, 0.0) from monitor partition 2 at offset 26.
+2025-05-02 19:52:53.967 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 27.
+2025-05-02 19:52:54.968 analyzer [xray]: Read (delta, 0.0) from monitor partition 2 at offset 28.
+2025-05-02 19:52:55.974 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 29.
+2025-05-02 19:52:56.979 analyzer [xray]: Read (delta, 0.0) from monitor partition 2 at offset 30.
+2025-05-02 19:52:57.984 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 31.
+2025-05-02 19:52:58.986 analyzer [xray]: Read (delta, 0.0) from monitor partition 2 at offset 32.
+2025-05-02 19:52:59.992 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 33.
+2025-05-02 19:53:00.994 analyzer [xray]: Read (delta, 9.064990696853718E-259) from monitor partition 2 at offset 34.
+2025-05-02 19:53:01.998 analyzer [xray]: Detected Anomaly[hostname=delta, description=Value 9.064990696853718E-259 is outside the threshold (median: 0.00), timestamp=1746208364907].
+2025-05-02 19:53:02.007 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 35.
+2025-05-02 19:53:03.012 analyzer [xray]: Read (delta, 0.0) from monitor partition 2 at offset 36.
+2025-05-02 19:53:04.017 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 37.
+2025-05-02 19:53:05.019 analyzer [xray]: Read (delta, 0.0) from monitor partition 2 at offset 38.
+2025-05-02 19:53:06.022 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 39.
+2025-05-02 19:53:07.028 analyzer [xray]: Read (delta, 0.0) from monitor partition 2 at offset 40.
+2025-05-02 19:53:08.034 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 41.
+2025-05-02 19:53:09.036 analyzer [xray]: Read (delta, 0.0) from monitor partition 2 at offset 42.
+2025-05-02 19:53:10.042 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 43.
+2025-05-02 19:53:11.046 analyzer [xray]: Read (delta, 0.0) from monitor partition 2 at offset 44.
+2025-05-02 19:53:12.051 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 45.
+2025-05-02 19:53:13.053 analyzer [xray]: Read (delta, 0.0) from monitor partition 2 at offset 46.
+2025-05-02 19:53:14.058 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 47.
+2025-05-02 19:53:15.070 analyzer [xray]: Read (delta, 0.0) from monitor partition 2 at offset 48.
+2025-05-02 19:53:16.078 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 49.
+2025-05-02 19:53:17.084 analyzer [xray]: Read (delta, 0.0) from monitor partition 2 at offset 50.
+2025-05-02 19:53:18.089 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 51.
+2025-05-02 19:53:19.094 analyzer [xray]: Read (delta, 0.0) from monitor partition 2 at offset 52.
+2025-05-02 19:53:20.098 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 53.
+2025-05-02 19:53:21.103 analyzer [xray]: Read (delta, 0.0) from monitor partition 2 at offset 54.
+2025-05-02 19:53:22.108 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 55.
+2025-05-02 19:53:23.118 analyzer [xray]: Read (delta, 0.0) from monitor partition 2 at offset 56.
+2025-05-02 19:53:24.123 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 57.
+2025-05-02 19:53:25.128 analyzer [xray]: Read (delta, 6.172055694538629E100) from monitor partition 2 at offset 58.
+2025-05-02 19:53:26.131 analyzer [xray]: Detected Anomaly[hostname=delta, description=Value 6.172055694538629E100 is outside the threshold (median: 0.00), timestamp=1746208400999].
+2025-05-02 19:53:26.131 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 59.
+2025-05-02 19:53:27.142 analyzer [xray]: Read (delta, 0.0) from monitor partition 2 at offset 60.
+2025-05-02 19:53:28.144 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 61.
+2025-05-02 19:53:29.145 analyzer [xray]: Read (delta, 0.0) from monitor partition 2 at offset 62.
+2025-05-02 19:53:30.149 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 63.
+2025-05-02 19:53:31.155 analyzer [xray]: Read (delta, 0.0) from monitor partition 2 at offset 64.
+2025-05-02 19:53:32.158 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 65.
+2025-05-02 19:53:33.163 analyzer [xray]: Read (delta, 0.0) from monitor partition 2 at offset 66.
+2025-05-02 19:53:34.167 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 67.
+2025-05-02 19:53:36.054 analyzer [xray]: Read (delta, 0.0) from monitor partition 2 at offset 68.
+2025-05-02 19:53:37.060 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 69.
+2025-05-02 19:53:39.051 analyzer [xray]: Read (delta, 0.0) from monitor partition 2 at offset 70.
+2025-05-02 19:53:40.053 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 71.
+2025-05-02 19:53:42.059 analyzer [xray]: Read (delta, 0.0) from monitor partition 2 at offset 72.
+2025-05-02 19:53:43.066 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 73.
+2025-05-02 19:53:45.065 analyzer [xray]: Read (delta, 0.0) from monitor partition 2 at offset 74.
+2025-05-02 19:53:46.069 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 75.

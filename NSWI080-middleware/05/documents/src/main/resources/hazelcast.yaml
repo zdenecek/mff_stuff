@@ -1,0 +1,34 @@
+hazelcast:
+  network:
+    interfaces:
+      enabled: true
+      interfaces: [127.0.0.1]
+    join:
+      multicast:
+        enabled: false
+      tcp-ip:
+        enabled: true
+        members:
+          127.0.0.1:5701
+  map:
+    documents:
+      eviction:
+        eviction-policy: LRU
+      time-to-live-seconds: 3600
+      backup-count: 0     
+
+    selectedDocuments:
+      backup-count: 1
+    
+    viewCounts:
+      backup-count: 3
+    
+    comments:
+      backup-count: 3
+    
+    favorites:
+      backup-count: 3
+  
+  executor-service:
+    document-generator:
+      pool-size: 4 

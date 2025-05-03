@@ -1,0 +1,438 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------< cz.cuni.mff.d3s.nswi080.anomaly:anomaly >---------------
+[INFO] Building anomaly 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- exec:3.0.0:java (analyzer) @ anomaly ---
+2025-05-02 20:06:11.196 analyzer [xray]: Subscribing to the monitor topic.
+2025-05-02 20:06:11.646 analyzer [xray]: Assigned monitor partitions [monitor-0, monitor-1, monitor-2].
+2025-05-02 20:06:11.707 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 0.
+2025-05-02 20:06:12.710 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 1.
+2025-05-02 20:06:13.715 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 2.
+2025-05-02 20:06:14.720 analyzer [xray]: Read (bravo, -2.929366070157383E-30) from monitor partition 2 at offset 3.
+2025-05-02 20:06:15.727 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 4.
+2025-05-02 20:06:16.731 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 5.
+2025-05-02 20:06:17.735 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 0.
+2025-05-02 20:06:18.740 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 1.
+2025-05-02 20:06:19.742 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 2.
+2025-05-02 20:06:20.744 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 3.
+2025-05-02 20:06:21.749 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 4.
+2025-05-02 20:06:22.754 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 5.
+2025-05-02 20:06:23.755 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 6.
+2025-05-02 20:06:24.759 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 7.
+2025-05-02 20:06:25.779 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 6.
+2025-05-02 20:06:26.782 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 7.
+2025-05-02 20:06:27.788 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 8.
+2025-05-02 20:06:28.790 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 9.
+2025-05-02 20:06:29.793 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 10.
+2025-05-02 20:06:30.798 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 8.
+2025-05-02 20:06:31.804 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 9.
+2025-05-02 20:06:32.808 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 10.
+2025-05-02 20:06:33.809 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 11.
+2025-05-02 20:06:34.815 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 12.
+2025-05-02 20:06:35.828 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 11.
+2025-05-02 20:06:36.830 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 12.
+2025-05-02 20:06:37.835 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 13.
+2025-05-02 20:06:38.837 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 13.
+2025-05-02 20:06:39.843 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 14.
+2025-05-02 20:06:40.848 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 15.
+2025-05-02 20:06:41.850 analyzer [xray]: Periodic commit of states and offsets.
+2025-05-02 20:06:41.909 analyzer [xray]: Committed state of monitor partition 2. Saved consumer offset is 14.
+2025-05-02 20:06:41.912 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=bravo, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:06:41.912 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=alpha, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:06:41.914 analyzer [xray]: Committed state of monitor partition 1. Saved consumer offset is 16.
+2025-05-02 20:06:41.914 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=bravo, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:06:41.914 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=alpha, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:06:41.914 analyzer [xray]: Committed state of monitor partition 0. Saved consumer offset is 0.
+2025-05-02 20:06:41.914 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=bravo, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:06:41.914 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=alpha, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:06:41.923 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 14.
+2025-05-02 20:06:42.929 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 15.
+2025-05-02 20:06:43.935 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 16.
+2025-05-02 20:06:44.940 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 17.
+2025-05-02 20:06:45.953 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 16.
+2025-05-02 20:06:46.958 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 18.
+2025-05-02 20:06:47.963 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 19.
+2025-05-02 20:06:48.968 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 17.
+2025-05-02 20:06:49.974 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 20.
+2025-05-02 20:06:50.982 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 18.
+2025-05-02 20:06:51.986 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 21.
+2025-05-02 20:06:52.992 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 19.
+2025-05-02 20:06:54.498 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 22.
+2025-05-02 20:06:55.512 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 20.
+2025-05-02 20:06:57.501 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 23.
+2025-05-02 20:06:58.506 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 21.
+2025-05-02 20:07:00.515 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 24.
+2025-05-02 20:07:01.536 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 22.
+2025-05-02 20:07:03.519 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 25.
+2025-05-02 20:07:04.527 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 23.
+2025-05-02 20:07:06.535 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 26.
+2025-05-02 20:07:07.539 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 24.
+2025-05-02 20:07:09.546 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 27.
+2025-05-02 20:07:10.561 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 25.
+2025-05-02 20:07:11.970 analyzer [xray]: Periodic commit of states and offsets.
+2025-05-02 20:07:11.971 analyzer [xray]: Committed state of monitor partition 2. Saved consumer offset is 26.
+2025-05-02 20:07:11.971 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=bravo, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:07:11.972 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=alpha, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:07:11.972 analyzer [xray]: Committed state of monitor partition 1. Saved consumer offset is 28.
+2025-05-02 20:07:11.972 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=bravo, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:07:11.972 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=alpha, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:07:11.972 analyzer [xray]: Committed state of monitor partition 0. Saved consumer offset is 0.
+2025-05-02 20:07:11.973 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=bravo, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:07:11.973 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=alpha, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:07:12.546 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 28.
+2025-05-02 20:07:13.557 analyzer [xray]: Read (bravo, 3.9236994837962526E-201) from monitor partition 2 at offset 26.
+2025-05-02 20:07:14.567 analyzer [xray]: Detected Anomaly[hostname=bravo, description=Value 3.9236994837962526E-201 is outside the threshold (median: 0.00), timestamp=1746209233518].
+2025-05-02 20:07:15.557 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 29.
+2025-05-02 20:07:16.573 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 27.
+2025-05-02 20:07:18.558 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 30.
+2025-05-02 20:07:19.570 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 28.
+2025-05-02 20:07:21.578 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 31.
+2025-05-02 20:07:22.589 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 29.
+2025-05-02 20:07:24.586 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 32.
+2025-05-02 20:07:25.598 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 30.
+2025-05-02 20:07:27.587 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 33.
+2025-05-02 20:07:28.594 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 31.
+2025-05-02 20:07:30.602 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 34.
+2025-05-02 20:07:31.614 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 32.
+2025-05-02 20:07:33.607 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 35.
+2025-05-02 20:07:34.620 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 33.
+2025-05-02 20:07:36.616 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 36.
+2025-05-02 20:07:37.624 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 34.
+2025-05-02 20:07:39.627 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 37.
+2025-05-02 20:07:40.642 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 35.
+2025-05-02 20:07:42.055 analyzer [xray]: Periodic commit of states and offsets.
+2025-05-02 20:07:42.056 analyzer [xray]: Committed state of monitor partition 2. Saved consumer offset is 36.
+2025-05-02 20:07:42.056 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=bravo, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:07:42.056 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=alpha, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:07:42.056 analyzer [xray]: Committed state of monitor partition 1. Saved consumer offset is 38.
+2025-05-02 20:07:42.056 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=bravo, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:07:42.056 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=alpha, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:07:42.056 analyzer [xray]: Committed state of monitor partition 0. Saved consumer offset is 0.
+2025-05-02 20:07:42.056 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=bravo, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:07:42.056 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=alpha, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:07:42.629 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 38.
+2025-05-02 20:07:43.639 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 36.
+2025-05-02 20:07:45.645 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 39.
+2025-05-02 20:07:46.655 analyzer [xray]: Read (bravo, -1.013962379464621E-268) from monitor partition 2 at offset 37.
+2025-05-02 20:07:47.657 analyzer [xray]: Detected Anomaly[hostname=bravo, description=Value -1.013962379464621E-268 is outside the threshold (median: 0.00), timestamp=1746209266602].
+2025-05-02 20:07:48.644 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 40.
+2025-05-02 20:07:49.656 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 38.
+2025-05-02 20:07:51.659 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 41.
+2025-05-02 20:07:52.669 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 39.
+2025-05-02 20:07:54.664 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 42.
+2025-05-02 20:07:55.677 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 40.
+2025-05-02 20:07:57.669 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 43.
+2025-05-02 20:07:58.679 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 41.
+2025-05-02 20:08:00.684 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 44.
+2025-05-02 20:08:01.699 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 42.
+2025-05-02 20:08:03.692 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 45.
+2025-05-02 20:08:04.696 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 43.
+2025-05-02 20:08:06.703 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 46.
+2025-05-02 20:08:07.712 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 44.
+2025-05-02 20:08:09.708 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 47.
+2025-05-02 20:08:10.715 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 45.
+2025-05-02 20:08:12.124 analyzer [xray]: Periodic commit of states and offsets.
+2025-05-02 20:08:12.126 analyzer [xray]: Committed state of monitor partition 2. Saved consumer offset is 46.
+2025-05-02 20:08:12.126 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=bravo, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:08:12.126 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=alpha, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:08:12.127 analyzer [xray]: Committed state of monitor partition 1. Saved consumer offset is 48.
+2025-05-02 20:08:12.127 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=bravo, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:08:12.127 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=alpha, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:08:12.127 analyzer [xray]: Committed state of monitor partition 0. Saved consumer offset is 0.
+2025-05-02 20:08:12.127 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=bravo, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:08:12.127 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=alpha, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:08:12.710 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 48.
+2025-05-02 20:08:13.723 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 46.
+2025-05-02 20:08:15.719 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 49.
+2025-05-02 20:08:16.732 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 47.
+2025-05-02 20:08:18.725 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 50.
+2025-05-02 20:08:19.736 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 48.
+2025-05-02 20:08:21.736 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 51.
+2025-05-02 20:08:22.747 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 49.
+2025-05-02 20:08:24.738 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 52.
+2025-05-02 20:08:25.750 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 50.
+2025-05-02 20:08:27.748 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 53.
+2025-05-02 20:08:28.758 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 51.
+2025-05-02 20:08:30.760 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 54.
+2025-05-02 20:08:31.773 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 52.
+2025-05-02 20:08:33.758 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 55.
+2025-05-02 20:08:34.766 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 53.
+2025-05-02 20:08:36.771 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 56.
+2025-05-02 20:08:37.776 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 54.
+2025-05-02 20:08:39.765 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 57.
+2025-05-02 20:08:40.777 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 55.
+2025-05-02 20:08:42.192 analyzer [xray]: Periodic commit of states and offsets.
+2025-05-02 20:08:42.193 analyzer [xray]: Committed state of monitor partition 2. Saved consumer offset is 56.
+2025-05-02 20:08:42.194 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=bravo, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:08:42.194 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=alpha, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:08:42.194 analyzer [xray]: Committed state of monitor partition 1. Saved consumer offset is 58.
+2025-05-02 20:08:42.194 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=bravo, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:08:42.194 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=alpha, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:08:42.195 analyzer [xray]: Committed state of monitor partition 0. Saved consumer offset is 0.
+2025-05-02 20:08:42.195 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=bravo, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:08:42.195 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=alpha, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:08:42.774 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 58.
+2025-05-02 20:08:43.783 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 56.
+2025-05-02 20:08:45.791 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 59.
+2025-05-02 20:08:46.805 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 57.
+2025-05-02 20:08:48.787 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 60.
+2025-05-02 20:08:49.796 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 58.
+2025-05-02 20:08:51.801 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 61.
+2025-05-02 20:08:52.813 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 59.
+2025-05-02 20:08:54.805 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 62.
+2025-05-02 20:08:55.814 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 60.
+2025-05-02 20:08:57.816 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 63.
+2025-05-02 20:08:58.823 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 61.
+2025-05-02 20:09:00.826 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 64.
+2025-05-02 20:09:01.838 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 62.
+2025-05-02 20:09:03.826 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 65.
+2025-05-02 20:09:04.832 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 63.
+2025-05-02 20:09:06.843 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 66.
+2025-05-02 20:09:07.851 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 64.
+2025-05-02 20:09:09.845 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 67.
+2025-05-02 20:09:10.853 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 65.
+2025-05-02 20:09:12.264 analyzer [xray]: Periodic commit of states and offsets.
+2025-05-02 20:09:12.267 analyzer [xray]: Committed state of monitor partition 2. Saved consumer offset is 66.
+2025-05-02 20:09:12.268 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=bravo, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:09:12.268 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=alpha, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:09:12.268 analyzer [xray]: Committed state of monitor partition 1. Saved consumer offset is 68.
+2025-05-02 20:09:12.269 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=bravo, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:09:12.269 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=alpha, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:09:12.269 analyzer [xray]: Committed state of monitor partition 0. Saved consumer offset is 0.
+2025-05-02 20:09:12.269 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=bravo, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:09:12.269 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=alpha, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:09:12.851 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 68.
+2025-05-02 20:09:13.861 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 66.
+2025-05-02 20:09:15.860 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 69.
+2025-05-02 20:09:16.869 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 67.
+2025-05-02 20:09:18.865 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 70.
+2025-05-02 20:09:19.875 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 68.
+2025-05-02 20:09:21.881 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 71.
+2025-05-02 20:09:22.891 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 69.
+2025-05-02 20:09:24.877 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 72.
+2025-05-02 20:09:25.890 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 70.
+2025-05-02 20:09:27.884 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 73.
+2025-05-02 20:09:28.888 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 71.
+2025-05-02 20:09:30.889 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 74.
+2025-05-02 20:09:31.894 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 72.
+2025-05-02 20:09:33.893 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 75.
+2025-05-02 20:09:34.901 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 73.
+2025-05-02 20:09:36.898 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 76.
+2025-05-02 20:09:37.909 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 74.
+2025-05-02 20:09:39.901 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 77.
+2025-05-02 20:09:40.907 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 75.
+2025-05-02 20:09:42.316 analyzer [xray]: Periodic commit of states and offsets.
+2025-05-02 20:09:42.318 analyzer [xray]: Committed state of monitor partition 2. Saved consumer offset is 76.
+2025-05-02 20:09:42.319 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=bravo, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:09:42.319 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=alpha, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:09:42.319 analyzer [xray]: Committed state of monitor partition 1. Saved consumer offset is 78.
+2025-05-02 20:09:42.319 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=bravo, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:09:42.319 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=alpha, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:09:42.319 analyzer [xray]: Committed state of monitor partition 0. Saved consumer offset is 0.
+2025-05-02 20:09:42.319 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=bravo, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:09:42.319 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=alpha, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:09:42.904 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 78.
+2025-05-02 20:09:43.911 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 76.
+2025-05-02 20:09:45.912 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 79.
+2025-05-02 20:09:46.919 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 77.
+2025-05-02 20:09:48.914 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 80.
+2025-05-02 20:09:49.922 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 78.
+2025-05-02 20:09:51.920 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 81.
+2025-05-02 20:09:52.929 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 79.
+2025-05-02 20:09:54.928 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 82.
+2025-05-02 20:09:55.943 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 80.
+2025-05-02 20:09:57.937 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 83.
+2025-05-02 20:09:58.942 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 81.
+2025-05-02 20:10:00.947 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 84.
+2025-05-02 20:10:01.956 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 82.
+2025-05-02 20:10:03.950 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 85.
+2025-05-02 20:10:04.959 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 83.
+2025-05-02 20:10:06.958 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 86.
+2025-05-02 20:10:07.971 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 84.
+2025-05-02 20:10:09.961 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 87.
+2025-05-02 20:10:10.970 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 85.
+2025-05-02 20:10:12.381 analyzer [xray]: Periodic commit of states and offsets.
+2025-05-02 20:10:12.385 analyzer [xray]: Committed state of monitor partition 2. Saved consumer offset is 86.
+2025-05-02 20:10:12.385 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=bravo, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:10:12.385 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=alpha, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:10:12.386 analyzer [xray]: Committed state of monitor partition 1. Saved consumer offset is 88.
+2025-05-02 20:10:12.386 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=bravo, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:10:12.386 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=alpha, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:10:12.386 analyzer [xray]: Committed state of monitor partition 0. Saved consumer offset is 0.
+2025-05-02 20:10:12.386 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=bravo, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:10:12.386 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=alpha, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:10:12.967 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 88.
+2025-05-02 20:10:13.975 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 86.
+2025-05-02 20:10:15.970 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 89.
+2025-05-02 20:10:16.983 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 87.
+2025-05-02 20:10:18.973 analyzer [xray]: Read (alpha, -1.1858887618469816E-157) from monitor partition 1 at offset 90.
+2025-05-02 20:10:19.979 analyzer [xray]: Detected Anomaly[hostname=alpha, description=Value -1.1858887618469816E-157 is outside the threshold (median: 0.00), timestamp=1746209418962].
+2025-05-02 20:10:19.986 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 88.
+2025-05-02 20:10:21.984 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 91.
+2025-05-02 20:10:22.996 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 89.
+2025-05-02 20:10:24.991 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 92.
+2025-05-02 20:10:25.999 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 90.
+2025-05-02 20:10:28.002 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 93.
+2025-05-02 20:10:29.011 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 91.
+2025-05-02 20:10:31.012 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 94.
+2025-05-02 20:10:32.016 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 92.
+2025-05-02 20:10:34.010 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 95.
+2025-05-02 20:10:35.019 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 93.
+2025-05-02 20:10:37.028 analyzer [xray]: Read (alpha, 3.392325455688531E-139) from monitor partition 1 at offset 96.
+2025-05-02 20:10:38.034 analyzer [xray]: Detected Anomaly[hostname=alpha, description=Value 3.392325455688531E-139 is outside the threshold (median: 0.00), timestamp=1746209437009].
+2025-05-02 20:10:38.040 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 94.
+2025-05-02 20:10:40.033 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 97.
+2025-05-02 20:10:41.047 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 95.
+2025-05-02 20:10:42.454 analyzer [xray]: Periodic commit of states and offsets.
+2025-05-02 20:10:42.456 analyzer [xray]: Committed state of monitor partition 2. Saved consumer offset is 96.
+2025-05-02 20:10:42.456 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=bravo, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:10:42.456 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=alpha, window=[0.0, 0.0, 0.0, 0.0, 0.0, 3.392325455688531E-139, 0.0]].
+2025-05-02 20:10:42.456 analyzer [xray]: Committed state of monitor partition 1. Saved consumer offset is 98.
+2025-05-02 20:10:42.457 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=bravo, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:10:42.457 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=alpha, window=[0.0, 0.0, 0.0, 0.0, 0.0, 3.392325455688531E-139, 0.0]].
+2025-05-02 20:10:42.457 analyzer [xray]: Committed state of monitor partition 0. Saved consumer offset is 0.
+2025-05-02 20:10:42.457 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=bravo, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:10:42.458 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=alpha, window=[0.0, 0.0, 0.0, 0.0, 0.0, 3.392325455688531E-139, 0.0]].
+2025-05-02 20:10:43.038 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 98.
+2025-05-02 20:10:44.047 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 96.
+2025-05-02 20:10:46.038 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 99.
+2025-05-02 20:10:47.051 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 97.
+2025-05-02 20:10:49.044 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 100.
+2025-05-02 20:10:50.055 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 98.
+2025-05-02 20:10:52.053 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 101.
+2025-05-02 20:10:53.062 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 99.
+2025-05-02 20:10:55.062 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 102.
+2025-05-02 20:10:56.075 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 100.
+2025-05-02 20:10:58.063 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 103.
+2025-05-02 20:10:59.071 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 101.
+2025-05-02 20:11:01.076 analyzer [xray]: Read (alpha, -1.432158912712051E289) from monitor partition 1 at offset 104.
+2025-05-02 20:11:02.082 analyzer [xray]: Detected Anomaly[hostname=alpha, description=Value -1.432158912712051E289 is outside the threshold (median: 0.00), timestamp=1746209461060].
+2025-05-02 20:11:02.089 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 102.
+2025-05-02 20:11:04.074 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 105.
+2025-05-02 20:11:05.082 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 103.
+2025-05-02 20:11:07.087 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 106.
+2025-05-02 20:11:08.100 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 104.
+2025-05-02 20:11:10.096 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 107.
+2025-05-02 20:11:11.110 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 105.
+2025-05-02 20:11:12.521 analyzer [xray]: Periodic commit of states and offsets.
+2025-05-02 20:11:12.522 analyzer [xray]: Committed state of monitor partition 2. Saved consumer offset is 106.
+2025-05-02 20:11:12.522 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=bravo, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:11:12.522 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=alpha, window=[0.0, 0.0, 0.0, -1.432158912712051E289, 0.0, 0.0, 0.0]].
+2025-05-02 20:11:12.523 analyzer [xray]: Committed state of monitor partition 1. Saved consumer offset is 108.
+2025-05-02 20:11:12.523 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=bravo, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:11:12.523 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=alpha, window=[0.0, 0.0, 0.0, -1.432158912712051E289, 0.0, 0.0, 0.0]].
+2025-05-02 20:11:12.523 analyzer [xray]: Committed state of monitor partition 0. Saved consumer offset is 0.
+2025-05-02 20:11:12.523 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=bravo, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:11:12.523 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=alpha, window=[0.0, 0.0, 0.0, -1.432158912712051E289, 0.0, 0.0, 0.0]].
+2025-05-02 20:11:13.099 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 108.
+2025-05-02 20:11:14.109 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 106.
+2025-05-02 20:11:16.097 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 109.
+2025-05-02 20:11:17.107 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 107.
+2025-05-02 20:11:19.108 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 110.
+2025-05-02 20:11:20.123 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 108.
+2025-05-02 20:11:22.119 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 111.
+2025-05-02 20:11:23.125 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 109.
+2025-05-02 20:11:25.130 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 112.
+2025-05-02 20:11:26.138 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 110.
+2025-05-02 20:11:28.141 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 113.
+2025-05-02 20:11:29.148 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 111.
+2025-05-02 20:11:31.138 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 114.
+2025-05-02 20:11:32.151 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 112.
+2025-05-02 20:11:34.144 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 115.
+2025-05-02 20:11:35.149 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 113.
+2025-05-02 20:11:37.154 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 116.
+2025-05-02 20:11:38.162 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 114.
+2025-05-02 20:11:40.155 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 117.
+2025-05-02 20:11:41.164 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 115.
+2025-05-02 20:11:42.576 analyzer [xray]: Periodic commit of states and offsets.
+2025-05-02 20:11:42.576 analyzer [xray]: Committed state of monitor partition 2. Saved consumer offset is 116.
+2025-05-02 20:11:42.576 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=bravo, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:11:42.577 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=alpha, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:11:42.577 analyzer [xray]: Committed state of monitor partition 1. Saved consumer offset is 118.
+2025-05-02 20:11:42.577 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=bravo, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:11:42.577 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=alpha, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:11:42.577 analyzer [xray]: Committed state of monitor partition 0. Saved consumer offset is 0.
+2025-05-02 20:11:42.577 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=bravo, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:11:42.577 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=alpha, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:11:43.159 analyzer [xray]: Read (alpha, -4.850186759474362E302) from monitor partition 1 at offset 118.
+2025-05-02 20:11:44.165 analyzer [xray]: Detected Anomaly[hostname=alpha, description=Value -4.850186759474362E302 is outside the threshold (median: 0.00), timestamp=1746209503150].
+2025-05-02 20:11:44.171 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 116.
+2025-05-02 20:11:46.178 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 119.
+2025-05-02 20:11:47.183 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 117.
+2025-05-02 20:11:49.176 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 120.
+2025-05-02 20:11:50.183 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 118.
+2025-05-02 20:11:52.191 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 121.
+2025-05-02 20:11:53.201 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 119.
+2025-05-02 20:11:55.203 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 122.
+2025-05-02 20:11:56.211 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 120.
+2025-05-02 20:11:58.210 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 123.
+2025-05-02 20:11:59.218 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 121.
+2025-05-02 20:12:01.214 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 124.
+2025-05-02 20:12:02.228 analyzer [xray]: Read (bravo, 5.500544668978161E-103) from monitor partition 2 at offset 122.
+2025-05-02 20:12:03.234 analyzer [xray]: Detected Anomaly[hostname=bravo, description=Value 5.500544668978161E-103 is outside the threshold (median: 0.00), timestamp=1746209522169].
+2025-05-02 20:12:04.224 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 125.
+2025-05-02 20:12:05.237 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 123.
+2025-05-02 20:12:07.233 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 126.
+2025-05-02 20:12:08.246 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 124.
+2025-05-02 20:12:10.236 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 127.
+2025-05-02 20:12:11.244 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 125.
+2025-05-02 20:12:12.650 analyzer [xray]: Periodic commit of states and offsets.
+2025-05-02 20:12:12.652 analyzer [xray]: Committed state of monitor partition 2. Saved consumer offset is 126.
+2025-05-02 20:12:12.652 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=bravo, window=[0.0, 0.0, 0.0, 5.500544668978161E-103, 0.0, 0.0, 0.0]].
+2025-05-02 20:12:12.653 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=alpha, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:12:12.653 analyzer [xray]: Committed state of monitor partition 1. Saved consumer offset is 128.
+2025-05-02 20:12:12.653 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=bravo, window=[0.0, 0.0, 0.0, 5.500544668978161E-103, 0.0, 0.0, 0.0]].
+2025-05-02 20:12:12.653 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=alpha, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:12:12.653 analyzer [xray]: Committed state of monitor partition 0. Saved consumer offset is 0.
+2025-05-02 20:12:12.653 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=bravo, window=[0.0, 0.0, 0.0, 5.500544668978161E-103, 0.0, 0.0, 0.0]].
+2025-05-02 20:12:12.653 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=alpha, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:12:13.249 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 128.
+2025-05-02 20:12:14.264 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 126.
+2025-05-02 20:12:16.247 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 129.
+2025-05-02 20:12:17.253 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 127.
+2025-05-02 20:12:19.259 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 130.
+2025-05-02 20:12:20.266 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 128.
+2025-05-02 20:12:22.273 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 131.
+2025-05-02 20:12:23.283 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 129.
+2025-05-02 20:12:25.281 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 132.
+2025-05-02 20:12:26.291 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 130.
+2025-05-02 20:12:28.288 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 133.
+2025-05-02 20:12:29.301 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 131.
+2025-05-02 20:12:31.296 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 134.
+2025-05-02 20:12:32.302 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 132.
+2025-05-02 20:12:34.304 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 135.
+2025-05-02 20:12:35.313 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 133.
+2025-05-02 20:12:37.316 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 136.
+2025-05-02 20:12:38.325 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 134.
+2025-05-02 20:12:40.316 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 137.
+2025-05-02 20:12:41.325 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 135.
+2025-05-02 20:12:42.734 analyzer [xray]: Periodic commit of states and offsets.
+2025-05-02 20:12:42.735 analyzer [xray]: Committed state of monitor partition 2. Saved consumer offset is 136.
+2025-05-02 20:12:42.735 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=bravo, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:12:42.735 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=alpha, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:12:42.735 analyzer [xray]: Committed state of monitor partition 1. Saved consumer offset is 138.
+2025-05-02 20:12:42.735 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=bravo, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:12:42.735 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=alpha, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:12:42.735 analyzer [xray]: Committed state of monitor partition 0. Saved consumer offset is 0.
+2025-05-02 20:12:42.735 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=bravo, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:12:42.735 analyzer [xray]:     Saved AnomalyAnalyzer[hostname=alpha, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:12:43.325 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 138.
+2025-05-02 20:12:44.333 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 136.
+2025-05-02 20:12:46.336 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 139.
+2025-05-02 20:12:47.349 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 137.
+2025-05-02 20:12:49.341 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 140.
+2025-05-02 20:12:50.348 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 138.
+2025-05-02 20:12:52.351 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 141.
+2025-05-02 20:12:53.365 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 139.
+2025-05-02 20:12:55.361 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 142.
+2025-05-02 20:12:56.371 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 140.
+2025-05-02 20:12:58.365 analyzer [xray]: Read (alpha, 2.7761118625278064E-106) from monitor partition 1 at offset 143.
+2025-05-02 20:12:59.371 analyzer [xray]: Detected Anomaly[hostname=alpha, description=Value 2.7761118625278064E-106 is outside the threshold (median: 0.00), timestamp=1746209578350].
+2025-05-02 20:12:59.380 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 141.
+2025-05-02 20:13:01.369 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 144.
+2025-05-02 20:13:02.377 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 142.
+2025-05-02 20:13:04.374 analyzer [xray]: Read (alpha, 0.0) from monitor partition 1 at offset 145.
+2025-05-02 20:13:05.384 analyzer [xray]: Read (bravo, 0.0) from monitor partition 2 at offset 143.

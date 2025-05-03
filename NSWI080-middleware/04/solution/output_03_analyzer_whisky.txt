@@ -1,0 +1,146 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------< cz.cuni.mff.d3s.nswi080.anomaly:anomaly >---------------
+[INFO] Building anomaly 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- exec:3.0.0:java (analyzer) @ anomaly ---
+2025-05-02 20:13:22.345 analyzer [whisky]: Subscribing to the monitor topic.
+2025-05-02 20:13:51.531 analyzer [whisky]: Restored state of monitor partition 0. Starting from offset 0.
+2025-05-02 20:13:51.531 analyzer [whisky]: Restored state of monitor partition 0. Starting from offset 0.
+2025-05-02 20:13:51.531 analyzer [whisky]: Restored state of monitor partition 0. Starting from offset 0.
+2025-05-02 20:13:51.531 analyzer [whisky]: Restored state of monitor partition 0. Starting from offset 0.
+2025-05-02 20:13:51.531 analyzer [whisky]: Restored state of monitor partition 0. Starting from offset 0.
+2025-05-02 20:13:51.531 analyzer [whisky]: Restored state of monitor partition 0. Starting from offset 0.
+2025-05-02 20:13:51.531 analyzer [whisky]: Restored state of monitor partition 0. Starting from offset 0.
+2025-05-02 20:13:51.531 analyzer [whisky]: Restored state of monitor partition 0. Starting from offset 0.
+2025-05-02 20:13:51.531 analyzer [whisky]: Restored state of monitor partition 0. Starting from offset 0.
+2025-05-02 20:13:51.531 analyzer [whisky]: Restored state of monitor partition 0. Starting from offset 0.
+2025-05-02 20:13:51.531 analyzer [whisky]: Restored state of monitor partition 0. Starting from offset 0.
+2025-05-02 20:13:51.531 analyzer [whisky]: Restored state of monitor partition 0. Starting from offset 0.
+2025-05-02 20:13:51.531 analyzer [whisky]: Restored state of monitor partition 0. Starting from offset 0.
+2025-05-02 20:13:51.532 analyzer [whisky]: Restored state of monitor partition 2. Starting from offset 14.
+2025-05-02 20:13:51.534 analyzer [whisky]:     Restored AnomalyAnalyzer[hostname=bravo, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:13:51.534 analyzer [whisky]: Restored state of monitor partition 2. Starting from offset 26.
+2025-05-02 20:13:51.534 analyzer [whisky]:     Restored AnomalyAnalyzer[hostname=bravo, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:13:51.534 analyzer [whisky]: Restored state of monitor partition 2. Starting from offset 36.
+2025-05-02 20:13:51.535 analyzer [whisky]:     Restored AnomalyAnalyzer[hostname=bravo, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:13:51.535 analyzer [whisky]: Restored state of monitor partition 2. Starting from offset 46.
+2025-05-02 20:13:51.535 analyzer [whisky]:     Restored AnomalyAnalyzer[hostname=bravo, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:13:51.535 analyzer [whisky]: Restored state of monitor partition 2. Starting from offset 56.
+2025-05-02 20:13:51.535 analyzer [whisky]:     Restored AnomalyAnalyzer[hostname=bravo, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:13:51.535 analyzer [whisky]: Restored state of monitor partition 2. Starting from offset 66.
+2025-05-02 20:13:51.535 analyzer [whisky]:     Restored AnomalyAnalyzer[hostname=bravo, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:13:51.535 analyzer [whisky]: Restored state of monitor partition 2. Starting from offset 76.
+2025-05-02 20:13:51.535 analyzer [whisky]:     Restored AnomalyAnalyzer[hostname=bravo, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:13:51.535 analyzer [whisky]: Restored state of monitor partition 2. Starting from offset 86.
+2025-05-02 20:13:51.535 analyzer [whisky]:     Restored AnomalyAnalyzer[hostname=bravo, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:13:51.535 analyzer [whisky]: Restored state of monitor partition 2. Starting from offset 96.
+2025-05-02 20:13:51.535 analyzer [whisky]:     Restored AnomalyAnalyzer[hostname=bravo, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:13:51.535 analyzer [whisky]: Restored state of monitor partition 2. Starting from offset 106.
+2025-05-02 20:13:51.535 analyzer [whisky]:     Restored AnomalyAnalyzer[hostname=bravo, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:13:51.535 analyzer [whisky]: Restored state of monitor partition 2. Starting from offset 116.
+2025-05-02 20:13:51.535 analyzer [whisky]:     Restored AnomalyAnalyzer[hostname=bravo, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:13:51.535 analyzer [whisky]: Restored state of monitor partition 2. Starting from offset 126.
+2025-05-02 20:13:51.536 analyzer [whisky]:     Restored AnomalyAnalyzer[hostname=bravo, window=[0.0, 0.0, 0.0, 5.500544668978161E-103, 0.0, 0.0, 0.0]].
+2025-05-02 20:13:51.536 analyzer [whisky]: Restored state of monitor partition 2. Starting from offset 136.
+2025-05-02 20:13:51.536 analyzer [whisky]:     Restored AnomalyAnalyzer[hostname=bravo, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:13:51.536 analyzer [whisky]: Restored state of monitor partition 1. Starting from offset 16.
+2025-05-02 20:13:51.536 analyzer [whisky]:     Restored AnomalyAnalyzer[hostname=alpha, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:13:51.536 analyzer [whisky]: Restored state of monitor partition 1. Starting from offset 28.
+2025-05-02 20:13:51.536 analyzer [whisky]:     Restored AnomalyAnalyzer[hostname=alpha, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:13:51.536 analyzer [whisky]: Restored state of monitor partition 1. Starting from offset 38.
+2025-05-02 20:13:51.536 analyzer [whisky]:     Restored AnomalyAnalyzer[hostname=alpha, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:13:51.536 analyzer [whisky]: Restored state of monitor partition 1. Starting from offset 48.
+2025-05-02 20:13:51.536 analyzer [whisky]:     Restored AnomalyAnalyzer[hostname=alpha, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:13:51.536 analyzer [whisky]: Restored state of monitor partition 1. Starting from offset 58.
+2025-05-02 20:13:51.536 analyzer [whisky]:     Restored AnomalyAnalyzer[hostname=alpha, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:13:51.536 analyzer [whisky]: Restored state of monitor partition 1. Starting from offset 68.
+2025-05-02 20:13:51.536 analyzer [whisky]:     Restored AnomalyAnalyzer[hostname=alpha, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:13:51.536 analyzer [whisky]: Restored state of monitor partition 1. Starting from offset 78.
+2025-05-02 20:13:51.536 analyzer [whisky]:     Restored AnomalyAnalyzer[hostname=alpha, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:13:51.537 analyzer [whisky]: Restored state of monitor partition 1. Starting from offset 88.
+2025-05-02 20:13:51.537 analyzer [whisky]:     Restored AnomalyAnalyzer[hostname=alpha, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:13:51.537 analyzer [whisky]: Restored state of monitor partition 1. Starting from offset 98.
+2025-05-02 20:13:51.537 analyzer [whisky]:     Restored AnomalyAnalyzer[hostname=alpha, window=[0.0, 0.0, 0.0, 0.0, 0.0, 3.392325455688531E-139, 0.0]].
+2025-05-02 20:13:51.537 analyzer [whisky]: Restored state of monitor partition 1. Starting from offset 108.
+2025-05-02 20:13:51.537 analyzer [whisky]:     Restored AnomalyAnalyzer[hostname=alpha, window=[0.0, 0.0, 0.0, -1.432158912712051E289, 0.0, 0.0, 0.0]].
+2025-05-02 20:13:51.537 analyzer [whisky]: Restored state of monitor partition 1. Starting from offset 118.
+2025-05-02 20:13:51.537 analyzer [whisky]:     Restored AnomalyAnalyzer[hostname=alpha, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:13:51.537 analyzer [whisky]: Restored state of monitor partition 1. Starting from offset 128.
+2025-05-02 20:13:51.537 analyzer [whisky]:     Restored AnomalyAnalyzer[hostname=alpha, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:13:51.537 analyzer [whisky]: Restored state of monitor partition 1. Starting from offset 138.
+2025-05-02 20:13:51.537 analyzer [whisky]:     Restored AnomalyAnalyzer[hostname=alpha, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:13:51.638 analyzer [whisky]: Assigned monitor partitions [monitor-0, monitor-1, monitor-2].
+2025-05-02 20:13:51.650 analyzer [whisky]: Read (bravo, 0.0) from monitor partition 2 at offset 136.
+2025-05-02 20:13:52.657 analyzer [whisky]: Read (bravo, 0.0) from monitor partition 2 at offset 137.
+2025-05-02 20:13:53.659 analyzer [whisky]: Read (bravo, 0.0) from monitor partition 2 at offset 138.
+2025-05-02 20:13:54.661 analyzer [whisky]: Read (bravo, 0.0) from monitor partition 2 at offset 139.
+2025-05-02 20:13:55.664 analyzer [whisky]: Read (bravo, 0.0) from monitor partition 2 at offset 140.
+2025-05-02 20:13:56.669 analyzer [whisky]: Read (bravo, 0.0) from monitor partition 2 at offset 141.
+2025-05-02 20:13:57.672 analyzer [whisky]: Read (bravo, 0.0) from monitor partition 2 at offset 142.
+2025-05-02 20:13:58.678 analyzer [whisky]: Read (bravo, 0.0) from monitor partition 2 at offset 143.
+2025-05-02 20:13:59.683 analyzer [whisky]: Read (bravo, 0.0) from monitor partition 2 at offset 144.
+2025-05-02 20:14:00.684 analyzer [whisky]: Read (bravo, 0.0) from monitor partition 2 at offset 145.
+2025-05-02 20:14:01.689 analyzer [whisky]: Read (bravo, 0.0) from monitor partition 2 at offset 146.
+2025-05-02 20:14:02.692 analyzer [whisky]: Read (bravo, 0.0) from monitor partition 2 at offset 147.
+2025-05-02 20:14:03.697 analyzer [whisky]: Read (bravo, 0.0) from monitor partition 2 at offset 148.
+2025-05-02 20:14:04.703 analyzer [whisky]: Read (bravo, 0.0) from monitor partition 2 at offset 149.
+2025-05-02 20:14:05.706 analyzer [whisky]: Read (bravo, 0.0) from monitor partition 2 at offset 150.
+2025-05-02 20:14:06.710 analyzer [whisky]: Read (bravo, 0.0) from monitor partition 2 at offset 151.
+2025-05-02 20:14:07.713 analyzer [whisky]: Read (bravo, 0.0) from monitor partition 2 at offset 152.
+2025-05-02 20:14:08.719 analyzer [whisky]: Read (bravo, 0.0) from monitor partition 2 at offset 153.
+2025-05-02 20:14:09.723 analyzer [whisky]: Read (bravo, 0.0) from monitor partition 2 at offset 154.
+2025-05-02 20:14:10.725 analyzer [whisky]: Read (bravo, 0.0) from monitor partition 2 at offset 155.
+2025-05-02 20:14:11.731 analyzer [whisky]: Read (bravo, 0.0) from monitor partition 2 at offset 156.
+2025-05-02 20:14:12.733 analyzer [whisky]: Read (bravo, 0.0) from monitor partition 2 at offset 157.
+2025-05-02 20:14:13.735 analyzer [whisky]: Read (bravo, 0.0) from monitor partition 2 at offset 158.
+2025-05-02 20:14:14.739 analyzer [whisky]: Read (alpha, 0.0) from monitor partition 1 at offset 138.
+2025-05-02 20:14:15.744 analyzer [whisky]: Read (alpha, 0.0) from monitor partition 1 at offset 139.
+2025-05-02 20:14:16.746 analyzer [whisky]: Read (alpha, 0.0) from monitor partition 1 at offset 140.
+2025-05-02 20:14:17.750 analyzer [whisky]: Read (alpha, 0.0) from monitor partition 1 at offset 141.
+2025-05-02 20:14:18.752 analyzer [whisky]: Read (alpha, 0.0) from monitor partition 1 at offset 142.
+2025-05-02 20:14:19.753 analyzer [whisky]: Read (alpha, 2.7761118625278064E-106) from monitor partition 1 at offset 143.
+2025-05-02 20:14:20.760 analyzer [whisky]: Detected Anomaly[hostname=alpha, description=Value 2.7761118625278064E-106 is outside the threshold (median: 0.00), timestamp=1746209578350].
+2025-05-02 20:14:20.784 analyzer [whisky]: Read (alpha, 0.0) from monitor partition 1 at offset 144.
+2025-05-02 20:14:21.787 analyzer [whisky]: Read (alpha, 0.0) from monitor partition 1 at offset 145.
+2025-05-02 20:14:22.790 analyzer [whisky]: Read (alpha, 0.0) from monitor partition 1 at offset 146.
+2025-05-02 20:14:23.795 analyzer [whisky]: Read (alpha, 0.0) from monitor partition 1 at offset 147.
+2025-05-02 20:14:24.798 analyzer [whisky]: Read (alpha, 0.0) from monitor partition 1 at offset 148.
+2025-05-02 20:14:25.803 analyzer [whisky]: Read (alpha, 0.0) from monitor partition 1 at offset 149.
+2025-05-02 20:14:26.808 analyzer [whisky]: Read (alpha, 0.0) from monitor partition 1 at offset 150.
+2025-05-02 20:14:27.813 analyzer [whisky]: Read (alpha, 0.0) from monitor partition 1 at offset 151.
+2025-05-02 20:14:28.815 analyzer [whisky]: Read (alpha, 0.0) from monitor partition 1 at offset 152.
+2025-05-02 20:14:29.820 analyzer [whisky]: Read (alpha, 0.0) from monitor partition 1 at offset 153.
+2025-05-02 20:14:30.824 analyzer [whisky]: Read (alpha, 1.3603572920004239E244) from monitor partition 1 at offset 154.
+2025-05-02 20:14:31.830 analyzer [whisky]: Detected Anomaly[hostname=alpha, description=Value 1.3603572920004239E244 is outside the threshold (median: 0.00), timestamp=1746209611430].
+2025-05-02 20:14:31.833 analyzer [whisky]: Read (alpha, 0.0) from monitor partition 1 at offset 155.
+2025-05-02 20:14:32.835 analyzer [whisky]: Read (alpha, 0.0) from monitor partition 1 at offset 156.
+2025-05-02 20:14:33.836 analyzer [whisky]: Read (alpha, 0.0) from monitor partition 1 at offset 157.
+2025-05-02 20:14:34.842 analyzer [whisky]: Read (alpha, 0.0) from monitor partition 1 at offset 158.
+2025-05-02 20:14:35.847 analyzer [whisky]: Read (alpha, 0.0) from monitor partition 1 at offset 159.
+2025-05-02 20:14:36.851 analyzer [whisky]: Read (alpha, 0.0) from monitor partition 1 at offset 160.
+2025-05-02 20:14:37.854 analyzer [whisky]: Periodic commit of states and offsets.
+2025-05-02 20:14:37.864 analyzer [whisky]: Committed state of monitor partition 2. Saved consumer offset is 159.
+2025-05-02 20:14:37.865 analyzer [whisky]:     Saved AnomalyAnalyzer[hostname=bravo, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:14:37.865 analyzer [whisky]:     Saved AnomalyAnalyzer[hostname=alpha, window=[1.3603572920004239E244, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:14:37.865 analyzer [whisky]: Committed state of monitor partition 1. Saved consumer offset is 161.
+2025-05-02 20:14:37.865 analyzer [whisky]:     Saved AnomalyAnalyzer[hostname=bravo, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:14:37.865 analyzer [whisky]:     Saved AnomalyAnalyzer[hostname=alpha, window=[1.3603572920004239E244, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:14:37.865 analyzer [whisky]: Committed state of monitor partition 0. Saved consumer offset is 0.
+2025-05-02 20:14:37.865 analyzer [whisky]:     Saved AnomalyAnalyzer[hostname=bravo, window=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:14:37.865 analyzer [whisky]:     Saved AnomalyAnalyzer[hostname=alpha, window=[1.3603572920004239E244, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]].
+2025-05-02 20:14:37.868 analyzer [whisky]: Read (bravo, 0.0) from monitor partition 2 at offset 159.
+2025-05-02 20:14:38.874 analyzer [whisky]: Read (bravo, 0.0) from monitor partition 2 at offset 160.
+2025-05-02 20:14:39.879 analyzer [whisky]: Read (bravo, 0.0) from monitor partition 2 at offset 161.
+2025-05-02 20:14:40.881 analyzer [whisky]: Read (bravo, 0.0) from monitor partition 2 at offset 162.
+2025-05-02 20:14:41.886 analyzer [whisky]: Read (bravo, 0.0) from monitor partition 2 at offset 163.
+2025-05-02 20:14:42.892 analyzer [whisky]: Read (bravo, 0.0) from monitor partition 2 at offset 164.
+2025-05-02 20:14:43.898 analyzer [whisky]: Read (bravo, 0.0) from monitor partition 2 at offset 165.
+2025-05-02 20:14:44.901 analyzer [whisky]: Read (bravo, 0.0) from monitor partition 2 at offset 166.
+2025-05-02 20:14:45.905 analyzer [whisky]: Read (bravo, 0.0) from monitor partition 2 at offset 167.
+2025-05-02 20:14:46.911 analyzer [whisky]: Read (bravo, 0.0) from monitor partition 2 at offset 168.
+2025-05-02 20:14:47.912 analyzer [whisky]: Read (bravo, 0.0) from monitor partition 2 at offset 169.
+2025-05-02 20:14:48.917 analyzer [whisky]: Read (bravo, 0.0) from monitor partition 2 at offset 170.
+2025-05-02 20:14:49.919 analyzer [whisky]: Read (bravo, 0.0) from monitor partition 2 at offset 171.

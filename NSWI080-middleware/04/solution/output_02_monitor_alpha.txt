@@ -1,0 +1,50 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------< cz.cuni.mff.d3s.nswi080.anomaly:anomaly >---------------
+[INFO] Building anomaly 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- exec:3.0.0:java (monitor) @ anomaly ---
+2025-05-02 19:51:48.514 monitor [alpha]: measured 0.0
+2025-05-02 19:51:51.856 monitor [alpha]: measured 0.0
+2025-05-02 19:51:54.864 monitor [alpha]: measured -1.4284005495603943E142
+2025-05-02 19:51:57.871 monitor [alpha]: measured 0.0
+2025-05-02 19:52:00.879 monitor [alpha]: measured 0.0
+2025-05-02 19:52:03.881 monitor [alpha]: measured 0.0
+2025-05-02 19:52:06.888 monitor [alpha]: measured 0.0
+2025-05-02 19:52:09.901 monitor [alpha]: measured 0.0
+2025-05-02 19:52:12.907 monitor [alpha]: measured 0.0
+2025-05-02 19:52:15.914 monitor [alpha]: measured 0.0
+2025-05-02 19:52:18.920 monitor [alpha]: measured 0.0
+2025-05-02 19:52:21.931 monitor [alpha]: measured 0.0
+2025-05-02 19:52:24.939 monitor [alpha]: measured 0.0
+2025-05-02 19:52:27.951 monitor [alpha]: measured 0.0
+2025-05-02 19:52:30.953 monitor [alpha]: measured 0.0
+2025-05-02 19:52:33.958 monitor [alpha]: measured 0.0
+2025-05-02 19:52:36.965 monitor [alpha]: measured 0.0
+2025-05-02 19:52:39.971 monitor [alpha]: measured 2.979665243788489E-242
+2025-05-02 19:52:42.982 monitor [alpha]: measured 0.0
+2025-05-02 19:52:45.990 monitor [alpha]: measured 0.0
+2025-05-02 19:52:48.996 monitor [alpha]: measured 0.0
+2025-05-02 19:52:52.003 monitor [alpha]: measured 0.0
+2025-05-02 19:52:55.011 monitor [alpha]: measured 0.0
+2025-05-02 19:52:58.016 monitor [alpha]: measured 0.0
+2025-05-02 19:53:01.022 monitor [alpha]: measured 0.0
+2025-05-02 19:53:04.029 monitor [alpha]: measured 0.0
+2025-05-02 19:53:07.036 monitor [alpha]: measured 0.0
+2025-05-02 19:53:10.039 monitor [alpha]: measured 0.0
+2025-05-02 19:53:13.047 monitor [alpha]: measured 0.0
+2025-05-02 19:53:16.052 monitor [alpha]: measured -2.520249600868793E268
+2025-05-02 19:53:19.058 monitor [alpha]: measured 0.0
+2025-05-02 19:53:22.068 monitor [alpha]: measured 0.0
+2025-05-02 19:53:25.075 monitor [alpha]: measured -7.069682325182102E-211
+2025-05-02 19:53:28.081 monitor [alpha]: measured 0.0
+2025-05-02 19:53:31.087 monitor [alpha]: measured 1.614161386299239E-256
+2025-05-02 19:53:34.093 monitor [alpha]: measured 0.0
+2025-05-02 19:53:37.099 monitor [alpha]: measured 0.0
+2025-05-02 19:53:40.103 monitor [alpha]: measured 0.0
+2025-05-02 19:53:43.105 monitor [alpha]: measured 0.0
+2025-05-02 19:53:46.110 monitor [alpha]: measured 0.0
+2025-05-02 19:53:49.112 monitor [alpha]: measured 0.0
+2025-05-02 19:53:52.118 monitor [alpha]: measured 0.0

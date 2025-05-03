@@ -1,0 +1,83 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------< cz.cuni.mff.d3s.nswi080.anomaly:anomaly >---------------
+[INFO] Building anomaly 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- exec:3.0.0:java (monitor) @ anomaly ---
+2025-05-02 18:04:44.087 monitor [bravo]: measured 0.0
+2025-05-02 18:04:47.310 monitor [bravo]: measured 0.0
+2025-05-02 18:04:50.318 monitor [bravo]: measured 0.0
+2025-05-02 18:04:53.324 monitor [bravo]: measured 0.0
+2025-05-02 18:04:56.327 monitor [bravo]: measured 0.0
+2025-05-02 18:04:59.338 monitor [bravo]: measured 0.0
+2025-05-02 18:05:02.345 monitor [bravo]: measured 0.0
+2025-05-02 18:05:05.352 monitor [bravo]: measured 0.0
+2025-05-02 18:05:08.361 monitor [bravo]: measured 0.0
+2025-05-02 18:05:11.368 monitor [bravo]: measured 0.0
+2025-05-02 18:05:14.379 monitor [bravo]: measured 0.0
+2025-05-02 18:05:17.386 monitor [bravo]: measured 0.0
+2025-05-02 18:05:20.388 monitor [bravo]: measured 0.0
+2025-05-02 18:05:23.396 monitor [bravo]: measured 0.0
+2025-05-02 18:05:26.403 monitor [bravo]: measured 0.0
+2025-05-02 18:05:29.409 monitor [bravo]: measured 0.0
+2025-05-02 18:05:32.416 monitor [bravo]: measured 0.0
+2025-05-02 18:05:35.422 monitor [bravo]: measured 0.0
+2025-05-02 18:05:38.430 monitor [bravo]: measured 0.0
+2025-05-02 18:05:41.437 monitor [bravo]: measured 0.0
+2025-05-02 18:05:44.444 monitor [bravo]: measured 0.0
+2025-05-02 18:05:47.453 monitor [bravo]: measured 0.0
+2025-05-02 18:05:50.459 monitor [bravo]: measured 0.0
+2025-05-02 18:05:53.469 monitor [bravo]: measured 0.0
+2025-05-02 18:05:56.474 monitor [bravo]: measured 0.0
+2025-05-02 18:05:59.476 monitor [bravo]: measured 0.0
+2025-05-02 18:06:02.481 monitor [bravo]: measured 0.0
+2025-05-02 18:06:05.488 monitor [bravo]: measured 0.0
+2025-05-02 18:06:08.490 monitor [bravo]: measured 0.0
+2025-05-02 18:06:11.497 monitor [bravo]: measured 0.0
+2025-05-02 18:06:14.507 monitor [bravo]: measured 0.0
+2025-05-02 18:06:17.519 monitor [bravo]: measured 0.0
+2025-05-02 18:06:20.527 monitor [bravo]: measured 0.0
+2025-05-02 18:06:23.533 monitor [bravo]: measured 0.0
+2025-05-02 18:06:26.536 monitor [bravo]: measured 0.0
+2025-05-02 18:06:29.542 monitor [bravo]: measured 0.0
+2025-05-02 18:06:32.549 monitor [bravo]: measured 0.0
+2025-05-02 18:06:35.555 monitor [bravo]: measured 0.0
+2025-05-02 18:06:38.559 monitor [bravo]: measured 0.0
+2025-05-02 18:06:41.565 monitor [bravo]: measured 0.0
+2025-05-02 18:06:44.574 monitor [bravo]: measured 0.0
+2025-05-02 18:06:47.582 monitor [bravo]: measured 0.0
+2025-05-02 18:06:50.590 monitor [bravo]: measured 0.0
+2025-05-02 18:06:53.594 monitor [bravo]: measured 0.0
+2025-05-02 18:06:56.600 monitor [bravo]: measured 0.0
+2025-05-02 18:06:59.606 monitor [bravo]: measured 0.0
+2025-05-02 18:07:02.613 monitor [bravo]: measured 0.0
+2025-05-02 18:07:05.623 monitor [bravo]: measured 0.0
+2025-05-02 18:07:08.631 monitor [bravo]: measured 0.0
+2025-05-02 18:07:11.636 monitor [bravo]: measured 0.0
+2025-05-02 18:07:14.644 monitor [bravo]: measured 0.0
+2025-05-02 18:07:17.651 monitor [bravo]: measured 0.0
+2025-05-02 18:07:20.660 monitor [bravo]: measured 0.0
+2025-05-02 18:07:23.666 monitor [bravo]: measured 0.0
+2025-05-02 18:07:26.672 monitor [bravo]: measured 0.0
+2025-05-02 18:07:29.677 monitor [bravo]: measured 0.0
+2025-05-02 18:07:32.686 monitor [bravo]: measured 6.888939687268536E74
+2025-05-02 18:07:35.693 monitor [bravo]: measured 0.0
+2025-05-02 18:07:38.699 monitor [bravo]: measured 0.0
+2025-05-02 18:07:41.706 monitor [bravo]: measured 0.0
+2025-05-02 18:07:44.716 monitor [bravo]: measured -2.387220902289629E281
+2025-05-02 18:07:47.721 monitor [bravo]: measured 0.0
+2025-05-02 18:07:50.727 monitor [bravo]: measured 0.0
+2025-05-02 18:07:53.740 monitor [bravo]: measured 0.0
+2025-05-02 18:07:56.748 monitor [bravo]: measured 0.0
+2025-05-02 18:07:59.759 monitor [bravo]: measured 0.0
+2025-05-02 18:08:02.763 monitor [bravo]: measured 0.0
+2025-05-02 18:08:05.773 monitor [bravo]: measured 0.0
+2025-05-02 18:08:08.784 monitor [bravo]: measured 0.0
+2025-05-02 18:08:11.788 monitor [bravo]: measured 0.0
+2025-05-02 18:08:14.794 monitor [bravo]: measured 0.0
+2025-05-02 18:08:17.800 monitor [bravo]: measured 0.0
+2025-05-02 18:08:20.803 monitor [bravo]: measured 0.0
+2025-05-02 18:08:23.804 monitor [bravo]: measured 0.0
+2025-05-02 18:08:26.811 monitor [bravo]: measured 0.0
