@@ -1,0 +1,250 @@
+Advanced
+Web Applications
+JavaScript, Testing
+Objectives
+• Vitest
+• Cypress
+• Continuous integration
+This is an DIY practical.
+You must to get your solution to your GitLab repository before 20.4.2025.
+Assignment: Testing
+./practical-08/
+The objective is to add tests to "user-interface" from "practical-05". Start by copying your
+assignment from "./practical-05/user-interface" to "./practical-08/". Follow the slides to implement
+test using Vitest, Cypress and basic CI using GitLab. You CAN modify copied assignment sources.
+Do NOT modify the original.
+Unit test and Vitest
+Testing with Vitest
+is a test framework with Vite-native support. Meaning, you can easily use it with
+project.
+The objective is to implement Vitest for unit testing.
+Vitest has an excellent . THe main points to follow are:
+• Install Vitest and save it to dev-dependencies.
+• Use .spec. in test file name. Place test files next to your source files. Do NOT use separate
+directory for test files.
+• Add "test":"vitest" command to script section in "package.json".
+• Do NOT put configuration into "vitest.config.ts" use "vite.config.ts" instead.
+Vitest Vite
+Unit testing is the process where you test the smallest functional unit of
+code.
+Getting Started
+npm install -D vitest
+Example test
+// Vitest provides:
+// - test executor : the vitest command
+// - test definition (describe, test)
+// - test assertions (expect)
+import { describe, test, expect } from "vitest";
+// We test only a single file.
+import { createState } from "./application-state";
+// We define a collection of test relevant for given function.
+describe("createState", () => {
+// This is the single test.
+// The test function can be asynchronous (async).
+test("Default test.", () => {
+// Prepare input and initial state.
+const search = "?data-source=1&submit-url=2";
+// Compute actual state.
+const actual = createState(search);
+// Define and assert for expected state.
+const expected = {
+dataSource: "1",
+submitUrl: "2",
+initialized: false,
+submitted: false,
+};
+// We use "toStrictEqual" to check for the internals of the object.
+expect(actual).toStrictEqual(expected);
+});
+});
+Implement test #1
+Name of the test must start with "#1". The objective is to test how is the initial state created.
+• Create an initial dialog state from a .
+• Make sure that the default model is set to "primary" or its equivalent.
+This test should not include any async functionality. You are expected to copy the data in your
+test.
+JSON document
+Implement test #2
+Name of the test must start with "#2". Objective is to test stat change.
+• Initialize the state from the . Same as before, do not fetch, instead copy the
+document to your test directly.
+• Next the initial values to match the before dialog state (left), imitating user actions (calling
+controller).
+• Change the model to "secondary". The state should match the after dialog state (right).
+Before After
+JSON document
+Implement test #3
+Name of the test must start with "#3".
+Objective is to test initial data loading from remote source.
+Warning
+(Unit) Testing with external resources is a bad practice. External dependencies render the tests
+non-deterministic and can prolong test execution time. The purpose of this test is to have an
+asyc test. Do not try this at home!
+• Initialize dialog state for URL query "?datasource=
+https%3A%2F%2Fwebik.ms.mff.cuni.cz%2Fnswi153%2F2024-2025%2Fservice%2F08-
+test-03&submiturl=
+https%3A%2F%2Fwebik.ms.mff.cuni.cz%2Fnswi153%2F2024-2025%2Fservice%2F08-test-03-
+submit".
+• After fetching the data, make sure that the model is set to "primary" or its equivalent.
+Test coverage and Vitest
+The next step is to add a test coverage. This provides us with an estimate of how much code we
+test. Beware that test coverage should not be the ultimate metric! Yet, when paired with
+additional rules it can be useful. E.g. 100% test coverage for controllers.
+Computing is easy. You need utilize "istanbul" ("npm i -D @vitest/
+coverage-istanbul") to compute the test coverage and export it as "html" and "json". See following
+slide for example of the configuration file.
+Add a "coverage": "vitest run --coverage" command to "package.json" to run the tests and
+compute the coverage.
+test coverage with Vitest
+Example configuration file
+Example of "vite.config.ts" file with React and istanbul code coverage.
+/// <reference types="vitest/config" />
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+// https://vite.dev/config/
+export default defineConfig({
+plugins: [react()],
+test: {
+coverage: {
+provider: 'istanbul',
+reporter: ['json', 'html'],
+},
+},
+})
+Do not ignore .gitignore
+By default the coverage report is saved to "coverage" directory. As a result, you need to add
+"coverage" into your ".gitignore" file.
+CI using GitLab
+Continuous Integration (CI)
+The objective is to implement a simple CI pipeline using GitLab. You should already know the
+basics from .
+• You need to create `.gitlab-ci.yml` file in root of your repository.
+• Take a look at the "NodeJS" template pipeline under "Build" -> "Pipelines".
+Note: This is available only when there is no pipeline in the repository.
+• Start with node image of your choosing. Do NOT use "latest", we need as much determinism as
+we can get.
+• Define "build" job that will build your application using "npm run build".
+• Define "test" job that will test you application using "npm run test".
+You can read the documentation.
+NSWI177
+.gitlab-ci.yml
+End-to-end test and Cypress
+End-to-end (E2E)
+For the purpose of this practical we limit ourself only to simulating a user interaction with the
+dialog. We basically simulate user interaction with our application using a web browser.
+End-to-end (E2E) testing is a Software testing methodology to test a
+functional and data application flow consisting of several sub-systems
+working together from start to end.
+End-to-end testing, also known as E2E testing, is an approach to testing
+that that simulates real user experiences to validate the complete
+system.
+A browser
+In order to implement the tests we need to:
+1. Have our application running.
+We can run our application using "npm run dev" or "npm run preview".
+2. Start a web browser
+3. Control the web browser from code
+When it comes to the browser and its control, we can use , , , ...
+For purpose of this practical we utilize Cypress as it has simple setup, intuitive API, built in
+assertions,automatic waiting, ...
+Playwright Puppeteer Cypress
+
+Cypress install
+There is a Cypress . Please install Cypress using npm "npm install cypress --savedev".
+Cypress integrates a custom application which allow you to easily create and execute the test.
+Before opening the application you may need to modify your "tsconfig.json" and add following
+fragment.
+Install guide
+"compilerOptions": {
+"module": "ESNext"
+},
+
+First test
+Next open the application using "npx cypress open" and select "E2E testing". Confirm quick
+configuration and select a browser you would like to choose. From the perspective of the tutorial
+you should continue with .
+Select "Create new spec" and accept the default.
+Look around the application. Try to modify the source file, by default "spec.cy.js" using your IDE of
+choice. Reload and re-execute the test.
+E2E Your First Test
+describe('template spec', () => {
+it('passes', () => {
+cy.visit('https://example.cypress.io')
+})
+})
+
+Testing dialog application
+In order to run the test for our application we need to start it first. Start your application using
+"npm run dev" and update the test in "spec.cy.js" to load your application. Do not point Cypress to
+webik, instead point it to your local dev server.
+You may get a "ECONNREFUSED" error. This meas that the browser is not able to access your
+application. You can test it manually by opening a new tab and navigating to URL of your
+application. Try to solve this on your own using any tools necessary. There is also a possible
+solution in this presentation source.
+
+Selected API
+Cypress provide a rich API. While I do recommend you to take a explore the official
+documentation, here is a list of few of the basic one:
+• - Visit a given URL.
+• - Get DOM element with given text.
+• - Allow you to spy and mock network communication. You can mock (stup) a HTTP
+request. Meaning you can intercept the call and return custom response.
+• - Wait for given time or aliased resource.
+A simple example using this may look like this:
+cy.visit
+cy.contains
+cy.intercept
+cy.wait
+// Intercept POST call to "http://example.com/data-submit", return "{}" as a response, and assign
+"postSubmitData" as an alias.
+cy.intercept("POST", "http://example.com/data-submit", "{}")
+.as("postSubmitData");
+// Select by text and perform click operation.
+cy.contains("Send").click();
+// Wait for application to make the POST request and check the content.
+cy.wait("@postSubmitData").then(interception => {
+const request = JSON.parse(interception.request.body);
+expect(request.title).to.be.equal("Instance");
+});
+
+Test #4
+The test should be based at test #2.
+• Start by visiting your application with properly set "data-source" and "submit-url". Do not
+forget, that you need to URL component encode them.
+• Mock the GET request and return content of . You should copy the document
+into your repository and load it using Cypress "fixture". See following slide for more details.
+• Implement user actions to get dialog into the same state as on the image.
+• Simulate using clicking the "Create and clear button".
+• Intercept the POST request and validate the content of the request.
+JSON document
+
+Cypress fixture
+"fixture" provide a way how to fetch data content from files in "./cypress/fixtures". You can pair it
+with intercept like this:
+This will load file "./cypress/fixtures/data-source.json".
+cy.intercept("GET", "data-source", { fixture: "data-source" })
+.as("getDataSource");
+
+Configuration and .env
+Update your cypress test to test application running at URL as defined by CYPRESS_SERVER. Value
+of CYPRESS_SERVER can be specified as environment variable or using CYPRESS_SERVER property
+in .env file.
+You can utilize to access environment variables. You can load .env file to Cypress
+using following configuration file:
+Do not forget to install and save "dotenv" as a dependency.
+Cypress.env
+import dotenv from "dotenv";
+dotenv.config();
+import { defineConfig } from "cypress";
+export default defineConfig({
+e2e: { },
+env: { CYPRESS_SERVER: process.env.CYPRESS_SERVER }
+});
+
+Final remarks
+• Remember to update .gitignore file.
+• Add "cy:run": "cypress run" to your "package.json" file.
+Troubleshooting
+...
+Questions, ideas, or any other feedback?
+Please feel free to use the anonymous feedback form.

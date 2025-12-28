@@ -1,0 +1,10 @@
+Zpětná vazba k předmětu:
+
+V obecnosti se mi líbil rozsah a záměr předmětu. Super bylo, že lze odevzdat proof of work a není nutné účastnit se na seminářích, které jsou často zaměřené na lidi, kterým něco trvá dlouho rozchodit nebo nejsou ochotni se věcmi sami proklikat a řešit problémy.
+Přidal bych část o Azure Entra ID (případně AWS IAM), protože s tím se člověk setká velmi brzy a hodí se to znát.
+
+Azure část:
+Přišel jsem na první seminář s panem Kandou, který mě potom odradil od další účasti. Tempo bylo pomalé, podobně jako uvádím výše. Mám delší dojezdovou vzdálenost a cvičení mě přesvědčilo, že za účast nestojí. Dále jsem tedy pracoval s materiály dostupnými online. Úkoly byly rozumné a pěkně mi ukázaly, jak se nasazují i služby, které jsem jinak zatím dosud nevyužil. Vůbec se mi nelíbila závislost na Visual studiu u prvních pár cvičení, které si na Macbooku nenaistaluji (opět část pana Kandy). Dále zde byla část s Webjoby, které jsou poměrně okrajová a celkem nezajímavá služba, místo toho bych zařadil například nějakou ukázku s Entra ID (Active directory)
+
+IoT část:
+Skvělé bylo zadání semestrálního projektu, které přesně odpovídá tomu, co se člověk má naučit. Prakticky si lze procvičit pochopení případů užití jednotlivých služeb. Není vyžadována přílišná podrobnost nebo zdlouhavá implemenetace, záleží hlavně na přehledu a pochopení, jak by to mělo být. Musím také ocenit promptní odpovědi cvičících.

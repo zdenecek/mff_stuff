@@ -1,0 +1,98 @@
+Advanced
+Web Applications
+PHP, ORM
+Objectives
+• ORM
+• CMS application
+This is an DIY practical.
+You must to get your solution to your GitLab repository before 23.3.2025.
+Assignment: Your web application
+./practical-03/
+The objective is to expand the application from previous practical by:
+• Creating a database in the webik's MySQL database.
+• Connecting to application to the database using .
+• Finishing the application path.
+• Adding a simple HTTP JSON API.
+Please see following slides for details and instructions.
+Doctrine
+Database schema definition
+Your database schema must resemble the one below. Feel free to add indices and foreign keys at
+will.
+You can connect to MySQL at webik using , or .
+You can connect to the database using SSH tunel from your computer.
+CREATE TABLE `Articles` (
+`id` int NOT NULL AUTO_INCREMENT,
+`author_id` int,
+`title` varchar(128) NOT NULL,
+`content` varchar(1024) NOT NULL,
+PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `Authors` (
+`id` int NOT NULL AUTO_INCREMENT,
+`name` varchar(128) NOT NULL,
+PRIMARY KEY (`id`),
+UNIQUE `name` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+phpMyAdmin Adminer
+ssh {user-name}@webik.ms.mff.cuni.cz -p 42222 -L 1433:localhost:1433
+Doctrine
+Start with a small example, just connect to the database and list content of a table.
+First you need to install dependencies. See . Think about what you are installing and
+why, do not just copy and paste. Do you need all listed dependencies?
+Next, continue with . Keep in mind what database and driver you
+are using. You also need to enable the driver (mysqli extension) in your PHP installation. For
+purpose of this project please use driver.
+The next step is to create you entities. Those will be mapped to database tables. You can draw
+inspiration from the tutorial section , entity.
+Tro to utilize PHP-DI to inject repositories (EntityManager.getRepository) not the .
+You should have one repository for Articles and one for Authors.
+Project setup
+Obtaining the EntityManager
+mysqli
+Product Entity Bug, and User
+EntityManager
+Configuration
+Your application needs to load the configuration from somewhere. The configuration includes:
+database connection details and base path.
+Use to parse and load configuration from "practical-03/.env" file. Your application
+must be able to load files of following structure:
+parse_ini_file
+DATABASE_NAME = skoda
+DATABASE_USER = skoda
+DATABASE_PASSWORD = heslo1234
+BASE_URL = /~skoda/nswi153/practical-03
+
+Finish the application
+Finish implementation of the pages:
+• "/authors" - list all authors in the database
+• "/register-author" - create an author in the database
+• "/articles" - list all articles in the database
+• "/create-article" - create an article in the database
+For each article in the list show: title and author name. For each author in the list show: name and
+list names of all authored articles.
+Building API
+Add following API endpoints.
+• GET /api/v1/article-detail/{identifier}
+The article detail page, where "{identifier}" is the article's identifier. It returns information about
+the article in JSON format. See . If the article does not
+exist returns 404.
+• GET /api/v1/articles
+It returns information about articles in JSON format. A user can employ the URL query attribute
+"author" to specify the name of an author as a filter, e.g. "/api/v1/articles?author=ailish". In such a
+case, only articles from the given author are returned. See
+.
+• POST /api/v1/articles
+The user can create an article using POST with JSON content. See
+. Upon receiving the request, your program must check that the author with the given
+name exists. If the author does not exist, your program must create a new database record for
+the author. Then you program insert the article into the database. In the last step, your program
+returns JSON with a single key "identifier", that contains identifier of the created article.
+json-schema definition of article data
+json-schema definition of article list
+data
+json-schema definition of new
+article data
+Troubleshooting
+...
+Questions, ideas, or any other feedback?
+Please feel free to use the anonymous feedback form.

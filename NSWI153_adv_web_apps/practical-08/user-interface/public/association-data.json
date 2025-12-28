@@ -1,0 +1,58 @@
+{
+  "models": [
+    {
+      "identifier": "elementary",
+      "label": "Elementary school"
+    },
+    {
+      "identifier": "high",
+      "label": "High school"
+    },
+    {
+      "identifier": "university",
+      "label": "University"
+    }
+  ],
+  "associations": [
+    {
+      "identifier": "teach-elementary",
+      "model": "elementary",
+      "label": "teach",
+      "description": "Teaching kids elementary math."
+    },
+    {
+      "identifier": "take-care-of-elementary",
+      "model": "elementary",
+      "label": "take care of",
+      "description": "Take a good care."
+    },
+    {
+      "identifier": "teach-high",
+      "model": "elementary",
+      "label": "teach",
+      "description": "Teaching kids intermediate math."
+    }
+  ],
+  "classes": [
+    {
+      "identifier": "teacher-elementary",
+      "model": "elementary",
+      "label": "Teacher"
+    },
+    {
+      "identifier": "teacher-high",
+      "model": "high",
+      "label": "Teacher"
+    },
+    {
+      "identifier": "kid",
+      "model": "elementary",
+      "label": "Kid"
+    },
+    {
+      "identifier": "student",
+      "model": "high",
+      "label": "Student"
+    }
+  ]
+}

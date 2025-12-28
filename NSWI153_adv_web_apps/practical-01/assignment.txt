@@ -1,0 +1,105 @@
+Advanced
+Web Applications
+PHP, Composer, Dependency injection, Monolog
+Get ready
+What you need to know:
+• How to run PHP script.
+• How to create and instantiate a class in PHP.
+• Idea behind the .
+Using your own computer
+Prepare you computer for the lab:
+• and install PHP. You can just unpack to a directory of choice.
+• . It is enough to download just the file.
+• Make sure you can execute following command:
+PHP autoloading
+Download
+Download Composer composer.phar
+php composer.phar
+Autoloading
+Briefly discuss following questions.
+• What are the benefits of autoloading for PHP?
+• How can you implement autoloading yourself?
+• How psr-4 autoloading works?
+
+Assignment: Project with Composer
+GitLab: N/A
+Use following command to initialize a project. Create an empty project with psr-4 autoloading. Do
+not add any dependencies.
+Create "{vendor-name}\{project-name}\User\UserManager" class in "./src/User/
+UserManager.php" file. Add "getUsers" method to the class. The method must return an array of
+users, for each user return an e-mail address. Create an instance of given class in "./index.php"
+file. Do not manually require or include the "UserManager.php" file.
+Make sure it works by running the index.php file.
+composer init
+Troubleshooting
+You need to update "php.ini" file. Uncomment "extension_dir", "extension=openssl", and
+"extension=zip".
+You can use php "-c" option to provide path to custom php.ini file.
+The openssl extension is required for SSL/TLS protection but is not available.
+If you can not enable the openssl extension, you can disable this error, at your own risk, by
+setting the 'disable-tls' option to true.
+Debriefing
+Explore compose.json, try to change the namespace mapping. It wont work, as the mapping is
+stored in the "vendor" directory. You need to run following command to regenerate the "vendor"
+directory.
+composer update
+Dependency injection
+Briefly discuss following questions.
+• What is dependency injection?
+• What are the benefits and drawbacks?
+Assignment: Dependency injection
+GitLab: N/A
+Continue with the previous exercise. Install
+(PHP-DI) using following command.
+Check . Create "{vendor-name}\{project-name}\Service\Mailer" class. The "Mailer"
+must implement "mail" method as in the tutorial.
+Inject the "Mailer" into the "UserManager". Add method "notifyUsers($content)" that will send email
+to all users using "Mailer". Use "getUsers" method to get list of all users.
+Create instance of "UserManager" using the PHP-DI and call "notifyUsers('Hello world!')".
+PHP implementation of dependency injection
+composer require php-di/php-di
+the tutorial
+Logging
+Briefly discuss following questions.
+• Have you ever used a logging library?
+• What are the benefits of logging over just print/echo?
+• Why should you utilize logging in your project?
+• What can you expect from a logging library?
+
+Assignment: Monolog
+GitLab: ./practical-01/
+Continue with the previous exercise. Add into your project. Add info level log "Notifying
+users." into "UserManager.notifyUsers" method. Add error level log "Can not send an e-mail." with
+e-mail into "Mailer.mail" method.
+Use to add information to logs.
+Log all messages in the default format into "./log/application.log" file.
+Log warning and higher level messages into "./log/warning.html" file using .
+Try to stick with .
+Hint: Keep in mind you can always create a sandbox on your own to test something, before you
+integrate the functionality into the main project.
+Monolog
+WebProcessor
+HtmlFormatter
+best-practices for using libraries
+Troubleshooting
+Not sure how to add processor of formatter? Refer to Using Monolog documentation.
+Troubleshooting
+I found the section with "config.php" file creating Monolog for PHP-DI but how do I use it?
+These are PHP definitions and there is a PHP definitions documentation.
+Troubleshooting
+Check you have a correct path, in the example above there is extra "." (dot).
+When executing your application at webik, make sure you properly set ACL. You can do that using
+following command:
+PHP Fatal error:
+Uncaught UnexpectedValueException: The stream or file "\practical-01\monolog./log/
+application.log" could not be opened in append mode:
+Failed to open stream: Permission denied
+setfacl -m u:www-data:rwx ./log/
+Debriefing
+Start PHP server using command bellow.
+Visit your and using a browser of choice.
+Deploy your application at webik to your "public_html" folder.
+php -S 127.0.0.1:8090
+index.php waring.html
+Questions, ideas, or any other feedback?
+Please feel free to use the anonymous feedback form.

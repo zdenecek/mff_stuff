@@ -1,0 +1,9 @@
+################################################################################
+# Never commit compilation (by-)products and machine-specific settings.        #
+################################################################################
+.*
+!.htaccess
+!.gitignore
+!.gitattributes
+
+!.gitlab-ci.yml

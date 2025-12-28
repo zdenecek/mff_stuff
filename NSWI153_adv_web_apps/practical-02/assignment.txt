@@ -1,0 +1,99 @@
+Advanced
+Web Applications
+PHP, Slim Framework
+Get ready
+What you need to know:
+• Handling HTTP requests in PHP, $_GET, $_POST, $_SERVER, ...
+• FrontController design patterns.
+Using your own computer
+PHP and Composer.
+Objectives
+• PHP PSR-7
+• Slim Framework
+A "better" HTTP interfaces
+The specify a way of interaction with HTTP. It is an alternative to using
+HTTP wrapper ($_GET, $_POST, etc.).
+is a PSR-7 compliant micro framework for PHP. To use Slim with PSR-7 we need to install
+PSR-7 binding.
+HTTP message interfaces
+Slim
+At its core, Slim is a dispatcher that receives an HTTP request, invokes an
+appropriate callback routine, and returns an HTTP response. That's it.
+Slim application skeleton
+What are your expectations of a mature PHP web application?
+Create and explore a Slim framework skeleton project.
+php .\composer.phar create-project slim/slim-skeleton slim-framework-skeleton
+Troubleshooting
+Enable "mbstring" extension in "php.ini" file.
+Problem 1
+- Root composer.json requires phpunit/phpunit ^9.5.26 -> satisfiable by phpunit/phpunit[9.5.26,
+..., 9.6.22].
+- phpunit/phpunit[9.5.26, ..., 9.6.22] require ext-mbstring * -> it is missing from your system.
+Install or enable PHP's mbstring extension.
+Assignment: Slim application
+GitLab: ./practical-02/
+As the skeleton slim application is too big, we create a new application from scratch. There is a
+useful guide. Here are the steps to follow:
+• Use Slim and PSR-7 binding.
+• Put into the "./public/index.php" file.
+• You can start local server using in the public directory.
+Rest of the assignment is structured as a "step-by-step" guide to implement the final functionality.
+I would recommend you to follow it, especially if you are not sure what to do.
+Get Started
+composer require slim/slim:"4.*"
+composer require slim/psr7
+Hello world
+php -S 127.0.0.1:8090
+Error handling
+Add error handling using middleware.
+Pages
+Add following pages into your application at given URLs:
+• "/" - home page
+• "/authors" - authors list
+• "/register-author" - register an author
+• "/articles" - articles list
+• "/create-article" - create an article
+The home page should contain some information about the application. The exact content is not
+important, it just must not be empty!
+For all the others you can now return just a random string to make sure it works.
+Authors
+At the "register an author"" page your can fill in a form. The form must contain a name input as a
+text. User can submit the form using "Register" button.
+The form must be submitted at the "register an author" page using POST. As a response to a POST
+return HTML with message "{name}, welcome!". Where "{name}" is the value user provided. You
+can get "name" from the .
+The "authors list"" page should return HTTP code . The HTML should contain a message
+"Coming soon!".
+request POST parameters
+501
+Articles
+Both article related sites, "articles list" and "create an article" should return HTTP code . The
+HTML should contain a message "Coming soon!".
+501
+Using templates
+Put all the HTML content into templates files. The template files should be located in "./template/"
+directory. Create one template file per view. Use to PHP renderer render the templates.
+Layout
+Create a for your application. The layout must include a navigation header with links to the
+all pages. In addition, it must include footer with a following copyright notice.
+layout
+© 2024-2025 NSWI153
+PHP-DI
+Add and to your application.
+Create a controller for each page and use .
+Put controller classes into the "./src" directory. You may split more functionality into "./app" or "./
+application" directory as we have seen in Slim skeleton project.
+Inject the to controllers using a constructor.
+PHP-DI Slim bridge
+Controllers as services
+PHP renderer
+Deployment
+Deploy your application to webik.ms.mff.cuni.cz/{your-user-name}/nswi153/practical-02.
+•
+•
+Apache configuration
+Run from a sub-directory
+Troubleshooting
+...
+Questions, ideas, or any other feedback?
+Please feel free to use the anonymous feedback form.

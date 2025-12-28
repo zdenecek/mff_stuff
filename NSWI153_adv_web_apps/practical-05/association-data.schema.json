@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://webik.ms.mff.cuni.cz/nswi153/schema/association-data.schema.json",
+  "type": "object",
+  "required": [
+    "models",
+    "associations",
+    "classes"
+  ],
+  "properties": {
+    "models": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "identifier",
+          "label"
+        ],
+        "properties": {
+          "identifier": {
+            "type": "string",
+            "description": "Uniq model identifier."
+          },
+          "label": {
+            "type": "string",
+            "description": "Use this as a representation in a user-interface."
+          }
+        }
+      }
+    },
+    "associations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "identifier",
+          "model",
+          "label",
+          "description"
+        ],
+        "properties": {
+          "identifier": {
+            "type": "string",
+            "description": "Uniq model identifier."
+          },
+          "model": {
+            "type": "string",
+            "description": "identifier of model the entity is in."
+          },
+          "label": {
+            "type": "string",
+            "description": "Use this as a representation in a user-interface."
+          },
+          "description": {
+            "type": "string",
+            "description": "Description."
+          }
+        }
+      }
+    },
+    "classes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "identifier",
+          "model",
+          "label"
+        ],
+        "properties": {
+          "identifier": {
+            "type": "string",
+            "description": "Uniq model identifier."
+          },
+          "model": {
+            "type": "string",
+            "description": "identifier of model the entity is in."
+          },
+          "label": {
+            "type": "string",
+            "description": "Use this as a representation in a user-interface."
+          }
+        }
+      }
+    }
+  }
+}

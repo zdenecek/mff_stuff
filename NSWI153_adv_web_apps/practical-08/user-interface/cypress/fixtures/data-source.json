@@ -1,0 +1,15 @@
+{
+  "model": "primary",
+  "fields": [
+    {
+      "name": "title",
+      "type": "text",
+      "required": true
+    },
+    {
+      "name": "description",
+      "type": "textarea",
+      "required": false
+    }
+  ]
+} 

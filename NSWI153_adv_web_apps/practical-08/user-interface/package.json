@@ -1,0 +1,32 @@
+{
+  "name": "user-interface",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest",
+    "coverage": "vitest run --coverage",
+    "cy:run": "cypress run"
+  },
+  "dependencies": {
+    "@mdi/font": "^7.4.47",
+    "pinia": "^2.1.7",
+    "vue": "^3.4.15",
+    "vue-router": "^4.2.5"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.3",
+    "@vitest/coverage-istanbul": "^3.1.1",
+    "@vue/test-utils": "^2.4.6",
+    "cypress": "^14.3.1",
+    "dotenv": "^16.5.0",
+    "happy-dom": "^17.4.4",
+    "vite": "^5.0.12",
+    "vitest": "^3.1.1",
+    "vuetify": "^3.8.2"
+  },
+  "packageManager": "pnpm@10.7.0+sha512.6b865ad4b62a1d9842b61d674a393903b871d9244954f652b8842c2b553c72176b278f64c463e52d40fff8aba385c235c8c9ecf5cc7de4fd78b8bb6d49633ab6"
+}

@@ -1,0 +1,37 @@
+image: node:20
+
+stages:
+  - setup
+  - test
+  - build
+
+cache:
+  paths:
+    - practical-08/user-interface/node_modules/
+
+install:
+  stage: setup
+  script:
+    - cd practical-08/user-interface
+    - npm ci
+  artifacts:
+    paths:
+      - practical-08/user-interface/node_modules/
+
+test:
+  stage: test
+  script:
+    - cd practical-08/user-interface
+    - npm run test
+
+build:
+  stage: build
+  script:
+    - cd practical-08/user-interface
+    - npm run build
+  artifacts:
+    paths:
+      - practical-08/user-interface/dist/
+  only:
+    - main
+    - merge_requests

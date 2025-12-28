@@ -1,0 +1,45 @@
+services:
+  frontend:
+    image: nswi153/frontend
+    build: ./frontend
+    ports:
+      - "8090:80"
+    environment:
+      SERVER_URL: "http://backend/api/"
+    depends_on:
+      - backend
+
+  backend:
+    build: ./backend
+    image: nswi153/backend
+    ports:
+      - "8080:80"
+    environment:
+      DATABASE_HOST: db
+      DATABASE_DRIVER: pdo_pgsql
+      DATABASE_USER: postgres
+      DATABASE_PASSWORD: postgres
+      DATABASE_NAME: nswi153
+      BASE_URL: ""
+    depends_on:
+      - db
+
+  db:
+    build: ./postgres
+    environment:
+      POSTGRES_DB: nswi153
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "8081:8080"
+    depends_on:
+      - db
+
+volumes:
+  postgres_data: 

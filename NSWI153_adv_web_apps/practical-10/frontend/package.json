@@ -1,0 +1,16 @@
+{
+  "name": "octopus",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "sass": "^1.86.3",
+    "typescript": "^5.8.3",
+    "vite": "^6.2.6"
+  }
+}

@@ -1,0 +1,3 @@
+[2025-03-10T20:24:29.729077+00:00] application.INFO: Notifying users. [] []
+[2025-03-10T20:24:29.729678+00:00] application.ERROR: Can not send an e-mail. {"email":"user2@example.com","error":"Failed to send email"} []
+[2025-03-10T20:24:31.996054+00:00] application.INFO: Notifying users. [] []

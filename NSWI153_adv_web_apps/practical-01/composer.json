@@ -1,0 +1,20 @@
+{
+    "name": "zdenek.tomis/lab0",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "YourVendor\\YourProject\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Zdeněk Tomis",
+            "email": "zdnek.tomis@gmail.com"
+        }
+    ],
+    "require": {
+        "php-di/php-di": "^6.4"
+
+    }
+}
