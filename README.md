@@ -52,6 +52,10 @@ Thank you for understanding.
 | Middleware (NSWI080)                         | 2024/25          | hw 1-5                              |
 | Design Patterns (NPRG024)                    | 2021/22          |                                     |
 | Algorithmization (NPRG062)                   | 2021/22          | some Holan tasks from labs          |
+| Data Science (NDBI048)                       | 2024/25          | jokes analysis project              |
+| Advanced Tools (NSWI126)                     | 2024/25          | eval forms, slides                  |
+| Cloud Applications (NSWI152)                 | 2024/25          | labs proof, project                 |
+| Advanced Web Applications (NSWI153)          | 2024/25          | practicals 01-03, 05, 08-10         |
 
 ## My static OWL Clone
 
